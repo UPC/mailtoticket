@@ -37,8 +37,7 @@ class FiltreReply(Filtre):
 
       # Proves! No mirem que sigui del mail origen per provar una mica mes de flexibilitat (per si contesta des de casa) 
 
-      ldap=GestioLDAP()
-      self.solicitant=ldap.obtenir_uid(self.msg.get_from())
+      self.solicitant=self.persones.obtenir_uid(self.msg.get_from())
       logger.info ("Mail de %s" % self.solicitant);
       return self.solicitant!=None
 
