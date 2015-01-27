@@ -1,0 +1,33 @@
+Message-ID: <5489510C.90704@fib.upc.edu>
+Date: Thu, 11 Dec 2014 09:08:44 +0100
+From: Jaume Moral <jaumem@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXNzaWduYWNpw7MgVGlxdWV0OiA1NTAxNTggLQ==?=
+ =?UTF-8?B?IG1haWwgYW1iIGFjY8OpbnRz?=
+References: <33207340.91631418285090493.JavaMail.admofbiz@maul>
+In-Reply-To: <33207340.91631418285090493.JavaMail.admofbiz@maul>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+I si ara responc aquí què passa!
+I amb el charset utf8 i tot com toca
+
+El jueves, 11 de diciembre de 2014 9:04:50, inlab@fib.upc.edu escribió:
+> El tiquet *550158* amb prioritat *#CodiUrgencia:#Urgencia *sol·licitat per
+> *#Solicitant* t'ha estat assignat.
+>
+> Assumpte: *mail amb accénts*
+>
+> Descripció:
+> [Tiquet creat automaticament des de mail a Thu Dec 11 09:04:50 2014 ]
+>
+> I aquÃ­ tambÃ©
+>
+> Ã§
+>
+> Per accedir al tiquet prem sobre el següent enllaç:
+> 550158 - mail amb accénts
+> <https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=550158&idEmpresa=1001>
+>

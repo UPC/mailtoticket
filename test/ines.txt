@@ -1,0 +1,56 @@
+Return-Path: <ines@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 2E2695C04C
+	for <jaumem@bustia.fib.upc.es>; Tue,  9 Dec 2014 11:48:53 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 2940191211; Tue,  9 Dec 2014 11:48:53 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -3.438
+X-Spam-Level: 
+X-Spam-Status: No, score=-3.438 tagged_above=-999 required=3.5
+	tests=[ALL_TRUSTED=-1.8, BAYES_00=-2.599, NO_REAL_NAME=0.961]
+Received: from aluris.fib.upc.es (aluris.fib.upc.es [147.83.41.90])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 06B589120D
+	for <jaumem@fib.upc.edu>; Tue,  9 Dec 2014 11:48:50 +0100 (CET)
+Subject: ines
+X-KeepSent: 5ED40993:62CD0AF2-C1257DA9:003B029D;
+ type=4; name=$KeepSent
+To: "Jaume Moral" <jaumem@fib.upc.edu>
+X-Mailer: Lotus Notes Release 8.5.3FP4 SHF33 April 26, 2013
+Message-ID: <OF5ED40993.62CD0AF2-ONC1257DA9.003B029D-C1257DA9.003B640E@upc.edu>
+From: ines@fib.upc.edu
+Date: Tue, 9 Dec 2014 11:48:49 +0100
+X-MIMETrack: Serialize by Router on Aluris/FIB/UPC(Release 8.5.3FP3|November 15, 2012) at
+ 09/12/2014 11:48:50
+MIME-Version: 1.0
+Content-type: text/plain; charset=ISO-8859-1
+Content-transfer-encoding: quoted-printable
+
+
+
+Hola Jaume,
+De los tres alumnos que no se han presentado, he hablado con ellos y
+
+
+I=F1aki Frison, 		Impagado
+
+
+			No ha pedido turno y no sab=EDa que  ten=EDa que comunicarnos
+que no le=EDa
+
+
+Marcos de las Heras,	Impagado
+
+
+			No sab=EDa que  ten=EDa que comunicarnos que no le=EDa
+
+
+Joan Blasco		No ha hecho reuni=F3n de seguimiento. Se lo comunic=F3 al
+Director
+
+=
+
+

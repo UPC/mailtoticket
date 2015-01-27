@@ -1,0 +1,165 @@
+Received: via dmail-2007d.18 for +nsmail/Improc; Tue, 9 Dec 2014 16:20:28 +0100 (CET)
+Return-Path: <jordir@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 091B85C082
+	for <lcfib-proves@bustia.fib.upc.es>; Tue,  9 Dec 2014 16:20:28 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id F3EBF3C2FD; Tue,  9 Dec 2014 16:20:27 +0100 (CET)
+Delivered-To: lcfib-proves@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id F278C3C4EA
+	for <lcfib-proves@fib.upc.edu>; Tue,  9 Dec 2014 16:20:27 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id EFB873C4DE
+	for <lcfib-proves@fib.upc.edu>; Tue,  9 Dec 2014 16:20:27 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -2.599
+X-Spam-Level:
+X-Spam-Status: No, score=-2.599 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, HTML_MESSAGE=0.001, RCVD_IN_DNSWL_LOW=-0.7]
+	autolearn=ham
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id NEU30iZlS7Wx for <lcfib-proves@fib.upc.edu>;
+	Tue,  9 Dec 2014 16:20:23 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 668983C2FD
+	for <lcfib-proves@fib.upc.edu>; Tue,  9 Dec 2014 16:20:23 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 655413C37E
+	for <lcfib-proves@fib.upc.edu>; Tue,  9 Dec 2014 16:20:23 +0100 (CET)
+Received: from [147.83.58.49] (tijuana.fib.upc.es [147.83.58.49])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 5DFBE3C2FD
+	for <lcfib-proves@fib.upc.edu>; Tue,  9 Dec 2014 16:20:23 +0100 (CET)
+Message-ID: <54871337.7000800@fib.upc.edu>
+Date: Tue, 09 Dec 2014 16:20:23 +0100
+From: Jordi Renye <jordir@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: lcfib-proves@fib.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXNzaWduYWNpw7MgVGlxdWV0IEdydXA6IDU0OQ==?=
+ =?UTF-8?B?NzIwIC0gcHJvdmEgcmVwbHk=?=
+References: <8557814.47041418136388284.JavaMail.admofbiz@maul>
+In-Reply-To: <8557814.47041418136388284.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------090609040105000108020504"
+
+This is a multi-part message in MIME format.
+--------------090609040105000108020504
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+xxxx
+
+El 09/12/2014 15:46, inlab@fib.upc.edu escribió
+> El tiquet 549720 amb prioritat *2:Mitja* sol·licitat per *Jordi Reñ> Capel* ha estat assignat a l'equip *inLab Sistemes, Servidors i Xarxa*.
+>
+> Tiquet: *prova reply*
+>
+> Descripció
+> hola
+>
+>
+>
+> Per accedir al tiquet prem sobre el segünllaç> 549720 - prova reply 
+> <https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=549720&idEmpresa=1001> 
+
+
+
+-- 
+
+        Jordi Reñapel
+o o o
+o o o  inLab FIB
+o o o  Facultat d'Informàca de Barcelona
+U P C  Universitat Politèica de Catalunya - Barcelona Tech
+
+        E-mail : jordir@fib.upc.edu
+        Tel.   : +34 93 401 6943
+        Web    : http://inlab.fib.upc.edu/
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient écosa de tots.
+
+--[ http://www.fib.upc.edu/disclaimer/ ]------------------------------
+
+ADVERTIMENT  /  TEXT  LEGAL:  Aquest  missatge pot contenir informaciónfidencial  o  legalment protegida i estàxclusivament adreç a la
+persona  o entitat destinatàa. Si vostéo es el destinatari final o
+persona  encarregada  de  recollir-lo, no estàutoritzat a llegir-lo,
+retenir-lo, modificar-lo, distribuir-lo, copiar-lo ni a revelar el seu
+contingut.  Si ha rebut aquest correu electrò per error, li preguem
+que  informi  al  remitent  i elimini del seu sistema el missatge i el
+material annex que pugui contenir. Gràes per la seva col·laboració
+--------------090609040105000108020504
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">xxxx<br>
+      <br>
+      El 09/12/2014 15:46, <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> escribiór>
+    </div>
+    <blockquote
+      cite="mid:8557814.47041418136388284.JavaMail.admofbiz@maul"
+      type="cite">
+      <p>
+        <title></title>
+        El tiquet 549720 amb prioritat <strong>2:Mitja</strong>
+        sol·licitat per <strong>Jordi Reñapel</strong> ha estat
+        assignat a l'equip <strong>inLab Sistemes, Servidors i Xarxa</strong>.<br>
+        <br>
+        Tiquet: <strong>prova reply</strong><br>
+        <br>
+        Descripciór>
+      </p>
+      <p>hola</p>
+      <p> </p>
+      <br>
+      <br>
+      Per accedir al tiquet prem sobre el segünllaçbr>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=549720&amp;idEmpresa=1001">549720
+        - prova reply</a>
+    </blockquote>
+    <br>
+    <br>
+    <pre class="moz-signature" cols="72">-- 
+
+       Jordi Reñapel
+o o o  
+o o o  inLab FIB
+o o o  Facultat d'Informàca de Barcelona
+U P C  Universitat Politèica de Catalunya - Barcelona Tech
+
+       E-mail : <a class="moz-txt-link-abbreviated" href="mailto:jordir@fib.upc.edu">jordir@fib.upc.edu</a>
+       Tel.   : +34 93 401 6943
+       Web    : <a class="moz-txt-link-freetext" href="http://inlab.fib.upc.edu/">http://inlab.fib.upc.edu/</a>
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient écosa de tots.
+
+--[ <a class="moz-txt-link-freetext" href="http://www.fib.upc.edu/disclaimer/">http://www.fib.upc.edu/disclaimer/</a> ]------------------------------
+
+ADVERTIMENT  /  TEXT  LEGAL:  Aquest  missatge pot contenir informaciónfidencial  o  legalment protegida i estàxclusivament adreç a la
+persona  o entitat destinatàa. Si vostéo es el destinatari final o
+persona  encarregada  de  recollir-lo, no estàutoritzat a llegir-lo,
+retenir-lo, modificar-lo, distribuir-lo, copiar-lo ni a revelar el seu
+contingut.  Si ha rebut aquest correu electrò per error, li preguem
+que  informi  al  remitent  i elimini del seu sistema el missatge i el
+material annex que pugui contenir. Gràes per la seva col·laboració/pre>
+  </body>
+</html>
+
+--------------090609040105000108020504--
+

@@ -1,0 +1,24 @@
+Message-ID: <5481C35E.1070807@fib.upc.edu>
+Date: Fri, 05 Dec 2014 15:38:22 +0100
+From: Jaume Moral <jaumem@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXNzaWduYWNpw7MgVGlxdWV0IEdydXA6IDU0OQ==?=
+ =?UTF-8?B?MzcyIC0gVGlja2V0IGRlIHByb3ZhIHF1ZSBubyBzJ2hhIGQnZXNib3JyYXI=?=
+References: <16296460.8151417790002542.JavaMail.admofbiz@maul>
+In-Reply-To: <16296460.8151417790002542.JavaMail.admofbiz@maul>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Dispatchers: no feu cas d'aquest missatge!
+
+>
+> Tiquet: *Ticket de prova que no s'ha d'esborrar* <script>alert("hola")</script>
+>
+> Aquest ticket es per provar un tema d'attachments i replys
+>
+>
+>
+> <https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=549372&idEmpresa=1001>
+>

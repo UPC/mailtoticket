@@ -1,0 +1,11 @@
+Message-ID: <54883399.7080706@fib.upc.edu>
+Date: Wed, 10 Dec 2014 12:50:49 +0100
+From: Jaume Moral <jaumem@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: webmaster <webmaster-proves@fib.upc.edu>
+Subject: A veure si creo el ticket
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Hauria de funicionar!
