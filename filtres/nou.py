@@ -49,4 +49,3 @@ class FiltreNou(Filtre):
 
     logger.info("Ticket creat")
     return True
-

@@ -63,4 +63,3 @@ class GestioTiquets(SOAService):
       nomFitxer,
       fitxerBase64)
     return resultat
-
