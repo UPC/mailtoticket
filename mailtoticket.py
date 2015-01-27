@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-from filtres.reply import *
-from filtres.nou import *
 from mailticket import MailTicket
 from soa.tiquets import GestioTiquets
 import sys
@@ -43,4 +41,3 @@ if __name__ == '__main__':
     tractament(mail)
   finally:
     print mail
-
