@@ -60,8 +60,15 @@ class MailTicket:
     return email.lower()
 
   def get_to(self):
-    email=parseaddr(self.msg['To'])[1]
-    return email.lower()
+    to=parseaddr(self.msg['To'])[1]
+    try:
+        email=parseaddr(self.msg['Resent-To'])[1]
+        if email==None or len(email)==0:
+            email=to
+    except:
+        email=to
+    finally:
+        return email.lower()
 
   def get_subject(self):
     return self.subject

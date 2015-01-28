@@ -1,11 +1,12 @@
-import re
+import logging
+logger = logging.getLogger(__name__)
 
 class Filtre:
 
-  def __init__(self,msg,tickets,persones):
+  def __init__(self,msg,tickets,ldap):
     self.msg=msg
     self.tickets=tickets
-    self.persones=persones
+    self.ldap=ldap
 
   def es_aplicable(self):
     return False

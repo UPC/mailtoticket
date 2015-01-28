@@ -1,6 +1,7 @@
 import re
 import time
 from filtres.filtre import Filtre
+import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -28,18 +29,17 @@ class FiltreReply(Filtre):
 
       # Mirem qui ha creat el ticket
       self.solicitant=ticket['solicitant']
-      persona=self.persones.obtenir_dades_persona(self.solicitant)
-
       logger.info ("Ticket de %s" % self.solicitant);
+      logger.info ("Mail de %s" % self.msg.get_from());
 
-      # Mirem si la persona que ha enviat el mail es la mateixa que ha creat el ticket
-      # return self.msg.enviat_per(persona)
+      solicitant_segons_mail=self.ldap.obtenir_uid(self.msg.get_from())
+      logger.info ("Solicitant segons Mail %s" % solicitant_segons_mail);
 
-      # Proves! No mirem que sigui del mail origen per provar una mica mes de flexibilitat (per si contesta des de casa) 
-
-      self.solicitant=self.persones.obtenir_uid(self.msg.get_from())
-      logger.info ("Mail de %s" % self.solicitant);
-      return self.solicitant!=None
+      # Si no trobem el mail, suposarem que es de qui l'ha creat
+      if solicitant_segons_mail!=None:
+        self.solicitant=solicitant_segons_mail
+      logger.info ("Crearem comentari a nom de %s" % self.solicitant);
+      return True
 
     except:
       logger.info ("Peta el filtre...");
