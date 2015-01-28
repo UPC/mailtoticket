@@ -13,7 +13,7 @@ class FiltreNou(Filtre):
   def es_aplicable(self):
     logger.info("Filtre de Nou")
     logger.info("Tinc un mail de %s" % self.msg.get_from())
-    self.solicitant=self.persones.ldap.obtenir_uid(self.msg.get_from())
+    self.solicitant=self.ldap.obtenir_uid(self.msg.get_from())
 
     logger.info("UID del solicitant: %s" % self.solicitant)
     return self.solicitant!=None
@@ -41,9 +41,9 @@ class FiltreNou(Filtre):
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
       return False
+    logger.info("Ticket creat")
 
     ticket_id=resultat['codiTiquet']
     self.afegir_attachments(ticket_id,self.solicitant)
 
-    logger.info("Ticket creat")
     return True

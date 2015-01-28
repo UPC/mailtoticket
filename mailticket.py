@@ -1,7 +1,10 @@
 import email
+import hashlib
+import base64
+import re
 from email.header import decode_header
 from email.utils import parseaddr
-
+import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -46,7 +49,7 @@ class MailTicket:
     fragments=decode_header(subject)
     for fragment in fragments:
       if fragment[1]==None:
-	resultat+=fragment[0]
+	      resultat+=fragment[0]
       else:
         resultat+=" "+fragment[0].decode(fragment[1])
     self.subject=resultat
@@ -62,9 +65,9 @@ class MailTicket:
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
     try:
-        email=parseaddr(self.msg['Resent-To'])[1]
-        if email==None or len(email)==0:
-            email=to
+      email=parseaddr(self.msg['Resent-To'])[1]
+      if email==None or len(email)==0:
+        email=to
     except:
         email=to
     finally:
@@ -81,9 +84,6 @@ class MailTicket:
 
 
   def text2html(self,text):
-    # Aquestes 2 linies no fan res perque acaben amb < i > igualment
-    #text=text.replace('<','&lt;')
-    #text=text.replace('>','&gt;')
     return "<br>\n".join(text.split("\n"))
 
   def get_attachments(self):
@@ -93,11 +93,37 @@ class MailTicket:
       i=0
       for part in self.msg.walk():        
         logger.debug("Part: %s" % part.get_content_type())
-	i=i+1
-        if (i>self.part_body):
+        i=i+1
+        if (i>self.part_body) and self.comprovar_attachment_valid(part):
           attachments.append(part)
     return attachments
 
+  def comprovar_attachment_valid(self,attachment):
+    ctype=attachment.get_content_type()
+    filename=attachment.get_filename()
+    contingut=attachment.get_payload()
+
+    valid=False
+    # Si no tenim filename, nomes pot ser una imatge incrustada
+    if filename==None:
+      if ctype not in ['image/jpeg','image/png','image/gif']:
+        return False
+    # I si tenim filename, que no sigui un dels que filtrem
+    else:
+      for f in settings.filtrar_attachments_per_nom:
+        p=re.compile(f)
+        if p.match(filename):
+          return False
+
+    # Si es molt llarg es valid segur, no sera una signatura!
+    if len(contingut)>1000000:
+      return True
+
+    # Segona part: mirem que no sigui un fitxer prohibit per hash
+
+    hash=hashlib.md5(base64.b64decode(contingut)).hexdigest()
+    logger.info("Hash:"+hash)
+    return hash not in settings.filtrar_attachments_per_hash
+
   def te_attachments(self):
     return len(self.get_attachments())>0
-
