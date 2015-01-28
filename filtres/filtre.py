@@ -8,9 +8,18 @@ logger = logging.getLogger(__name__)
 
 class Filtre:
 
-  def __init__(self,msg,tickets,ldap):
+  def __init__(self,msg=None,tickets=None,ldap=None):
     self.msg=msg
     self.tickets=tickets
+    self.ldap=ldap
+
+  def set_mail(self,msg):
+    self.msg=msg
+
+  def set_tickets(self,tickets):
+    self.tickets=tickets
+
+  def set_ldap(self,ldap):
     self.ldap=ldap
 
   def es_aplicable(self):

@@ -3,6 +3,7 @@
 from mailticket import MailTicket
 from soa.tiquets import GestioTiquets
 from soa.ldap import GestioLDAP
+import settings
 import sys
 
 import logging
@@ -15,9 +16,13 @@ def tractament(mail):
   ldap=GestioLDAP()
 
   filtres=[]
-  filtres.append(FiltreReply(mail,tickets,ldap))
-  filtres.append(FiltreNou(mail,tickets,ldap))
-  logger.debug("Vaig a provar filtres")
+  for filtre in settings.filtres:
+    filtres.append(filtre)
+    filtre.set_mail(mail)
+    filtre.set_tickets(tickets)
+    filtre.set_ldap(ldap)
+  logger.debug("Vaig a provar filtres %s" % str(filtres))
+
 
   tractat=False
   for filtre in filtres:
