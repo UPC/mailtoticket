@@ -14,22 +14,7 @@ def llegir_mail(msgfile):
   fp.close()
   return mail_ticket
 
-
-class TestFiltreReply(unittest.TestCase):
-
-  def setUp(self):
-    logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
-    logger = logging.getLogger(__name__)
-
-  def test_reply_sense_attachment(self):
-    """ Donar un mail de reply sense attachments d'un usuari que troba ha de ser aplicable """ 
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
-    ldap=mock.create_autospec(GestioLDAP)
-    ldap.obtenir_uid.return_value="jaume.moral"
-    msg=llegir_mail("reply.txt")
-    f=FiltreReply(msg,tickets,ldap)
-    self.assertTrue(f.es_aplicable())
+class TestMailTicket(unittest.TestCase):
 
   def test_message_to_webmaster(self):
     """ Un missatge redirigit a webmaster-proves ha de tenir el "to" a webmaster-proves """
@@ -64,6 +49,19 @@ class TestFiltreReply(unittest.TestCase):
     msg=llegir_mail("reply4.txt")
     self.assertTrue(not msg.te_attachments());
 
+
+class TestFiltreReply(unittest.TestCase):
+
+  def test_reply_sense_attachment(self):
+    """ Donar un mail de reply sense attachments d'un usuari que troba ha de ser aplicable """ 
+    tickets=mock.create_autospec(GestioTiquets)
+    tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
+    ldap=mock.create_autospec(GestioLDAP)
+    ldap.obtenir_uid.return_value="jaume.moral"
+    msg=llegir_mail("reply.txt")
+    f=FiltreReply(msg,tickets,ldap)
+    self.assertTrue(f.es_aplicable())
+
   def test_mailticket_mail_desconegut(self):
     """ Un reply a un ticket amb solicitant conegut d'un mail desconegut ha de quedar en nom del solicitant """
     tickets=mock.create_autospec(GestioTiquets)
@@ -77,7 +75,6 @@ class TestFiltreReply(unittest.TestCase):
        f.filtrar()
     self.assertTrue(tickets.afegir_comentari_tiquet.call_args_list[0][1]['usuari']=='julita.corbalan')
  
-
   def test_filtra_signatura(self):
     """ Un mail amb signatura coneguda no ha de fer un attachment amb la signatura """
     tickets=mock.create_autospec(GestioTiquets)
@@ -90,6 +87,7 @@ class TestFiltreReply(unittest.TestCase):
        f.filtrar()
     self.assertTrue(tickets.annexar_fitxer_tiquet.call_count==0)
  
+class TestServeis(unittest.TestCase):
 
   def desactivat_test_ldap(self):
     ldap=GestioLDAP()
@@ -98,4 +96,6 @@ class TestFiltreReply(unittest.TestCase):
 
 
 if __name__ == '__main__':
+  logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
+  logger = logging.getLogger(__name__)
   unittest.main()
