@@ -97,5 +97,4 @@ class TestServeis(unittest.TestCase):
 
 if __name__ == '__main__':
   logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
-  logger = logging.getLogger(__name__)
   unittest.main()

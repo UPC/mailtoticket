@@ -1,7 +1,6 @@
 import hashlib
 import base64
 import re
-import settings
 
 import logging
 logger = logging.getLogger(__name__)

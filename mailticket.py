@@ -4,7 +4,7 @@ import base64
 import re
 from email.header import decode_header
 from email.utils import parseaddr
-import settings
+from settings import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -14,6 +14,8 @@ class MailTicket:
 
   msg=None
   part_body=0
+  filtrar_attachments_per_nom=settings["filtrar_attachments_per_nom"]
+  filtrar_attachments_per_hash=settings["filtrar_attachments_per_hash"]
 
   def __init__(self,file):
     self.msg = email.message_from_file(file)
@@ -110,7 +112,7 @@ class MailTicket:
         return False
     # I si tenim filename, que no sigui un dels que filtrem
     else:
-      for f in settings.filtrar_attachments_per_nom:
+      for f in self.filtrar_attachments_per_nom:
         p=re.compile(f)
         if p.match(filename):
           return False
@@ -123,7 +125,7 @@ class MailTicket:
 
     hash=hashlib.md5(base64.b64decode(contingut)).hexdigest()
     logger.info("Hash:"+hash)
-    return hash not in settings.filtrar_attachments_per_hash
+    return hash not in self.filtrar_attachments_per_hash
 
   def te_attachments(self):
     return len(self.get_attachments())>0
