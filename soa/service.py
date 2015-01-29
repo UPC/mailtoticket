@@ -1,11 +1,11 @@
 from suds.wsse import *
 from suds.client import Client
-import settings
+from settings import settings
 
 class SOAService:
 
-  username_soa=settings.username_soa
-  password_soa=settings.password_soa
+  username_soa=settings["username_soa"]
+  password_soa=settings["password_soa"]
 
   def __init__(self):
     self.client=Client(self.url)

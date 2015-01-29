@@ -1,4 +1,4 @@
-settings.py
+*.json
 env.sh
 *.pyc
 README.txt

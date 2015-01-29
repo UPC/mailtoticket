@@ -3,8 +3,9 @@
 from mailticket import MailTicket
 from soa.tiquets import GestioTiquets
 from soa.ldap import GestioLDAP
-import settings
+from settings import settings,load_settings
 import sys
+import getopt
 
 import logging
 logger = logging.getLogger(__name__)
@@ -16,7 +17,7 @@ def tractament(mail):
   ldap=GestioLDAP()
 
   filtres=[]
-  for filtre in settings.filtres:
+  for filtre in eval(settings["filtres"]):
     filtres.append(filtre)
     filtre.set_mail(mail)
     filtre.set_tickets(tickets)
@@ -41,35 +42,13 @@ def tractament(mail):
     logger.info("No he tractat el mail %s" % msg.get_subject())
 
 if __name__ == '__main__':
-  logging.basicConfig(filename=settings.log_file,level=settings.log_level)
+  opts, args = getopt.getopt(sys.argv[1:], 'c:')
+  for o, a in opts:
+    if o=='-c': settings.load_settings(a)
+
+  logging.basicConfig(filename=settings["log_file"],level=eval(settings["log_level"]))
   mail = MailTicket(sys.stdin)
   try:
     tractament(mail)
   finally:
     print mail
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

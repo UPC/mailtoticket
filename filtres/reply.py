@@ -1,7 +1,7 @@
 import re
 import time
 from filtres.filtre import Filtre
-import settings
+from settings import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -10,6 +10,7 @@ class FiltreReply(Filtre):
 
   solicitant=None
   ticket_id=None
+  regex_reply=settings["regex_reply"]
 
   def es_aplicable(self):
     logger.info("Filtre de reply");
@@ -18,7 +19,7 @@ class FiltreReply(Filtre):
       # Ara anem a veure que podem fer amb aquest missatge
       subject = self.msg.get_subject_ascii()
       logger.info ("Buscant numero a  %s" % subject);
-      p=re.compile(settings.regex_reply)
+      p=re.compile(self.regex_reply)
       m = p.match(subject)
       self.ticket_id=m.group(1)
 
