@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from mailticket import MailTicket
-from settings import settings
+import settings
 import filtres
 import sys
 import getopt
@@ -11,11 +11,14 @@ logger = logging.getLogger(__name__)
 
 
 if __name__ == '__main__':
-#  opts, args = getopt.getopt(sys.argv[1:], 'c:')
-#  for o, a in opts:
-#    if o=='-c': settings.load_settings(a)
+  a=None
+  opts, args = getopt.getopt(sys.argv[1:], 'c:')
+  for o, a in opts:
+    if o=='-c': settings.load(a)
 
-  logging.basicConfig(filename=settings["log_file"],level=settings["log_level"])
+  logging.basicConfig(filename=settings.get("log_file"),level=settings.get("log_level"))
+  if a is not None: 
+    logger.info("Fitxer de configuracio [%s]",a)
 
   try:
     mail = MailTicket(sys.stdin)
