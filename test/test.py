@@ -3,6 +3,7 @@ from filtres.nou import FiltreNou
 from mailticket import MailTicket
 from soa.tiquets import GestioTiquets
 from soa.ldap import GestioLDAP
+import filtres
 import unittest
 import mock
 import logging
@@ -14,7 +15,12 @@ def llegir_mail(msgfile):
   fp.close()
   return mail_ticket
 
-class TestMailTicket(unittest.TestCase):
+class TestBase(unittest.TestCase):
+  def setUp(self):
+    logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
+
+
+class TestMailTicket(TestBase):
 
   def test_message_to_webmaster(self):
     """ Un missatge redirigit a webmaster-proves ha de tenir el "to" a webmaster-proves """
@@ -50,7 +56,7 @@ class TestMailTicket(unittest.TestCase):
     self.assertTrue(not msg.te_attachments());
 
 
-class TestFiltreReply(unittest.TestCase):
+class TestFiltreReply(TestBase):
 
   def test_reply_sense_attachment(self):
     """ Donar un mail de reply sense attachments d'un usuari que troba ha de ser aplicable """ 
@@ -86,8 +92,32 @@ class TestFiltreReply(unittest.TestCase):
     if f.es_aplicable(): 
        f.filtrar()
     self.assertTrue(tickets.annexar_fitxer_tiquet.call_count==0)
+
+class TestAplicarFiltres(TestBase):
+
+  def test_ok(self):
+    """ Donat un mail de reply sense attachments d'un usuari que troba ha de retornar true """ 
+    tickets=mock.create_autospec(GestioTiquets)
+    tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
+    tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}
+    ldap=mock.create_autospec(GestioLDAP)
+    ldap.obtenir_uid.return_value="jaume.moral"
+    msg=llegir_mail("reply.txt")
+    resultat=filtres.aplicar_filtres(msg,tickets,ldap)
+    self.assertTrue(resultat)
  
-class TestServeis(unittest.TestCase):
+  def test_no(self):
+    """ Donat un mail desconegut ha de retornar false """ 
+    tickets=mock.create_autospec(GestioTiquets)
+    tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}
+    ldap=mock.create_autospec(GestioLDAP)
+    ldap.obtenir_uid.return_value=None
+    msg=llegir_mail("nou.txt")
+    resultat=filtres.aplicar_filtres(msg,tickets,ldap)
+    self.assertFalse(resultat)
+
+
+class TestServeis(TestBase):
 
   def desactivat_test_ldap(self):
     ldap=GestioLDAP()
@@ -96,5 +126,4 @@ class TestServeis(unittest.TestCase):
 
 
 if __name__ == '__main__':
-  logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
   unittest.main()
