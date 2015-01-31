@@ -31,7 +31,7 @@ class FiltreNou(Filtre):
     else:
       logger.info("Poso equip resolutor %s" % self.equip_resolutor_nous)
       parametres_addicionals={"equipResolutor":self.equip_resolutor_nous}
-    logger.info("A veure si puc crear el missatge de %s" % self.solicitant)
+    logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
       solicitant=self.solicitant, 

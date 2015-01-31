@@ -1,36 +1,52 @@
-# Configuracio del mailtoticket
+settings={
+  "username_soa":"xxx",
+  "password_soa":"xxx",
+  "username_gn6":"xxx",
+  "password_gn6":"xxx",
+  "busca_mail":"/home2/users/lcfib/lcfib-proves/mailtoticket/busca_mail.sh",
 
-username_soa='xxx'
-password_soa='xxx'
-username_gn6='xxx'
-password_gn6='xxx'
-domini=1001
+  "domini":999,
+  "equip_resolutor_nous":"28510",
+  "valors_defecte":{
+    "webmaster-proves@fib.upc.edu": {"equipResolutor":"55633"}
+  },
 
-#Fitxer de log
-log_file="/tmp/mailtoticket.log"
+  "log_file":"/tmp/mailtoticket.log",
+  "log_level":"logging.DEBUG",
 
-# Script per buscar mail a ldap
-busca_mail="/home2/users/lcfib/lcfib-proves/mailtoticket/busca_mail.sh"
+  "filtres":[
+    "filtres.reply.FiltreReply",
+    "filtres.nou.FiltreNou"
+  ],
 
-# Expressio regular per extreure el numero de ticket
-regex_reply=".*?R[eE]:.*?\[Suport FIB\].*?([\d]+)"
+  "regex_reply":".*?R[eE]:.*?\[Suport FIB\].*?([\d]+)",
 
-# Equip on creem els tickets per defecte (o sigui, l'equip "dispatcher")
-equip_resolutor_nous="28510"
+  "mails_addicionals":{
+      "tga@fib.upc.edu":"carme.alcala",
+      "eva@fib.upc.edu":"eva.salvador",
+      "miquel@fib.upc.edu":"miquel.rodriguez",
+      "laura@fib.upc.edu":"laura.palanca",
+      "laurap@fib.upc.edu":"laura.palanca",
+      "lectura.pfc@fib.upc.edu":"laura.palanca",
+      "gestio.pfc@fib.upc.edu":"laura.palanca",
+      "inscripcio.pfc@fib.upc.edu":"laura.palanca",
+      "vd.promocio@fib.upc.edu":"fib.vd.promocio",
+      "vd.estudiantat@fib.upc.edu":"fib.vd.estudiantat",
+      "vd.postgrau@fib.upc.edu":"fib.vd.postgrau",
+      "vd.innovacio@fib.upc.edu":"fib.vd.innovacio",
+      "vd.empreses@fib.upc.edu":"fib.vd.empreses",
+      "vd.internacionals@fib.upc.edu":"fib.vd.internacionals",
+      "vd.iirr@fib.upc.edu":"fib.vd.iirr",
+      "cap.estudis@fib.upc.edu":"fib.cap.estudis",
+      "cap.estudis.fi@fib.upc.edu":"fib.cap.estudis.fi",
+      "brenot@fib.upc.edu":"christine.brenot"
+  },
 
-# Valors per defecte segons mail desti
-# No nomes podem canviar l'equip resolutor. Tambe prioritat, assignacio...
-valors_defecte={}
-valors_defecte['webmaster-proves@fib.upc.edu']= {'equipResolutor':'28513'}
-
-# Mails addicionals que no estan a LDAP... pero que poden enviar tickets
-
-mails_addicionals={
-  "tga@fib.upc.edu":"carme.alcala",
-  "lectura.pfc@fib.upc.edu":"laura.palanca"
+  "filtrar_attachments_per_nom":[
+    "paic\d+.jpg"
+  ],
+  "filtrar_attachments_per_hash":[
+    "76f6a359e98f9e0effc214033373b9cf",
+    "7526d0f3f7864090353c181158b218c3"
+  ]
 }
-
-filtrar_attachments=[
-  "pic\d+.jpg"	# Signatures del notes
-]
-

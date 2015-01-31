@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from mailticket import MailTicket
-from settings import settings,load_settings
+from settings import settings
 import filtres
 import sys
 import getopt
@@ -9,14 +9,13 @@ import getopt
 import logging
 logger = logging.getLogger(__name__)
 
+
 if __name__ == '__main__':
-  opts, args = getopt.getopt(sys.argv[1:], 'c:')
-  for o, a in opts:
-    if o=='-c': settings.load_settings(a)
+#  opts, args = getopt.getopt(sys.argv[1:], 'c:')
+#  for o, a in opts:
+#    if o=='-c': settings.load_settings(a)
 
   logging.basicConfig(filename=settings["log_file"],level=eval(settings["log_level"]))
-  tickets=GestioTiquets()
-  ldap=GestioLDAP()
 
   try:
     mail = MailTicket(sys.stdin)
