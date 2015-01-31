@@ -14,9 +14,11 @@ Funciona conjuntament amb el sistema de filtre de mails maildrop
 Configuració
 ------------
 
-S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els següents parametres
+S'ha de crear el settings.py a partir del settings_sample.py, on hi ha els següents parametres
  ```
-{
+import logging
+
+settings={
   "username_soa":"xxx",
   "password_soa":"xxx",
   "username_gn6":"xxx",
@@ -30,14 +32,14 @@ S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els s
   },
 
   "log_file":"/tmp/mailtoticket.log",
-  "log_level":"logging.DEBUG",
+  "log_level":logging.DEBUG,
 
   "filtres":[
     "filtres.reply.FiltreReply",
     "filtres.nou.FiltreNou"
   ],
 
-  "regex_reply":".*?R[eE]:.*?\\[Suport FIB\\].*?([\\d]+)",
+  "regex_reply":".*?R[eE]:.*?\[Suport FIB\].*?([\d]+)",
 
   "mails_addicionals":{
       "gestio.pfc@fib.upc.edu":"laura.palanca",
@@ -45,15 +47,14 @@ S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els s
   },
 
   "filtrar_attachments_per_nom":[
-    "paic\\d+.jpg"
+    "paic\d+.jpg"
   ],
 
   "filtrar_attachments_per_hash":[
     "76f6a359e98f9e0effc214033373b9cf",
     "7526d0f3f7864090353c181158b218c3"
   ]
-}
- ```
+} ```
 Instalació a la bustia
 ----------------------
 

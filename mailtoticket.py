@@ -15,7 +15,7 @@ if __name__ == '__main__':
 #  for o, a in opts:
 #    if o=='-c': settings.load_settings(a)
 
-  logging.basicConfig(filename=settings["log_file"],level=eval(settings["log_level"]))
+  logging.basicConfig(filename=settings["log_file"],level=settings["log_level"])
 
   try:
     mail = MailTicket(sys.stdin)

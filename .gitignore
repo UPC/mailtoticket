@@ -1,4 +1,3 @@
-*.json
 env.sh
 *.pyc
-README.txt
+settings.py
