@@ -1,4 +1,5 @@
 import logging
+import tempfile
 
 settings={
   "username_soa":"xxx",
@@ -13,7 +14,7 @@ settings={
     "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"}
   },
 
-  "log_file":"/tmp/mailtoticket.log",
+  "log_file":tempfile.gettempdir()+"/mailtoticket.log",
   "log_level":logging.DEBUG,
 
   "filtres":[

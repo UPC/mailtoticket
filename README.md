@@ -14,9 +14,10 @@ Funciona conjuntament amb el sistema de filtre de mails maildrop
 Configuració
 ------------
 
-S'ha de crear el settings.py a partir del settings_sample.py, on hi ha els següents parametres
+S'ha de crear el _settings_default.py_ a partir del settings_sample.py, on hi ha els següents parametres
  ```
 import logging
+import tempfile
 
 settings={
   "username_soa":"xxx",
@@ -31,7 +32,7 @@ settings={
     "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"}
   },
 
-  "log_file":"/tmp/mailtoticket.log",
+  "log_file":tempfile.gettempdir()+"/mailtoticket.log",
   "log_level":logging.DEBUG,
 
   "filtres":[
@@ -56,6 +57,8 @@ settings={
   ]
 } 
 ```
+
+Es poden crear altres filtxers de configuracio que es podran llegir executant mailtoticket.py -c settings_alternatius (sense l'extensio .py)
 
 Instalació a la bustia
 ----------------------
