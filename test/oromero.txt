@@ -1,0 +1,192 @@
+Received: via dmail-2007d.18 for +nsmail/Improc; Fri, 16 Jan 2015 10:57:37 +0100 (CET)
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id C9D025C04C
+	for <lcfib-proves@bustia.fib.upc.es>; Fri, 16 Jan 2015 10:57:37 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id CB4813C302; Fri, 16 Jan 2015 10:57:37 +0100 (CET)
+Delivered-To: lcfib-proves@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id C8E303C2FF
+	for <lcfib-proves@fib.upc.edu>; Fri, 16 Jan 2015 10:57:37 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id C31A03C302
+	for <lcfib-proves@fib.upc.edu>; Fri, 16 Jan 2015 10:57:37 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: 0.1
+X-Spam-Level:
+X-Spam-Status: No, score=0.1 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699, HTML_MESSAGE=0.001,
+	RCVD_IN_DNSWL_LOW=-0.7] autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id bm2MCTOU_DPM for <lcfib-proves@fib.upc.edu>;
+	Fri, 16 Jan 2015 10:57:32 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 559C83C2FF
+	for <lcfib-proves@fib.upc.edu>; Fri, 16 Jan 2015 10:57:32 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 50D803C302
+	for <lcfib-proves@fib.upc.edu>; Fri, 16 Jan 2015 10:57:32 +0100 (CET)
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 470923C2FF
+	for <lcfib-proves@fib.upc.edu>; Fri, 16 Jan 2015 10:57:32 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: lcfib-proves@fib.upc.edu
+Resent-Date: Fri, 16 Jan 2015 10:57:32 +0100
+Resent-Message-ID: <54B8E08C.8000309@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 386985C04C;
+	Fri, 16 Jan 2015 10:56:56 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 3997791211; Fri, 16 Jan 2015 10:56:56 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from sebastian.lsi.upc.edu (sebastian.lsi.upc.edu [147.83.20.13])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 2971B9120D
+	for <inlab@fib.upc.edu>; Fri, 16 Jan 2015 10:56:53 +0100 (CET)
+Received: from leon.ugdsi.upc.edu (leon.lsi.upc.edu [147.83.20.67])
+	by sebastian.lsi.upc.edu (8.13.8+Sun/8.13.8) with ESMTP id t0G9uq0j019183
+	for <inlab@fib.upc.edu>; Fri, 16 Jan 2015 10:56:52 +0100 (CET)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 0.96 at sebastian.lsi.upc.edu
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(authenticated bits=0)
+	by leon.ugdsi.upc.edu (8.13.6/8.13.6/MSA-SMTP-AUTH) with ESMTP id t0G9uqYn013488
+	for <inlab@fib.upc.edu>; Fri, 16 Jan 2015 10:56:52 +0100 (CET)
+Message-ID: <54B8E064.4000406@essi.upc.edu>
+Date: Fri, 16 Jan 2015 10:56:52 +0100
+From: Oscar Romero <oromero@essi.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.4.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXbDrXMgdGlxdWV0IDU1NTE5MyAtIFRlc2kgZA==?=
+ =?UTF-8?B?ZSBtw6BzdGVyIGEgSVQ0Qkk=?=
+References: <33396228.46431421397965641.JavaMail.admofbiz@maul>
+In-Reply-To: <33396228.46431421397965641.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------020902090805000905070704"
+X-Antivirus: avast! (VPS 150115-2, 15/01/2015), Outbound message
+X-Antivirus-Status: Clean
+
+This is a multi-part message in MIME format.
+--------------020902090805000905070704
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Perfecte. T'ho intento fer aquesta tarda, que no tinc cap reunió.
+
+GrÃcies!
+
+El 16/01/2015 a las 9:46, inlab@fib.upc.edu escribió:
+> Bon dia,
+>
+> Us informem que s'ha actualitzat el contingut del vostre tiquet 
+> *555193* (*Tesi de mÃster a IT4BI*) que es troba en procés de 
+> resolució amb el següent comentari:
+>
+> Hola, Oscar!
+>
+> Ja tenim la colecció creada a biblioteca
+>
+> http://upcommons.upc.edu/pfc/handle/2099.1/24569
+>
+> Ara el següent pas seria que em passessis les memories que ja tens (si 
+> es possible amb el numero de projecte, perfecte, tal com t'he dit) i 
+> un document on per cadascuna d'elles hi hagi un abstract i unes 
+> paraules clau.
+>
+> Jo ho posaré directament a la BD i passaré el procés d'enviar-ho a 
+> biblioteca en quan ho tingui.
+>
+>
+>
+> Per accedir al tiquet premi sobre el següent enllaç:
+> 555193 - Tesi de mÃster a IT4BI 
+> <https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=555193&idEmpresa=1001>
+>
+> _____________________
+> Jaume Moral Ros
+> Punt d'Atenció als Usuaris de la FIB
+> Facultat d'InformÃtica de Barcelona
+> http://suport.fib.upc.edu/ 
+
+-- 
+-----------------------------------------------------
+Oscar Romero Moral (oromero@essi.upc.edu)
+
+Dept. d'Enginyeria de Serveis i Sistemes d'Informació
+Universitat Politècnica de Catalunya
+Carrer Jordi Girona nº1, edifici Omega, despatx 121
+08034, Barcelona
+Tlf: +34 93 413 77 91
+-----------------------------------------------------
+
+
+--------------020902090805000905070704
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    Perfecte. T'ho intento fer aquesta tarda, que no tinc cap reunió.<br>
+    <br>
+    GrÃcies!<br>
+    <br>
+    <div class="moz-cite-prefix">El 16/01/2015 a las 9:46,
+      <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> escribió:<br>
+    </div>
+    <blockquote
+      cite="mid:33396228.46431421397965641.JavaMail.admofbiz@maul"
+      type="cite">Bon dia,<br>
+      <br>
+      Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>555193</strong>
+      (<strong>Tesi de mÃster a IT4BI</strong>) que es troba en procés
+      de resolució amb el següent comentari:<br>
+      <br>
+      <p>Hola, Oscar!</p>
+      <p>Ja tenim la colecció creada a biblioteca</p>
+      <p><a class="moz-txt-link-freetext" href="http://upcommons.upc.edu/pfc/handle/2099.1/24569">http://upcommons.upc.edu/pfc/handle/2099.1/24569</a></p>
+      <p>Ara el següent pas seria que em passessis les memories que ja
+        tens (si es possible amb el numero de projecte, perfecte, tal
+        com t'he dit) i un document on per cadascuna d'elles hi hagi un
+        abstract i unes paraules clau.</p>
+      <p>Jo ho posaré directament a la BD i passaré el procés
+        d'enviar-ho a biblioteca en quan ho tingui.</p>
+      <br>
+      <br>
+      Per accedir al tiquet premi sobre el següent enllaç:<br>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=555193&amp;idEmpresa=1001">555193
+        - Tesi de mÃster a IT4BI</a><br>
+      <br>
+      _____________________<br>
+      Jaume Moral Ros<br>
+      Punt d'Atenció als Usuaris de la FIB<br>
+      Facultat d'InformÃtica de Barcelona<br>
+      <a moz-do-not-send="true" href="http://suport.fib.upc.edu/">http://suport.fib.upc.edu/</a>
+    </blockquote>
+    <br>
+    <pre class="moz-signature" cols="72">-- 
+-----------------------------------------------------
+Oscar Romero Moral (<a class="moz-txt-link-abbreviated" href="mailto:oromero@essi.upc.edu">oromero@essi.upc.edu</a>)
+
+Dept. d'Enginyeria de Serveis i Sistemes d'Informació
+Universitat Politècnica de Catalunya
+Carrer Jordi Girona nº1, edifici Omega, despatx 121
+08034, Barcelona
+Tlf: +34 93 413 77 91
+-----------------------------------------------------
+</pre>
+  </body>
+</html>
+
+--------------020902090805000905070704--
+

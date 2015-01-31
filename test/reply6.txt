@@ -1,0 +1,178 @@
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id C17F65C065
+	for <jaumem@bustia.fib.upc.es>; Wed, 10 Dec 2014 11:01:43 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id C44983CBD6; Wed, 10 Dec 2014 11:01:43 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id C30943CBD3
+	for <jaumem@fib.upc.edu>; Wed, 10 Dec 2014 11:01:43 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id BDB923CBD6
+	for <jaumem@fib.upc.edu>; Wed, 10 Dec 2014 11:01:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -2.599
+X-Spam-Level:
+X-Spam-Status: No, score=-2.599 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, HTML_MESSAGE=0.001, RCVD_IN_DNSWL_LOW=-0.7]
+	autolearn=ham
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id hJulwzX0uG0J for <jaumem@fib.upc.edu>;
+	Wed, 10 Dec 2014 11:01:38 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 7A8873CBD3
+	for <jaumem@fib.upc.edu>; Wed, 10 Dec 2014 11:01:38 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 794E73CBD6
+	for <jaumem@fib.upc.edu>; Wed, 10 Dec 2014 11:01:38 +0100 (CET)
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 728553CBD3
+	for <jaumem@fib.upc.edu>; Wed, 10 Dec 2014 11:01:38 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: jaumem@fib.upc.edu
+Resent-Date: Wed, 10 Dec 2014 11:01:38 +0100
+Resent-Message-ID: <54881A02.2000705@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 30CCD5C065;
+	Wed, 10 Dec 2014 10:15:47 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 3416E91213; Wed, 10 Dec 2014 10:15:47 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from roura.ac.upc.es (roura.ac.upc.edu [147.83.33.10])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 1AEAA9120D
+	for <inlab@fib.upc.edu>; Wed, 10 Dec 2014 10:15:43 +0100 (CET)
+Received: from gw-2.ac.upc.es (gw-2.ac.upc.es [147.83.30.8])
+	by roura.ac.upc.es (8.13.8/8.13.8) with ESMTP id sBA9FhEI007533;
+	Wed, 10 Dec 2014 10:15:43 +0100
+Received: from [147.83.34.236] (dync-34-236.ac.upc.es [147.83.34.236])
+	by gw-2.ac.upc.es (Postfix) with ESMTPSA id 9CF0B3B4;
+	Wed, 10 Dec 2014 10:15:43 +0100 (CET)
+Message-ID: <54880F3F.1080305@ac.upc.edu>
+Date: Wed, 10 Dec 2014 10:15:43 +0100
+From: Persona qualsevol <niidea@jac.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:17.0) Gecko/20130620 Thunderbird/17.0.7
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+CC: JORDIG@ac.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXNzaWduYWNpw7MgVGlxdWV0IEdydXA6IDU0OQ==?=
+ =?UTF-8?B?MzcyIC0gVGlja2V0IGRlIHByb3ZhIHF1ZSBubyBzJ2hhIGQnZXNib3JyYXI=?=
+References: <28655324.63351418201984175.JavaMail.admofbiz@maul>
+In-Reply-To: <28655324.63351418201984175.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------040907080504060509070408"
+
+This is a multi-part message in MIME format.
+--------------040907080504060509070408
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+HOla
+
+No  vaig contestar? Per mi be.
+
+Salutacions
+
+Julita
+
+El 10/12/2014 9:59, inlab@fib.upc.edu escribió:
+> Bon dia,
+>
+> Us informem que s'ha actualitzat el contingut del vostre tiquet 
+> *515130* (*Possible còpia a través del Racó*) que es troba en procés 
+> de resolució amb el següent comentari:
+>
+> Hola,
+>
+> Us torno a enviar el mail ja que no veig si hi ha hagut resposta.
+>
+> He demanat de reservar la A5S111 el dia 15 de 9-10h, podem quedar, 
+> anar a l'aula i posso que s'activi l'entorn segur a les 9:10h.
+>
+> Us va bé?
+>
+>
+>
+> Per accedir al tiquet premi sobre el següent enllaç:
+> 515130 - Possible còpia a través del Racó 
+> <https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=515130&idEmpresa=1001>
+>
+> _____________________
+> Sandra Marsa Hernandez
+> Punt d'Atenció als Usuaris de la FIB
+> Facultat d'Informàtica de Barcelona
+> http://suport.fib.upc.edu/ 
+
+
+-- 
+Julita Corbalan
+Computer Architecture Department
+Universitat POlitecnica de Catalunya (UPC)
+C6-203 (+34 93 401 5956)
+
+
+--------------040907080504060509070408
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">HOla<br>
+      <br>
+      No  vaig contestar? Per mi be.<br>
+      <br>
+      Salutacions<br>
+      <br>
+      Julita<br>
+      <br>
+      El 10/12/2014 9:59, <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> escribió:<br>
+    </div>
+    <script>alert("hola")</script>
+    <blockquote
+      cite="mid:28655324.63351418201984175.JavaMail.admofbiz@maul"
+      type="cite">Bon dia,<br>
+      <br>
+      Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>515130</strong>
+      (<strong>Possible còpia a través del Racó</strong>) que es troba
+      en procés de resolució amb el següent comentari:<br>
+      <br>
+      <p>Hola,</p>
+      <p>Us torno a enviar el mail ja que no veig si hi ha hagut
+        resposta.</p>
+      <p>He demanat de reservar la A5S111 el dia 15 de 9-10h, podem
+        quedar, anar a l'aula i posso que s'activi l'entorn segur a les
+        9:10h.</p>
+      <p>Us va bé?</p>
+      <br>
+      <br>
+      Per accedir al tiquet premi sobre el següent enllaç:<br>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=515130&amp;idEmpresa=1001">515130
+        - Possible còpia a través del Racó</a><br>
+      <br>
+      _____________________<br>
+      Sandra Marsa Hernandez<br>
+      Punt d'Atenció als Usuaris de la FIB<br>
+      Facultat d'Informàtica de Barcelona<br>
+      <a moz-do-not-send="true" href="http://suport.fib.upc.edu/">http://suport.fib.upc.edu/</a>
+    </blockquote>
+    <br>
+    <br>
+    <pre class="moz-signature" cols="72">-- 
+Julita Corbalan
+Computer Architecture Department
+Universitat POlitecnica de Catalunya (UPC)
+C6-203 (+34 93 401 5956)</pre>
+  </body>
+</html>
+
+--------------040907080504060509070408--

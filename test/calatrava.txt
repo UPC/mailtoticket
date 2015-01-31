@@ -1,0 +1,61 @@
+Received: via dmail-2007d.18 for +nsmail/Improc; Fri, 9 Jan 2015 08:00:01 +0100 (CET)
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 909625C04C
+	for <lcfib-proves@bustia.fib.upc.es>; Fri,  9 Jan 2015 08:00:01 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 7634F91211; Fri,  9 Jan 2015 08:00:01 +0100 (CET)
+Delivered-To: lcfib-proves@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -3.438
+X-Spam-Level: 
+X-Spam-Status: No, score=-3.438 tagged_above=-999 required=3.5
+	tests=[ALL_TRUSTED=-1.8, BAYES_00=-2.599, NO_REAL_NAME=0.961]
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 49DF09120D
+	for <lcfib-proves@fib.upc.edu>; Fri,  9 Jan 2015 07:59:58 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: lcfib-proves@fib.upc.edu
+Resent-Date: Fri, 9 Jan 2015 07:59:57 +0100
+Resent-Message-ID: <54AF7C6D.5020604@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 584615C04C
+	for <lcfib@bustia.fib.upc.es>; Thu,  8 Jan 2015 19:17:52 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 4696F91211; Thu,  8 Jan 2015 19:17:52 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from buzon.fib.upc.es (bustia.fib.upc.es [147.83.41.24])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 281AA9120D
+	for <unaid@fib.upc.es>; Thu,  8 Jan 2015 19:17:49 +0100 (CET)
+Received: by buzon.fib.upc.es (Postfix, from userid 2011)
+	id 2D5945C04F; Thu,  8 Jan 2015 19:17:49 +0100 (CET)
+Received: from 1.Red-83-60-242.dynamicIP.rima-tde.net
+ (1.Red-83-60-242.dynamicIP.rima-tde.net [83.60.242.1]) by bustia.fib.upc.es
+ (Horde Framework) with HTTP; Thu, 08 Jan 2015 19:17:49 +0100
+Message-ID: <20150108191749.1069131adewyuojx@bustia.fib.upc.es>
+Date: Thu, 08 Jan 2015 19:17:49 +0100
+From: cgcalatrava@fib.upc.edu
+To: unaid@fib.upc.es
+Subject: Baja
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=ISO-8859-1;
+ DelSp="Yes";
+ format="flowed"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Internet Messaging Program (IMP) H3 (4.3.5)
+
+Hola,
+
+En unos dias se dar=E1 de baja mi cuenta @fib.
+
+Mi cuenta usual de e-mail es carlos.garcia.calatrava@gmail.com
+
+Gracias,
+Carlos
+
