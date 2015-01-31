@@ -28,7 +28,7 @@ class GestioTiquets(SOAService):
       domini=self.domini,**kwargs)
     return resultat
 
-  def alta_tiquet(self,solicitant,client='', assumpte='', descripcio='', equipResolutor='', assignatA='', producte='', subservei='', urgencia='GRAVETAT_MITJA', impacte='', proces='PROCES_AUS', procesOrigen='', estat='TIQUET_STATUS_OBERT', ip='', enviarMissatgeCreacio='N', enviarMissatgeTancament='N', imputacioAutomatica='N', infraestructura=''):
+  def alta_tiquet(self,solicitant,client='', assumpte='', descripcio='', equipResolutor='', assignatA='', producte='', subservei='', urgencia='GRAVETAT_MITJA', impacte='', proces='PROCES_AUS', procesOrigen='', estat='TIQUET_STATUS_OBERT', ip='', enviarMissatgeCreacio='S', enviarMissatgeTancament='N', imputacioAutomatica='N', infraestructura=''):
     resultat=self.client.service.AltaTiquet(
       self.username_gn6,
       self.password_gn6,
