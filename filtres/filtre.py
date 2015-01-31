@@ -5,7 +5,7 @@ import re
 import logging
 logger = logging.getLogger(__name__)
 
-class Filtre:
+class Filtre(object):
 
   def __init__(self,msg=None,tickets=None,ldap=None):
     self.msg=msg

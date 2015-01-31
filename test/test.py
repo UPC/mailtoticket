@@ -7,7 +7,8 @@ import filtres
 import unittest
 import mock
 import logging
-
+import tempfile
+from settings import settings
 
 def llegir_mail(msgfile): 
   fp = open("test/"+msgfile)
@@ -17,7 +18,13 @@ def llegir_mail(msgfile):
 
 class TestBase(unittest.TestCase):
   def setUp(self):
-    logging.basicConfig(filename="/tmp/test.log",level=logging.DEBUG)
+    logging.basicConfig(filename=tempfile.gettempdir()+"/test.log",level=logging.DEBUG)
+    self.tickets=mock.create_autospec(GestioTiquets)
+    self.tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
+    self.tickets.afegir_comentari_tiquet.return_value={"codiRetorn":"1"}    
+    self.tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}    
+    self.ldap=mock.create_autospec(GestioLDAP)
+    self.ldap.obtenir_uid.return_value="jaume.moral"
 
 
 class TestMailTicket(TestBase):
@@ -60,60 +67,49 @@ class TestFiltreReply(TestBase):
 
   def test_reply_sense_attachment(self):
     """ Donar un mail de reply sense attachments d'un usuari que troba ha de ser aplicable """ 
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
-    ldap=mock.create_autospec(GestioLDAP)
-    ldap.obtenir_uid.return_value="jaume.moral"
     msg=llegir_mail("reply.txt")
-    f=FiltreReply(msg,tickets,ldap)
+    f=FiltreReply(msg,self.tickets,self.ldap)
     self.assertTrue(f.es_aplicable())
 
   def test_mailticket_mail_desconegut(self):
     """ Un reply a un ticket amb solicitant conegut d'un mail desconegut ha de quedar en nom del solicitant """
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.consulta_tiquet.return_value={"solicitant":"julita.corbalan"}
-    tickets.afegir_comentari_tiquet.return_value={"codiRetorn":"1"}
-    ldap=mock.create_autospec(GestioLDAP)
-    ldap.obtenir_uid.return_value=None
     msg=llegir_mail("reply6.txt")
-    f=FiltreReply(msg,tickets,ldap)
+    f=FiltreReply(msg,self.tickets,self.ldap)
     if f.es_aplicable(): 
        f.filtrar()
-    self.assertTrue(tickets.afegir_comentari_tiquet.call_args_list[0][1]['usuari']=='julita.corbalan')
+    self.assertTrue(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['usuari']=='jaume.moral')
  
   def test_filtra_signatura(self):
     """ Un mail amb signatura coneguda no ha de fer un attachment amb la signatura """
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.consulta_tiquet.return_value={"solicitant":"marycruz.arancon"}
-    tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}
-    ldap=mock.create_autospec(GestioLDAP)
     msg=llegir_mail("marycruz.txt")
-    f=FiltreNou(msg,tickets,ldap)
+    f=FiltreNou(msg,self.tickets,self.ldap)
     if f.es_aplicable(): 
        f.filtrar()
-    self.assertTrue(tickets.annexar_fitxer_tiquet.call_count==0)
+    self.assertTrue(self.tickets.annexar_fitxer_tiquet.call_count==0)
 
 class TestAplicarFiltres(TestBase):
 
-  def test_ok(self):
-    """ Donat un mail de reply sense attachments d'un usuari que troba ha de retornar true """ 
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
-    tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}
-    ldap=mock.create_autospec(GestioLDAP)
-    ldap.obtenir_uid.return_value="jaume.moral"
+  def test_aplicar_reply(self):
+    """ Donat un mail de reply sense attachments d'un usuari que troba ha de retornar true i crear comentari """ 
     msg=llegir_mail("reply.txt")
-    resultat=filtres.aplicar_filtres(msg,tickets,ldap)
+    resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)
     self.assertTrue(resultat)
- 
-  def test_no(self):
-    """ Donat un mail desconegut ha de retornar false """ 
-    tickets=mock.create_autospec(GestioTiquets)
-    tickets.alta_tiquet.return_value={"codiRetorn":"1","codiTiquet":"666"}
-    ldap=mock.create_autospec(GestioLDAP)
-    ldap.obtenir_uid.return_value=None
+    self.assertTrue(self.tickets.afegir_comentari_tiquet.called)
+    self.assertFalse(self.tickets.alta_tiquet.called)
+
+  def test_aplicar_nou(self):
+    """ Donat un mail nou ha de dir que aplica i que crea ticket """ 
     msg=llegir_mail("nou.txt")
-    resultat=filtres.aplicar_filtres(msg,tickets,ldap)
+    resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)
+    self.assertTrue(resultat)
+    self.assertTrue(self.tickets.alta_tiquet.called)
+    self.assertFalse(self.tickets.afegir_comentari_tiquet.called)
+
+  def test_aplicar_nou_desconegut(self):
+    """ Donat un mail desconegut ha de retornar false """ 
+    self.ldap.obtenir_uid.return_value=None
+    msg=llegir_mail("nou.txt")
+    resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)
     self.assertFalse(resultat)
 
 
@@ -123,6 +119,12 @@ class TestServeis(TestBase):
     ldap=GestioLDAP()
     uid=ldap.obtenir_uid("juli@ac.upc.edu")
     self.assertEquals(uid,"julita.corbalan")
+
+
+class TestSettings(unittest.TestCase):
+
+  def test_settings_normal(self):
+    self.assertEquals(settings["domini"],1001)
 
 
 if __name__ == '__main__':

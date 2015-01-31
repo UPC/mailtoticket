@@ -7,24 +7,35 @@ from filtres.reply import FiltreReply
 import logging
 logger = logging.getLogger(__name__)
 
+
+def get_class( kls ):
+  """ 
+  Obtenim classe a partir del seu nom en un string
+  http://stackoverflow.com/questions/452969/does-python-have-an-equivalent-to-java-class-forname 
+  """
+  parts = kls.split('.')
+  module = ".".join(parts[:-1])
+  m = __import__( module )
+  for comp in parts[1:]:
+    m = getattr(m, comp)            
+  return m
+
 def aplicar_filtres(mail, tickets=None, ldap=None):
+  """
+  Apliquem tots els filtres segons l'ordre definit al settings, mirant primer si son aplicables i aplicant despres
+  """
   logger.info("Entro a mailtoticket"+mail.get_subject())
 
   if tickets is None: tickets=GestioTiquets()
   if ldap is None: tickets=GestioLDAP()
 
   filtres=[]
-#  for filtre in eval(settings["filtres"]):
-#    filtres.append(filtre)
-#    filtre.set_mail(mail)
-#    filtre.set_tickets(tickets)
-#    filtre.set_ldap(ldap)
-
-  filtres.append(FiltreReply(mail,tickets,ldap))
-  filtres.append(FiltreNou(mail,tickets,ldap))
+  for nom_filtre in settings["filtres"]:
+    classe_filtre=get_class(nom_filtre)
+    filtre=classe_filtre(mail,tickets,ldap) # Aixo obte la classe i d'aqui crida al constructor
+    filtres.append(filtre)
 
   logger.info("Vaig a provar filtres %s" % str(filtres))
-
 
   tractat=False
   for filtre in filtres:
