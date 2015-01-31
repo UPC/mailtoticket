@@ -15,7 +15,7 @@ Configuració
 ------------
 
 S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els següents parametres
-
+ ```
 {
   "username_soa":"xxx",
   "password_soa":"xxx",
@@ -53,14 +53,14 @@ S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els s
     "7526d0f3f7864090353c181158b218c3"
   ]
 }
-
+ ```
 Instalació a la bustia
 ----------------------
 
 La idea es que mailtoticket funcionarà com un filtre de maildrop. 
 La configuració d'aquest filtre serà d'aquest estil (fitxer .mailfilter)
 Haurem de configurar on està el script mailtoticket.py i d'altres paràmetres
-
+ ```
 MAILBOX= "$HOME/nsmail" 
 logfile "/tmp/maildrop.log" 
 log "Inicio log maildrop" 
@@ -94,7 +94,7 @@ if (/$MARK/)
 log "El mensaje no processat" 
 EXITCODE= 0
 to "| /home/soft/bin/dmail +nsmail/$NOPROCESADO" 
-
+ ```
 
 busca_mail.sh
 -------------
@@ -119,15 +119,15 @@ diferents tractaments.
 
 Filtre de Reply
 
-    * Tracta reply a mails, assegurant-nos que segueixen un cert patró d'on podem obtenir el id de ticket
-    * Si l'adreça des de la que envien el mail es coneguda, crea el ticket en nom seu. Si no, en nom del solicitant
-    * No afegim comentaris a tickets tancats (es el comportament per defecte de la API).
+* Tracta reply a mails, assegurant-nos que segueixen un cert patró d'on podem obtenir el id de ticket
+* Si l'adreça des de la que envien el mail es coneguda, crea el ticket en nom seu. Si no, en nom del solicitant
+* No afegim comentaris a tickets tancats (es el comportament per defecte de la API).
 
 Filtre de Nou
 
-    * Tracta mails nous que s'han de crear com a nous tickets
-    * Han de tenir una adreça coneguda
-    * Podem fer que certes adreces desti (alias que van a parar al mateixa bustia) crein els tickets amb diferents parametres, per configuració
+* Tracta mails nous que s'han de crear com a nous tickets
+* Han de tenir una adreça coneguda
+* Podem fer que certes adreces desti (alias que van a parar al mateixa bustia) crein els tickets amb diferents parametres, per configuració
 
 Podriem afegir mes filtres detectant per exemple certes paraules claus per fer que els tickets ja quedin automàticament classificats o per exemple reply a tickets tancats que implementin reobrir el ticket en certs casos (quan no siguin per exemple agraiments...). La llista es llarga!
 
@@ -136,6 +136,6 @@ Testing
 
 si executem
 
-python -m test.test
+    $ python -m test.test
 
 El programa passa testos amb alguns mails de proves, fent mocking dels serveis SOA per no crear tickets, pero son bastant incomplets i caldria fer un testeig molt mes exhaustiu
