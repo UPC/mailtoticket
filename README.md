@@ -15,7 +15,7 @@ Configuració
 ------------
 
 S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els següents parametres
-
+ ```
 {
   "username_soa":"xxx",
   "password_soa":"xxx",
@@ -53,14 +53,14 @@ S'ha de crear el settings.json a partir del settings.json.sampls, on hi ha els s
     "7526d0f3f7864090353c181158b218c3"
   ]
 }
-
+ ```
 Instalació a la bustia
 ----------------------
 
 La idea es que mailtoticket funcionarà com un filtre de maildrop. 
 La configuració d'aquest filtre serà d'aquest estil (fitxer .mailfilter)
 Haurem de configurar on està el script mailtoticket.py i d'altres paràmetres
-
+ ```
 MAILBOX= "$HOME/nsmail" 
 logfile "/tmp/maildrop.log" 
 log "Inicio log maildrop" 
@@ -94,7 +94,7 @@ if (/$MARK/)
 log "El mensaje no processat" 
 EXITCODE= 0
 to "| /home/soft/bin/dmail +nsmail/$NOPROCESADO" 
-
+ ```
 
 busca_mail.sh
 -------------
