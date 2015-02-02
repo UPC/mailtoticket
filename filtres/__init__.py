@@ -27,7 +27,7 @@ def aplicar_filtres(mail, tickets=None, ldap=None):
   logger.info("Entro a mailtoticket"+mail.get_subject())
 
   if tickets is None: tickets=GestioTiquets()
-  if ldap is None: tickets=GestioLDAP()
+  if ldap is None: ldap=GestioLDAP()
 
   filtres=[]
   for nom_filtre in settings["filtres"]:
