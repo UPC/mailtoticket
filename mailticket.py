@@ -129,3 +129,6 @@ class MailTicket:
 
   def te_attachments(self):
     return len(self.get_attachments())>0
+
+  def __str__(self):
+    return self.msg.__str__()
