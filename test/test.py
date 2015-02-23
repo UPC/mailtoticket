@@ -62,6 +62,12 @@ class TestMailTicket(TestBase):
     msg=llegir_mail("reply4.txt")
     self.assertTrue(not msg.te_attachments());
 
+  def test_mailticket_uid(self):
+    """ Un mail de notes d'una bustia generica te el username incrustat """
+    msg=llegir_mail("notes.txt")
+    self.assertEquals(msg.get_uid(),"manel.rodero");
+
+
 
 class TestFiltreReply(TestBase):
 

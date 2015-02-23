@@ -1,0 +1,66 @@
+Return-Path: <FIB_Secretaria_FIB@upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id BCF6F5C04C
+	for <jaumem@bustia.fib.upc.es>; Mon, 23 Feb 2015 18:04:43 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id AE7D43C685; Mon, 23 Feb 2015 18:04:43 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id AC3E43C694
+	for <jaumem@fib.upc.edu>; Mon, 23 Feb 2015 18:04:43 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id A9AC53C693
+	for <jaumem@fib.upc.edu>; Mon, 23 Feb 2015 18:04:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -1.501
+X-Spam-Level:
+X-Spam-Status: No, score=-1.501 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699,
+	RCVD_IN_DNSWL_MED=-2.3] autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id Tg3xpK8ZZ9dL for <jaumem@fib.upc.edu>;
+	Mon, 23 Feb 2015 18:04:38 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 358063C685
+	for <jaumem@fib.upc.edu>; Mon, 23 Feb 2015 18:04:38 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 3415B3C694
+	for <jaumem@fib.upc.edu>; Mon, 23 Feb 2015 18:04:38 +0100 (CET)
+Received: from aluris.fib.upc.es (aluris.fib.upc.es [147.83.41.90])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 2F2753C685
+	for <jaumem@fib.upc.edu>; Mon, 23 Feb 2015 18:04:38 +0100 (CET)
+Importance: 
+To: jaumem@fib.upc.edu
+Subject: Funciona ...
+X-DueDateTime: 
+Date: Mon, 23 Feb 2015 18:04:37 +0100
+From: secretaria@fib.upc.edu
+Reply-To: secretaria@fib.upc.edu
+Sender: FIB_Secretaria_FIB@upc.edu
+Message-ID: <OFC1257909.00455320-ONC1257DF5.005DC320@upc.edu>
+X-TiquetsGN6: CN=Manel Rodero/OU=FIB/O=UPC
+X-MIMETrack: Serialize by Router on Aluris/FIB/UPC(Release 8.5.3FP6 HF1219|December 12, 2014) at
+ 23/02/2015 18:04:38
+MIME-Version: 1.0
+Content-type: text/plain; charset=ISO-8859-1
+Content-transfer-encoding: quoted-printable
+
+
+Hola,
+
+Ah=ED tienes tu campo X-TiquetsGN6 ;-)
+
+Hasta ahora!
+
+--
+Manel Rodero
+Secretaria
+Facultat d'Inform=E0tica de Barcelona
+=
+
+
+

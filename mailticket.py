@@ -67,7 +67,7 @@ class MailTicket:
   def get_uid(self):
     uid=None
     try:
-      uid=self.msg['X-TiquetsGN6'].lower().split('/')[0]
+      uid=self.msg['X-TiquetsGN6'].lower().split('/')[0].split("=")[1].replace(" ",".")
     finally:
       return uid
 
