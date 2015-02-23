@@ -33,7 +33,7 @@ class FiltreReply(Filtre):
       logger.info ("Ticket de %s" % self.solicitant);
       logger.info ("Mail de %s" % self.msg.get_from());
 
-      solicitant_segons_mail=self.ldap.obtenir_uid(self.msg.get_from())
+      solicitant_segons_mail=self.get_uid()
       logger.info ("Solicitant segons Mail %s" % solicitant_segons_mail);
 
       # Si no trobem el mail, suposarem que es de qui l'ha creat

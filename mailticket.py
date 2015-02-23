@@ -64,6 +64,13 @@ class MailTicket:
     email=parseaddr(self.msg['From'])[1]
     return email.lower()
 
+  def get_uid(self):
+    uid=None
+    try:
+      uid=self.msg['X-TiquetsGN6'].lower().split('/')[0]
+    finally:
+      return uid
+
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
     try:

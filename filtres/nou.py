@@ -15,7 +15,7 @@ class FiltreNou(Filtre):
   def es_aplicable(self):
     logger.info("Filtre de Nou")
     logger.info("Tinc un mail de %s" % self.msg.get_from())
-    self.solicitant=self.ldap.obtenir_uid(self.msg.get_from())
+    self.solicitant=self.get_uid()
 
     logger.info("UID del solicitant: %s" % self.solicitant)
     return self.solicitant!=None
