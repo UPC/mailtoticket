@@ -1,0 +1,786 @@
+Received: via dmail-2007d.18 for +nsmail/Improc; Sat, 21 Feb 2015 11:47:19 +0100 (CET)
+Return-Path: <jaumem@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id B313F5C04C
+	for <lcfib-proves@bustia.fib.upc.es>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id B5AA73C34A; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+Delivered-To: webmaster-proves@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id B44123C34B
+	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id B1CB03C348
+	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: 0.348
+X-Spam-Level:
+X-Spam-Status: No, score=0.348 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699, HTML_MESSAGE=0.001,
+	HTTP_ESCAPED_HOST=1.125, MIME_HTML_ONLY=0.723, RCVD_IN_DNSWL_MED=-2.3]
+	autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id NE2ZJ7oCQDDv for <webmaster-proves@fib.upc.edu>;
+	Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id BE2923C34A
+	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id BCB3F3C34B
+	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+Received: from [147.83.58.72] (jakarta.fib.upc.es [147.83.58.72])
+	by mail2.fib.upc.es (Postfix) with ESMTP id B4B5F3C34A
+	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+Resent-From: Jaume Moral <jaumem@fib.upc.edu>
+Resent-To: webmaster-proves@fib.upc.edu
+Resent-Date: Mon, 16 Feb 2015 10:56:02 +0100
+Resent-Message-ID: <54E1BEB2.1030208@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+X-Original-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 1552A5C04C
+	for <jaumem@bustia.fib.upc.es>; Mon, 16 Feb 2015 10:44:28 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 1633591211; Mon, 16 Feb 2015 10:44:28 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from dash.upc.es (dash.upc.es [147.83.2.50])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 8DEA19120D
+	for <jaumem@fib.upc.edu>; Mon, 16 Feb 2015 10:44:23 +0100 (CET)
+Received: from ackerman2.upc.es (ackerman2.upc.es [147.83.2.244])
+	by dash.upc.es (8.14.1/8.13.1) with ESMTP id t1G9iMLc022502
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES128-SHA bits=128 verify=FAIL);
+	Mon, 16 Feb 2015 10:44:22 +0100
+Received: from [147.83.44.69] (arca69.upc.es [147.83.44.69])
+	(authenticated bits=0)
+	by ackerman2.upc.es (8.14.4/8.14.4) with ESMTP id t1G9iMd2030559
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES128-SHA bits=128 verify=NO);
+	Mon, 16 Feb 2015 10:44:22 +0100
+Message-ID: <54E1BBF6.7080107@upc.edu>
+Date: Mon, 16 Feb 2015 10:44:22 +0100
+From: Ferran Sabate <ferran.sabate@upc.edu>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Thunderbird/31.4.0
+MIME-Version: 1.0
+To: JAUME MORAL <jaumem@fib.upc.edu>
+CC: Xavier Llinas <xavier.llinas@upc.edu>
+Subject: Re: =?windows-1252?Q?Comen=E7ament_de_GEP?=
+References: <005201d04475$f1c53500$d54f9f00$@upc.edu>
+In-Reply-To: <005201d04475$f1c53500$d54f9f00$@upc.edu>
+Content-Type: multipart/related;
+ boundary="------------070402080403040907080600"
+X-Greylist: IP, sender and recipient auto-whitelisted, not delayed by milter-greylist-4.4.3 (dash.upc.es [147.83.2.50]); Mon, 16 Feb 2015 10:44:23 +0100 (CET)
+X-Greylist: Default is to whitelist mail, not delayed by milter-greylist-4.4.3 (ackerman2.upc.es [147.83.2.244]); Mon, 16 Feb 2015 10:44:22 +0100 (CET)
+X-Scanned-By: MIMEDefang 2.70 on 147.83.2.244
+X-Mail-Scanned: Criba 2.0 + Clamd
+
+This is a multi-part message in MIME format.
+--------------070402080403040907080600
+Content-Type: text/html; charset=windows-1252
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252"
+      http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">Benvolgut Jaume,<br>
+      <br>
+      Sóc un dels professors de GEP i et demanaria si pots configurar en
+      el meu compte Atenea que el curs per defecte sigui el de GEP
+      2014-15 Q2. Alternativament i si ho puc fer jo mateix, t'agrairia
+      saber com ho haig de fer, doncs he buscat i no he aconseguit
+      trobar l'opció.<br>
+      <br>
+
+      Ja em diràs, moltes gràcies pel suport.<br>
+      <br>
+      Atentament,<br>
+      <br>
+      <div class="moz-signature">
+        <meta http-equiv="Content-Type" content="text/html;
+          charset=windows-1252">
+        <meta name="ProgId" content="Word.Document">
+        <meta name="Generator" content="Microsoft Word 14">
+        <meta name="Originator" content="Microsoft Word 14">
+        <link rel="File-List" href="Signatura%20Fer_files/filelist.xml">
+        <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ferran0sabate</o:Author>
+  <o:LastAuthor>ferran0sabate</o:LastAuthor>
+  <o:Revision>8</o:Revision>
+  <o:TotalTime>5</o:TotalTime>
+  <o:Created>2013-02-18T20:49:00Z</o:Created>
+  <o:LastSaved>2015-02-10T11:56:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>45</o:Words>
+  <o:Characters>263</o:Characters>
+  <o:Lines>2</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:CharactersWithSpaces>307</o:CharactersWithSpaces>
+  <o:Version>14.00</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+        <link rel="themeData"
+          href="Signatura%20Fer_files/themedata.thmx">
+        <link rel="colorSchemeMapping"
+          href="Signatura%20Fer_files/colorschememapping.xml">
+        <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>CA</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+        <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520092929 1073786111 9 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+        <div class="WordSection1">
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><b
+              style="mso-bidi-font-weight:normal"><span
+                style="font-size:10.0pt;line-height:
+115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128">Ferran
+                Sabaté<o:p></o:p></span></b></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><i
+              style="mso-bidi-font-style:normal"><span
+                style="font-size:10.0pt;line-height:
+115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128">Departament
+d'Organització
+                d'Empreses (OE). Facultat d'Informàtica de Barcelona
+                (FIB).<o:p></o:p></span></i></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+              class="SpellE"><i style="mso-bidi-font-style:normal"><span
+                  style="font-size:10.0pt;
+line-height:115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128">Department</span></i></span><i
+              style="mso-bidi-font-style:normal"><span
+                style="font-size:10.0pt;line-height:
+115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128"> of
+                Management
+                (OE). Barcelona <span class="SpellE">School</span> of <span
+                  class="SpellE">Informatics</span>
+                (FIB).<o:p></o:p></span></i></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+              class="SpellE"><i style="mso-bidi-font-style:normal"><span
+                  style="font-size:10.0pt;
+line-height:115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128">UPC<b
+                    style="mso-bidi-font-weight:normal">·</b>Barcelona</span></i></span><i
+              style="mso-bidi-font-style:normal"><span
+                style="font-size:10.0pt;line-height:
+115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128"> <span
+                  class="SpellE">Tech</span><o:p></o:p></span></i></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+              class="SpellE"><span
+                style="font-size:10.0pt;line-height:115%;color:#244061;
+                mso-themecolor:accent1;mso-themeshade:128">Tlf</span></span><span
+style="font-size:10.0pt;line-height:115%;color:#244061;mso-themecolor:accent1;
+              mso-themeshade:128">/<span class="SpellE">Phone</span>:
+              +34.93.401.56.31.<o:p></o:p></span></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+style="font-size:10.0pt;line-height:115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128">Adreça/<span
+                class="SpellE">Address</span>: C/ Jordi Girona 1-3,
+              Campus Nord - C5-010A, 08034, Barcelona, España.<o:p></o:p></span></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+style="font-size:10.0pt;line-height:115%;color:white;mso-themecolor:background1">.<o:p></o:p></span></p>
+          <p class="MsoNormal"
+            style="margin-bottom:0cm;margin-bottom:.0001pt"><span
+style="font-size:10.0pt;line-height:115%;color:#244061;mso-themecolor:accent1;mso-themeshade:128"><o:p> </o:p></span></p>
+        </div>
+      </div>
+      On 09/02/15 15:37, Xavier Llinas wrote:<br>
+    </div>
+    <blockquote cite="mid:005201d04475$f1c53500$d54f9f00$@upc.edu"
+      type="cite">
+      <meta http-equiv="Content-Type" content="text/html;
+        charset=windows-1252">
+      <meta name="Generator" content="Microsoft Word 14 (filtered
+        medium)">
+      <!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]-->
+      <style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-priority:99;
+	mso-style-link:"Texto de globo Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";
+	mso-fareast-language:EN-US;}
+span.EstiloCorreo17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.TextodegloboCar
+	{mso-style-name:"Texto de globo Car";
+	mso-style-priority:99;
+	mso-style-link:"Texto de globo";
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext="edit" spidmax="1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext="edit">
+<o:idmap v:ext="edit" data="1" />
+</o:shapelayout></xml><![endif]-->
+      <div class="WordSection1">
+        <p class="MsoNormal">Hola Jaume, la matricula dels estudiants de
+          grau que ja han cursat ja la primera fase acaba el dia 11; per
+          tant el dimecres dia 12 podríem disposar de la matrícula
+          definitiva.<o:p></o:p></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+        <p class="MsoNormal">Si em passes els correus electrònics dels
+          alumnes matriculats, els hi enviaré un correu per veure quins
+          alumnes necessiten o volen fer GEP en anglès. Al mateix temps
+          els convocaré a la sessió presencial de GEP per dilluns 16.<o:p></o:p></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+        <p class="MsoNormal">Una pregunta, quan estarà el nou curs donat
+          d’alta a Atenea amb els alumnes inclosos? Voldria tenir-ho el
+          més aviat possible per poder també interactuar amb ells abans
+          del començament del curs.<o:p></o:p></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+        <p class="MsoNormal">Quan parlo de nou curs, es tracta de donar
+          d’alta de nou, la última versió que hi ha a Atenea.<o:p></o:p></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+        <p class="MsoNormal">Per aquest quadrimestre només donarem
+          d’alta a Atenea als professors de GEP (els mateixos del curs
+          anterior), els coordinadors d’especialitat (els mateixos del
+          curs anterior) i tu mateix.<o:p></o:p></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+        <table class="MsoTableGrid"
+          style="border-collapse:collapse;border:none" border="0"
+          cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr style="height:30.95pt">
+              <td style="width:118.8pt;padding:0cm 5.4pt 0cm
+                5.4pt;height:30.95pt" width="158">
+                <p class="MsoNormal"><b><span style="font-size:12.0pt">Xavier
+                      Llinàs Audet<o:p></o:p></span></b></p>
+                <p class="MsoNormal"><span style="font-size:10.0pt">Director
+                    Acadèmic<o:p></o:p></span></p>
+              </td>
+              <td style="width:7.0cm;padding:0cm 5.4pt 0cm
+                5.4pt;height:30.95pt" valign="top" width="265">
+                <p class="MsoNormal"><span
+                    style="mso-fareast-language:CA"><img
+                      id="Imatge_x0020_1"
+                      src="cid:part1.00070802.06020607@upc.edu"
+                      height="50" width="183"></span><o:p></o:p></p>
+              </td>
+            </tr>
+            <tr style="height:15.5pt">
+              <td colspan="2" style="width:317.25pt;padding:0cm 5.4pt
+                0cm 5.4pt;height:15.5pt" valign="top" width="423">
+                <p class="MsoNormal"><span style="font-size:10.0pt">Jordi
+                    Girona, 31 – Edifici TG  Planta 2.<o:p></o:p></span></p>
+                <p class="MsoNormal"><span style="font-size:10.0pt">Telf.:
+                  </span><span style="font-size:10.0pt" lang="EN-US">93
+                    401 74 00 Fax: 93 401 07 71<o:p></o:p></span></p>
+                <p class="MsoNormal"><span lang="ES"><a
+                      moz-do-not-send="true"
+                      href="mailto:xavier.llinas@upc.edu"><span
+                        style="font-size:10.0pt;color:blue" lang="EN-US">xavier.llinas@upc.edu</span></a></span><span
+                    style="font-size:10.0pt" lang="EN-US">/ </span><span
+                    lang="ES"><a moz-do-not-send="true"
+                      href="http://www.cudu.upc.edu/"><span
+                        style="font-size:10.0pt;color:blue" lang="EN-US">www.cudu.upc.edu</span></a></span><span
+                    style="font-size:10.0pt" lang="EN-US"><o:p></o:p></span></p>
+                <p class="MsoNormal"><span style="font-size:10.0pt"
+                    lang="EN-US"> <o:p></o:p></span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="MsoNormal"><span style="mso-fareast-language:CA"><o:p> </o:p></span></p>
+        <p class="MsoNormal"><o:p> </o:p></p>
+      </div>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------070402080403040907080600
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-ID: <part1.00070802.06020607@upc.edu>
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAm
+JSMgIyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMp
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAAR
+CAAyALcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAA
+AgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkK
+FhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWG
+h4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl
+5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREA
+AgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYk
+NOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk
+5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiqmp6jb6Tp8t5dNtiiGT6k9gPc1520+
+v+OkvJradbezt+kAcru74yOpx68VtSououZuy7mFbEKm+VK7fQ9ME0TNtWRC3oGGafXjaeDt
+U+wWF7G0QF46qgDkMm7oT/8AWretdf1TwZq6abrkwu7RlDCQEsyKeMgnkgYPB/CtpYRf8u5X
+fY54Y1/8vI2Xc9GopsciyxrJGwZGAZWHQisi78TWtkJDJFMRG7qdoB+4VB/9DH5GuWMXJ2R2
+ynGKu2bNFYn/AAlVkIhNtk8jG4y8bQu9kB69Mr+oph8VQqJy1pOogiWR8lR94KQOv+0Kr2U+
+xHtodzeorBTxZau0I8icCWJpAx24+XdkA55+6entRL4st7dJ5J7aeOOLy/mJU7t/IwM+mT+B
+o9lPsHtob3N6isxNaDDUGe2lRLIEsxKkP8u75cH0wefWqcHi62uEV1t59gI81/lIjBbapznk
+E+me9JU5PoN1YLdm/RWPN4iiiso7hbaaQSWxudowCEGM9T1+aof+EnCXdxDJZygxLH8oK7i7
+4wvXH8S89OtCpyfQHVgupvUVht4ptoroW00E8VxtB8tgP9rIyDjjb+opw8TQGGaf7POLeKMs
+ZflwWChtmM5zyB6Zo9nLsHtYdzaorIufEUEFnaXKQzTR3MbSjZjKqq5YnJ7D0pIPEltPDfT+
+VKsFnnc5wd2Cegznt3o9nK17B7WF7XNiisdvEMcU9tbT2s0V1cFwsTFcgqMjnOOegqFPFtqV
+i82CaN5YJJ1RtpO1M+h6nDY+ho9nLsHtYdzeorJm8Q28LENFKSNnQD+JGYfopqvD4stbhImh
+guHEziJMKP8AWEA7DzwcE9f7poVOT6A6sFpc3qKo6Vq1vrEEk1qTtjlaM59R3+hGCPrRUtNO
+zLTUldHEfFHUH86y09ThApmcep6D+tZfg+G1k07VDcaxLYnZjYkoQMMHk56+nH9aufFC3ZdY
+s7jB2SQFAfcMT/7MKy/DGp6RYWV+mqWBuZZRiJhGG7H5c/wnPevXpx/2Vcv9aniVZf7W+b8f
+Q0xbWJ8O6FnxBMpM6bk80Yiz1wOq7fU1keNI4Y/EDfZ7974GNSzu4cqeflyOPf8AGrv9saCu
+i6TE+lMZoJUM7eWBuA+9838WfSs3xVeWF9rJl0y1NtD5agqY9m5vXb27flV0YyVTVPr27mde
+UXS0a6d+x3/w61Brzw15Mhy1rIYxn+71H88fhUlzeaVDeX802njzEzlif9YVZRxngHO38uap
+fDG3aPQrmZhhZZzt9wAB/PNdA1syXbzR6VAzl9wkMoBJ9enFedW5Y1pHqUOaVCBmNdaQWms0
+05JIWjCgDG1wSrgegBaSpJ57Nbu4ebTf3oi8yfEmQducDjjPyDrjtV37PJ5Xl/2Rb7Ofl80Y
+5GD29BTPsR4/4k9vwpT/AFw+6c5HT3P51nzL+macr/pf8ArXo063upZG0wOIiyFwwGXKl8bf
+cMee26mfbtHneFTZI5ml8pVfHVUAGQfTds9s1dWzKEFdHt8hSufOHQ/h70/yZdzt/ZNvukOX
+Pmj5jnOenqBRzL+mHK/6RmW+s2wVLZtKaKO7VxIN4YbExGc469MfhUdzrOmkW1ze6WVdIjJb
+4YOdgAK5x069+ARWo1mXkidtGty8RJjPmj5STk449eabHYCJXWPRLVVfcGAkAznr/D7Cq5od
+vxJ5Z7X/AA/4Bbh0XT4YjHHaoEZGQrkn5WxkfQ4FOl0exmklkktlZpgFkyT8wGAOPwHPtR9o
+v/8AnwT/AL/j/Cj7Tf8A/Pin/f8AH+FZXl3/ABNrQ7fgNXRNOQIFs4hsxt46YBH8mP50h0LT
+TL5hs4i2FHI4wMY46dh+VP8AtN//AM+Kf9/x/hR9pv8A/nxT/v8Aj/Ci8u/4haHb8BJdF0+a
+GKGS0jMcTFkTHC55PHofSnx6VZRefst1AuM+avJDZ68dO9N+03//AD4p/wB/x/hR9pv/APnx
+T/v+P8KLy7jtHt+AyLQtNg2mOziBUghiMkEHIOTz1pW0PTWADWcRwABkcgDPH6n86d9pv/8A
+nxT/AL/j/Cj7Tf8A/Pin/f8AH+FF5d/xFaHb8CNNA02N0dbRNyKVBJJ4OR6+hP51MulWSZ22
+0a5fzDgY+bbtz9ccU37Tf/8APin/AH/H+FH2m/8A+fFP+/4/wovJ9fxC0F0/AltLC1sQwtYI
+4QwAIQYzgYH6UUtvJcSbvtECxY6Yk3Z/Sipd76lq1tDM8VaAviHR2gUhbiM74WPQN6H2PSvO
+NGu4dEeW01dbi3mhu4rkKse4kpn5eoxnPWvYaz9U0PTtZQLf2scpH3W6MPoRzXTRxHJHklsc
+lfDc8vaQ+I8zTxXDHFpsBtjJDC6yThiTyHZsKDx/EOe/SqSabc+JdeMNlcz3u7Be5nQrsX/a
+5PT9a9AT4c6Csm4xTsP7rTHFdBY6fa6bbiCyt44Ix/Cgxn6+tbvF04a0lqc0cFVnpVat5CaZ
+p8OladBZ24/dwrtBPU+pP1Nc/faRqLS3phtVeaV2/wBK+0YZo2IwgX1A4544yDk11VFee227
+s9RJJWRxsWneKowNl3tdyXcvIrDcVXPbgcHAHQ80o03xLDazm3mlDvLuijedCVBLHLHHJzsH
+Xp612NFIZzGtaTqV+95BAmIrhhIJPO27cRFCmByDnByOOfaqn9gar/arS3IFyi7kikEgzjCB
+WOeVOAclec8967KigDjLPQNQg2iaySaEcRRtPtMT/L+8bbx2PK4PHTLGrljpOp2qXLQqsFx9
+maMymXd9pmzkSY7d+v8Aex0FdPRQBzOjWGuW2qK1zKwsi0jGN5FduS2AxHU/d6dgRVSy0HVo
+DbeQBZIojScLKGZyPvyDIIBIOPX9K7GigDkobPxSqnzbnc+G2EOgVXxyWGDlT2HbvTxpuuG8
+hkDMIw6sBJKrMpBwS5A+YbdwwO5H1rqqKAOZn0vVZNRxE7RQrcvL56yjJRyoKgHoQN3Xj068
+RLp/iaOCQJdRhnyxII3EjAAHGPmBY57FR611dFAHJvp/iUxRbroyO25ZEZkCBdoAzxnP3vXn
+061HDpPiGK+hVZ5EgGUllMysxQyFsjI644H1rsKKAMDQbbWra+kXUSPsohCoA4I3DHI4yOM1
+v0UUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFF
+FAH/2Q==
+--------------070402080403040907080600--

@@ -86,6 +86,13 @@ class TestFiltreReply(TestBase):
     if f.es_aplicable(): 
        f.filtrar()
     self.assertTrue(self.tickets.annexar_fitxer_tiquet.call_count==0)
+	
+  def test_aplicar_nou_desconegut(self):
+    """ Un mail sense multipart/alternative ha de donar el html o el text a saco """ 
+    self.ldap.obtenir_uid.return_value=None
+    msg=llegir_mail("sabate.txt")
+    self.assertFalse(msg.get_body())	
+	
 
 class TestAplicarFiltres(TestBase):
 
@@ -110,8 +117,7 @@ class TestAplicarFiltres(TestBase):
     self.ldap.obtenir_uid.return_value=None
     msg=llegir_mail("nou.txt")
     resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)
-    self.assertFalse(resultat)
-
+    self.assertFalse(resultat)	
 
 class TestServeis(TestBase):
 

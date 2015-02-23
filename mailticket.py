@@ -34,7 +34,7 @@ class MailTicket:
         self.part_body=self.part_body+1
         if part.get_content_type() in ['multipart/alternative']:
           el_body_es_html=True
-        if part.get_content_type() in ['text/html'] and el_body_es_html:
+        if part.get_content_type() in ['text/html']:
           self.body=self.codifica(part)
           break
         if part.get_content_type() in ['text/plain'] and not el_body_es_html:
