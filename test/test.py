@@ -91,7 +91,7 @@ class TestFiltreReply(TestBase):
     """ Un mail sense multipart/alternative ha de donar el html o el text a saco """ 
     self.ldap.obtenir_uid.return_value=None
     msg=llegir_mail("sabate.txt")
-    self.assertFalse(msg.get_body())	
+    self.assertTrue(msg.get_body())	
 	
 
 class TestAplicarFiltres(TestBase):
