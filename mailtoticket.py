@@ -16,7 +16,12 @@ if __name__ == '__main__':
   for o, a in opts:
     if o=='-c': settings.load(a)
 
-  logging.basicConfig(filename=settings.get("log_file"),level=settings.get("log_level"))
+  logging.basicConfig(
+    filename=settings.get("log_file"),
+    level=settings.get("log_level"),
+    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s' 
+    )
+
   if a is not None: 
     logger.info("Fitxer de configuracio [%s]",a)
 
