@@ -1,7 +1,7 @@
 from soa.tiquets import GestioTiquets
 from soa.ldap import GestioLDAP
 from settings import settings
-from test import TestBase
+from test.test import TestBase
 
 class TestServeis(TestBase):
 
