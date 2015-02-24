@@ -51,7 +51,7 @@ class FiltreReply(Filtre):
     resultat=self.tickets.afegir_comentari_tiquet(
       codiTiquet=self.ticket_id,
       usuari=self.solicitant, 
-      descripcio=("[Comentari afegit automaticament des de mail a %s ]<br><br>" % time.strftime("%c")) +body,
+      descripcio=("[Comentari afegit automaticament des de correu de %s el %s ]<br><br>" % (self.msg.get_from(),time.strftime("%d/%m/%Y %H:M"))) +body,
       tipusComentari='COMENT_TIQUET_PUBLIC',
       esNotificat='S')
 
