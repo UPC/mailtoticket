@@ -2,6 +2,7 @@ from soa.tiquets import GestioTiquets
 from soa.ldap import GestioLDAP
 from settings import settings
 import unittest
+import time
 from test.test import TestBase
 
 
