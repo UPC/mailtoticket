@@ -35,7 +35,7 @@ class FiltreNou(Filtre):
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
       solicitant=self.solicitant, 
-      descripcio=(u"[Tiquet creat automàticament des del correu de %s del %s a les %s]<br><br>" % 
+      descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
 	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
 		) +body,
       **parametres_addicionals
