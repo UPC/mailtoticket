@@ -125,14 +125,6 @@ class TestAplicarFiltres(TestBase):
     resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)
     self.assertFalse(resultat)	
 
-class TestServeis(TestBase):
-
-  def desactivat_test_ldap(self):
-    ldap=GestioLDAP()
-    uid=ldap.obtenir_uid("juli@ac.upc.edu")
-    self.assertEquals(uid,"julita.corbalan")
-
-
 class TestSettings(unittest.TestCase):
 
   def test_settings_normal(self):
