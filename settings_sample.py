@@ -1,6 +1,8 @@
 import logging
 import tempfile
 
+tempfile.tempdir="/tmp"
+
 settings={
   "username_soa":"xxx",
   "password_soa":"xxx",
