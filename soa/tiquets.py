@@ -64,9 +64,61 @@ class GestioTiquets(SOAService):
       fitxerBase64)
     return resultat
 	
-  def modificar_tiquet(self,**kwargs):
+  def modificar_tiquet(self,
+    codiTiquet,
+    equipResolutor='',
+    assignatCn='',
+    proces='',
+    estat='',
+    dataCaducitat='',
+    codiTancament='',
+    producte='',
+    subservei='',
+    tipus='',
+    dataResol='',
+    solicitant='',
+    client='',
+    telefonSolicitant='',
+    emailSolicitant='',
+    dadesContacteSolicitant='',
+    numInventari='',
+    numElements='',
+    ip='',
+    assumpte='',
+    descripcio='',
+    origen='',
+    urgencia='',
+	impacte=''
+    ):
     resultat=self.client.service.ModificarTiquet(
       username=self.username_gn6,
       password=self.password_gn6,
-      domini=self.domini,**kwargs)
+      domini=self.domini,
+	  codiTiquet,
+      equipResolutor,
+      assignatCn,
+      proces,
+      estat,
+      dataCaducitat,
+      codiTancament,
+      producte,
+      subservei,
+      tipus,
+      dataResol,
+      solicitant,
+      client,
+      telefonSolicitant,
+      emailSolicitant,
+      dadesContacteSolicitant,
+      numInventari,
+      numElements,
+      ip,
+      assumpte,
+      descripcio,
+      origen,
+      urgencia,
+	  impacte
+	  )
     return resultat
+
+	
