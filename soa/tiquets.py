@@ -91,9 +91,9 @@ class GestioTiquets(SOAService):
 	impacte=''
     ):
     resultat=self.client.service.ModificarTiquet(
-      username=self.username_gn6,
-      password=self.password_gn6,
-      domini=self.domini,
+      self.username_gn6,
+      self.password_gn6,
+      self.domini,
 	  codiTiquet,
       equipResolutor,
       assignatCn,
