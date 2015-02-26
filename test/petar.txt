@@ -1,0 +1,196 @@
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id E1F135C068
+	for <jaumem@bustia.fib.upc.es>; Thu, 26 Feb 2015 12:26:51 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id E0DF491211; Thu, 26 Feb 2015 12:26:51 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: 1.191
+X-Spam-Level: *
+X-Spam-Status: No, score=1.191 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-2.599, HTML_30_40=0.374, HTML_MESSAGE=0.001,
+	RATWARE_GECKO_BUILD=1.691, SUBJECT_ENCODED_TWICE=1.723,
+	UNPARSEABLE_RELAY=0.001]
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 5F9499120D
+	for <jaumem@fib.upc.edu>; Thu, 26 Feb 2015 12:26:47 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: Jaume Moral <jaumem@fib.upc.edu>
+Resent-Date: Thu, 26 Feb 2015 12:26:47 +0100
+Resent-Message-ID: <54EF02F7.5090305@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/Backup; Thu, 26 Feb 2015 11:42:19 +0100 (CET)
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id DFB335C04C;
+	Thu, 26 Feb 2015 11:26:17 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id E2A8791211; Thu, 26 Feb 2015 11:26:17 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from sebastian.lsi.upc.edu (sebastian.lsi.upc.edu [147.83.20.13])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 6736C9120D
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 11:26:13 +0100 (CET)
+Received: from leon.ugdsi.upc.edu (leon.lsi.upc.edu [147.83.20.67])
+	by sebastian.lsi.upc.edu (8.13.8+Sun/8.13.8) with ESMTP id t1QAQ8Fj006917;
+	Thu, 26 Feb 2015 11:26:08 +0100 (CET)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 0.96 at sebastian.lsi.upc.edu
+Received: from [10.183.79.15] (localhost [127.0.0.1])
+	(authenticated bits=0)
+	by leon.ugdsi.upc.edu (8.13.6/8.13.6/MSA-SMTP-AUTH) with ESMTP id t1QAQ76T028294;
+	Thu, 26 Feb 2015 11:26:08 +0100 (CET)
+Message-ID: <54EEF4BD.1060301@essi.upc.edu>
+Date: Thu, 26 Feb 2015 11:26:05 +0100
+From: Petar Jovanovic <petar@essi.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.5.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+CC: AABELLO@essi.upc.edu
+Subject: Re: [Suport FIB] tiquet 549372 - Instalar Indyco Builder para Data Warehousing lab
+References: <4563671.418781424943426928.JavaMail.admofbiz@maul>
+In-Reply-To: <4563671.418781424943426928.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------060108030008030208010703"
+
+This is a multi-part message in MIME format.
+--------------060108030008030208010703
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Buenos dÃ­as,
+
+Disculpa, pero no sabÃ­a que las peticiones se hacÃ­an solamente en julio. 
+SÃ© que ahora es un poco ajustado y con prisas, pero ya hemos abierto el 
+ejercicio.
+En general, lo necesitamos para una sesiÃ³n ahora el martes.
+En raco, a mi me tambiÃ©n pone que el aula es A5S109. Espero que es 
+correcto.
+
+Muchas gracias, y disculpa otra vez por tanta urgencia.
+
+Saludos,
+Petar
+
+-- 
+_________________________________________________________________
+Petar Jovanovic
+Group of Information Modelling and Processing (MPI).
+Department of Service and Information System Engineering (ESSI)
+Universitat Politecnica de Catalunya, BarcelonaTech
+Barcelona, Spain
+_________________________________________________________________
+
+On 2/26/2015 10:37 AM, inlab@fib.upc.edu wrote:
+> Bon dia,
+>
+> Us informem que s'ha actualitzat el contingut del vostre tiquet 
+> *567591* (*Instalar Indyco Builder para Data Warehousing lab*) que es 
+> troba en procÃ©s de resoluciÃ³ amb el segÃ¼ent comentari:
+>
+>
+> Hola,
+>
+> Ante todo me gustarÃ­a recordarte que las peticiones de software se 
+> hacen el mes de Julio ya que nos es muy complicado instalar software 
+> durante el cuatrimestre.
+> Intentaremos de todas maneras, tener disponible el software pero serÃ¡ 
+> bastante complicado que lo tengamos para antes del Martes. Para 
+> cuÃ¡ntas sesiones lo necesitarÃ­ais? He visto que la clase la tenÃ©is en 
+> el aula A5S109, me lo puedes confirmar?
+> Ya hemos rellenado el formulario para que nos llegue la licencia de 
+> uso educacional que nos comentas, en cuanto la recibamos empezaremos a 
+> hacer los siguientes pasos para la instalaciÃ³n.
+> Saludos,
+>
+>
+>
+> Per accedir al tiquet premi sobre el segÃ¼ent enllaÃ§:
+> 567591 - Instalar Indyco Builder para Data Warehousing lab 
+> <https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=567591&idEmpresa=1001>
+>
+> _____________________
+> Sandra Marsa Hernandez
+> Punt d'AtenciÃ³ als Usuaris de la FIB
+> Facultat d'InformÃ tica de Barcelona
+> http://suport.fib.upc.edu/ 
+
+
+--------------060108030008030208010703
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    Buenos dÃ­as,<br>
+    <br>
+    Disculpa, pero no sabÃ­a que las peticiones se hacÃ­an solamente en
+    julio. SÃ© que ahora es un poco ajustado y con prisas, pero ya hemos
+    abierto el ejercicio.<br>
+    En general, lo necesitamos para una sesiÃ³n ahora el martes.<br>
+    En raco, a mi me tambiÃ©n pone que el aula es A5S109. Espero que es
+    correcto. <br>
+    <br>
+    Muchas gracias, y disculpa otra vez por tanta urgencia. <br>
+    <pre class="moz-signature" cols="72">Saludos,
+Petar
+
+-- 
+_________________________________________________________________
+Petar Jovanovic
+Group of Information Modelling and Processing (MPI).
+Department of Service and Information System Engineering (ESSI)
+Universitat Politecnica de Catalunya, BarcelonaTech
+Barcelona, Spain
+_________________________________________________________________</pre>
+    <div class="moz-cite-prefix">On 2/26/2015 10:37 AM,
+      <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> wrote:<br>
+    </div>
+    <blockquote
+      cite="mid:4563671.418781424943426928.JavaMail.admofbiz@maul"
+      type="cite">
+      <meta http-equiv="Context-Type" content="text/html; charset=UTF-8">
+      Bon dia,<br>
+      <br>
+      Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>567591</strong>
+      (<strong>Instalar Indyco Builder para Data Warehousing lab</strong>)
+      que es troba en procÃ©s de resoluciÃ³ amb el segÃ¼ent comentari:<br>
+      <br>
+      <p><br>
+        Hola,<br>
+        <br>
+        Ante todo me gustarÃ­a recordarte que las peticiones de software
+        se hacen el mes de Julio ya que nos es muy complicado instalar
+        software durante el cuatrimestre.<br>
+        Intentaremos de todas maneras, tener disponible el software pero
+        serÃ¡ bastante complicado que lo tengamos para antes del Martes.
+        Para cuÃ¡ntas sesiones lo necesitarÃ­ais? He visto que la clase la
+        tenÃ©is en el aula A5S109, me lo puedes confirmar?<br>
+        Ya hemos rellenado el formulario para que nos llegue la licencia
+        de uso educacional que nos comentas, en cuanto la recibamos
+        empezaremos a hacer los siguientes pasos para la instalaciÃ³n.<br>
+        Saludos,<br>
+        Â </p>
+      <br>
+      <br>
+      Per accedir al tiquet premi sobre el segÃ¼ent enllaÃ§:<br>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=567591&amp;idEmpresa=1001">567591
+        - Instalar Indyco Builder para Data Warehousing lab</a><br>
+      <br>
+      _____________________<br>
+      Sandra Marsa Hernandez<br>
+      Punt d'AtenciÃ³ als Usuaris de la FIB<br>
+      Facultat d'InformÃ tica de Barcelona<br>
+      <a moz-do-not-send="true" href="http://suport.fib.upc.edu/">http://suport.fib.upc.edu/</a>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------060108030008030208010703--

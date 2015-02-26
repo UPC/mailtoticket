@@ -67,6 +67,11 @@ class TestMailTicket(TestBase):
     msg=llegir_mail("notes.txt")
     self.assertEquals(msg.get_uid(),"manel.rodero");
 
+  def test_mailticket_petar(self):
+    """ El mail de petar sembla que tingui diferents encodings al mateix temps """
+    msg=llegir_mail("petar.txt")
+    print msg.get_body()
+
 
 
 class TestFiltreReply(TestBase):
