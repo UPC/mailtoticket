@@ -43,7 +43,7 @@ class MailTicket:
           break
 
   def codifica(self,part):
-    return unicode(part.get_payload(decode=True), str(part.get_content_charset()), "ignore")
+    return unicode(part.get_payload(decode=False), part.get_content_charset(), "ignore")
 
   def tracta_subject(self):
     subject=self.msg['Subject']
