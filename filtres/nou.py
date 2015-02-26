@@ -48,10 +48,16 @@ class FiltreNou(Filtre):
 	
     ticket_id=resultat['codiTiquet']
     self.afegir_attachments(ticket_id,self.solicitant)
+    logger.info("Attachments (si n'hi ha) afegits")
 	
     resultat=self.tickets.modificar_tiquet(
-	  codiTiquet=ticket_id,
-	  emailSolicitant=self.msg.get_from()
+      codiTiquet=ticket_id,
+      emailSolicitant=self.msg.get_from()
       )	
 
-    return True
+    if resultat['codiRetorn']!="1":
+      logger.info(resultat['descripcioError'])
+    else: 
+	  logger.info("Mail modificat a %s" % self.msg.get_from())
+
+	return True
