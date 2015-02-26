@@ -63,3 +63,10 @@ class GestioTiquets(SOAService):
       nomFitxer,
       fitxerBase64)
     return resultat
+	
+  def modificar_tiquet(self,**kwargs):
+    resultat=self.client.service.ModificarTiquet(
+      username=self.username_gn6,
+      password=self.password_gn6,
+      domini=self.domini,**kwargs)
+    return resultat

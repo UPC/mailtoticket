@@ -44,9 +44,14 @@ class FiltreNou(Filtre):
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
       return False
-    logger.info("Ticket creat")
-
+    logger.info("Ticket creat")	
+	
     ticket_id=resultat['codiTiquet']
     self.afegir_attachments(ticket_id,self.solicitant)
+	
+    resultat=self.tickets.modificar_tiquet(
+	  codiTiquet=ticket_id,
+	  emailSolicitant=self.msg.get_from()
+      )	
 
     return True
