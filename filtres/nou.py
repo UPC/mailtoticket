@@ -58,6 +58,6 @@ class FiltreNou(Filtre):
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
     else: 
-	  logger.info("Mail modificat a %s" % self.msg.get_from())
+      logger.info("Mail modificat a %s" % self.msg.get_from())
 
-	return True
+    return True
