@@ -35,7 +35,7 @@ Received: from [147.83.58.72] (jakarta.fib.upc.es [147.83.58.72])
 	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:05 +0100 (CET)
 Message-ID: <548867ED.7050205@fib.upc.edu>
 Date: Wed, 10 Dec 2014 16:34:05 +0100
-From: Jaume Moral <jaumem@fib.upc.edu>
+From: Jaume Moral <jaume.moral@upc.edu>
 User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
 MIME-Version: 1.0
 To: lcfib-proves@fib.upc.edu
