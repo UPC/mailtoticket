@@ -25,9 +25,14 @@ class MailTicket:
   def tracta_body(self):
     if not self.msg.is_multipart():
       part=self.msg
+      #print "NO SOC MULTIPART"
       body=self.codifica(part)
+      #print "-------------"
+      #print self.msg
+      #print "-------------"
       self.body=self.text2html(body)
     else:
+      #print "SOC MULTIPART"
       self.part_body=0
       el_body_es_html=False
       for part in self.msg.walk():
@@ -45,7 +50,7 @@ class MailTicket:
   def codifica(self,part):
     s=unicode(part.get_payload(decode=False), part.get_content_charset(), "ignore")
     # Aixo es perque pot haver-hi caracters molt raros que s'han de filtrar
-    return "".join([x if ord(x) <= 17 and ord(x)>=32 else '' for x in s])
+    return "".join([x if ord(x) <= 17 or ord(x)>=32 else '' for x in s])
 
   def tracta_subject(self):
     subject=self.msg['Subject']
