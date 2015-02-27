@@ -1,0 +1,91 @@
+Return-Path: <inlab@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 8B3E05C04C
+	for <jaumem@bustia.fib.upc.es>; Thu, 26 Feb 2015 18:01:20 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 7C00291211; Thu, 26 Feb 2015 18:01:20 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: 1.153
+X-Spam-Level: *
+X-Spam-Status: No, score=1.153 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-2.599, HTML_40_50=0.496, HTML_MESSAGE=0.001,
+	HTML_MIME_NO_HTML_TAG=1.082, MIME_BASE64_BLANKS=0.224,
+	MIME_BASE64_NO_NAME=0.224, MIME_HTML_ONLY=0.001,
+	SUBJECT_ENCODED_TWICE=1.723, UNPARSEABLE_RELAY=0.001]
+Received: from [147.83.58.49] (tijuana.fib.upc.es [147.83.58.49])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 011539120D
+	for <jaumem@fib.upc.edu>; Thu, 26 Feb 2015 18:01:16 +0100 (CET)
+Resent-From: LCFIB <inlab@fib.upc.edu>
+Resent-To: "jaumem@fib.upc.edu >> 'Jaume Moral'" <jaumem@fib.upc.edu>
+Resent-Date: Thu, 26 Feb 2015 18:01:15 +0100
+Resent-Message-ID: <54EF515B.70009@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/Processat; Thu, 26 Feb 2015 17:29:37 +0100 (CET)
+x-mailtoticket: afd25dad494b9345fa2e0a34dc2aa4c11594c3e7b672f772a7fa003ad80bd09f045a170213ae2ba4f47eb8043ac61a56e44ff031a014b82f7508bc5543960138
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 4F4BE5C04C;
+	Thu, 26 Feb 2015 17:29:35 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id 416F33CA24; Thu, 26 Feb 2015 17:29:35 +0100 (CET)
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 4000F3CA2B
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:35 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id 3DF063CA24
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:35 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id 2puKMtt9VIRC for <inlab@fib.upc.edu>;
+	Thu, 26 Feb 2015 17:29:30 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 716D83CA2A
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:30 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 6FDC53CA24
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:30 +0100 (CET)
+Received: from relay2.fib.upc.es (relay2.fib.upc.es [147.83.41.41])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 6CBF23CA2A
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:30 +0100 (CET)
+Received: from [192.168.1.12] (unknown [90.163.34.17])
+	(using TLSv1 with cipher ECDHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	by relay2.fib.upc.es (Postfix) with ESMTPSA id 4C7AA3CA24
+	for <inlab@fib.upc.edu>; Thu, 26 Feb 2015 17:29:30 +0100 (CET)
+Date: Thu, 26 Feb 2015 17:29:29 +0100
+Subject: =?ISO-8859-1?Q?Re:_[Suport_FIB]_Assignaci=F3_Tiquet_Grup:_?=
+	=?ISO-8859-1?Q?568048_-_No_puc_imprimir_des_del_Thunderbird?=
+From: Manel Rodero <manel@fib.upc.edu>
+To: inlab@fib.upc.edu
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+Message-Id: <20150226162930.6CBF23CA2A@mail2.fib.upc.es>
+
+PHAgZGlyPSJsdHIiPkhvbGEgSm9zJiMyMzM7IE1hbnVlbCwgPC9wPgo8cCBkaXI9Imx0ciI+RW50
+aWVuZG8gcXVlIGRlc2RlIG90cmFzIGFwbGljYWNpb25lcyBwdWVkZXM/IERveSBwb3Igc3VwdWVz
+dG8gcXVlIGhhcyBpbnN0YWxhZG8gbGFzIGltcHJlc29yYXMgY29uIGRvYmxlIGNsaWMgZW4gbGEg
+Y2FycGV0YSBkZSByb2hhbi4uLjwvcD4KPHAgZGlyPSJsdHIiPkpvZWwvRWx2aXJhOiBlcyBlbCBt
+aXNtbyBjYXNvIHF1ZSBoYWImIzIzMztpcyB0ZW5pZG8gZXN0YSBtYSYjMjQxO2FuYT8gUG9kciYj
+MjM3O2EgcmV2aXNhcmxvIG1hJiMyNDE7YW5hPzwvcD4KPGRpdiBjbGFzcz0iZ21haWxfcXVvdGUi
+PkVsIDI2LzIvMjAxNSAxNjo1MCwgaW5sYWJAZmliLnVwYy5lZHUgZXNjcmliacOzOjxiciB0eXBl
+PSdhdHRyaWJ1dGlvbic+PGJsb2NrcXVvdGUgY2xhc3M9InF1b3RlIiBzdHlsZT0ibWFyZ2luOjAg
+MCAwIC44ZXg7Ym9yZGVyLWxlZnQ6MXB4ICNjY2Mgc29saWQ7cGFkZGluZy1sZWZ0OjFleCI+PHA+
+DQo8L3A+DQpFbCB0aXF1ZXQgNTY4MDQ4IGFtYiBwcmlvcml0YXQgPHN0cm9uZz4yOk1pdGphPC9z
+dHJvbmc+ICBzb2zCt2xpY2l0YXQgcGVyIDxzdHJvbmc+Sm9zZSBNYW51ZWwgRGllZ3VleiBQZXJl
+ejwvc3Ryb25nPiBoYSBlc3RhdCBhc3NpZ25hdCBhIGwmIzM5O2VxdWlwIDxzdHJvbmc+aW5MYWIg
+U3Vwb3J0IFRJQyBhIFBlcnNvbmFsIEZJQjwvc3Ryb25nPi48YnIgLz4NCjxiciAvPg0KQXNzdW1w
+dGU6IDxzdHJvbmc+Tm8gcHVjIGltcHJpbWlyIGRlcyBkZWwgVGh1bmRlcmJpcmQ8L3N0cm9uZz48
+YnIgLz4NCjxiciAvPg0KRGVzY3JpcGNpw7M6PGJyIC8+DQo8cD5RdWFuIGludGVudG8gaW1wcmlt
+aXIgdW4gbWlzc3NhdGdlIGRlcyBkZWwgVGh1bmRlcmJpcmQsIG5vbcOpcyBtJiMzOTtobyBkZWl4
+YSBpbXByaW1pciBhOjwvcD4NCjxwPi0gUERGIENyZWF0b3I8L3A+DQo8cD4tIEVudmlhciBhIElu
+ZU5vdGUgMjAxMzwvcD4NCjxwPi0gRmF4PC9wPg0KPHA+LSBNaWNyb3NvZnQgWFBTIERvY3VtZW50
+IFdyaXRlcjwvcD48YnIgLz4NCjxiciAvPg0KUGVyIGFjY2VkaXIgYWwgdGlxdWV0IHByZW0gc29i
+cmUgZWwgc2Vnw7xlbnQgZW5sbGHDpzo8YnIgLz4NCjxhIGhyZWY9Imh0dHBzOi8vZ2VzdG9yLnVw
+Y25ldC5lcy90aXF1ZXRzL2NvbnRyb2wvdGlxdWV0RGV0YWxsRGFkZXNHZW5lcmFscz9yZXF1aXJl
+bWVudElkJiM2MTs1NjgwNDgmYW1wO2lkRW1wcmVzYSYjNjE7MTAwMSI+NTY4MDQ4IC0gTm8gcHVj
+IGltcHJpbWlyIGRlcyBkZWwgVGh1bmRlcmJpcmQ8L2E+PC9ibG9ja3F1b3RlPjwvZGl2Pg==

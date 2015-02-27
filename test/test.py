@@ -50,27 +50,34 @@ class TestMailTicket(TestBase):
 
   def test_mailticket_no_attach(self):
     msg=llegir_mail("reply3.txt")
-    self.assertTrue(not msg.te_attachments());
+    self.assertTrue(not msg.te_attachments())
 
   def test_mailticket_attach(self):
     """ Un mail amb attachmens ha de retornar que te attachments """
     msg=llegir_mail("reply2.txt")
-    self.assertTrue(msg.te_attachments());
+    self.assertTrue(msg.te_attachments())
 
   def test_mailticket_no_attach(self):
     """ Un mail sense attachments ha de retornar que no te attachments """
     msg=llegir_mail("reply4.txt")
-    self.assertTrue(not msg.te_attachments());
+    self.assertTrue(not msg.te_attachments())
 
   def test_mailticket_uid(self):
     """ Un mail de notes d'una bustia generica te el username incrustat """
     msg=llegir_mail("notes.txt")
-    self.assertEquals(msg.get_uid(),"manel.rodero");
+    self.assertEquals(msg.get_uid(),"manel.rodero")
 
   def test_mailticket_petar(self):
     """ El mail de petar sembla que tingui diferents encodings al mateix temps """
     msg=llegir_mail("petar.txt")
     print msg.get_body()
+    self.assertTrue(msg.get_body())
+	
+  def test_mailticket_base64(self):
+    """ Mail condificat en base64 """
+    msg=llegir_mail("manel-base64.txt")
+    print msg
+    self.assertTrue(msg.get_body())
 
 
 
@@ -102,7 +109,7 @@ class TestFiltreReply(TestBase):
     """ Un mail sense multipart/alternative ha de donar el html o el text a saco """ 
     self.ldap.obtenir_uid.return_value=None
     msg=llegir_mail("sabate.txt")
-    self.assertTrue(msg.get_body())	
+    #self.assertTrue(msg.get_body())	
 	
 
 class TestAplicarFiltres(TestBase):
