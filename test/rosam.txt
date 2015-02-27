@@ -1,0 +1,196 @@
+Return-Path: <inlab@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 0492D5C04C
+	for <jaumem@bustia.fib.upc.es>; Fri, 27 Feb 2015 14:59:54 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id F18AF91211; Fri, 27 Feb 2015 14:59:53 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: 1.313
+X-Spam-Level: *
+X-Spam-Status: No, score=1.313 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-2.599, HTML_40_50=0.496, HTML_MESSAGE=0.001,
+	RATWARE_GECKO_BUILD=1.691, SUBJECT_ENCODED_TWICE=1.723,
+	UNPARSEABLE_RELAY=0.001]
+Received: from [147.83.58.49] (tijuana.fib.upc.es [147.83.58.49])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 7191C9120D
+	for <jaumem@fib.upc.edu>; Fri, 27 Feb 2015 14:59:49 +0100 (CET)
+Resent-From: LCFIB <inlab@fib.upc.edu>
+Resent-To: 'Jaume Moral' <jaumem@fib.upc.edu>
+Resent-Date: Fri, 27 Feb 2015 14:59:49 +0100
+Resent-Message-ID: <54F07855.4060403@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/Backup; Fri, 27 Feb 2015 14:30:43 +0100 (CET)
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 1D4FC5C04C;
+	Fri, 27 Feb 2015 14:30:43 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 1073C91211; Fri, 27 Feb 2015 14:30:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from relay1.fib.upc.es (relay1.fib.upc.es [147.83.41.40])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 5BFC99120D
+	for <inlab@fib.upc.edu>; Fri, 27 Feb 2015 14:30:38 +0100 (CET)
+Received: from [10.83.101.55] (cisne-cn08.upc.es [147.83.182.8])
+	(using TLSv1 with cipher ECDHE-RSA-AES128-SHA (128/128 bits))
+	(No client certificate requested)
+	by relay1.fib.upc.es (Postfix) with ESMTPSA id 46F71620ED
+	for <inlab@fib.upc.edu>; Fri, 27 Feb 2015 14:30:38 +0100 (CET)
+Message-ID: <54F0717D.8040502@fib.upc.edu>
+Date: Fri, 27 Feb 2015 14:30:37 +0100
+From: =?UTF-8?B?Um9zYSBNYXLDrWEgTWFydMOtbg==?= <rosam@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.4.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+Subject: Re: [Suport FIB] =?UTF-8?B?QXbDrXMgdGlxdWV0IDU2ODExNSAtIE5vIGZ1bg==?=
+ =?UTF-8?B?Y2lvbmEgbGEgc2luY3Jvbml6YWNpw7NuY2FsZW5kYXJpbyBub3RlcyAgY29uIG0=?=
+ =?UTF-8?B?b3ZpbA==?=
+References: <23846024.449201425032224381.JavaMail.admofbiz@maul>
+In-Reply-To: <23846024.449201425032224381.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------050802000304030405050506"
+
+This is a multi-part message in MIME format.
+--------------050802000304030405050506
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+no me funciona y no acabo de entender lo que he de hacer
+El 27/02/2015 a las 11:17, inlab@fib.upc.edu escribi=C3=B3:
+> Bon dia,
+>
+> Us informem que s'ha actualitzat el contingut del vostre tiquet
+> *568115* (*No funciona la sincronizaci=C3=B3ncalendario notes con movil=
+*)
+> que es troba en proc=C3=A9s de resoluci=C3=B3 amb el seg=C3=BCent comen=
+tari:
+>
+> Hola Rosa,
+>
+> El pasado 12 de febrero se actualizaron todos los servidores Domino
+> con el =C3=BAltimo parche que pod=C3=ADamos tener de la versi=C3=B3n 8.=
+5.3 para
+> evitar el problema del Poodle (b=C3=A1sicamente quitar SSL y usar TLS).=
+
+> Esto tambi=C3=A9n afect=C3=B3 al servidor Traveler.
+>
+> Acabamos de probar con Albert (que tiene iPhone 5 con iOS 7) y ha
+> puesto una reuni=C3=B3n el tel=C3=A9fono y le ha aparecido correctament=
+e en el
+> Notes. O sea que est=C3=A1 funcionando.
+>
+> Pero puede haber alg=C3=BAn problema adicional. =C2=BFHas probado a acc=
+eder via
+> Safari a Phileas y generar un nuevo perfil?
+>
+> https://phileas.fib.upc.es/traveler
+>
+> Ya me dices y miramos algo m=C3=A1s ...
+>
+> --- ANDROID ---
+>
+> En los Android por ejemplo, los que usaban ActiveSync que funcionaba
+> pero no estaba soportado tienen la alternativa de usar el cliente
+> nativo de Traveler (pero viendo la agenda en otra aplicaci=C3=B3n difer=
+ente
+> de la del m=C3=B3vil):
+>
+> [0148:0010-2568] 02/13/2015 03:22:10 PM  HTTP JVM: Error parsing
+> ActiveSync message: =03=01j
+> [3AF0:0018-39A0] 02/13/2015 03:22:10 PM  Lotus Traveler: SEVERE
+> CN=3DAntonia Gomez/OU=3DFIB/O=3DUPC Error handling inbound ActiveSync m=
+essage
+> for command Sync.  Input data (18 bytes): =03=01j
+>
+> Explicaci=C3=B3n:
+> http://www-01.ibm.com/support/docview.wss?uid=3Dswg21662695
+>
+> PS: Client a Play Store (https://play.google.com/store/apps/details?id=3D=
+com.lotus.sync.traveler) o https://phileas.fib.upc.es/traveler
+>
+> =20
+>
+>
+>
+> Per accedir al tiquet premi sobre el seg=C3=BCent enlla=C3=A7:
+> 568115 - No funciona la sincronizaci=C3=B3ncalendario notes con movil
+> <https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGener=
+als?requirementId=3D568115&idEmpresa=3D1001>
+>
+> _____________________
+> Manel Rodero Blanquez
+> Punt d'Atenci=C3=B3 als Usuaris de la FIB
+> Facultat d'Inform=C3=A0tica de Barcelona
+> http://suport.fib.upc.edu/=20
+
+
+--------------050802000304030405050506
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    no me funciona y no acabo de entender lo que he de hacer<br>
+    <div class="moz-cite-prefix">El 27/02/2015 a las 11:17,
+      <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> escribiÃ³:<br>
+    </div>
+    <blockquote
+      cite="mid:23846024.449201425032224381.JavaMail.admofbiz@maul"
+      type="cite">Bon dia,<br>
+      <br>
+      Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>568115</strong>
+      (<strong>No funciona la sincronizaciÃ³ncalendario notes con movil</strong>)
+      que es troba en procÃ©s de resoluciÃ³ amb el segÃ¼ent comentari:<br>
+      <br>
+      <p>Hola Rosa,</p>
+      <p>El pasado 12 de febrero se actualizaron todos los servidores
+        Domino con el Ãºltimo parche que podÃ­amos tener de la versiÃ³n
+        8.5.3 para evitar el problema del Poodle (bÃ¡sicamente quitar SSL
+        y usar TLS). Esto tambiÃ©n afectÃ³ al servidor Traveler.</p>
+      <p>Acabamos de probar con Albert (que tiene iPhone 5 con iOS 7) y
+        ha puesto una reuniÃ³n el telÃ©fono y le ha aparecido
+        correctamente en el Notes. O sea que estÃ¡ funcionando.</p>
+      <p>Pero puede haber algÃºn problema adicional. Â¿Has probado a
+        acceder via Safari a Phileas y generar un nuevo perfil?</p>
+      <pre wrap=""><a moz-do-not-send="true" href="https://phileas.fib.upc.es/traveler" class="moz-txt-link-freetext">https://phileas.fib.upc.es/traveler</a></pre>
+      <p>Ya me dices y miramos algo mÃ¡s ...</p>
+      <p>--- ANDROID ---</p>
+      <p>En los Android por ejemplo, los que usaban ActiveSync que
+        funcionaba pero no estaba soportado tienen la alternativa de
+        usar el cliente nativo de Traveler (pero viendo la agenda en
+        otra aplicaciÃ³n diferente de la del mÃ³vil):</p>
+      <pre wrap="">[0148:0010-2568] 02/13/2015 03:22:10 PM  HTTP JVM: Error parsing
+ActiveSync message: j
+[3AF0:0018-39A0] 02/13/2015 03:22:10 PM  Lotus Traveler: SEVERE
+CN=Antonia Gomez/OU=FIB/O=UPC Error handling inbound ActiveSync message
+for command Sync.  Input data (18 bytes): j
+
+ExplicaciÃ³n:
+<a moz-do-not-send="true" href="http://www-01.ibm.com/support/docview.wss?uid=swg21662695" class="moz-txt-link-freetext">http://www-01.ibm.com/support/docview.wss?uid=swg21662695</a>
+
+PS: Client a Play Store (<a moz-do-not-send="true" href="https://play.google.com/store/apps/details?id=com.lotus.sync.traveler">https://play.google.com/store/apps/details?id=com.lotus.sync.traveler</a>) o <a moz-do-not-send="true" href="https://phileas.fib.upc.es/traveler" class="moz-txt-link-freetext">https://phileas.fib.upc.es/traveler</a>
+</pre>
+      <p>Â </p>
+      <br>
+      <br>
+      Per accedir al tiquet premi sobre el segÃ¼ent enllaÃ§:<br>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDadesGenerals?requirementId=568115&amp;idEmpresa=1001">568115
+        - No funciona la sincronizaciÃ³ncalendario notes con movil</a><br>
+      <br>
+      _____________________<br>
+      Manel Rodero Blanquez<br>
+      Punt d'AtenciÃ³ als Usuaris de la FIB<br>
+      Facultat d'InformÃ tica de Barcelona<br>
+      <a moz-do-not-send="true" href="http://suport.fib.upc.edu/">http://suport.fib.upc.edu/</a>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------050802000304030405050506--

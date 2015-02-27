@@ -49,8 +49,9 @@ class MailTicket:
 
   def codifica(self,part):
     s=unicode(part.get_payload(decode=True), part.get_content_charset(), "ignore")
-    # Aixo es perque pot haver-hi caracters molt raros que s'han de filtrar
-    return "".join([x if ord(x) <= 17 or ord(x)>=32 else '' for x in s])
+    # Aixo es perque pot haver-hi caracters no imprimibles que s'han de filtrar. 
+	# Nomes admetem els salts de linia, tabuladors i a partir del 32
+    return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or ord(x)>=32 else '' for x in s])
 
   def tracta_subject(self):
     subject=self.msg['Subject']
