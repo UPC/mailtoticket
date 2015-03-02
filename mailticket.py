@@ -144,6 +144,10 @@ class MailTicket:
 
   def te_attachments(self):
     return len(self.get_attachments())>0
+	
+  def cal_tractar_mail(self):
+    if re.match("^Read:.*",self.get_subject()): return False
+	return True
 
   def __str__(self):
     return self.msg.__str__()
