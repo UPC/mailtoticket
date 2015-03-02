@@ -1,0 +1,80 @@
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id D11AA5C04C
+	for <jaumem@bustia.fib.upc.es>; Mon,  2 Mar 2015 10:12:38 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id D702891211; Mon,  2 Mar 2015 10:12:38 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -1.637
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.637 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-2.599, NO_REAL_NAME=0.961, UNPARSEABLE_RELAY=0.001]
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 601689120D
+	for <jaumem@fib.upc.edu>; Mon,  2 Mar 2015 10:12:34 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: Jaume Moral <jaumem@fib.upc.edu>
+Resent-Date: Mon, 2 Mar 2015 10:12:34 +0100
+Resent-Message-ID: <54F42982.1050007@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/Processat; Fri, 27 Feb 2015 14:08:37 +0100 (CET)
+x-mailtoticket: afd25dad494b9345fa2e0a34dc2aa4c11594c3e7b672f772a7fa003ad80bd09f045a170213ae2ba4f47eb8043ac61a56e44ff031a014b82f7508bc5543960138
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id D579D5C04C;
+	Fri, 27 Feb 2015 14:08:35 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id CFF8591211; Fri, 27 Feb 2015 14:08:35 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from sebastian.lsi.upc.edu (sebastian.lsi.upc.edu [147.83.20.13])
+	by mail1.fib.upc.es (Postfix) with ESMTP id 731B49120D
+	for <inlab@fib.upc.edu>; Fri, 27 Feb 2015 14:08:31 +0100 (CET)
+Received: from webmail.lsi.upc.edu (minsky.lsi.upc.edu [147.83.20.33])
+	by sebastian.lsi.upc.edu (8.13.8+Sun/8.13.8) with ESMTP id
+	t1RD8VKS028797
+	for <inlab@fib.upc.edu>; Fri, 27 Feb 2015 14:08:31 +0100 (CET)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 0.96 at sebastian.lsi.upc.edu
+Received: from 95.62.157.6 (SquirrelMail authenticated user jdelgado)
+	by webmail.lsi.upc.edu with HTTP;
+	Fri, 27 Feb 2015 14:08:31 +0100 (CET)
+Message-ID: <49709.95.62.157.6.1425042511.squirrel@webmail.lsi.upc.edu>
+Date: Fri, 27 Feb 2015 14:08:31 +0100 (CET)
+Subject: Read: [Suport FIB] Tancament tiquet: 562848 - cuentas de 
+	subversion para grau-prop
+From: jdelgado@lsi.upc.edu
+To: inlab@fib.upc.edu
+User-Agent: SquirrelMail/1.4.11
+MIME-Version: 1.0
+Content-Type: multipart/report;report-type=disposition-notification;
+	charset=iso-8859-1;boundary="----=_20150227140831_48382"
+X-Priority: 3 (Normal)
+Importance: Normal
+
+------=_20150227140831_48382
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: us-ascii
+
+Your message
+
+	To: 
+	Subject: [Suport FIB] Tancament tiquet: 562848 - cuentas de subversion para grau-prop
+	Sent: Fri, February 27, 2015 10:58 am
+
+Was displayed on Fri, February 27, 2015 2:08 pm
+------=_20150227140831_48382
+Content-Type: message/disposition-notification
+Content-Transfer-Encoding: us-ascii
+
+
+Reporting-UA : webmail.lsi.upc.edu ; SquirrelMail (version 1.4.11) 
+Final-Recipient: rfc822; 
+Original-Message-ID : <24724703.447991425031103454.JavaMail.admofbiz@maul>
+Disposition: manual-action/MDN-sent-manually; displayed
+------=_20150227140831_48382--
+
+
+
