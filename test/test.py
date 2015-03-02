@@ -70,15 +70,18 @@ class TestMailTicket(TestBase):
   def test_mailticket_petar(self):
     """ El mail de petar sembla que tingui diferents encodings al mateix temps """
     msg=llegir_mail("petar.txt")
-    print msg.get_body()
     self.assertTrue(msg.get_body())
 	
   def test_mailticket_base64(self):
     """ Mail condificat en base64 """
     msg=llegir_mail("manel-base64.txt")
-    print msg
     self.assertTrue(msg.get_body())
-
+    self.assertTrue(msg.cal_tractar())
+	
+  def test_mailticket_jdelgado(self):
+    """ Mail de justificant de recepció que no s'ha de tractar """
+    msg=llegir_mail("jdelgado.txt")
+    self.assertFalse(msg.cal_tractar())
 
 
 class TestFiltreReply(TestBase):
