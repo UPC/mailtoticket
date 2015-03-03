@@ -88,6 +88,10 @@ class TestMailTicket(TestBase):
     msg=llegir_mail("receipt.txt")
     self.assertFalse(msg.cal_tractar())
 	
+  def test_mailticket_jdelgado(self):
+    """ Delivery failure """
+    msg=llegir_mail("calabuig.txt")
+    self.assertFalse(msg.cal_tractar())	
 	
 
 class TestFiltreReply(TestBase):

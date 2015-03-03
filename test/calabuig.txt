@@ -1,0 +1,166 @@
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id A5A2F5C04F
+	for <jaumem@bustia.fib.upc.es>; Tue,  3 Mar 2015 17:05:03 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id 9755F91211; Tue,  3 Mar 2015 17:05:03 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -2.333
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.333 tagged_above=-999 required=3.5
+	tests=[ALL_TRUSTED=-1.8, BAYES_00=-2.599, HTML_30_40=0.374,
+	HTML_MESSAGE=0.001, RATWARE_GECKO_BUILD=1.691]
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail1.fib.upc.es (Postfix) with ESMTP id E644F9120D;
+	Tue,  3 Mar 2015 17:04:58 +0100 (CET)
+Message-ID: <54F5DBAA.6070209@fib.upc.edu>
+Date: Tue, 03 Mar 2015 17:04:58 +0100
+From: LCFIB <lcfib@fib.upc.edu>
+Organization: Facultat Informatica Barcelona - UPC
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+MIME-Version: 1.0
+To: Jordi Renye <jordir@fib.upc.edu>
+CC: Jaume Moral <jaumem@fib.upc.edu>
+Subject: Fwd: DELIVERY FAILURE: User enric.calabuig (enric.calabuig@upc.edu)
+ not listed in Domino Directory
+References: <OF4726A0FF.FF4DFA21-ONC1257DFD.005336CE-C1257DFD.00533700@upc.edu>
+In-Reply-To: <OF4726A0FF.FF4DFA21-ONC1257DFD.005336CE-C1257DFD.00533700@upc.edu>
+X-Forwarded-Message-Id: <OF4726A0FF.FF4DFA21-ONC1257DFD.005336CE-C1257DFD.00533700@upc.edu>
+Content-Type: multipart/mixed;
+ boundary="------------060905090705080305010405"
+
+This is a multi-part message in MIME format.
+--------------060905090705080305010405
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+
+Â¿?
+
+-------- Mensaje reenviado --------
+Asunto: DELIVERY FAILURE: User enric.calabuig (enric.calabuig@upc.edu) 
+not listed in Domino Directory
+Fecha: Tue, 3 Mar 2015 16:08:54 +0100 (CET)
+De: Postmaster@upc.edu
+Para: inlab@fib.upc.edu
+
+Your message
+
+   Subject: [Suport FIB] AvÃ­s tiquet 564683 - nou domini forumtic.upc.edu
+
+was not delivered to:
+
+   enric.calabuig@upc.edu
+
+because:
+
+   User enric.calabuig (enric.calabuig@upc.edu) not listed in Domino 
+Directory
+
+
+
+
+
+--------------060905090705080305010405
+Content-Type: message/delivery-status;
+ name="Parte del mensaje adjunto"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="Parte del mensaje adjunto"
+
+Reporting-MTA: dns;carulli.upc.es
+
+Final-Recipient: rfc822;enric.calabuig@upc.edu
+Action: failed
+Status: 5.1.1
+Diagnostic-Code: X-Notes; User enric.calabuig (enric.calabuig@upc.edu)
+	not listed in Domino Directory
+
+
+--------------060905090705080305010405
+Content-Type: message/rfc822;
+ name="ForwardedMessage.eml"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="ForwardedMessage.eml"
+
+Received: from dash.upc.es ([147.83.2.50])
+	by carulli.upc.es (Lotus Domino Release 8.5.3FP6 HF1286)
+	with ESMTP id 2015030316085518-358080 ;
+	Tue, 3 Mar 2015 16:08:55 +0100 
+Received: from maul.upc.es (maul.upc.es [147.83.194.44])
+	by dash.upc.es (8.14.1/8.13.1) with ESMTP id t23F8sdQ022544
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=NO)
+	for <enric.calabuig@upc.edu>; Tue, 3 Mar 2015 16:08:54 +0100
+Received: from maul (localhost [127.0.0.1])
+	by maul.upc.es (8.14.4/8.14.4/Debian-2ubuntu2) with ESMTP id
+	t23F8sSj017007
+	for <enric.calabuig@upc.edu>; Tue, 3 Mar 2015 16:08:54 +0100
+Date: Tue, 3 Mar 2015 16:08:54 +0100 (CET)
+From: inlab@fib.upc.edu
+To: enric.calabuig@upc.edu
+Subject: =?UTF-8?Q?[Suport_FIB]_Av=C3=ADs_tiquet_56468?=
+	=?UTF-8?Q?3_-_nou_domini_forumtic.upc.edu?=
+MIME-Version: 1.0
+X-Mailer: Apache OFBiz, The Apache Open For Business Project
+X-Mail-Scanned: Criba 2.0 + Clamd
+X-Greylist: ACL matched, not delayed by milter-greylist-4.4.3 (dash.upc.es
+	[147.83.2.50]); Tue, 03 Mar 2015 16:08:55 +0100 (CET)
+X-MIMETrack: Itemize by SMTP Server on Carulli/UPC(Release 8.5.3FP6
+	HF1286|January 07, 2015) at 03/03/2015 16:08:55,
+	Serialize by Router on Carulli/UPC(Release 8.5.3FP6 HF1286|January 07,
+	2015) at 03/03/2015 16:08:55,
+	Serialize complete at 03/03/2015 16:08:55
+Message-ID: <OF4726A0FF.FF4DFA21-ONC1257DFD.005336CE-C1257DFD.00533700@upc.edu>
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_53419_18855894.1425395334614"
+
+------=_Part_53419_18855894.1425395334614
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<p>Bon dia,<br />
+<br />
+Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>564=
+683</strong> (<strong>nou domini forumtic.upc.edu</strong>) que es troba en=
+ proc=C3=A9s de resoluci=C3=B3 amb el seg=C3=BCent comentari:<br />
+<br />
+<p>Reenvio el mail a=C2=A0Enric:</p>
+<p>Hola,</p>
+<p>Tal com ens va comunicar Carme Murillo, despr=C3=A9s d'una conversa amb =
+tu, t'informem que hem creat els seg=C3=BCents "alias" de correu:</p>
+<p style=3D"margin-left: 40px;">forumtic@forumtic.upc.edu</p>
+<p>que es redirecciona a:</p>
+<p style=3D"margin-left: 40px;">info@forumti.es<br />
+forum@forumtelecos.upc.edu <br />
+=C2=A0</p>
+<p>Tamb=C3=A9 hem creat un alias a mode de "catchall", o sigui, que qualsev=
+ol mail dirigit al domini=C2=A0</p>
+<p style=3D"margin-left: 40px;">@forumtic.upc.edu=C2=A0=C2=A0</p>
+<p>que no sigui=C2=A0 forumtic@forumtic.upc.edu=C2=A0 el redireccionem a:</=
+p>
+<p style=3D"margin-left: 40px;">info@forumti.es<br />
+=C2=A0</p>
+<p>Si aix=C3=B2 no =C3=A9s exactament aix=C3=B2 el que deman=C3=A0veu, si u=
+s plau, envieu-nos les modificacions i ho arreglarem.</p>
+<p>Jordi Renye<br />
+Postmaster FIB</p><br />
+<br />
+Per accedir al tiquet premi sobre el seg=C3=BCent enlla=C3=A7:<br />
+<a href=3D'https://gestor.upcnet.es/tiquetsusuaris/control/tiquetDetallDade=
+sGenerals?requirementId=3D564683&idEmpresa=3D1001'>564683 - nou domini foru=
+mtic.upc.edu</a><br />
+<br />
+_____________________<br />
+Jordi Re=C3=B1e Capel<br />
+Punt d'Atenci=C3=B3 als Usuaris de la FIB<br />
+Facultat d'Inform=C3=A0tica de Barcelona<br />
+<a href=3D"http://suport.fib.upc.edu/">http://suport.fib.upc.edu/</a></p>
+------=_Part_53419_18855894.1425395334614--
+
+
+
+--------------060905090705080305010405--
