@@ -147,6 +147,7 @@ class MailTicket:
 	
   def cal_tractar(self):
     if self.msg.get_content_type()=="multipart/report": return False
+    if self.get_body().startswith("Return Receipt"): return False
     return True
 
   def __str__(self):

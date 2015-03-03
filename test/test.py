@@ -83,6 +83,12 @@ class TestMailTicket(TestBase):
     msg=llegir_mail("jdelgado.txt")
     self.assertFalse(msg.cal_tractar())
 
+  def test_mailticket_jdelgado(self):
+    """ Mail de justificant de recepció de Notes que no s'ha de tractar """
+    msg=llegir_mail("receipt.txt")
+    self.assertFalse(msg.cal_tractar())
+	
+	
 
 class TestFiltreReply(TestBase):
 
@@ -112,7 +118,10 @@ class TestFiltreReply(TestBase):
     """ Un mail sense multipart/alternative ha de donar el html o el text a saco """ 
     self.ldap.obtenir_uid.return_value=None
     msg=llegir_mail("sabate.txt")
-    #self.assertTrue(msg.get_body())	
+    self.assertTrue(msg.get_body())	
+	
+	
+	
 	
 
 class TestAplicarFiltres(TestBase):

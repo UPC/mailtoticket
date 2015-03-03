@@ -1,0 +1,95 @@
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: jaumem@bustia.fib.upc.es
+Delivered-To: jaumem@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id AA5585C04C
+	for <jaumem@bustia.fib.upc.es>; Tue,  3 Mar 2015 13:18:45 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id A8CA53C593; Tue,  3 Mar 2015 13:18:45 +0100 (CET)
+Delivered-To: jaumem@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id A75453C5F2
+	for <jaumem@fib.upc.edu>; Tue,  3 Mar 2015 13:18:45 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id A504B3C5F1
+	for <jaumem@fib.upc.edu>; Tue,  3 Mar 2015 13:18:45 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -1.501
+X-Spam-Level:
+X-Spam-Status: No, score=-1.501 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699,
+	RCVD_IN_DNSWL_MED=-2.3] autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id lobIyO-bmIs1 for <jaumem@fib.upc.edu>;
+	Tue,  3 Mar 2015 13:18:40 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 495D53C593
+	for <jaumem@fib.upc.edu>; Tue,  3 Mar 2015 13:18:40 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 45DD33C5F0
+	for <jaumem@fib.upc.edu>; Tue,  3 Mar 2015 13:18:40 +0100 (CET)
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 3E1E33C593
+	for <jaumem@fib.upc.edu>; Tue,  3 Mar 2015 13:18:40 +0100 (CET)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: Jaume Moral <jaumem@fib.upc.edu>
+Resent-Date: Tue, 3 Mar 2015 13:18:40 +0100
+Resent-Message-ID: <54F5A6A0.4070800@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/Processat; Tue, 3 Mar 2015 12:46:33 +0100 (CET)
+x-mailtoticket: afd25dad494b9345fa2e0a34dc2aa4c11594c3e7b672f772a7fa003ad80bd09f045a170213ae2ba4f47eb8043ac61a56e44ff031a014b82f7508bc5543960138
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 3E0FC5C04C;
+	Tue,  3 Mar 2015 12:46:31 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id 3E2393C5E4; Tue,  3 Mar 2015 12:46:31 +0100 (CET)
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 3CA193C5EB
+	for <inlab@fib.upc.edu>; Tue,  3 Mar 2015 12:46:31 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id 3AD9E3C5EA
+	for <inlab@fib.upc.edu>; Tue,  3 Mar 2015 12:46:31 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id tOlU1QefAUDO for <inlab@fib.upc.edu>;
+	Tue,  3 Mar 2015 12:46:27 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 190133C5E4
+	for <inlab@fib.upc.edu>; Tue,  3 Mar 2015 12:46:27 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 17EA83C5EA
+	for <inlab@fib.upc.edu>; Tue,  3 Mar 2015 12:46:27 +0100 (CET)
+Received: from aluron.fib.upc.es (aluron.fib.upc.es [147.83.41.91])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 11D9D3C5E4
+	for <inlab@fib.upc.edu>; Tue,  3 Mar 2015 12:46:27 +0100 (CET)
+To: inlab@fib.upc.edu
+Subject: [Suport FIB] Tancament tiquet: 568642 - reserva sala d'Actes - 5 i 6
+	de maig
+Message-ID: <OF5EEAF345.8BA8048F-ONC1257DFD.0040AD4A-C1257DFD.0040AD49@upc.edu>
+From: eva@fib.upc.edu
+Date: Tue, 3 Mar 2015 12:46:27 +0100
+X-MIMETrack: Serialize by Router on Aluron/FIB/UPC(Release 8.5.3FP6
+	HF1219|December 12, 2014) at 03/03/2015 12:46:27
+MIME-Version: 1.0
+Content-type: text/plain; charset=US-ASCII
+
+Return Receipt
+                                                                           
+   Your       [Suport FIB] Tancament tiquet: 568642 - reserva sala d'Actes 
+   document:  - 5 i 6 de maig                                              
+                                                                           
+   was        eva@fib.upc.edu                                              
+   received                                                                
+   by:                                                                     
+                                                                           
+   at:        03/03/2015 12:46:26                                          
+                                                                           
+
+
+
+
+
