@@ -62,7 +62,7 @@ class MailTicket:
 	      resultat+=fragment[0]
       else:
         resultat+=" "+fragment[0].decode(fragment[1])
-    self.subject=resultat
+    self.subject=resultat.replace('\n', ' ').replace('\r', '')
 
 
   def enviat_per(self,persona):
