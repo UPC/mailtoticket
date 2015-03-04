@@ -7,6 +7,11 @@ class GestioLDAP:
   mails_addicionals=settings["mails_addicionals"]
 
   def obtenir_uid(self,mail):
+  
+    m = re.match("(.*)@upc.edu",mail)
+    if m: 
+        return m.group(1)
+  
     try:
         p = subprocess.Popen(self.busca_mail +" "+ mail, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         result=None
