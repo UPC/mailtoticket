@@ -69,7 +69,9 @@ class MailTicket:
 
   def get_uid(self):
     uid=None
+    print self.get_from()
     m = re.match("(.*)@upc.edu",self.get_from())
+    print m
     if m:
       return m.group(1)
     try:
