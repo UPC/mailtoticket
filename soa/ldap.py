@@ -1,5 +1,6 @@
 import subprocess
 from settings import settings
+import re
 
 class GestioLDAP:
 
