@@ -159,8 +159,8 @@ class TestAplicarFiltres(TestBase):
     msg=llegir_mail("jaume.txt")
     resultat=filtres.aplicar_filtres(msg,self.tickets,self.ldap)    
     self.assertTrue(self.tickets.alta_tiquet.called)
-    self.assertTrue(self.tickets.modificar_tiquet.call_args_list[0][1]['emailSolicitant']=='jaume.moral@upc.edu')
-
+    self.assertTrue(self.tickets.modificar_tiquet.call_args_list[0][1]['emailSolicitant']=='jaume.moral@upc.edu')	
+	
 class TestSettings(unittest.TestCase):
 
   def desactivat_test_settings_normal(self):
