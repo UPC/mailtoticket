@@ -29,16 +29,17 @@ class FiltreReply(Filtre):
       ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
 
       # Mirem qui ha creat el ticket
-      self.solicitant=ticket['solicitant']
+      self.solicitant_segons_ticket=ticket['solicitant']
+      self.solicitant=self.solicitant_segons_ticket
       logger.info ("Ticket de %s" % self.solicitant);
       logger.info ("Mail de %s" % self.msg.get_from());
 
-      solicitant_segons_mail=self.get_uid()
-      logger.info ("Solicitant segons Mail %s" % solicitant_segons_mail);
+      self.solicitant_segons_mail=self.get_uid()
+      logger.info ("Solicitant segons Mail %s" % self.solicitant_segons_mail);
 
       # Si no trobem el mail, suposarem que es de qui l'ha creat
-      if solicitant_segons_mail!=None:
-        self.solicitant=solicitant_segons_mail
+      if self.solicitant_segons_mail!=None:
+        self.solicitant=self.solicitant_segons_mail
       logger.info ("Crearem comentari a nom de %s" % self.solicitant);
       return True
 
@@ -48,6 +49,10 @@ class FiltreReply(Filtre):
 
   def filtrar(self):
     body=self.msg.get_body()
+    if self.solicitant_segons_mail==self.solicitant_segons_ticket:
+      notificat='N'
+    else:
+      notificat='S'
     resultat=self.tickets.afegir_comentari_tiquet(
       codiTiquet=self.ticket_id,
       usuari=self.solicitant, 
@@ -55,7 +60,7 @@ class FiltreReply(Filtre):
 	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
 		) +body,
       tipusComentari='COMENT_TIQUET_PUBLIC',
-      esNotificat='S')
+      esNotificat=notificat)
 
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
