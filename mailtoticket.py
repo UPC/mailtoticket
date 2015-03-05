@@ -37,3 +37,4 @@ if __name__ == '__main__':
     logger.error("Ha petat algun dels filtres i no marco el mail com a tractat")  
   finally:    
     print mail
+    logger.info("-----------------------------------------------------")

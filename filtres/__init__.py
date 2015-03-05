@@ -47,7 +47,8 @@ def aplicar_filtres(mail, tickets=None, ldap=None):
         logger.info("Ja he fet el que havia de fer. Surto!")
         return True
       else:
-        logger.info("Error al aplicar el filtre. Ho deixem correr i seguim provant")
+        logger.info("Error en aplicar el filtre. Deixem de processar")
+        return False
 
   if not tractat:
     logger.info("No he tractat el mail [%s]" % mail.get_subject())
