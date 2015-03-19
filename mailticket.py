@@ -72,6 +72,9 @@ class MailTicket:
     m = re.match("(.*)@upc.edu",self.get_from())
     if m:
       return m.group(1)
+    m = re.match("(.*)@est.fib.upc.edu",self.get_from())
+    if m:
+      return m.group(1)	  
     try:
       uid=self.msg['X-TiquetsGN6'].lower().split('/')[0].split("=")[1].replace(" ",".")
     finally:
