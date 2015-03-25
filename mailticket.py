@@ -65,11 +65,13 @@ class MailTicket:
 
   def get_from(self):
     email=parseaddr(self.msg['From'])[1]
+    if len(email)==0: return None
     return email.lower()
 
   def get_reply_to(self):
     email=parseaddr(self.msg['Reply-To'])[1]
-    return email.lower()	
+    if len(email)==0: return None
+    return email.lower()
 	
   def get_uid(self):
     uid=None
