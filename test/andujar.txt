@@ -1,0 +1,100 @@
+Received: via dmail-2007d.18 for +nsmail/INBOX; Tue, 24 Mar 2015 20:10:09 +0100 (CET)
+Return-Path: <lcfib@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 52AB15C065
+	for <lcfib-proves@bustia.fib.upc.es>;
+	Tue, 24 Mar 2015 20:10:08 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id 3C8103C37B; Tue, 24 Mar 2015 20:10:08 +0100 (CET)
+Delivered-To: lcfib-proves@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 37DF43C37A
+	for <lcfib-proves@fib.upc.edu>; Tue, 24 Mar 2015 20:10:08 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id 323C73C37B
+	for <lcfib-proves@fib.upc.edu>; Tue, 24 Mar 2015 20:10:08 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -1.501
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.501 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699,
+	RCVD_IN_DNSWL_MED=-2.3] autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id YNnQ-f7-qPFt for <lcfib-proves@fib.upc.edu>;
+	Tue, 24 Mar 2015 20:10:01 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 5729A3C37A
+	for <lcfib-proves@fib.upc.edu>; Tue, 24 Mar 2015 20:10:01 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 4DE883C37B
+	for <lcfib-proves@fib.upc.edu>; Tue, 24 Mar 2015 20:10:01 +0100 (CET)
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 420B33C37A
+	for <lcfib-proves@fib.upc.edu>; Tue, 24 Mar 2015 20:10:01 +0100 (CET)
+Resent-From: LCFIB <lcfib@fib.upc.edu>
+Resent-To: lcfib-proves@fib.upc.edu
+Resent-Date: Tue, 24 Mar 2015 20:10:01 +0100
+Resent-Message-ID: <5511B689.9040304@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64;
+	rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/INBOX;
+	Tue, 24 Mar 2015 20:08:48 +0100 (CET)
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id E228B5C065;
+	Tue, 24 Mar 2015 20:08:47 +0100 (CET)
+Received: by mail1.fib.upc.es (Postfix)
+	id CF31691211; Tue, 24 Mar 2015 20:08:47 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+Received: from sebastian.lsi.upc.edu (sebastian.lsi.upc.edu [147.83.20.13])
+	by mail1.fib.upc.es (Postfix) with ESMTP id DA3979120D
+	for <lcfib@fib.upc.edu>; Tue, 24 Mar 2015 20:08:42 +0100 (CET)
+Received: from leon.ugdsi.upc.edu (leon.lsi.upc.edu [147.83.20.67])
+	by sebastian.lsi.upc.edu (8.13.8+Sun/8.13.8) with ESMTP id
+	t2OJ8WBl022745; Tue, 24 Mar 2015 20:08:32 +0100 (CET)
+X-Virus-Status: Clean
+X-Virus-Scanned: clamav-milter 0.96 at sebastian.lsi.upc.edu
+Received: from [147.83.72.242] (localhost [127.0.0.1]) (authenticated bits=0)
+	by leon.ugdsi.upc.edu (8.13.6/8.13.6/MSA-SMTP-AUTH) with ESMTP id
+	t2OJ8Wsb024013; Tue, 24 Mar 2015 20:08:32 +0100 (CET)
+Message-ID: <5511B62B.3090408@lsi.upc.edu>
+Date: Tue, 24 Mar 2015 20:08:27 +0100
+From: Carlos Andujar <virtual@lsi.upc.edu>
+Reply-To: andujar@lsi.upc.edu
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64;
+	rv:31.0) Gecko/20100101 Thunderbird/31.5.0
+MIME-Version: 1.0
+To: lcfib@fib.upc.edu
+CC: andujar@lsi.upc.edu, Alvar Vinacua <alvar@lsi.upc.edu>
+Subject: Entorn segur assignatura GRAU-G
+References: <50C60582.6050004@lsi.upc.edu>
+In-Reply-To: <50C60582.6050004@lsi.upc.edu>
+Content-Type: text/plain; charset=windows-1252; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Hola,
+
+  Un cop més necessitarem entorn segur per l'examen de laboratori de G,
+
+Dia:     Dijous 9 d'abril 2015
+
+Hora:  18h-20h
+
+Aules:
+	B5S101
+	B5S201
+	B5S202
+	
+
+Salutacions,
+
+- Carlos
+
+
+
+
+

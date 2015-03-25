@@ -1,3 +1,4 @@
+from filtres.filtre import Filtre
 from filtres.reply import FiltreReply
 from filtres.nou import FiltreNou
 from mailticket import MailTicket
@@ -97,7 +98,12 @@ class TestMailTicket(TestBase):
     """ Mail upc sense necessitat de ldap """
     msg=llegir_mail("mailupc.txt")
     self.assertEquals(msg.get_uid(),"usuari.prova")	
-	
+
+  def test_mailticket_reply_to(self):
+    """ Obtenim la persona a partir del reply-to """
+    msg=llegir_mail("andujar.txt")
+    self.assertEquals(msg.get_reply_to(),"andujar@lsi.upc.edu")
+
 
 class TestFiltreReply(TestBase):
 
