@@ -30,8 +30,12 @@ class Filtre(object):
   def get_uid(self):
     if self.msg.get_uid() != None:
       return self.msg.get_uid()
-    else:
-      return self.ldap.obtenir_uid(self.msg.get_from())
+    uid=self.ldap.obtenir_uid(self.msg.get_from())
+    if uid != None:
+      return uid
+    if self.msg.get_reply_to() != None:
+      return self.ldap.obtenir_uid(self.msg.get_reply_to())	  
+    return None
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)

@@ -67,6 +67,10 @@ class MailTicket:
     email=parseaddr(self.msg['From'])[1]
     return email.lower()
 
+  def get_reply_to(self):
+    email=parseaddr(self.msg['Reply-To'])[1]
+    return email.lower()	
+	
   def get_uid(self):
     uid=None
     m = re.match("(.*)@upc.edu",self.get_from())
