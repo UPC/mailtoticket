@@ -49,10 +49,15 @@ class FiltreNou(Filtre):
     ticket_id=resultat['codiTiquet']
     self.afegir_attachments(ticket_id,self.solicitant)
     logger.info("Attachments (si n'hi ha) afegits")
-	
+	  
+    if self.msg.get_reply_to()!=None:
+      from_or_reply_to=self.msg.get_reply_to()
+    else:
+      from_or_reply_to=self.msg.get_from()
+
     resultat=self.tickets.modificar_tiquet(
       codiTiquet=ticket_id,
-      emailSolicitant=self.msg.get_from()
+      emailSolicitant=from_or_reply_to
       )	
 
     if resultat['codiRetorn']!="1":
