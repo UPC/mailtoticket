@@ -43,7 +43,10 @@ class MailTicket:
           break
 
   def codifica(self,part):
-    s=unicode(part.get_payload(decode=True), part.get_content_charset(), "ignore")
+    if part.get_content_charset()==None:
+      s=unicode(part.get_payload(decode=True), part.get_content_charset(), "ignore")
+    else:
+      s=unicode(part.get_payload(decode=True))
     # Aixo es perque pot haver-hi caracters no imprimibles que s'han de filtrar. 
     # Nomes admetem els salts de linia, tabuladors i a partir del 32
     return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or ord(x)>=32 else '' for x in s])
