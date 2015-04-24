@@ -43,7 +43,7 @@ class MailTicket:
           break
 
   def codifica(self,part):
-    if part.get_content_charset()==None:
+    if part.get_content_charset()!=None:
       s=unicode(part.get_payload(decode=True), part.get_content_charset(), "ignore")
     else:
       s=unicode(part.get_payload(decode=True))
