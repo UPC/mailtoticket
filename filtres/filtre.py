@@ -47,4 +47,4 @@ class Filtre(object):
       if fitxer==None:
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
       logger.info("Afegim attachment: %s" % fitxer)
-      self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer,a.get_payload(decode=True))
+      self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer,a.get_payload())
