@@ -36,8 +36,8 @@ if __name__ == '__main__':
         logger.info("Marco el mail com a tractat")
     else:
 	  logger.info("No cal tractar el mail %s" % mail.get_subject())
-  except:
-    logger.error("Ha petat algun dels filtres i no marco el mail com a tractat")  
+  except Exception, e:
+    logger.error("Ha petat algun dels filtres i no marco el mail com a tractat %s",str(e))  
   finally:    
     print mail
     logger.info("-----------------------------------------------------")
