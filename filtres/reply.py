@@ -43,8 +43,8 @@ class FiltreReply(Filtre):
       logger.info ("Crearem comentari a nom de %s" % self.solicitant);
       return True
 
-    except:
-      logger.info ("Peta el filtre...");
+    except Exception, e:
+      logger.info ("Peta el filtre... %s" % str(e));
       return False
 
   def filtrar(self):

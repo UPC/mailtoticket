@@ -135,6 +135,15 @@ class TestFiltreReply(TestBase):
     msg=llegir_mail("sabate.txt")
     self.assertTrue(msg.get_body())		
 
+  def test_reply_numeros(self):
+    """ Mail que no detecta correctament si es de reply """ 
+    msg=llegir_mail("jdelgado2.txt")
+    f=FiltreReply(msg,self.tickets,self.ldap)
+    if f.es_aplicable():
+      f.filtrar()
+    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['codiTiquet'],'581611')
+
+
 class TestAplicarFiltres(TestBase):
 
   def test_aplicar_reply(self):
