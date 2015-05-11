@@ -39,10 +39,12 @@ class Filtre(object):
 
   def codificar_base_64_si_cal(self,dades):
     try:
-      base64.decodestring(dades)
+      base64.b64decode(dades)
+      logger.info("Es un attachment que ja esta en base64")
       return dades
-    except binascii.Error:
-      return base64.encode(dades)    
+    except:
+      logger.info("Recodifico en base64")
+      return base64.b64encode(dades)    
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
