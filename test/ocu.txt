@@ -1,0 +1,390 @@
+Return-Path: <lcfib@fib.upc.edu>
+Received: from nobel.upc.es ([unix socket])
+	 by nobel.upc.es (Cyrus v2.3.16-Fedora-RPM-2.3.16-13.el6_6) with LMTPA;
+	 Mon, 11 May 2015 10:40:25 +0200
+X-Sieve: CMU Sieve 2.3
+Received: from mx1.upc.es (mx1.upc.es [147.83.194.63])
+	by nobel.upc.es (8.14.4/8.14.4) with ESMTP id t4B8ePxh009589
+	for <jaume.moral@nobel.upc.edu>; Mon, 11 May 2015 10:40:25 +0200
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mx1.upc.es (8.14.1/8.13.1) with ESMTP id t4B8eO6d004881
+	for <jaume.moral@nobel.upc.edu>; Mon, 11 May 2015 10:40:25 +0200
+Received: by mail2.fib.upc.es (Postfix)
+	id E94373C36B; Mon, 11 May 2015 10:40:24 +0200 (CEST)
+Delivered-To: jaumem@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id E6FEF3C376
+	for <jaumem@fib.upc.edu>; Mon, 11 May 2015 10:40:24 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id E2F633C370
+	for <jaumem@fib.upc.edu>; Mon, 11 May 2015 10:40:24 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: 1.399
+X-Spam-Level: *
+X-Spam-Status: No, score=1.399 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, DNS_FROM_AHBL_RHSBL=2.699, HTML_MESSAGE=0.001,
+	RCVD_IN_DNSWL_MED=-2.3, RCVD_NUMERIC_HELO=1.164, T_REMOTE_IMAGE=0.01,
+	URIBL_BLACK=1.725] autolearn=no
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id cUd_kAKw9BGJ for <jaumem@fib.upc.edu>;
+	Mon, 11 May 2015 10:40:20 +0200 (CEST)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 0A39E3C36B
+	for <jaumem@fib.upc.edu>; Mon, 11 May 2015 10:40:20 +0200 (CEST)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 051B83C370
+	for <jaumem@fib.upc.edu>; Mon, 11 May 2015 10:40:20 +0200 (CEST)
+Received: from [147.83.58.17] (genova.fib.upc.es [147.83.58.17])
+	by mail2.fib.upc.es (Postfix) with ESMTP id EF3E83C36B
+	for <jaumem@fib.upc.edu>; Mon, 11 May 2015 10:40:19 +0200 (CEST)
+Resent-From: inLab FIB <lcfib@fib.upc.edu>
+Resent-To: Jaume Moral <jaumem@fib.upc.edu>
+Resent-Date: Mon, 11 May 2015 10:40:19 +0200
+Resent-Message-ID: <55506AF3.1070407@fib.upc.edu>
+Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+Received: via dmail-2007d.18 for +nsmail/INBOX; Mon, 11 May 2015 10:05:37 +0200 (CEST)
+X-Original-To: lcfib@bustia.fib.upc.es
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 033145C062;
+	Mon, 11 May 2015 10:05:37 +0200 (CEST)
+Received: by mail1.fib.upc.es (Postfix)
+	id 0846D91212; Mon, 11 May 2015 10:05:37 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at 
+X-REPLACEME: No
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-3.0 (mx1.upc.es [147.83.194.63]); Mon, 11 May 2015 10:40:25 +0200 (CEST)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.6.8
+Received: from filoma.es (8rcgav2.assurances-entreprise.com [185.37.255.82])
+	by mail1.fib.upc.es (Postfix) with SMTP id 3E7BD9120D
+	for <lcfib@fib.upc.es>; Mon, 11 May 2015 10:05:27 +0200 (CEST)
+Received: (qmail 27995 invoked from network); 11 May 2015 07:49:52 -0000
+Received: from unknown (HELO 162.211.126.38) (162.211.126.38)
+	by filoma.es with SMTP; 11 May 2015 07:49:52 -0000
+From: "OCU" <sandra@ecamposeguros.es>
+Subject: =?iso-8859-1?B?bGNmaWJAZmliLnVwYy5lcywgdW5hIHRhYmxldCBBbmRyb2lkIDcnIHBhcmEgdGkgY29uIHR1IHBhY2sgT0NVIHBvciBz82xvIDIgZXVy?=
+To: "lcfib" <lcfib@fib.upc.edu>
+Content-Type: multipart/alternative;
+	boundary="XlgUWV62YK2iOMqmczrfjXRfLstH=_53me"
+MIME-Version: 1.0
+Date: Mon, 11 May 2015 09:48:14 +0200
+Message-Id: <20150511080528.3E7BD9120D@mail1.fib.upc.es>
+X-Mail-Scanned: Criba 2.0 + Clamd
+
+
+This is a multi-part message in MIME format
+
+--XlgUWV62YK2iOMqmczrfjXRfLstH=_53me
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+=20
+
+=20
+
+=20
+
+ Prueba OCU durante 2 meses po 2 Euros y consigue esta tablet como reg=
+alo de bienvenidaTus datos para disfrutar de esta oferta:
+
+lcfib@fib.upc.es=20
+=20
+
+
+
+
+
+
+
+Estimado lcfib@fib.upc.es,
+
+Queremos invitarte a descubrir la Organizaci=F3n de Consumidores y Usu=
+arios con un exclusivo pack de bienvenida para probar OCU durante 2 me=
+ses por solo 2 Euros.=20
+
+Con tu pack, recibir=E1s 4 ejemplares de nuestras revistas, acceso ili=
+mitado online y todas las ventajas reservadas a socios de OCU, incluid=
+o el acceso a la Asesor=EDa Jur=EDdica.
+
+Adem=E1s, si aceptas probar esta oferta de bienvenida a OCU durante 2 =
+meses por solo 2 Euros, te llevar=E1s como regalo de bienvenida una ta=
+blet.
+
+
+
+
+
+
+
+2015 =A9 OCU Ediciones, S.A Todos los derechos | Nuestra pol=EDtica de=
+ privacidad | Aviso Legal=20
+Si no quieres recibir m=E1s comunicaciones comerciales, haz click aqu=ED=
+
+
+
+
+
+
+=20
+
+
+--XlgUWV62YK2iOMqmczrfjXRfLstH=_53me
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+
+<HTML><HEAD></HEAD>
+<BODY>
+<TABLE style=3D"MAX-WIDTH: 612px" align=3Dcenter>
+<TBODY>
+<TR>
+<TD>
+<TABLE style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; W=
+IDTH: 100%; PADDING-RIGHT: 0px; PADDING-TOP: 0px" cellSpacing=3D0 cell=
+Padding=3D0 align=3Dcenter>
+<TBODY>
+<TR style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px">
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px"></TD>
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px;=
+ PADDING-RIGHT: 0px; DISPLAY: block !important; MAX-WIDTH: 612px !impo=
+rtant; CLEAR: both !important; PADDING-TOP: 0px" class=3Dcontainer bgC=
+olor=3D#ffffff>
+<DIV style=3D"MARGIN: 0px auto; DISPLAY: block; MAX-WIDTH: 612px">
+<TABLE style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; W=
+IDTH: 100%; PADDING-RIGHT: 0px; PADDING-TOP: 0px" cellSpacing=3D0 cell=
+Padding=3D0 align=3Dcenter>
+<TBODY>
+<TR style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px">
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px">
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" title=3DOCU alt=3DOCU src=3D"http://media.go2speed.org/br=
+and/files/roiandco/140/ocu_premium_01.gif"></A> </TD></TR></TBODY></TA=
+BLE></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" title=3D"La fuerza de tus decisiones" alt=3D"La fuerza de=
+ tus decisiones" src=3D"http://media.go2speed.org/brand/files/roiandco=
+/140/ocu_premium_02.gif"></A> </TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" title=3D"Oferta Exclusiva nuevos socios" alt=3D"Oferta Ex=
+clusiva nuevos socios" src=3D"http://media.go2speed.org/brand/files/ro=
+iandco/140/ocu_premium_03.gif"></A> </TD></TR></TBODY></TABLE></TD></T=
+R>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop rowSpan=3D2 width=3D34><A s=
+tyle=3D"COLOR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.a=
+guadelair.es/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG styl=
+e=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 34px;=
+ PADDING-RIGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: =
+top; PADDING-TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand=
+/files/roiandco/140/ocu_premium_04.gif"></A> </TD>
+<TD style=3D"FONT-FAMILY: Arial, Helvetica, sans-serif; MAX-WIDTH: 100=
+%; COLOR: #000; FONT-SIZE: 14px; FONT-WEIGHT: bold" width=3D256><A sty=
+le=3D"COLOR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.agu=
+adelair.es/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank>
+<P>Prueba OCU durante 2 meses po 2 Euros y consigue esta tablet como r=
+egalo de bienvenida</P></A></TD>
+<TD style=3D"MAX-WIDTH: 100%" rowSpan=3D2 width=3D37><A style=3D"COLOR=
+: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.es/=
+aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDING-=
+BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 37px; PADDING-RIGH=
+T: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDING-=
+TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/roiand=
+co/140/ocu_premium_06.gif"></A></TD>
+<TD style=3D"FONT-FAMILY: Arial, Helvetica, sans-serif; MAX-WIDTH: 100=
+%; COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: bold" rowSpan=3D2 width=3D=
+255><A style=3D"COLOR: #000000; TEXT-DECORATION: none" href=3D"http://=
+pratou.aguadelair.es/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank>
+<P>Tus datos para disfrutar de esta oferta:</P>
+<P style=3D"FONT-SIZE: 12px; FONT-WEIGHT: normal"><BR>lcfib@fib.upc.es=
+ </P></A></TD>
+<TD style=3D"MAX-WIDTH: 100%" rowSpan=3D2 width=3D30><A style=3D"COLOR=
+: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.es/=
+aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDING-=
+BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 30px; PADDING-RIGH=
+T: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDING-=
+TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/roiand=
+co/140/ocu_premium_08.gif"></A></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dbottom width=3D256><A style=3D"=
+COLOR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelai=
+r.es/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PAD=
+DING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 256px; PADDIN=
+G-RIGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PA=
+DDING-TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/=
+roiandco/140/ocu_premium_09.gif"></A> </TD></TR></TBODY></TABLE></TD><=
+/TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" title=3D"oferta Exclusiva" alt=3D"Oferta Exlusiva" src=3D=
+"http://media.go2speed.org/brand/files/roiandco/140/ocu_premium_10.gif=
+"></A></TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/roi=
+andco/140/ocu_premium_11.gif"></A></TD></TR></TBODY></TABLE></TD></TR>=
+
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/roi=
+andco/140/ocu_premium_12.gif"></A></TD></TR></TBODY></TABLE></TD></TR>=
+
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"PADDING-BOTTOM: 10px; PADDING-LEFT: 20px; PADDING-RIGHT: =
+20px; FONT-FAMILY: Arial, Helvetica, sans-serif; MAX-WIDTH: 100%; COLO=
+R: #000; FONT-SIZE: 12px; PADDING-TOP: 10px" vAlign=3Dtop width=3D612>=
+<A style=3D"COLOR: #000000; TEXT-DECORATION: none" href=3D"http://prat=
+ou.aguadelair.es/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank>
+<P>Estimado lcfib@fib.upc.es,<BR><BR>Queremos invitarte a descubrir la=
+ Organizaci=F3n de Consumidores y Usuarios con un exclusivo pack de bi=
+envenida para probar OCU durante 2 meses por solo 2 Euros. <BR><BR>Con=
+ tu pack, recibir=E1s <B>4 ejemplares de nuestras revistas, acceso ili=
+mitado online y todas las ventajas reservadas a socios de OCU, incluid=
+o el acceso a la Asesor=EDa Jur=EDdica.</B><BR><BR>Adem=E1s, si acepta=
+s probar esta oferta de bienvenida a OCU durante 2 meses por solo 2 Eu=
+ros, te llevar=E1s como regalo de bienvenida una tablet.<BR><BR></P></=
+A></TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" alt=3D"" src=3D"http://media.go2speed.org/brand/files/roi=
+andco/140/ocu_premium_16.gif"></A></TD></TR></TBODY></TABLE></TD></TR>=
+
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" vAlign=3Dtop width=3D612><A style=3D"COL=
+OR: #000000; TEXT-DECORATION: none" href=3D"http://pratou.aguadelair.e=
+s/aztfffff/lcfib@fib.upc.es.aspx" target=3D_blank><IMG style=3D"PADDIN=
+G-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 612px; PADDING-R=
+IGHT: 0px; DISPLAY: block; MAX-WIDTH: 100%; VERTICAL-ALIGN: top; PADDI=
+NG-TOP: 0px" title=3D"suscr=EDbete aqu=ED" alt=3D"Suscr=EDbete aqu=ED"=
+ src=3D"http://media.go2speed.org/brand/files/roiandco/140/ocu_premium=
+_17.gif"></A></TD></TR></TBODY></TABLE></TD></TR>
+<TR vAlign=3Dtop>
+<TD style=3D"MAX-WIDTH: 100%" width=3D612>
+<TABLE style=3D"MAX-WIDTH: 612px" border=3D0 cellSpacing=3D0 cellPaddi=
+ng=3D0 width=3D"100%">
+<TBODY>
+<TR vAlign=3Dtop>
+<TD style=3D"FONT-FAMILY: Arial, Helvetica, sans-serif; MAX-WIDTH: 100=
+%; COLOR: #000; FONT-SIZE: 10px" vAlign=3Dtop width=3D612 align=3Dmidd=
+le>
+<P>2015 =A9 OCU Ediciones, S.A Todos los derechos | Nuestra pol=EDtica=
+ de privacidad | Aviso Legal <BR>Si no quieres recibir m=E1s comunicac=
+iones comerciales, haz click <A style=3D"COLOR: #000000; TEXT-DECORATI=
+ON: none" href=3D"http://pratou.aguadelair.es/Desinscription.aspx?news=
+=3Dtabuco&amp;rails=3Dlcfib@fib.upc.es" target=3D_blank>aqu=ED</A></P>=
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD><!-- END COLU=
+MNA DE IMAGENES --></TR></TBODY></TABLE><!--END TABLA PRINCIPAL --></D=
+IV><!-- END DIV CONTENIDO --></TD><!-- END COLUMNA PRINCIPAL -->
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px"></TD></TR></TBODY></TABLE><!-- END B=
+ODY --><!-- FOOTER -->
+<TABLE style=3D"TEXT-ALIGN: center; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; CLEAR: both !impor=
+tant; PADDING-TOP: 0px" cellSpacing=3D0 cellPadding=3D0 align=3Dcenter=
+>
+<TBODY>
+<TR style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px">
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px"></A></TD>
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px;=
+ PADDING-RIGHT: 0px; DISPLAY: block !important; MAX-WIDTH: 600px !impo=
+rtant; CLEAR: both !important; PADDING-TOP: 0px"></TD>
+<TD style=3D"PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADD=
+ING-RIGHT: 0px; PADDING-TOP: 0px"></TD></TR></TBODY></TABLE><!--  END =
+FOOTER --></TD></TR></TBODY></TABLE><IMG border=3D0 alt=3D160114104443=
+51294 src=3D"http://pratou.aguadelair.es/?news=3Dtabuco&amp;rails=3Dlc=
+fib@fib.upc.es" width=3D1 height=3D1> </BODY></HTML>
+
+
+--XlgUWV62YK2iOMqmczrfjXRfLstH=_53me--
+
+
