@@ -80,12 +80,12 @@ class TestMailTicket(TestBase):
     self.assertTrue(msg.cal_tractar())
 	
   def test_mailticket_jdelgado(self):
-    """ Mail de justificant de recepció que no s'ha de tractar """
+    """ Mail de justificant de recepcio que no s'ha de tractar """
     msg=llegir_mail("jdelgado.txt")
     self.assertFalse(msg.cal_tractar())
 
   def test_mailticket_jdelgado(self):
-    """ Mail de justificant de recepció de Notes que no s'ha de tractar """
+    """ Mail de justificant de recepcio de Notes que no s'ha de tractar """
     msg=llegir_mail("receipt.txt")
     self.assertFalse(msg.cal_tractar())
 	
@@ -107,7 +107,11 @@ class TestMailTicket(TestBase):
   def test_mailticket_charset_raro(self):
     """ Possible error de conversio de charset """
     msg=llegir_mail("martin.txt")
-    self.assertEquals(msg.get_reply_to(),"martin@essi.upc.edu")
+    print msg.get_subject()
+    print msg.get_from()
+    print msg.get_subject_ascii()
+    print msg.get_body()
+    self.assertEquals(msg.get_from(),"martin@essi.upc.edu")
 
 class TestFiltreReply(TestBase):
 
