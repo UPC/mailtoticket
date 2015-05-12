@@ -38,7 +38,7 @@ class Filtre(object):
     return None
 
   def codificar_base_64_si_cal(self,attachment):
-    if attachment.get_content_type.startswith('text'):
+    if attachment.get_content_type().startswith('text'):
       return base64.b64encode(attachment.get_payload())
     else:
       return attachment.get_payload()
