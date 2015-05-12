@@ -37,14 +37,11 @@ class Filtre(object):
       return self.ldap.obtenir_uid(self.msg.get_reply_to())	  
     return None
 
-  def codificar_base_64_si_cal(self,dades):
-    try:
-      base64.b64decode(dades)
-      logger.info("Es un attachment que ja esta en base64")
-      return dades
-    except:
-      logger.info("Recodifico en base64")
-      return base64.b64encode(dades)    
+  def codificar_base_64_si_cal(self,attachment):
+    if attachment.get_content_type.startswith('text'):
+      return base64.b64encode(attachment.get_payload())
+    else:
+      return attachment.get_payload()
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
@@ -56,4 +53,4 @@ class Filtre(object):
       if fitxer==None:
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
       logger.info("Afegim attachment: %s" % fitxer)
-      self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a.get_payload()))
+      self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))
