@@ -51,13 +51,16 @@ class MailTicket:
     # Nomes admetem els salts de linia, tabuladors i a partir del 32
     return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or ord(x)>=32 else '' for x in s])
 
+  def nomes_ascii(self,s):    
+    return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or (ord(x)>=32 and ord(x)<=128) else '' for x in s])
+
   def tracta_subject(self):
     subject=self.msg['Subject']
-    resultat=unicode("")
+    resultat=u""
     fragments=decode_header(subject)
     for fragment in fragments:
       if fragment[1]==None:
-	      resultat+=fragment[0]
+        resultat+=self.nomes_ascii(fragment[0])
       else:
         resultat+=" "+fragment[0].decode(fragment[1])
     self.subject=resultat.replace('\n', ' ').replace('\r', '')
