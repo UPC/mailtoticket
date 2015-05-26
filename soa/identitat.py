@@ -1,9 +1,15 @@
-from suds.client import Client
+from settings import settings
 from soa.service import SOAService
 
 class GestioIdentitat(SOAService):
 
-  url="https://bus-soa.upc.edu/GestioIdentitat/Personesv5?wsdl"
+  username_soa=settings.get("username_soa_pre")
+  password_soa=settings.get("password_soa_pre")
 
-  def obtenir_dades_persona(self,cn):
-    return self.client.service.obtenirDadesPersona(commonName=cn)
+  url="https://bus-soades.upc.edu/GestioIdentitat/Personesv6?wsdl"
+
+  def obtenir_uid(self,mail):  
+    resultat=self.client.service.llistaPersones(email=mail)
+    print resultat
+    # TODO: falta veure l'estructura del resultat
+    return "jaume.moral"

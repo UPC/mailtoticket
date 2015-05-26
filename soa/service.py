@@ -7,6 +7,8 @@ class SOAService(object):
   username_soa=settings.get("username_soa")
   password_soa=settings.get("password_soa")
 
+  url = "https://bus-soades.upc.edu/GestioIdentitat/Personesv6?wsdl"
+
   def __init__(self):
     self.client=Client(self.url)
     security = Security()

@@ -7,10 +7,10 @@ logger = logging.getLogger(__name__)
 
 class Filtre(object):
 
-  def __init__(self,msg=None,tickets=None,ldap=None):
+  def __init__(self,msg=None,tickets=None,identitat=None):
     self.msg=msg
     self.tickets=tickets
-    self.ldap=ldap
+    self.identitat=identitat
 
   def set_mail(self,msg):
     self.msg=msg
@@ -18,8 +18,8 @@ class Filtre(object):
   def set_tickets(self,tickets):
     self.tickets=tickets
 
-  def set_ldap(self,ldap):
-    self.ldap=ldap
+  def set_identitat(self,identitat):
+    self.identitat=identitat
 
   def es_aplicable(self):
     return False
@@ -30,11 +30,11 @@ class Filtre(object):
   def get_uid(self):
     if self.msg.get_uid() != None:
       return self.msg.get_uid()
-    uid=self.ldap.obtenir_uid(self.msg.get_from())
+    uid=self.identitat.obtenir_uid(self.msg.get_from())
     if uid != None:
       return uid
     if self.msg.get_reply_to() != None:
-      return self.ldap.obtenir_uid(self.msg.get_reply_to())	  
+      return self.identitat.obtenir_uid(self.msg.get_reply_to())	  
     return None
 
   def codificar_base_64_si_cal(self,attachment):
