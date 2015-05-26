@@ -38,10 +38,11 @@ class Filtre(object):
     return None
 
   def codificar_base_64_si_cal(self,attachment):
-    if attachment.get_content_type().startswith('text'):
-      return base64.b64encode(attachment.get_payload())
+    if attachment['Content-Transfer-Encoding']=='base64':
+      return attachment.get_payload()      
     else:
-      return attachment.get_payload()
+      return base64.b64encode(attachment.get_payload())
+      
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
