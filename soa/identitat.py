@@ -8,8 +8,18 @@ class GestioIdentitat(SOAService):
 
   url="https://bus-soades.upc.edu/GestioIdentitat/Personesv6?wsdl"
 
+  mails_addicionals=settings["mails_addicionals"]
+
   def obtenir_uid(self,mail):  
-    resultat=self.client.service.llistaPersones(email=mail)
-    print resultat
-    # TODO: falta veure l'estructura del resultat
-    return "jaume.moral"
+    uid=None
+    try:
+      resultat=self.client.service.llistaPersones(email=mail)
+      print resultat
+      uid=resultat.llistaPersones.persona[0].cn
+    except:
+      try:
+        uid=self.mails_addicionals[mail]
+      except:
+        uid=None
+    finally:
+      return uid
