@@ -7,7 +7,6 @@ Estructura
 ----------
 
 El programa esta fet en python i utilitza els serveis SOA de la UPC de Identitat Digital i de gn6 amb la llibreria suds
-També es connecta a LDAP (via script extern) perque SOA no ens proporciona una forma d'obtenir el cn a partir del mail.
 
 Funciona conjuntament amb el sistema de filtre de mails maildrop
 
@@ -24,7 +23,6 @@ settings={
   "password_soa":"xxx",
   "username_gn6":"xxx",
   "password_gn6":"xxx",
-  "busca_mail":"/path/to/busca_mail.sh",
 
   "domini":999,
   "equip_resolutor_nous":"99999",

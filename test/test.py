@@ -107,10 +107,6 @@ class TestMailTicket(TestBase):
   def test_mailticket_charset_raro(self):
     """ Possible error de conversio de charset """
     msg=llegir_mail("martin.txt")
-    print msg.get_subject()
-    print msg.get_from()
-    print msg.get_subject_ascii()
-    print msg.get_body()
     self.assertEquals(msg.get_from(),"martin@essi.upc.edu")
 
 class TestFiltreReply(TestBase):
