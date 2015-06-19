@@ -12,7 +12,7 @@ class GestioIdentitat(SOAService):
     try:
       resultat=self.client.service.llistaPersones(email=mail)
       uid=resultat.llistaPersones.persona[0].cn
-    except Exception as e:
+    except:
       try:
         uid=self.mails_addicionals[mail]
       except:
