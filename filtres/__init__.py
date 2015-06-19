@@ -1,5 +1,5 @@
 from soa.tiquets import GestioTiquets
-from soa.ldap import GestioLDAP
+from soa.identitat import GestioIdentitat
 from settings import settings
 from filtres.nou import FiltreNou
 from filtres.reply import FiltreReply
@@ -20,19 +20,19 @@ def get_class( kls ):
     m = getattr(m, comp)            
   return m
 
-def aplicar_filtres(mail, tickets=None, ldap=None):
+def aplicar_filtres(mail, tickets=None, identitat=None):
   """
   Apliquem tots els filtres segons l'ordre definit al settings, mirant primer si son aplicables i aplicant despres
   """
   logger.info("Entro a mailtoticket"+mail.get_subject())
 
   if tickets is None: tickets=GestioTiquets()
-  if ldap is None: ldap=GestioLDAP()
+  if identitat is None: identitat=GestioIdentitat()
 
   filtres=[]
   for nom_filtre in settings["filtres"]:
     classe_filtre=get_class(nom_filtre)
-    filtre=classe_filtre(mail,tickets,ldap) # Aixo obte la classe i d'aqui crida al constructor
+    filtre=classe_filtre(mail,tickets,identitat) # Aixo obte la classe i d'aqui crida al constructor
     filtres.append(filtre)
 
   logger.info("Vaig a provar filtres %s" % str(filtres))
