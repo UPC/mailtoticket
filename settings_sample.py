@@ -8,7 +8,6 @@ settings={
   "password_soa":"xxx",
   "username_gn6":"xxx",
   "password_gn6":"xxx",
-  "busca_mail":"/path/to/busca_mail.sh",
 
   "domini":999,
   "equip_resolutor_nous":"99999",
