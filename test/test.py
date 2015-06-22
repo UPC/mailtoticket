@@ -146,6 +146,16 @@ class TestFiltreReply(TestBase):
     if f.es_aplicable():
       f.filtrar()
     self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['codiTiquet'],'581611')
+    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_PUBLIC')
+
+  def test_reply_privat(self):
+    """ Si fem un reply d'un comentari privat, el comentari ha de ser privat """ 
+    msg=llegir_mail("privat.txt")
+    f=FiltreReply(msg,self.tickets,self.identitat)
+    if f.es_aplicable():
+      f.filtrar()
+    print self.tickets.afegir_comentari_tiquet.call_args_list
+    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_INTERN')
 
 
 class TestAplicarFiltres(TestBase):

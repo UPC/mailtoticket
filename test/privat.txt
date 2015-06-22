@@ -1,0 +1,89 @@
+Message-ID: <558810FE.2030306@fib.upc.edu>
+Date: Mon, 22 Jun 2015 15:43:26 +0200
+From: Jaume Moral <jaumem@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0
+MIME-Version: 1.0
+To: inlab@fib.upc.edu
+Subject: Re: [Suport FIB] Jaume Moral Ros ha comentat al tiquet 594834 assignat
+ a inLab Web (Comentari intern)
+References: <23154820.160721434980358571.JavaMail.admofbiz@maul>
+In-Reply-To: <23154820.160721434980358571.JavaMail.admofbiz@maul>
+Content-Type: multipart/alternative;
+ boundary="------------090205020209040905010806"
+
+This is a multi-part message in MIME format.
+--------------090205020209040905010806
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Aquest comentari hauria de crear-se com a privat. A veure....
+
+El 22/06/2015 a las 15:39, inlab@fib.upc.edu escribiÃ³:
+>
+> L'usuari *Jaume Moral Ros* ha posat el segÃ¼ent comentari al tiquet 
+> 594834 amb prioritat *2:Mitja* que tens assignat.
+>
+> Comentari: *22-06-2015 15:39*
+>
+> Si poso un comentari intern arriba algo??
+>
+>
+>
+> Assumpte: Prova de comentari public/privat
+>
+> DescripciÃ³:
+>
+> Creo tickt
+>
+>
+>
+> Per accedir al tiquet prem sobre el segÃ¼ent enllaÃ§:
+> 594834 - Prova de comentari public/privat 
+> <https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=594834&idEmpresa=1001> 
+
+
+
+--------------090205020209040905010806
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    Aquest comentari hauria de crear-se com a privat. A veure....<br>
+    <br>
+    <div class="moz-cite-prefix">El 22/06/2015 a las 15:39,
+      <a class="moz-txt-link-abbreviated" href="mailto:inlab@fib.upc.edu">inlab@fib.upc.edu</a> escribiÃ³:<br>
+    </div>
+    <blockquote
+      cite="mid:23154820.160721434980358571.JavaMail.admofbiz@maul"
+      type="cite">
+      <p>
+        <title></title>
+        L'usuari <strong>Jaume Moral Ros</strong> ha posat el segÃ¼ent
+        comentari al tiquet 594834 amb prioritat <strong>2:Mitja</strong>
+        que tens assignat.<br>
+        <br>
+        Comentari: <strong>22-06-2015 15:39</strong><br>
+      </p>
+      <p>Si poso un comentari intern arriba algo??</p>
+      <br>
+      <br>
+      Assumpte: Prova de comentari public/privat<br>
+      <br>
+      DescripciÃ³:<br>
+      <p>Creo tickt</p>
+      <br>
+      <br>
+      Per accedir al tiquet prem sobre el segÃ¼ent enllaÃ§:<br>
+      <a moz-do-not-send="true"
+href="https://gestor.upcnet.es/tiquets/control/tiquetDetallDadesGenerals?requirementId=594834&amp;idEmpresa=1001">594834
+        - Prova de comentari public/privat</a>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------090205020209040905010806--
