@@ -11,6 +11,8 @@ class FiltreReply(Filtre):
   solicitant=None
   ticket_id=None
   regex_reply=settings["regex_reply"]
+  regex_privat=settings["regex_privat"]
+  privat=False
 
   def es_aplicable(self):
     logger.info("Filtre de reply");
@@ -22,6 +24,10 @@ class FiltreReply(Filtre):
       p=re.compile(self.regex_reply)
       m = p.match(subject)
       self.ticket_id=m.group(1)
+
+      intern=re.compile(self.regex_privat)
+      if intern.match(subject):
+        self.privat=True    
 
       logger.info ("Trobat ticket %s" % self.ticket_id);
 
@@ -59,7 +65,7 @@ class FiltreReply(Filtre):
       descripcio=("[Comentari afegit des del correu de %s del %s a les %s]<br><br>" % 
 	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
 		) +body,
-      tipusComentari='COMENT_TIQUET_PUBLIC',
+      tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
       esNotificat=notificat)
 
     if resultat['codiRetorn']!="1":
