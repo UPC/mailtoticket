@@ -154,8 +154,7 @@ class TestFiltreReply(TestBase):
     f=FiltreReply(msg,self.tickets,self.identitat)
     if f.es_aplicable():
       f.filtrar()
-    print self.tickets.afegir_comentari_tiquet.call_args_list
-    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_INTERN')
+    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_PRIVAT')
 
 
 class TestAplicarFiltres(TestBase):
