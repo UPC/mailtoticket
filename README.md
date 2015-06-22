@@ -39,6 +39,7 @@ settings={
   ],
 
   "regex_reply":".*?R[eE]:.*?\[Suport FIB\].*?([\d]+)",
+  "regex_privat":".*\(Comentari intern\)",
 
   "mails_addicionals":{
       "gestio.pfc@fib.upc.edu":"laura.palanca",
