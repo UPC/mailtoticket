@@ -1,7 +1,7 @@
 import re
 import time
 from filtres.filtre import Filtre
-from settings import settings
+import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -10,8 +10,8 @@ class FiltreReply(Filtre):
 
   solicitant=None
   ticket_id=None
-  regex_reply=settings["regex_reply"]
-  regex_privat=settings["regex_privat"]
+  regex_reply=settings.get("regex_reply")
+  regex_privat=settings.get("regex_privat")
   privat=False
 
   def es_aplicable(self):
