@@ -1,12 +1,12 @@
 from suds.client import Client
 from soa.service import SOAService
-from settings import settings
+import settings
 
 class GestioTiquets(SOAService):
 
-  username_gn6=settings["username_gn6"]
-  password_gn6=settings["password_gn6"]
-  domini=settings["domini"]
+  username_gn6=settings.get("username_gn6")
+  password_gn6=settings.get("password_gn6")
+  domini=settings.get("domini")
 
   url = "https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl"
 

@@ -1,11 +1,11 @@
-from settings import settings
+import settings
 from soa.service import SOAService
 
 class GestioIdentitat(SOAService):
   
   url="https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl"
 
-  mails_addicionals=settings["mails_addicionals"]
+  mails_addicionals=settings.get("mails_addicionals")
 
   def obtenir_uid(self,mail):  
     uid=None
