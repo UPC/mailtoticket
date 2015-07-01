@@ -10,11 +10,11 @@ class GestioIdentitat(SOAService):
   def obtenir_uid(self,mail):  
     uid=None
     try:
-      resultat=self.client.service.llistaPersones(email=mail)
-      uid=resultat.llistaPersones.persona[0].cn
+      uid=self.mails_addicionals[mail]      
     except:
       try:
-        uid=self.mails_addicionals[mail]
+        resultat=self.client.service.llistaPersones(email=mail)
+        uid=resultat.llistaPersones.persona[0].cn  
       except:
         uid=None
     finally:
