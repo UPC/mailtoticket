@@ -10,4 +10,4 @@ if __name__ == '__main__':
   mail=sys.argv[1]
   identitat=GestioIdentitat()
   uid=identitat.obtenir_uid(mail)
-  print  "El username associat a aquest mail es:" + mail
+  print  "El username associat a aquest mail es:" + uid
