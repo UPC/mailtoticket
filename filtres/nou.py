@@ -1,6 +1,6 @@
 import time
 from filtres.filtre import Filtre
-from settings import settings
+import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -9,8 +9,8 @@ class FiltreNou(Filtre):
 
   solicitant=None
   ticket_id=None
-  valors_defecte=settings["valors_defecte"]
-  equip_resolutor_nous=settings["equip_resolutor_nous"]
+  valors_defecte=settings.get("valors_defecte")
+  equip_resolutor_nous=settings.get("equip_resolutor_nous")
 
   def es_aplicable(self):
     logger.info("Filtre de Nou")
