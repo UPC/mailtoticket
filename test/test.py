@@ -9,7 +9,7 @@ import unittest
 import mock
 import logging
 import tempfile
-from settings import settings
+import settings
 
 def llegir_mail(msgfile): 
   fp = open("test/"+msgfile)
@@ -192,7 +192,7 @@ class TestAplicarFiltres(TestBase):
 class TestSettings(unittest.TestCase):
 
   def desactivat_test_settings_normal(self):
-    self.assertEquals(settings["domini"],1001)
+    self.assertEquals(settings.get("domini"),1001)
 
 
 if __name__ == '__main__':
