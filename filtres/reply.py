@@ -67,7 +67,7 @@ class FiltreReply(Filtre):
 	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
 		) +body,
       tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
-      esNotificat=notificat)
+      esNotificat=notificat if not self.privat else 'N')
 
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
