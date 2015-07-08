@@ -8,12 +8,13 @@ class GestioIdentitat(SOAService):
   mails_addicionals=settings.get("mails_addicionals")
 
   def obtenir_uid(self,mail):  
+    mail_canonic=mail.replace(".es",".edu")
     uid=None
     try:
-      uid=self.mails_addicionals[mail]      
+      uid=self.mails_addicionals[mail_canonic]      
     except:
       try:
-        resultat=self.client.service.llistaPersones(email=mail)
+        resultat=self.client.service.llistaPersones(email=mail_canonic)
         uid=resultat.llistaPersones.persona[0].cn  
       except:
         uid=None
