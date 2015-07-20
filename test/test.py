@@ -94,11 +94,6 @@ class TestMailTicket(TestBase):
     msg=llegir_mail("calabuig.txt")
     self.assertFalse(msg.cal_tractar())	
 
-  def test_mailticket_mail_upc(self):
-    """ Mail upc sense necessitat de consultar cap servei """
-    msg=llegir_mail("mailupc.txt")
-    self.assertEquals(msg.get_uid(),"usuari.prova")	
-
   def test_mailticket_reply_to(self):
     """ Obtenim la persona a partir del reply-to """
     msg=llegir_mail("andujar.txt")
