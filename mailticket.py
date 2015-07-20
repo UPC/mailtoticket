@@ -81,9 +81,6 @@ class MailTicket:
 	
   def get_uid(self):
     uid=None
-    m = re.match("(.*)@upc.edu",self.get_from())
-    if m:
-      return m.group(1)
     m = re.match("(.*)@est.fib.upc.edu",self.get_from())
     if m:
       return m.group(1)	  
