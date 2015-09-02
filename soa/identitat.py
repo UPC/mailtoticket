@@ -27,13 +27,9 @@ class GestioIdentitat(SOAService):
         else:
           # Si tenim mes d'un, busquem el que te el mail que busquem com a preferent o be retornem el primer
           for persona in resultat.llistaPersones.persona:
-            print "busco:"
-            print persona
             dades_persona=self.client.service.obtenirDadesPersona(commonName=persona.cn)
-            print dades_persona
             if (self.canonicalitzar_mail(dades_persona.emailPreferent)==mail_canonic):
               uid=persona.cn
-            print uid
           if uid==None:
             resultat.llistaPersones.persona[0].cn
       except:
