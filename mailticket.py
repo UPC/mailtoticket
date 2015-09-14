@@ -115,6 +115,8 @@ class MailTicket:
 
 
   def text2html(self,text):
+    text=text.replace("<","&lt;")
+    text=text.replace(">","&gt;")
     return "<br>\n".join(text.split("\n"))
 
   def get_attachments(self):
