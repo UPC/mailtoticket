@@ -8,6 +8,7 @@ class FiltreReplyTancat(FiltreReplyTancat):
 
   def filtrar(self):
     if self.ticket['estat']=='TIQUET_STATUS_TANCAT':
+    	logger.info ("Repbrim el ticket tancat %s" % self.ticket_id);
         resultat=self.tickets.modificar_tiquet(
             codiTiquet=self.ticket_id,
             estat='TIQUET_STATUS_OBERT'
