@@ -1,10 +1,11 @@
-from filtres.reply import FiltreReply
+from filtres.filtre import Filtre
+from filtres.nou import FiltreNou
 import settings
 
 import logging
 logger = logging.getLogger(__name__)
 
-class FiltreReplyTancat(FiltreReplyTancat):
+class FiltreNouExtern(FiltreNou):
 
   def es_aplicable(self):
     logger.info("Filtre de Nou Extern, s'aplica sempre")
