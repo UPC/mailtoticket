@@ -37,7 +37,7 @@ class FiltreReply(Filtre):
       self.ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
 
       # Mirem qui ha creat el ticket
-      self.solicitant_segons_ticket=ticket['solicitant']
+      self.solicitant_segons_ticket=self.ticket['solicitant']
       self.solicitant=self.solicitant_segons_ticket
       logger.info ("Ticket de %s" % self.solicitant);
       logger.info ("Mail de %s" % self.msg.get_from());
