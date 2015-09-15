@@ -9,10 +9,11 @@ logger = logging.getLogger(__name__)
 class FiltreReply(Filtre):
 
   solicitant=None
-  ticket_id=None
+  ticket_id=None  
   regex_reply=settings.get("regex_reply")
   regex_privat=settings.get("regex_privat")
   privat=False
+  ticket=None
 
   def es_aplicable(self):
     logger.info("Filtre de reply");
@@ -33,7 +34,7 @@ class FiltreReply(Filtre):
 
 
       # Mirem si es un ticket valid
-      ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
+      self.ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
 
       # Mirem qui ha creat el ticket
       self.solicitant_segons_ticket=ticket['solicitant']
