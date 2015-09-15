@@ -4,7 +4,7 @@ import settings
 import logging
 logger = logging.getLogger(__name__)
 
-class FiltreReplyTancat(FiltreReplyTancat):
+class FiltreReplyTancat(FiltreReply):
 
   def filtrar(self):
     if self.ticket['estat']=='TIQUET_STATUS_TANCAT':
