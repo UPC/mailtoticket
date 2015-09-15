@@ -14,4 +14,4 @@ class FiltreReplyReobrint(FiltreReply):
             codiTiquet=self.ticket_id,
             estat='TIQUET_STATUS_OBERT'
         )
-    FiltreReply.filtrar(self)
+    return FiltreReply.filtrar(self)
