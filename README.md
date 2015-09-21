@@ -10,6 +10,15 @@ El programa esta fet en python i utilitza els serveis SOA de la UPC de Identitat
 
 Funciona conjuntament amb el sistema de filtre de mails maildrop
 
+Requeriments
+------------
+
+* Python (a partir de 2.5)
+* Maildrop i, opcionalment, dmail
+* Usuari SOA d'accés a gn6
+* Accés al servei SOA https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl
+* Accés al servei SOA https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl
+
 Configuració
 ------------
 
@@ -26,6 +35,7 @@ settings={
 
   "domini":999,
   "equip_resolutor_nous":"99999",
+  "usuari_extern":"11763",
   "valors_defecte":{
     "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"}
   },
@@ -101,11 +111,6 @@ EXITCODE= 0
 to "| /home/soft/bin/dmail +nsmail/$NOPROCESADO" 
  ```
 
-busca_mail.sh
--------------
-
-L'exemple que hi ha va contra el LDAP de la FIB. Hauria de ser trivial migrar-lo al LDAP general
-
 
 Funcionament del MailToTicket
 -----------------------------
@@ -128,11 +133,22 @@ Filtre de Reply
 * Si l'adreça des de la que envien el mail es coneguda, crea el ticket en nom seu. Si no, en nom del solicitant
 * No afegim comentaris a tickets tancats (es el comportament per defecte de la API).
 
+Filtre de Reply Reobrint
+
+* Es una extensio del Filtre de Reply
+* Reobre els ticket tancats quan s'hi fa reply
+
 Filtre de Nou
 
 * Tracta mails nous que s'han de crear com a nous tickets
 * Han de tenir una adreça coneguda
 * Podem fer que certes adreces desti (alias que van a parar al mateixa bustia) crein els tickets amb diferents parametres, per configuració
+
+Filtre de Nou Extern
+
+* Es una extensio del Filtre de Nou
+* Crea tickets també per usuaris no coneguts amb l'usuari definit al parametre "usuari_extern"
+
 
 Podriem afegir mes filtres detectant per exemple certes paraules claus per fer que els tickets ja quedin automàticament classificats o per exemple reply a tickets tancats que implementin reobrir el ticket en certs casos (quan no siguin per exemple agraiments...). La llista es llarga!
 
