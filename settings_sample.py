@@ -36,7 +36,7 @@ settings={
 
   # Filtrs actius. També podem utilitzar 
   # - filtres.reply_reobrint.FiltreRepyReobrint (que reobre tickets tancats)
-  # - filtres.nou.FiltreNouExtern (que obre tickets d'usuaris desconeguts)
+  # - filtres.nou_extern.FiltreNouExtern (que obre tickets d'usuaris desconeguts)
   "filtres":[
     "filtres.reply.FiltreReply",
     "filtres.nou.FiltreNou"
