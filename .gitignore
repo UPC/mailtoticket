@@ -1,4 +1,6 @@
 env.sh
 *.pyc
-settings_default.py
+*settings*
+!settings.py
+!settings_sample.py
 instala.sh

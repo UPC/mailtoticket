@@ -15,56 +15,83 @@ Requeriments
 
 * Python (a partir de 2.5)
 * Maildrop i, opcionalment, dmail
-* Usuari SOA d'accés a gn6
+* Usuari per accedir a gn6 via SOA
+* Usuari per accedir al bus SOA
 * Accés al servei SOA https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl
 * Accés al servei SOA https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl
 
 Configuració
 ------------
 
-S'ha de crear el _settings_default.py_ a partir del settings_sample.py, on hi ha els següents parametres
+S'ha de crear el _settings_default.py_ a partir del settings_sample.py, on hi ha els següents parametres,
+autocomentats
+
  ```
-import logging
-import tempfile
+# Descomentar això si volem fer servir mailtoticket 
+# en diferents comptes a la mateixa maquina
+# Deixa els temporals al $HOME/tmp
+# 
+# tempfile.tempdir=os.environ['HOME']+"/tmp"
 
 settings={
+
+  # Usuaris SOA i gn6
   "username_soa":"xxx",
   "password_soa":"xxx",
   "username_gn6":"xxx",
   "password_gn6":"xxx",
 
+  # Instància de gn6 on volem crear els tickets
   "domini":999,
+
+  # ID de l'equip resolutor per defecte on s'han de crear els tickets
   "equip_resolutor_nous":"99999",
+
+  # ID de l'usuari al qual es crearan els tickets d'usuaris dels que no tenim el mail
+  # (unicament si fem servir el filtre FiltreNouExtern)
   "usuari_extern":"11763",
+
+  # Valors amb els que creem els tickets dependent de l'adreça a la qual hem enviat 
+  # el mail. A part de l'equipResolutor, es poden canviar tots els paramatres 
+  # documentats al servei SOA de creació de tickets (prioritat, tipus...)
   "valors_defecte":{
     "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"}
   },
 
-  "log_file":tempfile.gettempdir()+"/mailtoticket.log",
-  "log_level":logging.DEBUG,
-
+  # Filtrs actius. També podem utilitzar 
+  # - filtres.reply_reobrint.FiltreRepyReobrint (que reobre tickets tancats)
+  # - filtres.nou.FiltreNouExtern (que obre tickets d'usuaris desconeguts)
   "filtres":[
     "filtres.reply.FiltreReply",
     "filtres.nou.FiltreNou"
   ],
 
+  # Patrons per detectar el número de ticket i si un ticket es un comentari intern
+  # Pel comentari intern, s'ha de tocar la plantilla a gn6 per afegir-ho
   "regex_reply":".*?R[eE]:.*?\[Suport FIB\].*?([\d]+)",
   "regex_privat":".*\(Comentari intern\)",
 
+  # Mails addicionals propis de cada unitat, que no podem trobar a Identitat Digital
+  # Per cada mail, diem a nom de quin usuari s'han de crear els tickets
   "mails_addicionals":{
       "gestio.pfc@fib.upc.edu":"laura.palanca",
       "cap.estudis@fib.upc.edu":"fib.cap.estudis",
   },
 
+  # Filtres d'attachments que no volem processar (típicament signatures)
   "filtrar_attachments_per_nom":[
     "paic\d+.jpg"
   ],
-
   "filtrar_attachments_per_hash":[
     "76f6a359e98f9e0effc214033373b9cf",
     "7526d0f3f7864090353c181158b218c3"
-  ]
+  ],
+
+  # Fitxers de log
+  "log_file":tempfile.gettempdir()+"/mailtoticket.log",
+  "log_level":logging.INFO,
 } 
+
 ```
 
 Es poden crear altres filtxers de configuracio que es podran llegir executant mailtoticket.py -c settings_alternatius (sense l'extensio .py)
@@ -75,7 +102,16 @@ Instalació a la bustia
 La idea es que mailtoticket funcionarà com un filtre de maildrop. 
 La configuració d'aquest filtre serà d'aquest estil (fitxer .mailfilter)
 Haurem de configurar on està el script mailtoticket.py i d'altres paràmetres
- ```
+
+Per fer aixo haurem de crear dos fitxers: .forward i .mailfilter. 
+
+* .forward
+```
+"| /home/soft/maildrop/bin/maildrop -d ${USER}"
+```
+
+* .mailfilter
+```
 MAILBOX= "$HOME/nsmail" 
 logfile "/tmp/maildrop.log" 
 log "Inicio log maildrop" 
@@ -109,7 +145,7 @@ if (/$MARK/)
 log "El mensaje no processat" 
 EXITCODE= 0
 to "| /home/soft/bin/dmail +nsmail/$NOPROCESADO" 
- ```
+```
 
 
 Funcionament del MailToTicket
