@@ -78,7 +78,7 @@ settings={
       "cap.estudis@fib.upc.edu":"fib.cap.estudis",
   },
 
-  # Mails dels que no volem crear ticket per la raó que sigui
+  # Mails dels que no volem crear ticket per la rao que sigui
   "mails_no_ticket":[
     "cursos.slt@upc.edu"
   ],
