@@ -165,7 +165,7 @@ class MailTicket:
     return len(self.get_attachments())>0
 	
   def cal_tractar(self):
-    if self.get_from() in mails_no_ticket: return False
+    if self.get_from() in self.mails_no_ticket: return False
     if self.msg.get_content_type()=="multipart/report": return False
     if "Return Receipt" in self.get_body(): return False
     if "DELIVERY FAILURE" in self.get_subject(): return False
