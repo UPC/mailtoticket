@@ -14,6 +14,7 @@ class MailTicket:
 
   filtrar_attachments_per_nom=settings.get("filtrar_attachments_per_nom")
   filtrar_attachments_per_hash=settings.get("filtrar_attachments_per_hash")
+  mails_no_ticket=settings.get("mails_no_ticket")
 
   def __init__(self,file):
     self.msg = email.message_from_file(file)
@@ -164,6 +165,7 @@ class MailTicket:
     return len(self.get_attachments())>0
 	
   def cal_tractar(self):
+    if self.get_from() in mails_no_ticket: return False
     if self.msg.get_content_type()=="multipart/report": return False
     if "Return Receipt" in self.get_body(): return False
     if "DELIVERY FAILURE" in self.get_subject(): return False

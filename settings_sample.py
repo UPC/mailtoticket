@@ -50,9 +50,14 @@ settings={
   # Mails addicionals propis de cada unitat, que no podem trobar a Identitat Digital
   # Per cada mail, diem a nom de quin usuari s'han de crear els tickets
   "mails_addicionals":{
-      "gestio.pfc@fib.upc.edu":"laura.palanca",
-      "cap.estudis@fib.upc.edu":"fib.cap.estudis",
+    "gestio.pfc@fib.upc.edu":"laura.palanca",
+    "cap.estudis@fib.upc.edu":"fib.cap.estudis",
   },
+
+  # Mails dels que no volem crear ticket per la raó que sigui
+  "mails_no_ticket":[
+    "cursos.slt@upc.edu"
+  ],
 
   # Filtres d'attachments que no volem processar (típicament signatures)
   "filtrar_attachments_per_nom":[
