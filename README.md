@@ -78,6 +78,11 @@ settings={
       "cap.estudis@fib.upc.edu":"fib.cap.estudis",
   },
 
+  # Mails dels que no volem crear ticket per la raó que sigui
+  "mails_no_ticket":[
+    "cursos.slt@upc.edu"
+  ],
+
   # Filtres d'attachments que no volem processar (típicament signatures)
   "filtrar_attachments_per_nom":[
     "paic\d+.jpg"
