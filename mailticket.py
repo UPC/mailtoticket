@@ -57,6 +57,9 @@ class MailTicket:
 
   def tracta_subject(self):
     subject=self.msg['Subject']
+    if subject==None:
+      self.subject=u""
+      return
     resultat=u""
     fragments=decode_header(subject)
     for fragment in fragments:
