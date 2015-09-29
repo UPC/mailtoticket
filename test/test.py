@@ -183,7 +183,16 @@ class TestAplicarFiltres(TestBase):
     resultat=filtres.aplicar_filtres(msg,self.tickets,self.identitat)    
     self.assertTrue(self.tickets.alta_tiquet.called)
     self.assertEquals(self.tickets.modificar_tiquet.call_args_list[0][1]['emailSolicitant'],'jaume.moral@upc.edu')	
-	
+
+  def test_aplicar_nou_sense_subject(self):
+    """ Un mail sense subject ha de crear ticket amb subject "Ticket sense subject" """ 
+    msg=llegir_mail("sense.txt")
+    self.assertEquals(msg.get_subject(),'')
+    resultat=filtres.aplicar_filtres(msg,self.tickets,self.identitat)
+    self.assertTrue(resultat)  	
+    self.assertTrue(self.tickets.alta_tiquet.called)
+    self.assertEquals(self.tickets.alta_tiquet.call_args_list[0][1]['assumpte'],'Ticket sense subject')
+
 class TestSettings(unittest.TestCase):
 
   def desactivat_test_settings_normal(self):

@@ -1,0 +1,12 @@
+To: Webmaster <webmaster@fib.upc.edu>
+From: Jaume Moral <jaumem@fib.upc.edu>
+X-Username-Upc:  manel.rodero
+Message-ID: <56094C29.2050908@fib.upc.edu>
+Date: Mon, 28 Sep 2015 16:18:17 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:38.0) Gecko/20100101
+ Thunderbird/38.2.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Ticket en que no poso subject, a veure que passa

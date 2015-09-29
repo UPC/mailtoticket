@@ -14,4 +14,7 @@ def get(clau):
     return settings[clau]
   except:
     load()
-    return settings[clau]
+    try:
+      return settings[clau]
+    except:
+      return None

@@ -24,7 +24,7 @@ class FiltreNou(Filtre):
     logger.info("Aplico filtre...")
     body=self.msg.get_body()
     subject=self.msg.get_subject()
-    if subject==None:
+    if len(subject)==0:
       subject="Ticket sense subject"
     recipient=self.msg.get_to()
     if recipient in self.valors_defecte:
