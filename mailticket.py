@@ -12,16 +12,15 @@ logger = logging.getLogger(__name__)
 class MailTicket:
   """ Classe que encapsula un mail que es convertira en un ticket """
 
-  filtrar_attachments_per_nom=settings.get("filtrar_attachments_per_nom")
-  filtrar_attachments_per_hash=settings.get("filtrar_attachments_per_hash")
-  mails_no_ticket=settings.get("mails_no_ticket")
-
   def __init__(self,file):
+    self.filtrar_attachments_per_nom=settings.get("filtrar_attachments_per_nom")
+    self.filtrar_attachments_per_hash=settings.get("filtrar_attachments_per_hash")
+    self.mails_no_ticket=settings.get("mails_no_ticket")
+
     self.msg = email.message_from_file(file)
     # Farem lazy initialization d'aquestes 2 properties per si hi ha algun error
     self.body=None
     self.subject=None
-
 
   def tracta_body(self):
     if not self.msg.is_multipart():

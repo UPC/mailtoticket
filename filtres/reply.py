@@ -9,9 +9,7 @@ logger = logging.getLogger(__name__)
 class FiltreReply(Filtre):
 
   solicitant=None
-  ticket_id=None  
-  regex_reply=settings.get("regex_reply")
-  regex_privat=settings.get("regex_privat")
+  ticket_id=None    
   privat=False
   ticket=None
 
@@ -22,12 +20,14 @@ class FiltreReply(Filtre):
       # Ara anem a veure que podem fer amb aquest missatge
       subject = self.msg.get_subject_ascii()
       logger.info ("Buscant numero a  %s" % subject);
-      p=re.compile(self.regex_reply)
+      regex_reply=settings.get("regex_reply")
+      p=re.compile(regex_reply)
       m = p.match(subject)
       self.ticket_id=m.group(1)
       logger.info ("Trobat ticket %s" % self.ticket_id);
 
-      intern=re.compile(self.regex_privat)
+      regex_privat=settings.get("regex_privat")
+      intern=re.compile(regex_privat)
       if intern.match(subject):
         logger.info ("El comentari es privat");
         self.privat=True    

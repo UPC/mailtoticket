@@ -1,6 +1,6 @@
 from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
-from settings import settings
+import settings
 from filtres.nou import FiltreNou
 from filtres.reply import FiltreReply
 
@@ -30,7 +30,7 @@ def aplicar_filtres(mail, tickets=None, identitat=None):
   if identitat is None: identitat=GestioIdentitat()
 
   filtres=[]
-  for nom_filtre in settings["filtres"]:
+  for nom_filtre in settings.get("filtres"):
     classe_filtre=get_class(nom_filtre)
     filtre=classe_filtre(mail,tickets,identitat) # Aixo obte la classe i d'aqui crida al constructor
     filtres.append(filtre)

@@ -3,9 +3,10 @@ from soa.service import SOAService
 
 class GestioIdentitat(SOAService):
   
-  url="https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl"
-
-  mails_addicionals=settings.get("mails_addicionals")
+  def __init__(self):
+    self.url="https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl"
+    self.mails_addicionals=settings.get("mails_addicionals")
+    SOAService.__init__(self)
 
   def canonicalitzar_mail(self,mail):
     mail_canonic=mail.lower()

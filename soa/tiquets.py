@@ -4,11 +4,12 @@ import settings
 
 class GestioTiquets(SOAService):
 
-  username_gn6=settings.get("username_gn6")
-  password_gn6=settings.get("password_gn6")
-  domini=settings.get("domini")
-
-  url = "https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl"
+  def __init__(self):
+    self.url="https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl"
+    self.username_gn6=settings.get("username_gn6")
+    self.password_gn6=settings.get("password_gn6")
+    self.domini=settings.get("domini")
+    SOAService.__init__(self)
 
   def consulta_tiquet(self,codi):
     resultat=self.consulta_tiquets(codi=codi)
