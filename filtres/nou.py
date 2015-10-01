@@ -9,8 +9,6 @@ class FiltreNou(Filtre):
 
   solicitant=None
   ticket_id=None
-  valors_defecte=settings.get("valors_defecte")
-  equip_resolutor_nous=settings.get("equip_resolutor_nous")
 
   def es_aplicable(self):
     logger.info("Filtre de Nou")
@@ -27,12 +25,14 @@ class FiltreNou(Filtre):
     if len(subject)==0:
       subject="Ticket sense subject"
     recipient=self.msg.get_to()
-    if recipient in self.valors_defecte:
+    valors_defecte=settings.get("valors_defecte")
+    equip_resolutor_nous=settings.get("equip_resolutor_nous")    
+    if recipient in valors_defecte:
       logger.info("Tinc parametres adicionals de %s" % recipient)
-      parametres_addicionals=self.valors_defecte[recipient]
+      parametres_addicionals=valors_defecte[recipient]
     else:
-      logger.info("Poso equip resolutor %s" % self.equip_resolutor_nous)
-      parametres_addicionals={"equipResolutor":self.equip_resolutor_nous}
+      logger.info("Poso equip resolutor %s" % equip_resolutor_nous)
+      parametres_addicionals={"equipResolutor":equip_resolutor_nous}
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
