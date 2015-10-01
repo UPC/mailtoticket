@@ -9,7 +9,7 @@ def load(module="settings_default"):
   settings=m.settings
 
 def get(clau):  
-  if not 'settings' in locals():
+  if not 'settings' in globals():
     load()
   global settings  
   try:
