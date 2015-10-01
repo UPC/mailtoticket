@@ -8,13 +8,11 @@ def load(module="settings_default"):
   m=__import__(module,"settings")
   settings=m.settings
 
-def get(clau):
+def get(clau):  
+  if not 'settings' in locals():
+    load()
   global settings  
   try:
     return settings[clau]
   except:
-    load()
-    try:
-      return settings[clau]
-    except:
-      return None
+    return None
