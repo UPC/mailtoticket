@@ -9,7 +9,7 @@ import getopt
 import logging
 from StringIO import StringIO
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger()
 
 if __name__ == '__main__':
   a=None
@@ -20,7 +20,7 @@ if __name__ == '__main__':
   logging.basicConfig(
     filename=settings.get("log_file"),
     level=settings.get("log_level"),
-    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s' 
+    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
     )
 
   buffer = StringIO()
