@@ -8,5 +8,6 @@ if len(sys.argv)<2:
 
 id=sys.argv[1]
 tiquets=GestioTiquets()
+print tiquets.username_gn6
 dades=tiquets.consulta_tiquet(id)
 print dades

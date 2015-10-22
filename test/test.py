@@ -198,6 +198,16 @@ class TestSettings(unittest.TestCase):
   def desactivat_test_settings_normal(self):
     self.assertEquals(settings.get("domini"),1001)
 
+class TestMails(unittest.TestCase):
+
+  def test_patrons_mail(self):
+    identitat=GestioIdentitat()
+    uid=identitat.obtenir_uid_local("jaume.moral@upc.edu")
+    self.assertEquals("jaume.moral",uid)
+    uid=identitat.obtenir_uid_local("usuari.qualsevol@upcnet.es")
+    self.assertEquals("usuari.qualsevol",uid)
+    uid=identitat.obtenir_uid_local("root@ac.upc.edu")
+    self.assertEquals("usuari.generic",uid)
 
 if __name__ == '__main__':
   unittest.main()
