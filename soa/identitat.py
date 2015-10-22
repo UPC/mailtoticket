@@ -23,7 +23,7 @@ class GestioIdentitat(SOAService):
     uid=self.obtenir_uid_remot(mail_canonic)
     return uid
 
-  def obtenir_remot(self,mail):  
+  def obtenir_uid_remot(self,mail):  
     uid=None
     try:
       resultat=self.client.service.llistaPersones(email=mail_canonic)
