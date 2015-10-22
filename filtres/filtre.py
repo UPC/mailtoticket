@@ -28,8 +28,6 @@ class Filtre(object):
     return
   
   def get_uid(self):
-    if self.msg.get_uid() != None:
-      return self.msg.get_uid()
     uid=self.identitat.obtenir_uid(self.msg.get_from())
     if uid != None:
       return uid
