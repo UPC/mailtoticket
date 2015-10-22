@@ -82,16 +82,6 @@ class MailTicket:
     if len(email)==0: return None
     return email.lower()
 	
-  def get_uid(self):
-    uid=None
-    m = re.match("(.*)@est.fib.upc.edu",self.get_from())
-    if m:
-      return m.group(1)	  
-    try:
-      uid=self.msg['X-TiquetsGN6'].lower().split('/')[0].split("=")[1].replace(" ",".")
-    finally:
-      return uid
-
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
     try:
