@@ -26,7 +26,7 @@ class GestioIdentitat(SOAService):
   def obtenir_uid_remot(self,mail):  
     uid=None
     try:
-      resultat=self.client.service.llistaPersones(email=mail_canonic)
+      resultat=self.client.service.llistaPersones(email=mail)
       if len(resultat.llistaPersones.persona)==1:
         # Quan tenim un resultat, es aquest
         uid=resultat.llistaPersones.persona[0].cn  
@@ -34,20 +34,19 @@ class GestioIdentitat(SOAService):
         # Si tenim mes d'un, busquem el que te el mail que busquem com a preferent o be retornem el primer
         for persona in resultat.llistaPersones.persona:
           dades_persona=self.client.service.obtenirDadesPersona(commonName=persona.cn)
-          if (self.canonicalitzar_mail(dades_persona.emailPreferent)==mail_canonic):
+          if (self.canonicalitzar_mail(dades_persona.emailPreferent)==mail):
             uid=persona.cn
         if uid==None:
-          resultat.llistaPersones.persona[0].cn
+          uid=resultat.llistaPersones.persona[0].cn
     except:
       uid=None
     finally:
       return uid
 
   def obtenir_uid_local(self,mail):  
-    mail_canonic=self.canonicalitzar_mail(mail)
     uid=None
     try:      
-      uid=self.mails_addicionals[mail_canonic]      
+      uid=self.mails_addicionals[mail]      
     except:
       for k,v in self.patrons_mails_addicionals.iteritems():
         patro=re.compile(k)
@@ -59,6 +58,6 @@ class GestioIdentitat(SOAService):
             uid=v % m.group(1)
           else:
             uid=v
-      return None
+      uid=None
     finally:
       return uid
