@@ -13,6 +13,7 @@ class GestioTiquets(SOAService):
 
   def consulta_tiquet(self,codi):
     resultat=self.consulta_tiquets(codi=codi)
+    print resultat
     return resultat.llistaTiquets[0]
 
   def consulta_tiquets(self,**kwargs):
