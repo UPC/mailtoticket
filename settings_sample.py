@@ -62,7 +62,6 @@ settings={
     "^(.*)@upcnet.es$":"%s"
   },
 
-
   # Mails dels que no volem crear ticket per la raó que sigui
   "mails_no_ticket":[
     "cursos.slt@upc.edu"
