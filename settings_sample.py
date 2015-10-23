@@ -54,6 +54,15 @@ settings={
     "cap.estudis@fib.upc.edu":"fib.cap.estudis",
   },
 
+  # Patrons de mail que equivalen a un usuari concret o be 
+  # a una backreference del patro (ex: jaume.moral@upc.edu -> jaume.moral)
+  "patrons_mail_addicionals": {
+    "^root@(.*).fib.upc.es$":"usuari.generic",
+    "^(.*)@upc.edu$":"%s",
+    "^(.*)@upcnet.es$":"%s"
+  },
+
+
   # Mails dels que no volem crear ticket per la raó que sigui
   "mails_no_ticket":[
     "cursos.slt@upc.edu"
@@ -71,5 +80,10 @@ settings={
   # Fitxers de log
   "log_file":tempfile.gettempdir()+"/mailtoticket.log",
   "log_level":logging.INFO,
-} 
 
+  # Mails de notificació quan no es pot tractar el ticket
+  "notificar_errors":True,
+  "notificar_errors_from":"mailtoticket@upc.edu",
+  "notificar_errors_to":"jaumem@fib.upc.edu",
+  "servidor_mail":"mail.fib.upc.edu"
+} 
