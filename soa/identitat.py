@@ -6,8 +6,7 @@ class GestioIdentitat(SOAService):
   
   def __init__(self):
     self.url="https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl"
-    self.mails_addicionals=settings.get("mails_addicionals")
-    self.patrons_mails_addicionals=settings.get("patrons_mail_addicionals")
+    self.identitat_local=GestioIdentitatLocal()
     SOAService.__init__(self)
 
   def canonicalitzar_mail(self,mail):
@@ -20,7 +19,7 @@ class GestioIdentitat(SOAService):
     mail_canonic=self.canonicalitzar_mail(mail)
     uid=self.obtenir_uid_local(mail_canonic)
     if uid!=None: return uid
-    uid=self.obtenir_uid_remot(mail_canonic)
+    uid=self.identitat_local.obtenir_uid_remot(mail_canonic)
     return uid
 
   def obtenir_uid_remot(self,mail):  
@@ -43,21 +42,23 @@ class GestioIdentitat(SOAService):
     finally:
       return uid
 
+
+class GestioIdentitatLocal:
+
+  def __init__(self):
+    self.mails_addicionals=settings.get("mails_addicionals")
+    self.patrons_mails_addicionals=settings.get("patrons_mail_addicionals")
+
   def obtenir_uid_local(self,mail):  
-    uid=None
     try:      
-      uid=self.mails_addicionals[mail]      
+      return self.mails_addicionals[mail]      
     except:
       for k,v in self.patrons_mails_addicionals.iteritems():
         patro=re.compile(k)
         m=patro.match(mail)
-        print k
         if m:
-          print m.groups()
-          if len(m.groups())>0:
-            uid=v % m.group(1)
-          else:
-            uid=v
-      uid=None
-    finally:
-      return uid
+          try:
+            return v % m.group(1)
+          except:
+            return v
+      return None

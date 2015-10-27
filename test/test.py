@@ -4,6 +4,7 @@ from filtres.nou import FiltreNou
 from mailticket import MailTicket
 from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
+from soa.identitat import GestioIdentitatLocal
 import filtres
 import unittest
 import mock
@@ -19,6 +20,7 @@ def llegir_mail(msgfile):
 
 class TestBase(unittest.TestCase):
   def setUp(self):
+    settings.load("settings_sample")
     logging.basicConfig(filename=tempfile.gettempdir()+"/test.log",level=logging.DEBUG)
     self.tickets=mock.create_autospec(GestioTiquets)
     self.tickets.consulta_tiquet.return_value={"solicitant":"jaume.moral"}
@@ -62,11 +64,6 @@ class TestMailTicket(TestBase):
     """ Un mail sense attachments ha de retornar que no te attachments """
     msg=llegir_mail("reply4.txt")
     self.assertTrue(not msg.te_attachments())
-
-  def test_mailticket_uid(self):
-    """ Un mail de notes d'una bustia generica te el username incrustat """
-    msg=llegir_mail("notes.txt")
-    self.assertEquals(msg.get_uid(),"manel.rodero")
 
   def test_mailticket_petar(self):
     """ El mail de petar sembla que tingui diferents encodings al mateix temps """
@@ -201,12 +198,12 @@ class TestSettings(unittest.TestCase):
 class TestMails(unittest.TestCase):
 
   def test_patrons_mail(self):
-    identitat=GestioIdentitat()
+    identitat=GestioIdentitatLocal()
     uid=identitat.obtenir_uid_local("jaume.moral@upc.edu")
     self.assertEquals("jaume.moral",uid)
     uid=identitat.obtenir_uid_local("usuari.qualsevol@upcnet.es")
     self.assertEquals("usuari.qualsevol",uid)
-    uid=identitat.obtenir_uid_local("root@ac.upc.edu")
+    uid=identitat.obtenir_uid_local("root@xxxx.fib.upc.es")
     self.assertEquals("usuari.generic",uid)
 
 if __name__ == '__main__':
