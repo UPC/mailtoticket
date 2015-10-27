@@ -57,7 +57,7 @@ settings={
   # Patrons de mail que equivalen a un usuari concret o be 
   # a una backreference del patro (ex: jaume.moral@upc.edu -> jaume.moral)
   "patrons_mail_addicionals": {
-    "^root@(.*).fib.upc.es$":"usuari.generic",
+    "^root@([a-z0-9.\-]+\.)?ac\.upc\.e(s|du)$":"usuari.generic",
     "^(.*)@upc.edu$":"%s",
     "^(.*)@upcnet.es$":"%s"
   },

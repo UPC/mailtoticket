@@ -203,8 +203,12 @@ class TestMails(unittest.TestCase):
     self.assertEquals("jaume.moral",uid)
     uid=identitat.obtenir_uid_local("usuari.qualsevol@upcnet.es")
     self.assertEquals("usuari.qualsevol",uid)
-    uid=identitat.obtenir_uid_local("root@xxxx.fib.upc.es")
+    uid=identitat.obtenir_uid_local("root@xxxx.ac.upc.edu")
     self.assertEquals("usuari.generic",uid)
+    uid=identitat.obtenir_uid_local("root@ac.upc.edu")
+    self.assertEquals("usuari.generic",uid)
+    uid=identitat.obtenir_uid_local("root@xx.upc.edu")
+    self.assertEquals(None,uid)
 
 if __name__ == '__main__':
   unittest.main()
