@@ -41,11 +41,11 @@ if __name__ == '__main__':
         print "x-mailtoticket: afd25dad494b9345fa2e0a34dc2aa4c11594c3e7b672f772a7fa003ad80bd09f045a170213ae2ba4f47eb8043ac61a56e44ff031a014b82f7508bc5543960138"
         logger.info("Marco el mail com a tractat")
     else:
-	  logger.info("No cal tractar el mail %s" % mail.get_subject())
+	  logger.info("No cal tractar el mail %s" % mail.get_subject_ascii())
   except Exception, e:
     logger.exception("Ha petat algun dels filtres i no marco el mail com a tractat")  
   finally:    
+    print mail
+    logger.info("-----------------------------------------------------")    
     if not tractat and settings.get("notificar_errors")!=None:
       correu.enviar(buffer.getvalue())
-    print mail
-    logger.info("-----------------------------------------------------")

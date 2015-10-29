@@ -17,9 +17,9 @@ class GestioIdentitat(SOAService):
 
   def obtenir_uid(self,mail):  
     mail_canonic=self.canonicalitzar_mail(mail)
-    uid=self.obtenir_uid_local(mail_canonic)
+    uid=self.identitat_local.obtenir_uid_local(mail_canonic)
     if uid!=None: return uid
-    uid=self.identitat_local.obtenir_uid_remot(mail_canonic)
+    uid=self.obtenir_uid_remot(mail_canonic)
     return uid
 
   def obtenir_uid_remot(self,mail):  
