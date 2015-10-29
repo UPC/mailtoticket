@@ -47,5 +47,5 @@ if __name__ == '__main__':
   finally:    
     print mail
     logger.info("-----------------------------------------------------")    
-    if not tractat and settings.get("notificar_errors")!=None:
+    if not tractat and settings.get("notificar_errors"):
       correu.enviar(buffer.getvalue())
