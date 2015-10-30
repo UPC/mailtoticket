@@ -13,6 +13,7 @@ def enviar(text):
     text_ascii=text.encode('ascii','ignore')
     msg = "From: %s\nTo: %s\nSubject:%s\n\n%s" % (de,a,subject,text_ascii)
     server.sendmail(de, a, msg)
+    logger.info("Informe d'errors enviat per mail")
   except Exception, e:
-  	logger.info(e)
-  	logger.info("No s'ha pogut enviar l'informe d'error per correu")
+    logger.info(e)
+    logger.info("No s'ha pogut enviar l'informe d'error per correu")
