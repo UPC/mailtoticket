@@ -51,5 +51,5 @@ class Filtre(object):
       i+=1
       if fitxer==None:
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
-      logger.info("Afegim attachment: %s" % fitxer)
+      logger.info("Afegim attachment: %s" % ctype)
       self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))

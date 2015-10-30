@@ -53,12 +53,15 @@ class GestioIdentitatLocal:
     try:      
       return self.mails_addicionals[mail]      
     except:
-      for k,v in self.patrons_mails_addicionals.iteritems():
-        patro=re.compile(k)
-        m=patro.match(mail)
-        if m:
-          try:
-            return v % m.group(1)
-          except:
-            return v
-      return None
+      try:
+        for k,v in self.patrons_mails_addicionals.iteritems():
+          patro=re.compile(k)
+          m=patro.match(mail)
+          if m:
+            try:
+              return v % m.group(1)
+            except:
+              return v
+        return None
+      except:
+        return None
