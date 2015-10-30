@@ -10,7 +10,8 @@ def enviar(text):
     host=settings.get("servidor_mail");
     subject="Informe d'errors de MailToTicket"
     server = smtplib.SMTP(host, 25)
-    msg = "From: %s\nTo: %s\nSubject:%s\n\n%s" % (de,a,subject,text)
+    text_ascii=text.encode('ascii','ignore')
+    msg = "From: %s\nTo: %s\nSubject:%s\n\n%s" % (de,a,subject,text_ascii)
     server.sendmail(de, a, msg)
   except Exception, e:
   	logger.info(e)
