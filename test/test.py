@@ -138,7 +138,6 @@ class TestFiltreReply(TestBase):
     if f.es_aplicable():
       f.filtrar()
     self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['codiTiquet'],'581611')
-    self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_PUBLIC')
 
   def test_reply_privat(self):
     """ Si fem un reply d'un comentari privat, el comentari ha de ser privat """ 
@@ -147,6 +146,25 @@ class TestFiltreReply(TestBase):
     if f.es_aplicable():
       f.filtrar()
     self.assertEquals(self.tickets.afegir_comentari_tiquet.call_args_list[0][1]['tipusComentari'],'COMENT_TIQUET_PRIVAT')
+
+  def test_message_resent_from_jaumem(self):
+    """ Un missatge reenviat per jaumem a de crear-se a l'equip 11112 encara que vagi a inlab """
+    msg=llegir_mail("sabate.txt")
+    self.assertEquals(msg.get_resent_from(),"jaumem@fib.upc.edu")
+    f=FiltreNou(msg,self.tickets,self.identitat)
+    if f.es_aplicable(): 
+       f.filtrar()
+    self.assertEquals(self.tickets.alta_tiquet.call_args_list[0][1]['equipResolutor'],'11112')
+
+  def test_message_from_jaume(self):
+    """ Un missatge que ve de jaumem a de crear-se a l'equip 11112 encara que vagi a inlab """
+    msg=llegir_mail("jaume.txt")
+    self.assertEquals(msg.get_from(),"jaume.moral@upc.edu")
+    f=FiltreNou(msg,self.tickets,self.identitat)
+    if f.es_aplicable(): 
+       f.filtrar()
+    self.assertEquals(self.tickets.alta_tiquet.call_args_list[0][1]['equipResolutor'],'11113')
+
 
 
 class TestAplicarFiltres(TestBase):

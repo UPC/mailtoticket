@@ -7,13 +7,13 @@ Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
 	for <lcfib-proves@bustia.fib.upc.es>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
 Received: by mail2.fib.upc.es (Postfix)
 	id B5AA73C34A; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
-Delivered-To: webmaster-proves@fib.upc.edu
+Delivered-To: inlab@fib.upc.edu
 Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
 	by mail2.fib.upc.es (Postfix) with ESMTP id B44123C34B
-	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+	for <inlab@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
 	by teron.localdomain (Postfix) with ESMTP id B1CB03C348
-	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
+	for <inlab@fib.upc.edu>; Mon, 16 Feb 2015 10:56:08 +0100 (CET)
 X-Virus-Scanned: amavisd-new at fib.upc.edu
 X-Spam-Flag: NO
 X-Spam-Score: 0.348
@@ -24,19 +24,19 @@ X-Spam-Status: No, score=0.348 tagged_above=-999 required=3.5
 	autolearn=no
 Received: from teron.localdomain ([147.83.41.74])
 	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
-	with ESMTP id NE2ZJ7oCQDDv for <webmaster-proves@fib.upc.edu>;
+	with ESMTP id NE2ZJ7oCQDDv for <inlab@fib.upc.edu>;
 	Mon, 16 Feb 2015 10:56:02 +0100 (CET)
 Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
 	by teron.localdomain (Postfix) with ESMTP id BE2923C34A
-	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+	for <inlab@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
 Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
 	by mail2.fib.upc.es (Postfix) with ESMTP id BCB3F3C34B
-	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+	for <inlab@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
 Received: from [147.83.58.72] (jakarta.fib.upc.es [147.83.58.72])
 	by mail2.fib.upc.es (Postfix) with ESMTP id B4B5F3C34A
-	for <webmaster-proves@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
+	for <inlab@fib.upc.edu>; Mon, 16 Feb 2015 10:56:02 +0100 (CET)
 Resent-From: Jaume Moral <jaumem@fib.upc.edu>
-Resent-To: webmaster-proves@fib.upc.edu
+Resent-To: inlab@fib.upc.edu
 Resent-Date: Mon, 16 Feb 2015 10:56:02 +0100
 Resent-Message-ID: <54E1BEB2.1030208@fib.upc.edu>
 Resent-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Thunderbird/31.3.0

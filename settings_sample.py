@@ -31,7 +31,9 @@ settings={
   # A part de l'equipResolutor, es poden canviar tots els paramatres documentats al servei
   # SOA de creació de tickets (prioritat, tipus...)
   "valors_defecte":{
-    "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"}
+    "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"},
+    "jaumem@fib.upc.edu": {"equipResolutor":"11112"},
+    "jaume.moral@upc.edu": {"equipResolutor":"11113"}
   },
 
   # Filtrs actius. També podem utilitzar 

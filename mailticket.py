@@ -68,19 +68,19 @@ class MailTicket:
         resultat+=" "+fragment[0].decode(fragment[1])
     self.subject=resultat.replace('\n', ' ').replace('\r', '')
 
-
-  def enviat_per(self,persona):
-    return self.get_from()==persona['emailPreferent'].lower()
+  def get_header(self,header):
+    email=parseaddr(self.msg[header])[1]
+    if len(email)==0: return None
+    return email.lower()    
 
   def get_from(self):
-    email=parseaddr(self.msg['From'])[1]
-    if len(email)==0: return None
-    return email.lower()
+    return self.get_header('From')
+
+  def get_resent_from(self):
+    return self.get_header('Resent-From')
 
   def get_reply_to(self):
-    email=parseaddr(self.msg['Reply-To'])[1]
-    if len(email)==0: return None
-    return email.lower()
+    return self.get_header('Reply-To')
 	
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
