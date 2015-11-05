@@ -1,0 +1,510 @@
+From nobody Mon Nov  2 14:06:45 2015
+Return-Path: <webmaster-proves@fib.upc.edu>
+X-Original-To: ticket-personal@est.fib.upc.edu
+Delivered-To: ticket-personal@est.fib.upc.edu
+Received: from mail1.fib.upc.es (mail1.fib.upc.es [147.83.41.105])
+	by correu.fib.upc.es (Postfix) with ESMTP id 7E7561280E5
+	for <ticket-personal@est.fib.upc.edu>;
+	Mon,  2 Nov 2015 14:06:42 +0100 (CET)
+X-Virus-Scanned: amavisd-new at 
+X-Spam-Score: -0.739
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.739 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-2.599, FORGED_RCVD_HELO=0.135, HTML_MESSAGE=0.001,
+	SUBJECT_ENCODED_TWICE=1.723, UNPARSEABLE_RELAY=0.001]
+Received: from dash.upc.es (dash.upc.es [147.83.2.50])
+	by mail1.fib.upc.es (Postfix) with ESMTP id F02A49120D
+	for <ticket-personal@est.fib.upc.edu>;
+	Mon,  2 Nov 2015 14:06:35 +0100 (CET)
+Received: from dors3.upc.edu (dors3.upc.edu [147.83.2.160])
+	by dash.upc.es (8.14.1/8.13.1) with ESMTP id tA2D6ZTT027946
+	for <ticket-personal@est.fib.upc.edu>; Mon, 2 Nov 2015 14:06:35 +0100
+Received: from dors3.upc.edu (localhost [127.0.0.1])
+	by dors3.upc.edu (8.14.4/8.14.4/Debian-4.1ubuntu1) with ESMTP id
+	tA2D6ZkQ022144
+	for <ticket-personal@est.fib.upc.edu>; Mon, 2 Nov 2015 14:06:35 +0100
+Received: (from www-data@localhost)
+	by dors3.upc.edu (8.14.4/8.14.4/Submit) id tA2D6Zcg022143
+	for ticket-personal@est.fib.upc.edu; Mon, 2 Nov 2015 14:06:35 +0100
+X-Authentication-Warning: dors3.upc.edu: www-data set sender to
+	webmaster-proves@fib.upc.edu using -f
+Resent-Date: Mon, 02 Nov 2015 14:06:35 +0100
+Resent-From: webmaster-proves@fib.upc.edu
+Resent-To: ticket-personal@est.fib.upc.edu
+Resent-Message-ID: <20151102140635.Horde.R7D1IFtQ3CNMLazGSyi54Jj@correu.upc.edu>
+Received: from nobel2.upc.edu ([unix socket]) by mailfw2.upc.edu (Cyrus
+	v2.4.17-caldav-beta9-Debian-2.4.17+caldav~beta9-3) with LMTPA; 
+	Mon, 02 Nov 2015 13:44:33 +0100
+X-Sieve: CMU Sieve 2.4
+Received: from dash.upc.es (dash.upc.es [147.83.2.50])
+	by nobel2.upc.edu (8.14.4/8.14.4/Debian-4.1ubuntu1) with ESMTP id
+	tA2CiWOx045245
+	for <puc.personal@nobel2.upc.edu>; Mon, 2 Nov 2015 13:44:33 +0100
+Received: from carulli.upc.es (carulli.upcnetadm.upcnet.es [147.83.2.99])
+	by dash.upc.es (8.14.1/8.13.1) with ESMTP id tA2CiVJr014366
+	for <puc.personal@nobel2.upc.edu>; Mon, 2 Nov 2015 13:44:31 +0100
+Received: from mx2.upc.es ([147.83.194.64])
+	by carulli.upc.es (Lotus Domino Release 8.5.3FP6 HF1286)
+	with ESMTP id 2015110213443089-411721 ;
+	Mon, 2 Nov 2015 13:44:30 +0100 
+Received: from fltr02.serviceeu.spamina.com (fltr02.serviceeu.spamina.com
+	[194.143.206.46])
+	by mx2.upc.es (8.14.1/8.13.1) with ESMTP id tA2CiUQk017666
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES128-SHA bits=128 verify=NO)
+	for <webmaster-proves@fib.upc.edu>; Mon, 2 Nov 2015 13:44:30 +0100
+Received: from [195.235.218.145] (helo=mail5.indo.es)
+	by fltr02.serviceeu.spamina.com with esmtpa (Exim 4.80)
+	(envelope-from <jaumem@fib.upc.edu>) id 1ZtED4-0007ki-0b
+	for webmaster-proves@fib.upc.edu; Mon, 02 Nov 2015 13:27:38 +0100
+Received: from INDO600298 (unknown [192.168.64.75])
+	by mail5.indo.es (Postfix) with ESMTP id 3706E3807C9
+	for <webmaster-proves@fib.upc.edu>; Mon,  2 Nov 2015 13:37:45 +0100 (CET)
+X-Envelope-From: jaumem@fib.upc.edu
+From: =?iso-8859-1?Q?Oriol_Cus=F3?= <jaumem@fib.upc.edu>
+To: <webmaster-proves@fib.upc.edu>
+References: <29054279.560231446462980696.JavaMail.admofbiz@maul>
+Subject: =?iso-8859-1?Q?RE:_Av=EDs_tiquet_619772:_Certificat_de_serveis_prestats?=
+	=?iso-8859-1?Q?=5F_Oriol_Cuso_Calaf_?=
+Date: Mon, 2 Nov 2015 13:26:06 +0100
+Message-ID: <66AF5798C4DD4AC5B868A73E27D63D65@indo.local>
+MIME-Version: 1.0
+X-Mailer: Microsoft Office Outlook 11
+thread-index: AdEVX/UufT1wWWJDRGqrJPh86LnnCgACXvzQ
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5512
+In-Reply-To: <29054279.560231446462980696.JavaMail.admofbiz@maul>
+X-Spamina-Bogosity: Ham
+X-Greylist: IP, sender and recipient auto-whitelisted, not delayed by
+	milter-greylist-4.4.3 (dash.upc.es [147.83.2.50]);
+	Mon, 02 Nov 2015 14:06:35 +0100 (CET)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.4.3
+	(dash.upc.es [147.83.2.50]); Mon, 02 Nov 2015 13:44:31 +0100 (CET)
+X-Greylist: Delayed for 00:16:50 by milter-greylist-3.0 (mx2.upc.es
+	[147.83.194.64]); Mon, 02 Nov 2015 13:44:30 +0100 (CET)
+X-Mail-Scanned: Criba 2.0 + Clamd
+X-MIMETrack: Itemize by SMTP Server on Carulli/UPC(Release 8.5.3FP6
+	HF1286|January 07, 2015) at 02/11/2015 13:44:30,
+	Serialize by Router on Carulli/UPC(Release 8.5.3FP6 HF1286|January 07,
+	2015) at 02/11/2015 13:44:31,
+	Serialize complete at 02/11/2015 13:44:31
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0047_01D11572.074A2610"
+X-Virus-Scanned: clamav-milter 0.98.6 at nobel2
+X-Virus-Status: Clean
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0047_01D11572.074A2610
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset="iso-8859-1"
+
+En catal=E0=20
+gr=E0cies=20
+=20
+Oriol Cus=F3=20
+IndoAcademy
+=20
+  _____ =20
+
+De: webmaster-proves@fib.upc.edu [mailto:webmaster-proves@fib.upc.edu]=20
+Enviado el: lunes, 02 de noviembre de 2015 12:16
+Para: jaumem@fib.upc.edu
+Asunto: Av=EDs tiquet 619772: Certificat de serveis prestats_ Oriol Cuso =
+Calaf
+
+=20
+Loli Rejon Enriquez ha posat el seg=FCent comentari al tiquet 619772:
+Certificat de serveis prestats_ Oriol Cuso Calaf
+Comentari:    02-11-2015 12:16
+Benvolgut,
+El certificat ho vol en catal=E0 o castell=E0.
+Salutacions cordials
+Normal 0 21 false false false ES X-NONE X-NONE=20
+____________________________________________________
+Loli Rej=F3n
+T=E8cnica de la Unitat de Gesti=F3 del Personal Docent i Investigador
+Servei de Personal=20
+Universitat Polit=E8cnica de Catalunya
+
+
+Tiquet: Certificat de serveis prestats_ Oriol Cuso Calaf
+
+Descripci=F3:
+Oriol Cuso s'ha posat en contacte amb nosaltres perque necessita un
+certificat de serveis prestats.
+Ens comenta que ha estat contractat com a Funcionari i com a Laboral des =
+de
+l'any 1984.
+Les seves dades de contacte s=F3n:
+*	Adre=E7a de correu electr=F2nic: jaumem@fib.upc.edu
+*	Tel=E8fon de contacte: 609718588
+
+
+Per accedir al tiquet segueix el seg=FCent enlla=E7:
+619772
+<https://gn6.upc.edu/tiquetsusuaris/control/tiquetDetallDadesGenerals?req=
+uir
+ementId=3D619772&idEmpresa=3D21550>  - Certificat de serveis prestats_ =
+Oriol
+Cuso Calaf
+=20
+
+=E2=80=9CEn cumplimiento de la  Ley Org=C3=A1nica 15/1999 de Protecci=C3=B3n de Datos Personales, le informamos que sus datos identificativos y los contenidos en los correos electr=C3=B3nicos pueden ser  incorporados a nuestros ficheros con la finalidad de mantener relaciones profesionales y/o comerciales. Si lo desea puede ejercer los derechos de acceso, rectificaci=C3=B3n, cancelaci=C3=B3n y oposici=C3=B3n, dirigi=C3=A9ndose a Indo Optical S.L.U., Avda. Alcalde Barnils, n=C2=BA 72, 08174 Sant Cugat del Vall=C3=A8s.=0D=0A
+=0D=0A
+Este mensaje y cualquier documento que lleve adjunto, en su caos, es confidencial y destinado =C3=BAnicamente a la persona o entidad a quien ha sido enviado.=E2=80=9D=0A
+
+------=_NextPart_000_0047_01D11572.074A2610
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset="iso-8859-1"
+
+<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Diso-8859-1">
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+
+<meta name=3DProgId content=3DWord.Document>
+<meta name=3DGenerator content=3D"Microsoft Word 11">
+<meta name=3DOriginator content=3D"Microsoft Word 11">
+<link rel=3DFile-List href=3D"cid:filelist.xml@01D11572.0721B680">
+<link rel=3DEdit-Time-Data href=3D"cid:editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:DoNotRelyOnCSS/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:DocumentKind>DocumentEmail</w:DocumentKind>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:EnvelopeVis/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState=3D"false" LatentStyleCount=3D"156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	mso-font-charset:128;
+	mso-generic-font-family:auto;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoAutoSig, li.MsoAutoSig, div.MsoAutoSig
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+span.EstiloCorreo18
+	{mso-style-type:personal-reply;
+	mso-style-noshow:yes;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:navy;
+	font-weight:normal;
+	font-style:normal;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 3.0cm 70.9pt 3.0cm;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-title-page:yes;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:126243475;
+	mso-list-template-ids:802203906;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */=20
+ table.MsoNormalTable
+	{mso-style-name:"Tabla normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=3DES link=3Dblue vlink=3Dblue style=3D'tab-interval:35.4pt'>
+
+<div class=3DSection1>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+lang=3DCA
+style=3D'font-size:10.0pt;font-family:Arial;color:navy;mso-ansi-language:=
+CA'>En
+catal=E0 <o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+lang=3DCA
+style=3D'font-size:10.0pt;font-family:Arial;color:navy;mso-ansi-language:=
+CA'>gr=E0cies
+<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<p class=3DMsoAutoSig><font size=3D1 color=3Dpurple face=3DArial><span
+style=3D'font-size:9.0pt;font-family:Arial;color:purple;mso-no-proof:yes'=
+>Oriol
+Cus=F3 <o:p></o:p></span></font></p>
+
+<p class=3DMsoAutoSig><font size=3D1 color=3Dpurple face=3DArial><span
+style=3D'font-size:9.0pt;font-family:Arial;color:purple;mso-no-proof:yes'=
+>IndoAcademy<o:p></o:p></span></font></p>
+
+</div>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<div class=3DMsoNormal align=3Dcenter style=3D'text-align:center'><font =
+size=3D3
+face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>
+
+<hr size=3D2 width=3D"100%" align=3Dcenter tabindex=3D-1>
+
+</span></font></div>
+
+<p class=3DMsoNormal><b><font size=3D2 face=3DTahoma><span =
+style=3D'font-size:10.0pt;
+font-family:Tahoma;font-weight:bold'>De:</span></font></b><font size=3D2
+face=3DTahoma><span style=3D'font-size:10.0pt;font-family:Tahoma'>
+webmaster-proves@fib.upc.edu [mailto:webmaster-proves@fib.upc.edu] <br>
+<b><span style=3D'font-weight:bold'>Enviado el:</span></b> lunes, 02 de =
+noviembre
+de 2015 12:16<br>
+<b><span style=3D'font-weight:bold'>Para:</span></b> =
+jaumem@fib.upc.edu<br>
+<b><span style=3D'font-weight:bold'>Asunto:</span></b> Av=EDs tiquet =
+619772:
+Certificat de serveis prestats_ Oriol Cuso Calaf =
+</span></font><o:p></o:p></p>
+
+</div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Loli
+Rejon Enriquez ha posat el seg=FCent comentari al tiquet 619772: =
+Certificat de
+serveis prestats_ Oriol Cuso Calaf<o:p></o:p></span></font></p>
+
+<p style=3D'margin-bottom:12.0pt'><font size=3D3 face=3D"Times New =
+Roman"><span
+style=3D'font-size:12.0pt'>Comentari:&nbsp;&nbsp;&nbsp; 02-11-2015 =
+12:16<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Benvolgut,<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>El
+certificat ho vol en catal=E0 o castell=E0.<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Salutacions
+cordials<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Normal 0
+21 false false false ES X-NONE X-NONE <o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:auto'><span =
+style=3D'Times New Roman";'><font
+size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>______________________________________________=
+______<br>
+Loli Rej=F3n<br>
+T=E8cnica de la Unitat de Gesti=F3 del Personal Docent i =
+Investigador<br>
+Servei de Personal <br>
+Universitat Polit=E8cnica de =
+Catalunya</span><o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'margin-bottom:12.0pt'><font size=3D3
+face=3D"Times New Roman"><span style=3D'font-size:12.0pt'><br>
+<br>
+Tiquet: Certificat de serveis prestats_ Oriol Cuso Calaf<br>
+<br>
+Descripci=F3:<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Oriol
+Cuso s'ha posat en contacte amb nosaltres perque necessita un certificat =
+de
+serveis prestats.<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Ens
+comenta que ha estat contractat com a Funcionari i com a Laboral des de =
+l'any
+1984.<o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>Les seves
+dades de contacte s=F3n:<o:p></o:p></span></font></p>
+
+<ul type=3Ddisc>
+ <li class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><font size=3D3
+     face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>Adre=E7a =
+de correu
+     electr=F2nic: jaumem@fib.upc.edu<o:p></o:p></span></font></li>
+ <li class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><font size=3D3
+     face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>Tel=E8fon =
+de contacte:
+     609718588<o:p></o:p></span></font></li>
+</ul>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><br>
+<br>
+Per accedir al tiquet segueix el seg=FCent enlla=E7:<br>
+<a
+href=3D"https://gn6.upc.edu/tiquetsusuaris/control/tiquetDetallDadesGener=
+als?requirementId=3D619772&amp;idEmpresa=3D21550">619772
+- Certificat de serveis prestats_ Oriol Cuso =
+Calaf</a><o:p></o:p></span></font></p>
+
+<p><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:12.0pt'>&nbsp;<o:p></o:p></span></font></p>
+
+</div>
+
+
+<br>=
+<P>=E2=80=9CEn cumplimiento de la&nbsp; Ley Org=C3=A1nica 15/1999 de Protecci=C3=B3n de Datos Personales, le informamos que sus datos identificativos y los contenidos en los correos electr=C3=B3nicos pueden ser&nbsp; incorporados a nuestros ficheros con la finalidad de mantener relaciones profesionales y/o comerciales. Si lo desea puede ejercer los derechos de acceso, rectificaci=C3=B3n, cancelaci=C3=B3n y oposici=C3=B3n, dirigi=C3=A9ndose a Indo Optical S.L.U., Avda. Alcalde Barnils, n=C2=BA 72, 08174 Sant Cugat del Vall=C3=A8s.</P>=0D=0A
+<P>Este mensaje y cualquier documento que lleve adjunto, en su caos, es confidencial y destinado =C3=BAnicamente a la persona o entidad a quien ha sido enviado.=E2=80=9D</P>=0A
+<br>=
+</body>
+
+</html>
+
+------=_NextPart_000_0047_01D11572.074A2610--
+
+
