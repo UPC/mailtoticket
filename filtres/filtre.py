@@ -56,7 +56,7 @@ class Filtre(object):
       i+=1
       if fitxer==None:
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
-      logger.info("Afegim attachment: %s" % fitxer)
+      logger.info("Afegim attachment: %s / %s" % (fitxer,cid))
       codi_annex=self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))
       if cid!=None: cids[cid[1:-1]]=codi_annex
     return cids
@@ -64,5 +64,5 @@ class Filtre(object):
   def tractar_attachments_inline(self,html,cids):
     for cid in cids:
       id=cids[cid]
-      html=html.replace("cid:"+cid,"https://gn6.upc.edu/tiquets/control/file?fileId=%d"%id)      
+      html=html.replace("cid:"+cid,"https://gn6.upc.edu/tiquets/control/file?fileId=%d" % id)      
     return html
