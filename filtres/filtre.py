@@ -64,5 +64,5 @@ class Filtre(object):
   def tractar_attachments_inline(self,html,cids):
     for cid in cids:
       id=cids[cid]
-      html=html.replace("cid:"+cid,"https://gn6.upc.edu/tiquets/control/file?fileId=%s" % id)      
+      html=html.replace("cid:"+cid,"/tiquetsusuaris/control/file?fileId=%s" % id)      
     return html
