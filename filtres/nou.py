@@ -44,12 +44,13 @@ class FiltreNou(Filtre):
     
     logger.info("Poso equip resolutor %s" % parametres_addicionals['equipResolutor'])
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
+    descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
+      (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
+    ) +body
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
       solicitant=self.solicitant, 
-      descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
-	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
-		) +body,
+      descripcio=descripcio,
       **parametres_addicionals
       )
 
@@ -59,7 +60,7 @@ class FiltreNou(Filtre):
     logger.info("Ticket creat")	
 	
     ticket_id=resultat['codiTiquet']
-    self.afegir_attachments(ticket_id,self.solicitant)
+    descripcio=self.afegir_attachments_canviant_body(ticket_id,self.solicitant,descripcio)
     logger.info("Attachments (si n'hi ha) afegits")
 	  
     if self.msg.get_reply_to()!=None:
@@ -69,7 +70,8 @@ class FiltreNou(Filtre):
 
     resultat=self.tickets.modificar_tiquet(
       codiTiquet=ticket_id,
-      emailSolicitant=from_or_reply_to
+      emailSolicitant=from_or_reply_to,
+      descripcio=descripcio
       )	
 
     if resultat['codiRetorn']!="1":

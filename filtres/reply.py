@@ -56,11 +56,12 @@ class FiltreReply(Filtre):
       return False
 
   def filtrar(self):
-    body=self.msg.get_body()
+    body=self.msg.get_body()    
     if self.solicitant_segons_mail==self.solicitant_segons_ticket:
       notificat='N'
     else:
       notificat='S'
+    body=self.afegir_attachments_canviant_body(self.ticket_id,self.solicitant,body)
     resultat=self.tickets.afegir_comentari_tiquet(
       codiTiquet=self.ticket_id,
       usuari=self.solicitant, 
@@ -72,9 +73,7 @@ class FiltreReply(Filtre):
 
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
-      return False
-
-    self.afegir_attachments(self.ticket_id,self.solicitant)
+      return False    
 
     logger.info("Comentari afegit")
     return True
