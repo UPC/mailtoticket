@@ -1,3 +1,4 @@
+from suds.wsse import *
 from suds.client import Client
 from soa.service import SOAService
 import settings
@@ -15,11 +16,19 @@ class GestioTiquets(SOAService):
     resultat=self.consulta_tiquets(codi=codi)
     return resultat.llistaTiquets[0]
 
-  def consulta_tiquets(self,**kwargs):
-    resultat=self.client.service.ConsultaTiquets(
-      username=self.username_gn6,
-      password=self.password_gn6,
-      domini=self.domini,**kwargs)
+  def consulta_tiquets(self,codi='',estat='',dataCreacioInici='',dataCreacioFi='',dataTancamentInici='',dataTancamentFi='',client='',solicitant='',ip=''):
+    self.url="https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl"
+    self.username_soa=settings.get("username_soa")
+    self.password_soa=settings.get("password_soa")
+    self.client2=Client(self.url)
+    security = Security()
+    security.tokens.append(UsernameToken(self.username_soa,self.password_soa))
+    self.client2.set_options(wsse=security)
+    resultat=self.client2.service.ConsultaTiquets(
+      self.username_gn6,
+      self.password_gn6,
+      self.domini,
+      codi,estat,dataCreacioInici,dataCreacioFi,dataTancamentInici,dataTancamentFi,client,solicitant,ip)
     return resultat
 
   def afegir_comentari_tiquet(self,**kwargs):
