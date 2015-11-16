@@ -40,16 +40,29 @@ class Filtre(object):
       return attachment.get_payload()      
     else:
       return base64.b64encode(attachment.get_payload())
-      
+
+  def afegir_attachments_canviant_body(self,ticket_id,username,body):
+    cids=self.afegir_attachments(ticket_id,username)
+    return self.tractar_attachments_inline(body,cids)
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
     i=0;
+    cids={}
     for a in self.msg.get_attachments():
       ctype=a.get_content_type()
       fitxer=a.get_filename()
+      cid=a.get('Content-ID')
       i+=1
       if fitxer==None:
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
-      logger.info("Afegim attachment: %s" % ctype)
-      self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))
+      logger.info("Afegim attachment: %s" % fitxer)
+      codi_annex=self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))
+      if cid!=None: cids[cid[1:-1]]=codi_annex
+    return cids
+
+  def tractar_attachments_inline(self,html,cids):
+    for cid in cids:
+      id=cids[cid]
+      html=html.replace("cid:"+cid,"https://gn6.upc.edu/tiquets/control/file?fileId=%d"%id)      
+    return html
