@@ -14,22 +14,23 @@ class GestioTiquets(SOAService):
 
   def consulta_tiquet(self,codi):
     resultat=self.consulta_tiquets(codi=codi)
-    return resultat.llistaTiquets[0]
+    return resultat[0]
 
   def consulta_tiquets(self,codi='',estat='',dataCreacioInici='',dataCreacioFi='',dataTancamentInici='',dataTancamentFi='',client='',solicitant='',ip=''):
-    self.url="https://bus-soa.upc.edu/gN6/GestioTiquetsv2?wsdl"
-    self.username_soa=settings.get("username_soa")
-    self.password_soa=settings.get("password_soa")
-    self.client2=Client(self.url)
-    security = Security()
-    security.tokens.append(UsernameToken(self.username_soa,self.password_soa))
-    self.client2.set_options(wsse=security)
-    resultat=self.client2.service.ConsultaTiquets(
+    resultat=self.client.service.ConsultaTiquets(
       self.username_gn6,
       self.password_gn6,
       self.domini,
       codi,estat,dataCreacioInici,dataCreacioFi,dataTancamentInici,dataTancamentFi,client,solicitant,ip)
-    return resultat
+    return resultat['llistaTiquets']
+
+  def consulta_tiquets_dades(self,codi='',estat='',dataCreacioInici='',dataCreacioFi='',dataTancamentInici='',dataTancamentFi='',client='',solicitant='',ip=''):
+    resultat=self.client.service.ConsultaTiquetsDades(
+      self.username_gn6,
+      self.password_gn6,
+      self.domini,
+      codi,estat,dataCreacioInici,dataCreacioFi,dataTancamentInici,dataTancamentFi,client,solicitant,ip)
+    return resultat['llistaTiquets']
 
   def afegir_comentari_tiquet(self,**kwargs):
     resultat=self.client.service.AfegirComentariTiquet(
@@ -38,7 +39,25 @@ class GestioTiquets(SOAService):
       domini=self.domini,**kwargs)
     return resultat
 
-  def alta_tiquet(self,solicitant,client='', assumpte='', descripcio='', equipResolutor='', assignatA='', producte='', subservei='', urgencia='GRAVETAT_MITJA', impacte='', proces='PROCES_AUS', procesOrigen='', estat='TIQUET_STATUS_OBERT', ip='', enviarMissatgeCreacio='S', enviarMissatgeTancament='N', imputacioAutomatica='N', infraestructura=''):
+  def alta_tiquet(self,
+    solicitant,
+    client='', 
+    assumpte='', 
+    descripcio='', 
+    equipResolutor='', 
+    assignatA='', 
+    producte='', 
+    subservei='', 
+    urgencia='GRAVETAT_MITJA', 
+    impacte='', 
+    proces='PROCES_AUS', 
+    procesOrigen='', 
+    estat='TIQUET_STATUS_OBERT', 
+    ip='', 
+    enviarMissatgeCreacio='S', 
+    enviarMissatgeTancament='N', 
+    imputacioAutomatica='N', 
+    infraestructura=''):
     resultat=self.client.service.AltaTiquet(
       self.username_gn6,
       self.password_gn6,
@@ -68,10 +87,7 @@ class GestioTiquets(SOAService):
       self.username_gn6,
       self.password_gn6,
       self.domini,
-      codiTiquet,
-      usuari,
-      nomFitxer,
-      fitxerBase64)
+      codiTiquet, usuari, nomFitxer, fitxerBase64)
     return resultat['codiAnnex']
 	
   def modificar_tiquet(self,
@@ -98,13 +114,12 @@ class GestioTiquets(SOAService):
     descripcio='',
     origen='',
     urgencia='',
-	impacte=''
-    ):
+    impacte=''):
     resultat=self.client.service.ModificarTiquet(
       self.username_gn6,
       self.password_gn6,
       self.domini,
-	  codiTiquet,
+      codiTiquet,
       equipResolutor,
       assignatCn,
       proces,
@@ -127,8 +142,6 @@ class GestioTiquets(SOAService):
       descripcio,
       origen,
       urgencia,
-	  impacte
-	  )
+      impacte
+    )
     return resultat
-
-	
