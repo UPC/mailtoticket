@@ -148,10 +148,13 @@ class MailTicket:
       return True
 
     # Segona part: mirem que no sigui un fitxer prohibit per hash
-
-    hash=hashlib.md5(base64.b64decode(contingut)).hexdigest()
-    logger.info("Hash:"+hash)
-    return hash not in self.filtrar_attachments_per_hash
+    try:
+      hash=hashlib.md5(base64.b64decode(contingut)).hexdigest()
+      logger.info("Hash:"+hash)
+      return hash not in self.filtrar_attachments_per_hash
+    except:
+      logger.info("Tinc un attachment del que no puc calcular el hash")
+    return True
 
   def te_attachments(self):
     return len(self.get_attachments())>0
