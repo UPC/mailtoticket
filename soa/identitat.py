@@ -35,6 +35,7 @@ class GestioIdentitat(SOAService):
           dades_persona=self.client.service.obtenirDadesPersona(commonName=persona.cn)
           if (self.canonicalitzar_mail(dades_persona.emailPreferent)==mail):
             uid=persona.cn
+            return uid
         if uid==None:
           uid=resultat.llistaPersones.persona[0].cn
     except:
