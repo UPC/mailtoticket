@@ -29,7 +29,7 @@ class FiltreNou(Filtre):
     mail_resent_from=self.msg.get_resent_from()
 
     valors_defecte=settings.get("valors_defecte")
-    equip_resolutor_nous=settings.get("equip_resolutor_nous")    
+    equip_resolutor_nous=settings.get("equip_resolutor_nous")
     parametres_addicionals={"equipResolutor":equip_resolutor_nous}
 
     if mail_from in valors_defecte:
@@ -68,10 +68,16 @@ class FiltreNou(Filtre):
     else:
       from_or_reply_to=self.msg.get_from()
 
+    if settings.get("assignar_data_resolucio_amb_data_creacio"):
+      data_resolucio=time.strftime("%d-%m-%Y")
+    else:
+      data_resolucio=''
+
     resultat=self.tickets.modificar_tiquet(
       codiTiquet=ticket_id,
       emailSolicitant=from_or_reply_to,
-      descripcio=descripcio
+      descripcio=descripcio,
+      dataResol=data_resolucio
       )	
 
     if resultat['codiRetorn']!="1":
