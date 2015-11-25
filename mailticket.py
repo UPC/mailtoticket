@@ -91,7 +91,7 @@ class MailTicket:
       timestamp = mktime_tz(tt)
       aux=datetime.datetime.fromtimestamp(timestamp)
       return aux      
-    except Exception as e:
+    except:
       logger.debug("No puc parsejar la data!")
       return None
 	
