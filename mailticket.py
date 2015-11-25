@@ -4,6 +4,8 @@ import base64
 import re
 from email.header import decode_header
 from email.utils import parseaddr
+from email.utils import parsedate_tz, mktime_tz
+import datetime
 import settings
 
 import logging
@@ -68,19 +70,30 @@ class MailTicket:
         resultat+=" "+fragment[0].decode(fragment[1])
     self.subject=resultat.replace('\n', ' ').replace('\r', '')
 
-  def get_header(self,header):
+  def get_email_header(self,header):
     email=parseaddr(self.msg[header])[1]
     if len(email)==0: return None
     return email.lower()    
 
   def get_from(self):
-    return self.get_header('From')
+    return self.get_email_header('From')
 
   def get_resent_from(self):
-    return self.get_header('Resent-From')
+    return self.get_email_header('Resent-From')
 
   def get_reply_to(self):
-    return self.get_header('Reply-To')
+    return self.get_email_header('Reply-To')
+
+  def get_date(self):
+    try:
+      d=self.msg['Date']
+      tt = parsedate_tz(d)
+      timestamp = mktime_tz(tt)
+      aux=datetime.datetime.fromtimestamp(timestamp)
+      return aux      
+    except Exception as e:
+      logger.debug("No puc parsejar la data!")
+      return None
 	
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
