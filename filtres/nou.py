@@ -45,7 +45,7 @@ class FiltreNou(Filtre):
     logger.info("Poso equip resolutor %s" % parametres_addicionals['equipResolutor'])
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
-      (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
+      (self.msg.get_from(),self.msg.get_date().strftime("%d/%m/%Y"),self.msg.get_date().strftime("%H:%M"))
     ) +body
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
