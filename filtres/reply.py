@@ -66,7 +66,7 @@ class FiltreReply(Filtre):
       codiTiquet=self.ticket_id,
       usuari=self.solicitant, 
       descripcio=("[Comentari afegit des del correu de %s del %s a les %s]<br><br>" % 
-	    (self.msg.get_from(),time.strftime("%d/%m/%Y"),time.strftime("%H:%M"))
+	    (self.msg.get_from(),self.msg.get_date().strftime("%d/%m/%Y"),self.msg.get_date().strftime("%H:%M"))
 		) +body,
       tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
       esNotificat=notificat if not self.privat else 'N')
@@ -77,4 +77,3 @@ class FiltreReply(Filtre):
 
     logger.info("Comentari afegit")
     return True
-
