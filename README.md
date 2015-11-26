@@ -212,6 +212,6 @@ Testing
 
 si executem
 
-    $ python -m test.test
+    $ python -m unittest discover
 
 El programa passa testos amb alguns mails de proves, fent mocking dels serveis SOA per no crear tickets, pero son bastant incomplets i caldria fer un testeig molt mes exhaustiu
