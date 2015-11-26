@@ -1,8 +1,5 @@
-from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
-from settings import settings
 import unittest
-import time
 
 class TestServeis(unittest.TestCase):
 

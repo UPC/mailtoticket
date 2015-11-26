@@ -1,0 +1,48 @@
+Received: via dmail-2007d.18 for +nsmail/Improc; Wed, 10 Dec 2014 16:34:11 +0100 (CET)
+Return-Path: <jaumem@fib.upc.edu>
+X-Original-To: lcfib-proves@bustia.fib.upc.es
+Delivered-To: lcfib-proves@bustia.fib.upc.es
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by buzon.fib.upc.es (Postfix) with ESMTP id 949365C068
+	for <lcfib-proves@bustia.fib.upc.es>; Wed, 10 Dec 2014 16:34:11 +0100 (CET)
+Received: by mail2.fib.upc.es (Postfix)
+	id 88DBE3CD61; Wed, 10 Dec 2014 16:34:11 +0100 (CET)
+Delivered-To: lcfib-proves@fib.upc.edu
+Received: from teron.localdomain (viruspam2.fib.upc.es [147.83.41.74])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 86BF73CD6F
+	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:11 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by teron.localdomain (Postfix) with ESMTP id 848EC3CD6E
+	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:11 +0100 (CET)
+X-Virus-Scanned: amavisd-new at fib.upc.edu
+X-Spam-Flag: NO
+X-Spam-Score: -2.6
+X-Spam-Level:
+X-Spam-Status: No, score=-2.6 tagged_above=-999 required=3.5
+	tests=[BAYES_00=-1.9, RCVD_IN_DNSWL_LOW=-0.7] autolearn=ham
+Received: from teron.localdomain ([147.83.41.74])
+	by localhost (teron.fib.upc.es [127.0.0.1]) (amavisd-new, port 30024)
+	with ESMTP id MNSyLrBd5vTa for <lcfib-proves@fib.upc.edu>;
+	Wed, 10 Dec 2014 16:34:06 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by teron.localdomain (Postfix) with ESMTP id 05EB23CD61
+	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:06 +0100 (CET)
+Received: from mail2.fib.upc.es (mail2.fib.upc.es [147.83.41.106])
+	by mail2.fib.upc.es (Postfix) with ESMTP id 04E083CD6E
+	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:06 +0100 (CET)
+Received: from [147.83.58.72] (jakarta.fib.upc.es [147.83.58.72])
+	by mail2.fib.upc.es (Postfix) with ESMTP id EFDAC3CD61
+	for <lcfib-proves@fib.upc.edu>; Wed, 10 Dec 2014 16:34:05 +0100 (CET)
+Message-ID: <548867ED.7050205@fib.upc.edu>
+Date: Wed, 10 Dec 2014 16:34:05 +0100
+From: Jaume Moral <inlab@fib.upc.edu>
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: lcfib-proves@fib.upc.edu
+Subject: mail amb =?ISO-8859-1?Q?acc=E9nts?=
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+
+I aquí també
+
+ç
