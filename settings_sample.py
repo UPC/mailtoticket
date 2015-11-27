@@ -30,11 +30,29 @@ settings={
   # Valors amb els que creem els tickets dependent de l'adreça a la qual hem enviat el mail
   # A part de l'equipResolutor, es poden canviar tots els paramatres documentats al servei
   # SOA de creació de tickets (prioritat, tipus...)
-  "valors_defecte":{
-    "webmaster@meudomini.upc.edu": {"equipResolutor":"11111"},
-    "jaumem@fib.upc.edu": {"equipResolutor":"11112"},
-    "jaume.moral@upc.edu": {"equipResolutor":"11113"}
-  },
+  "valors_defecte":[
+    {
+      "order": ['To','Resent-From','From'],
+      "match": "webmaster@meudomini.upc.edu",
+      "defaults": {
+        "equipResolutor": "11111"
+      }
+    },
+    {
+      "order": ['To','Resent-From','From'],
+      "match": "jaumem@fib.upc.edu",
+      "defaults": {
+        "equipResolutor": "11112"
+      }
+    },
+    {
+      "order": ['To','Resent-From','From'],
+      "match": "jaume.moral@upc.edu",
+      "defaults": {
+        "equipResolutor": "11113"
+      }
+    }
+  ],
 
   # Filtrs actius. També podem utilitzar 
   # - filtres.reply_reobrint.FiltreRepyReobrint (que reobre tickets tancats)
