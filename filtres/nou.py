@@ -23,7 +23,7 @@ class FiltreNou(Filtre):
     body=self.msg.get_body()
     subject=self.msg.get_subject()
     if len(subject)==0:
-      subject="Ticket sense subject"
+      subject="Ticket de %s" % self.solicitant
     recipient=self.msg.get_to()
     mail_from=self.msg.get_from()
     mail_resent_from=self.msg.get_resent_from()
