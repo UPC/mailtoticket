@@ -1,10 +1,9 @@
-import unittest
 import settings
+from testbase import TestBase
 
-class TestSettings(unittest.TestCase):
+class TestSettings(TestBase):
 
   def test_settings_normal(self):
-    settings.load()
     self.assertEquals(settings.get("domini"),999)
 
 #  def test_settings_diferents(self):

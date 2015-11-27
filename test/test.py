@@ -180,7 +180,7 @@ class TestAplicarFiltres(testbase.TestBase):
     resultat=filtres.aplicar_filtres(msg,self.tickets,self.identitat)
     self.assertTrue(resultat)  	
     self.assertTrue(self.tickets.alta_tiquet.called)
-    self.assertEquals(self.tickets.alta_tiquet.call_args_list[0][1]['assumpte'],'Ticket sense subject')
+    self.assertEquals(self.tickets.alta_tiquet.call_args_list[0][1]['assumpte'],'Ticket de jaume.moral')
 
 
 if __name__ == '__main__':
