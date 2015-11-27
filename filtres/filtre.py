@@ -68,21 +68,19 @@ class Filtre(object):
     return (cids,ids)
 
   def tractar_attachments_inline(self,html,cids):
-    cids_no_substituits=[]
     for cid in cids:
       id=cids[cid]
-      if cid in html:
-        html=html.replace("cid:"+cid,self.url_attachment(id))
+      html=html.replace("cid:"+cid,self.url_attachment(id))
     return html
 
   def afegir_links_attachments(self,html,ids):
     if len(ids)==0: 
       return html
-    html=html+"Attachments:<ul>"
+    html+="Attachments:<ul>"
     for id in ids:
       url=self.url_attachment(id)
-      html=html+"<li><a href=\"%s\">%s</a>",(url,url)
-    html=html+"</ul>"
+      html+="<li><a href=\"%s\">%s</a>" % (url,url)
+    html+="</ul>"
     return html
 
   def url_attachment(self,id):
