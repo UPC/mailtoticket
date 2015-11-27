@@ -19,24 +19,17 @@ class FiltreNou(Filtre):
     return self.solicitant!=None
 
   def obtenir_parametres_addicionals(self):
-    recipient=self.msg.get_to()
-    mail_from=self.msg.get_from()
-    mail_resent_from=self.msg.get_resent_from()
-
+    header_order=[ 'From', 'Resent-From', 'To' ]
     valors_defecte=settings.get("valors_defecte")
     equip_resolutor_nous=settings.get("equip_resolutor_nous")
     parametres_addicionals={"equipResolutor":equip_resolutor_nous}
 
-    if mail_from in valors_defecte:
-      logger.info("Tinc parametres adicionals per qui envia %s" % mail_from)
-      parametres_addicionals=valors_defecte[mail_from]
-    if mail_resent_from in valors_defecte:
-      logger.info("Tinc parametres adicionals per d'on reenvio %s" % mail_resent_from)
-      parametres_addicionals=valors_defecte[mail_resent_from]      
-    if recipient in valors_defecte:
-      logger.info("Tinc parametres adicionals per on envio %s" % recipient)
-      parametres_addicionals=valors_defecte[recipient]      
-    
+    for header_name in header_order:
+        header_value = self.msg.get_email_header(header_name)
+        if header_value in valors_defecte:
+            logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
+            parametres_addicionals=valors_defecte[header_value]
+
     return parametres_addicionals
 
   def filtrar(self):
