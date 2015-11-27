@@ -28,10 +28,7 @@ class TestNeteja(TestBase):
   def test_neteja_martin(self):
     msg=self.llegir_mail("martin.txt")
     html=msg.get_body()
-    print html
-    print "------------\n"
     net=netejahtml.neteja(html)
-    print net
     self.assertTrue("Sandra" in net)
     self.assertFalse("contingut del vostre tiquet" in net)
     
