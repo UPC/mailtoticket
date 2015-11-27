@@ -18,12 +18,7 @@ class FiltreNou(Filtre):
     logger.info("UID del solicitant: %s" % self.solicitant)
     return self.solicitant!=None
 
-  def filtrar(self):
-    logger.info("Aplico filtre...")
-    body=self.msg.get_body()
-    subject=self.msg.get_subject()
-    if len(subject)==0:
-      subject="Ticket de %s" % self.solicitant
+  def obtenir_parametres_addicionals(self):
     recipient=self.msg.get_to()
     mail_from=self.msg.get_from()
     mail_resent_from=self.msg.get_resent_from()
@@ -42,6 +37,16 @@ class FiltreNou(Filtre):
       logger.info("Tinc parametres adicionals per on envio %s" % recipient)
       parametres_addicionals=valors_defecte[recipient]      
     
+    return parametres_addicionals
+
+  def filtrar(self):
+    logger.info("Aplico filtre...")
+    body=self.msg.get_body()
+    subject=self.msg.get_subject()
+    if len(subject)==0:
+      subject="Ticket de %s" % self.solicitant
+
+    parametres_addicionals=self.obtenir_parametres_addicionals()
     logger.info("Poso equip resolutor %s" % parametres_addicionals['equipResolutor'])
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
