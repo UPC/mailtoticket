@@ -42,13 +42,16 @@ class Filtre(object):
       return base64.b64encode(attachment.get_payload())
 
   def afegir_attachments_canviant_body(self,ticket_id,username,body):
-    cids=self.afegir_attachments(ticket_id,username)
-    return self.tractar_attachments_inline(body,cids)
+    (cids,ids)=self.afegir_attachments(ticket_id,username)
+    body=self.tractar_attachments_inline(body,cids)
+    body=self.afegir_links_attachments(body,ids)
+    return body
 
   def afegir_attachments(self,ticket_id,username):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
     i=0;
     cids={}
+    ids=[]
     for a in self.msg.get_attachments():
       ctype=a.get_content_type()
       fitxer=a.get_filename()
@@ -58,11 +61,29 @@ class Filtre(object):
         fitxer='attach%d.%s' % (i,ctype.split("/")[1])
       logger.info("Afegim attachment: %s / %s" % (fitxer,cid))
       codi_annex=self.tickets.annexar_fitxer_tiquet(ticket_id,username,fitxer, self.codificar_base_64_si_cal(a))
-      if cid!=None: cids[cid[1:-1]]=codi_annex
-    return cids
+      if cid!=None: 
+        cids[cid[1:-1]]=codi_annex
+      else:
+        ids.append(codi_annex)
+    return (cids,ids)
 
   def tractar_attachments_inline(self,html,cids):
+    cids_no_substituits=[]
     for cid in cids:
       id=cids[cid]
-      html=html.replace("cid:"+cid,"/tiquetsusuaris/control/file?fileId=%s" % id)      
+      if cid in html:
+        html=html.replace("cid:"+cid,self.url_attachment(id))
     return html
+
+  def afegir_links_attachments(self,html,ids):
+    if len(ids)==0: 
+      return html
+    html=html+"Attachments:<ul>"
+    for id in ids:
+      url=self.url_attachment(id)
+      html=html+"<li><a href=\"%s\">%s</a>",(url,url)
+    html=html+"</ul>"
+    return html
+
+  def url_attachment(self,id):
+    return "/tiquetsusuaris/control/file?fileId=%s" % id
