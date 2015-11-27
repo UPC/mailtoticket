@@ -19,14 +19,12 @@ class FiltreNou(Filtre):
     return self.solicitant!=None
 
   def obtenir_parametres_addicionals(self):
-    header_order=[ 'To', 'Resent-From', 'From' ]
-    valors_defecte=settings.get("valors_defecte")
-
-    for header_name in header_order:
-        header_value = self.msg.get_email_header(header_name)
-        if header_value in valors_defecte:
-            logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
-            return valors_defecte[header_value]
+    for item in settings.get("valors_defecte"):
+        for header_name in item['order']:
+            header_value = self.msg.get_email_header(header_name)
+            if header_value == item['match']:
+                logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
+                return item['defaults']
 
     return { "equipResolutor": settings.get("equip_resolutor_nous") }
 
