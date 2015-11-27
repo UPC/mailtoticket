@@ -51,7 +51,7 @@ class Filtre(object):
     logger.info("Tractem attachments del ticket %s" % ticket_id)
     i=0;
     cids={}
-    ids=[]
+    ids={}
     for a in self.msg.get_attachments():
       ctype=a.get_content_type()
       fitxer=a.get_filename()
@@ -64,7 +64,7 @@ class Filtre(object):
       if cid!=None: 
         cids[cid[1:-1]]=codi_annex
       else:
-        ids.append(codi_annex)
+        ids[codi_annex]=a
     return (cids,ids)
 
   def tractar_attachments_inline(self,html,cids):
@@ -76,10 +76,11 @@ class Filtre(object):
   def afegir_links_attachments(self,html,ids):
     if len(ids)==0: 
       return html
-    html+="Attachments:<ul>"
+    html+="<br><br>Attachments:<ul>"
     for id in ids:
+      a=ids[id]
       url=self.url_attachment(id)
-      html+="<li><a href=\"%s\">%s</a>" % (url,url)
+      html+="<li><a href=\"%s\">%s (%s)</a>" % (url,a.get_filename(),a.get_content_type())
     html+="</ul>"
     return html
 
