@@ -33,21 +33,21 @@ settings={
   "valors_defecte":[
     {
       "order": ['To','Resent-From','From'],
-      "match": "webmaster@meudomini.upc.edu",
+      "match": "^webmaster@meudomini\.upc\.edu$",
       "defaults": {
         "equipResolutor": "11111"
       }
     },
     {
       "order": ['To','Resent-From','From'],
-      "match": "jaumem@fib.upc.edu",
+      "match": "^jaumem@fib\.upc\.edu$",
       "defaults": {
         "equipResolutor": "11112"
       }
     },
     {
       "order": ['To','Resent-From','From'],
-      "match": "jaume.moral@upc.edu",
+      "match": "^jaume\.moral@upc\.edu$",
       "defaults": {
         "equipResolutor": "11113"
       }
