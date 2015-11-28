@@ -1,6 +1,7 @@
 import time
 from filtres.filtre import Filtre
 import settings
+import re
 
 import logging
 logger = logging.getLogger(__name__)
@@ -20,9 +21,10 @@ class FiltreNou(Filtre):
 
   def obtenir_parametres_addicionals(self):
     for item in settings.get("valors_defecte"):
+        regex = re.compile(item['match'])
         for header_name in item['order']:
             header_value = self.msg.get_email_header(header_name)
-            if header_value == item['match']:
+            if header_value and regex.match(header_value):
                 logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
                 return item['defaults']
 
