@@ -27,7 +27,6 @@ class FiltreNou(Filtre):
             header_value = self.msg.get_header(header_name)
             if header_value and regex.match(header_value):
                 logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
-                print "Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value)
                 defaults.update(item['defaults'])
     return defaults
 
