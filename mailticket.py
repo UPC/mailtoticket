@@ -70,6 +70,11 @@ class MailTicket:
         resultat+=" "+fragment[0].decode(fragment[1])
     self.subject=resultat.replace('\n', ' ').replace('\r', '')
 
+  def get_header(self,header):
+    if header in ('From','Resent-From','Reply-To'): return self.get_email_header(header)
+    elif header in ('Subject'): return self.get_subject()
+    else: return self.msg[header]
+
   def get_email_header(self,header):
     email=parseaddr(self.msg[header])[1]
     if len(email)==0: return None

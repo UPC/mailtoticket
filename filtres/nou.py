@@ -20,15 +20,16 @@ class FiltreNou(Filtre):
     return self.solicitant!=None
 
   def obtenir_parametres_addicionals(self):
+    defaults={"equipResolutor": settings.get("equip_resolutor_nous") }
     for item in settings.get("valors_defecte"):
         regex = re.compile(item['match'])
         for header_name in item['order']:
-            header_value = self.msg.get_email_header(header_name)
+            header_value = self.msg.get_header(header_name)
             if header_value and regex.match(header_value):
                 logger.info("Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value))
-                return item['defaults']
-
-    return { "equipResolutor": settings.get("equip_resolutor_nous") }
+                print "Tinc parametres adicionals via %s amb valor %s" % (header_name, header_value)
+                defaults.update(item['defaults'])
+    return defaults
 
   def filtrar(self):
     logger.info("Aplico filtre...")
