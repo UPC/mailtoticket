@@ -28,6 +28,7 @@ class FiltreNou(Filtre):
             if header_value and regex.match(header_value):
                 logger.info("Tinc parametres adicionals via %s" % header_name)
                 defaults.update(item['defaults'])
+    logger.info("Parametres addicionals: %s" % str(defaults))
     return defaults
 
   def filtrar(self):
@@ -38,7 +39,6 @@ class FiltreNou(Filtre):
       subject="Ticket de %s" % self.solicitant
 
     parametres_addicionals=self.obtenir_parametres_addicionals()
-    logger.info("Poso equip resolutor %s" % parametres_addicionals['equipResolutor'])
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % 
       (self.msg.get_from(),self.msg.get_date().strftime("%d/%m/%Y"),self.msg.get_date().strftime("%H:%M"))
