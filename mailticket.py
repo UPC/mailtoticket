@@ -182,6 +182,7 @@ class MailTicket:
     if self.msg.get_content_type()=="multipart/report": return False
     if "Return Receipt" in self.get_body(): return False
     if "DELIVERY FAILURE" in self.get_subject(): return False
+    if "Informe de lectura" in self.get_subject(): return False
     return True
 
   def __str__(self):
