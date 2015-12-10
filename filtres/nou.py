@@ -25,7 +25,6 @@ class FiltreNou(Filtre):
         regex = re.compile(item['match'],re.IGNORECASE)
         for header_name in item['order']:
             header_value = self.msg.get_header(header_name)
-            logger.info("Parametres addicionals: %s" % str(defaults))
             if header_value and regex.match(header_value):
                 logger.info("Tinc parametres adicionals via %s" % header_name)
                 defaults.update(item['defaults'])
