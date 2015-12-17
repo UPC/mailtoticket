@@ -27,7 +27,7 @@ La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python per po
 git clone git@github.com:UPC/mailtoticket.git
 cd mailtoticket
 virtualenv local
-echo "PATH=$PWD/local/bin:$PATH" >> ~/.bashrc
+echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 pip install -r requirements.txt
 ```
