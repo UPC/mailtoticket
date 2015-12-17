@@ -27,7 +27,9 @@ La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python per po
 git clone git@github.com:UPC/mailtoticket.git
 cd mailtoticket
 virtualenv local
-./local/bin/pip install -r requirements.txt
+echo "PATH=$PWD/local/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+pip install -r requirements.txt
 ```
 
 Configuració de la bústia
@@ -45,7 +47,7 @@ Si voleu tenir diferents instàncies del programa, podeu crear fitxers de config
 Per llegir-los només cal que ho indiqueu amb l'opció `-c` tot indicant el nom del fitxer sense l'extensió .py:
 
 ```
-cat correu.txt | ./mailtoticket.py -c settings_alternatius
+cat correu.txt | python mailtoticket.py -c settings_alternatius
 ```
 
 Filtres i accions
