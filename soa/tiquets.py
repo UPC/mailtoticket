@@ -1,5 +1,3 @@
-from suds.wsse import *
-from suds.client import Client
 from soa.service import SOAService
 import settings
 
@@ -41,22 +39,22 @@ class GestioTiquets(SOAService):
 
   def alta_tiquet(self,
     solicitant,
-    client='', 
-    assumpte='', 
-    descripcio='', 
-    equipResolutor='', 
-    assignatA='', 
-    producte='', 
-    subservei='', 
-    urgencia='GRAVETAT_MITJA', 
-    impacte='', 
-    proces='PROCES_AUS', 
-    procesOrigen='', 
-    estat='TIQUET_STATUS_OBERT', 
-    ip='', 
-    enviarMissatgeCreacio='S', 
-    enviarMissatgeTancament='N', 
-    imputacioAutomatica='N', 
+    client='',
+    assumpte='',
+    descripcio='',
+    equipResolutor='',
+    assignatA='',
+    producte='',
+    subservei='',
+    urgencia='GRAVETAT_MITJA',
+    impacte='',
+    proces='PROCES_AUS',
+    procesOrigen='',
+    estat='TIQUET_STATUS_OBERT',
+    ip='',
+    enviarMissatgeCreacio='S',
+    enviarMissatgeTancament='N',
+    imputacioAutomatica='N',
     infraestructura=''):
     resultat=self.client.service.AltaTiquet(
       self.username_gn6,
@@ -89,7 +87,7 @@ class GestioTiquets(SOAService):
       self.domini,
       codiTiquet, usuari, nomFitxer, fitxerBase64)
     return resultat['codiAnnex']
-	
+
   def modificar_tiquet(self,
     codiTiquet,
     equipResolutor='',

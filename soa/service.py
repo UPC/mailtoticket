@@ -1,4 +1,4 @@
-from suds.wsse import *
+from suds.wsse import Security, UsernameToken
 from suds.client import Client
 import settings
 
@@ -11,4 +11,3 @@ class SOAService(object):
     security = Security()
     security.tokens.append(UsernameToken(self.username_soa,self.password_soa))
     self.client.set_options(wsse=security)
-

@@ -1,19 +1,19 @@
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 import bleach
 import re
 
-def neteja(html):  
+def neteja(html):
   html=sanitize(html)
-  html=treure_reply(html)    
-  html=treure_signatura(html)    
+  html=treure_reply(html)
+  html=treure_signatura(html)
   return html
 
 def sanitize(html):
   # Mails del tipus <mail@fib.upc.edu> no son tags!
-  #html=re.sub("<([^ ]*@[^ ]*)>",r"&gt;\1&lt;",html)	
+  #html=re.sub("<([^ ]*@[^ ]*)>",r"&gt;\1&lt;",html)
   return bleach.clean(html,
     tags=[
-      'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol', 
+      'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol',
       'strong', 'ul','pre','table','tr','td','th','tbody','thead','tfoot','div','br','hr','img','p'
     ],
     attributes={
@@ -33,10 +33,10 @@ def treure_reply(html):
 
 def treure_blockquote(html):
   soup = BeautifulSoup(html,"html.parser")
-  
+
   tags = soup.select('blockquote[type=cite]')
   if len(tags)==1: tags[0].decompose()
-  
+
   tags = soup.select('div .moz-cite-prefix')
   if len(tags)==1: tags[0].decompose()
 
@@ -82,7 +82,7 @@ def treure_signatura_text(text):
     return text
 
 def treure_signatura_html(html):
-  soup = BeautifulSoup(html,"html.parser")  
+  soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('.moz-signature')
   if len(tags)==1: tags[0].decompose()
   return str(soup)

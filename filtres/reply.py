@@ -1,5 +1,4 @@
 import re
-import time
 from filtres.filtre import Filtre
 import settings
 
@@ -9,7 +8,7 @@ logger = logging.getLogger(__name__)
 class FiltreReply(Filtre):
 
   solicitant=None
-  ticket_id=None    
+  ticket_id=None
   privat=False
   ticket=None
 
@@ -27,11 +26,10 @@ class FiltreReply(Filtre):
       logger.info ("Trobat ticket %s" % self.ticket_id);
 
       regex_privat=settings.get("regex_privat")
-      intern=re.compile(regex_privat)
-      if intern.match(subject):
+      comentari_intern=re.compile(regex_privat)
+      if comentari_intern.match(subject):
         logger.info ("El comentari es privat");
-        self.privat=True    
-
+        self.privat=True
 
       # Mirem si es un ticket valid
       self.ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
@@ -56,7 +54,7 @@ class FiltreReply(Filtre):
       return False
 
   def filtrar(self):
-    body=self.msg.get_body()    
+    body=self.msg.get_body()
     if self.solicitant_segons_mail==self.solicitant_segons_ticket:
       notificat='N'
     else:
@@ -64,8 +62,8 @@ class FiltreReply(Filtre):
     body=self.afegir_attachments_canviant_body(self.ticket_id,self.solicitant,body)
     resultat=self.tickets.afegir_comentari_tiquet(
       codiTiquet=self.ticket_id,
-      usuari=self.solicitant, 
-      descripcio=("[Comentari afegit des del correu de %s del %s a les %s]<br><br>" % 
+      usuari=self.solicitant,
+      descripcio=("[Comentari afegit des del correu de %s del %s a les %s]<br><br>" %
 	    (self.msg.get_from(),self.msg.get_date().strftime("%d/%m/%Y"),self.msg.get_date().strftime("%H:%M"))
 		) +body,
       tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
@@ -73,7 +71,7 @@ class FiltreReply(Filtre):
 
     if resultat['codiRetorn']!="1":
       logger.info(resultat['descripcioError'])
-      return False    
+      return False
 
     logger.info("Comentari afegit")
     return True

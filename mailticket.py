@@ -14,12 +14,12 @@ logger = logging.getLogger(__name__)
 class MailTicket:
   """ Classe que encapsula un mail que es convertira en un ticket """
 
-  def __init__(self,file):
+  def __init__(self,fitxer):
     self.filtrar_attachments_per_nom=settings.get("filtrar_attachments_per_nom")
     self.filtrar_attachments_per_hash=settings.get("filtrar_attachments_per_hash")
     self.mails_no_ticket=settings.get("mails_no_ticket")
 
-    self.msg = email.message_from_file(file)
+    self.msg = email.message_from_file(fitxer)
     # Farem lazy initialization d'aquestes 2 properties per si hi ha algun error
     self.body=None
     self.subject=None
@@ -49,11 +49,11 @@ class MailTicket:
       s=unicode(part.get_payload(decode=True), part.get_content_charset(), "ignore")
     else:
       s=unicode(part.get_payload(decode=True))
-    # Aixo es perque pot haver-hi caracters no imprimibles que s'han de filtrar. 
+    # Aixo es perque pot haver-hi caracters no imprimibles que s'han de filtrar.
     # Nomes admetem els salts de linia, tabuladors i a partir del 32
     return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or ord(x)>=32 else '' for x in s])
 
-  def nomes_ascii(self,s):    
+  def nomes_ascii(self,s):
     return "".join([x if ord(x)==9 or ord(x)==10 or ord(x)==13 or (ord(x)>=32 and ord(x)<=128) else '' for x in s])
 
   def tracta_subject(self):
@@ -78,7 +78,7 @@ class MailTicket:
   def get_email_header(self,header):
     email=parseaddr(self.msg[header])[1]
     if len(email)==0: return None
-    return email.lower()    
+    return email.lower()
 
   def get_from(self):
     return self.get_email_header('From')
@@ -95,11 +95,11 @@ class MailTicket:
       tt = parsedate_tz(d)
       timestamp = mktime_tz(tt)
       aux=datetime.datetime.fromtimestamp(timestamp)
-      return aux      
+      return aux
     except:
       logger.debug("No puc parsejar la data!")
       return None
-	
+
   def get_to(self):
     to=parseaddr(self.msg['To'])[1]
     try:
@@ -135,9 +135,8 @@ class MailTicket:
       self.tracta_body()
     attachments=[]
     if self.msg.is_multipart():
-      parts=self.msg.get_payload()
       i=0
-      for part in self.msg.walk():        
+      for part in self.msg.walk():
         logger.debug("Part: %s" % part.get_content_type())
         i=i+1
         if (i>self.part_body) and self.comprovar_attachment_valid(part):
@@ -149,7 +148,6 @@ class MailTicket:
     filename=attachment.get_filename()
     contingut=attachment.get_payload()
 
-    valid=False
     # Si no tenim filename, nomes pot ser una imatge incrustada
     if filename==None:
       if ctype not in ['image/jpeg','image/png','image/gif']:
@@ -167,16 +165,16 @@ class MailTicket:
 
     # Segona part: mirem que no sigui un fitxer prohibit per hash
     try:
-      hash=hashlib.md5(base64.b64decode(contingut)).hexdigest()
-      logger.info("Hash:"+hash)
-      return hash not in self.filtrar_attachments_per_hash
+      hash_attachment=hashlib.md5(base64.b64decode(contingut)).hexdigest()
+      logger.info("Hash:"+hash_attachment)
+      return hash_attachment not in self.filtrar_attachments_per_hash
     except:
       logger.info("Tinc un attachment del que no puc calcular el hash")
     return True
 
   def te_attachments(self):
     return len(self.get_attachments())>0
-	
+
   def cal_tractar(self):
     if self.get_from() in self.mails_no_ticket: return False
     if self.msg.get_content_type()=="multipart/report": return False

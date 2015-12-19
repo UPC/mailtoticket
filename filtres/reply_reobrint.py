@@ -1,5 +1,4 @@
 from filtres.reply import FiltreReply
-import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -14,14 +13,14 @@ class FiltreReplyReobrint(FiltreReply):
 
     if self.ticket['estat']=='TIQUET_STATUS_TANCAT':
       logger.info ("Reobrim el ticket tancat %s" % self.ticket_id)
-      resultat=self.tickets.modificar_tiquet(
+      self.tickets.modificar_tiquet(
         codiTiquet=self.ticket_id,
         estat='TIQUET_STATUS_OBERT'
       )
       self.ticket=self.tickets.consulta_tiquet(codi=self.ticket_id)
       if self.ticket['estat']=='TIQUET_STATUS_TANCAT':
         logger.info ("No podem reobrir el ticket %s. El filtre no es aplicable" % self.ticket_id)
-        return False        
+        return False
 
     # Si hem arribat fins aqui, es que es aplicable
     return True

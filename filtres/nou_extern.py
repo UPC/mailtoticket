@@ -1,4 +1,3 @@
-from filtres.filtre import Filtre
 from filtres.nou import FiltreNou
 import settings
 
