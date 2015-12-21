@@ -138,12 +138,15 @@ class MailTicket:
       i=0
       for part in self.msg.walk():
         i=i+1
-        if (i>self.part_body) and (not part.is_multipart()) and self.comprovar_attachment_valid(part):
+        if (i>self.part_body) and self.comprovar_attachment_valid(part):
           logger.debug("Part: %s" % part.get_content_type())
           attachments.append(part)         
     return attachments
 
   def comprovar_attachment_valid(self,attachment):
+    if attachment.is_multipart():
+      return False
+    
     filename=attachment.get_filename()
     contingut=attachment.get_payload()
 
