@@ -15,7 +15,7 @@ MAILTOTICKET_DIR=$HOME/mailtoticket
 set -e
 exec >> $0.log 2>&1
 
-cd $MAILTOTICKET_DIR
+cd "$MAILTOTICKET_DIR"
 python mailtoticket.py \
 | sed -e '2d' -e '0,/^[Mm]essage-[Ii][Dd]:/{//d}' \
 | $SENDMAIL_CMD -oem -i -t
