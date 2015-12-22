@@ -9,13 +9,16 @@
 #   Cyrus IMAP server may ignore duplicates).
 #
 
+SENDMAIL_CMD=/usr/sbin/sendmail
+MAILTOTICKET_DIR=$HOME/mailtoticket
+
 set -e
 exec >> $0.log 2>&1
 
-cd $HOME/mailtoticket
+cd "$MAILTOTICKET_DIR"
 python mailtoticket.py \
 | sed -e '2d' -e '0,/^[Mm]essage-[Ii][Dd]:/{//d}' \
-| /usr/sbin/sendmail -oem -i -t
+| $SENDMAIL_CMD -oem -i -t
 EXIT_CODE=$?
 
 echo "$(date '+%Y-%m-%d %H:%M:%S') exit status=${EXIT_CODE}"
