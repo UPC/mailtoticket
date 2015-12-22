@@ -133,21 +133,27 @@ class MailTicket:
   def get_attachments(self):
     if self.body==None:
       self.tracta_body()
-    attachments=[]          
+    attachments=[]
     if self.msg.is_multipart():
       i=0
       for part in self.msg.walk():
+        logger.debug("Part: %s" % part.get_content_type())
         i=i+1
-        if (i>self.part_body) and (not part.is_multipart()) and self.comprovar_attachment_valid(part):
-          logger.debug("Part: %s" % part.get_content_type())
-          attachments.append(part)         
+        if (i>self.part_body) and self.comprovar_attachment_valid(part):
+          attachments.append(part)
     return attachments
 
   def comprovar_attachment_valid(self,attachment):
+    ctype=attachment.get_content_type()
     filename=attachment.get_filename()
     contingut=attachment.get_payload()
 
-    if filename!=None:
+    # Si no tenim filename, nomes pot ser una imatge incrustada
+    if filename==None:
+      if ctype not in ['image/jpeg','image/png','image/gif']:
+        return False
+    # I si tenim filename, que no sigui un dels que filtrem
+    else:
       for f in self.filtrar_attachments_per_nom:
         p=re.compile(f)
         if p.match(filename):
