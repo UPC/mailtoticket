@@ -144,8 +144,6 @@ class MailTicket:
     return attachments
 
   def comprovar_attachment_valid(self,attachment):
-    if attachment.is_multipart():
-      return False
     ctype=attachment.get_content_type()
     filename=attachment.get_filename()
     contingut=attachment.get_payload()
