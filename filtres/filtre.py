@@ -76,7 +76,7 @@ class Filtre(object):
       return html
     html+="<br><br>Attachments:<ul>"
     for id_attachment in ids:
-      a=ids[id_attachment]
+      a=ids[id]
       url=self.url_attachment(id_attachment)
       html+="<li><a href=\"%s\">%s (%s)</a>" % (url,a.get_filename(),a.get_content_type())
     html+="</ul>"
