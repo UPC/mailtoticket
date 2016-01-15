@@ -41,6 +41,9 @@ if __name__ == '__main__':
         tractat=True
         estat="SUCCESS"
         logger.info("Marco el mail com a tractat")
+      else:
+        estat="REJECT"
+        logger.info("Rebutjo el mail per no passar els filtres")
     else:
       estat="SKIP"
       logger.info("No cal tractar el mail %s" % mail.get_subject_ascii())
