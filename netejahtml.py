@@ -87,3 +87,15 @@ def treure_signatura_html(html):
   if len(tags)==1: tags[0].decompose()
   return str(soup)
 
+def treure_pgp(text):
+  pgp=False
+  cos=[]
+  linies=text.split("\n")
+  for l in linies:
+    if re.match("^-----BEGIN PGP PUBLIC KEY BLOCK-----$",l):
+      pgp=True
+    if not pgp:
+      cos.append(l)
+    if re.match("^-----END PGP PUBLIC KEY BLOCK-----$",l):
+      pgp=False
+  return "\n".join(cos)
