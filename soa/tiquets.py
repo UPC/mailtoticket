@@ -62,6 +62,7 @@ class GestioTiquets(SOAService):
       self.password_gn6,
       self.domini,
       solicitant,
+      emailSolicitant,
       client,
       assumpte,
       descripcio,
