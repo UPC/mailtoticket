@@ -38,6 +38,11 @@ class FiltreNou(Filtre):
     if len(subject)==0:
       subject="Ticket de %s" % self.solicitant
 
+    if self.msg.get_reply_to()!=None:
+      from_or_reply_to=self.msg.get_reply_to()
+    else:
+      from_or_reply_to=self.msg.get_from()
+      
     parametres_addicionals=self.obtenir_parametres_addicionals()
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" %
@@ -46,6 +51,7 @@ class FiltreNou(Filtre):
     resultat=self.tickets.alta_tiquet(
       assumpte=subject,
       solicitant=self.solicitant,
+      emailSolicitant=from_or_reply_to,
       descripcio=descripcio,
       **parametres_addicionals
       )
@@ -58,11 +64,6 @@ class FiltreNou(Filtre):
     ticket_id=resultat['codiTiquet']
     descripcio=self.afegir_attachments_canviant_body(ticket_id,self.solicitant,descripcio)
     logger.info("Attachments (si n'hi ha) afegits")
-
-    if self.msg.get_reply_to()!=None:
-      from_or_reply_to=self.msg.get_reply_to()
-    else:
-      from_or_reply_to=self.msg.get_from()
 
     if settings.get("assignar_data_resolucio_amb_data_creacio"):
       data_resolucio=time.strftime("%d-%m-%Y")
