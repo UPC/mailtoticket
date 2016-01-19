@@ -147,16 +147,11 @@ class MailTicket:
     if attachment.is_multipart():
       return False
 
-    ctype=attachment.get_content_type()
     filename=attachment.get_filename()
     contingut=attachment.get_payload()
 
-    # Si no tenim filename, nomes pot ser una imatge incrustada
-    if filename==None:
-      if ctype not in ['image/jpeg','image/png','image/gif']:
-        return False
-    # I si tenim filename, que no sigui un dels que filtrem
-    else:
+    # Si tenim filename, que no sigui un dels que filtrem
+    if filename!=None:
       for f in self.filtrar_attachments_per_nom:
         p=re.compile(f)
         if p.match(filename):
