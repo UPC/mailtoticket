@@ -4,7 +4,7 @@ import settings
 class GestioTiquets(SOAService):
 
   def __init__(self):
-    self.url="https://bus-soa.upc.edu/gN6/GestioTiquetsv4?wsdl"
+    self.url="https://bus-soa.upc.edu/gN6/GestioTiquetsv5?wsdl"
     self.username_gn6=settings.get("username_gn6")
     self.password_gn6=settings.get("password_gn6")
     self.domini=settings.get("domini")
@@ -39,6 +39,7 @@ class GestioTiquets(SOAService):
 
   def alta_tiquet(self,
     solicitant,
+    emailSolicitant='',
     client='',
     assumpte='',
     descripcio='',
@@ -61,6 +62,7 @@ class GestioTiquets(SOAService):
       self.password_gn6,
       self.domini,
       solicitant,
+      emailSolicitant,
       client,
       assumpte,
       descripcio,
