@@ -70,7 +70,7 @@ class FiltreReply(Filtre):
       esNotificat=notificat if not self.privat else 'N')
 
     if resultat['codiRetorn']!="1":
-      logger.info(resultat['descripcioError'])
+      logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
       return False
 
     logger.info("Comentari afegit")
