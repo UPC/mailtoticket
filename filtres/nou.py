@@ -57,7 +57,7 @@ class FiltreNou(Filtre):
       )
 
     if resultat['codiRetorn']!="1":
-      logger.info(resultat['descripcioError'])
+      logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
       return False
     logger.info("Ticket creat")
 
@@ -78,7 +78,7 @@ class FiltreNou(Filtre):
       )
 
     if resultat['codiRetorn']!="1":
-      logger.info(resultat['descripcioError'])
+      logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
     else:
       logger.info("Mail modificat a %s" % self.msg.get_from())
 
