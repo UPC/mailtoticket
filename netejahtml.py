@@ -2,15 +2,22 @@ from bs4 import BeautifulSoup
 import bleach
 import re
 
-def neteja(html):
+def neteja_nou(html):
   html=sanitize(html)
-  html=treure_reply(html)
   html=treure_signatura(html)
+  html=treure_pgp(html)
+  return html
+
+def neteja_reply(html):
+  html=sanitize(html)
+  html=treure_signatura(html)
+  html=treure_pgp(html)
+  html=treure_reply(html)
   return html
 
 def sanitize(html):
   # Mails del tipus <mail@fib.upc.edu> no son tags!
-  #html=re.sub("<([^ ]*@[^ ]*)>",r"&gt;\1&lt;",html)
+  html=re.sub("<([^ ]+@[^ ]+)>",r"&gt;\1&lt;",html)
   return bleach.clean(html,
     tags=[
       'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol',
@@ -37,8 +44,9 @@ def treure_blockquote(html):
   tags = soup.select('blockquote[type=cite]')
   if len(tags)==1: tags[0].decompose()
 
-  tags = soup.select('div .moz-cite-prefix')
-  if len(tags)==1: tags[0].decompose()
+  #Aixo es perillos
+  #tags = soup.select('div.moz-cite-prefix')
+  #if len(tags)==1: tags[0].decompose()
 
   return str(soup)
 
@@ -84,7 +92,7 @@ def treure_signatura_text(text):
 def treure_signatura_html(html):
   soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('.moz-signature')
-  if len(tags)==1: tags[0].decompose()
+  if len(tags)>=1: tags[len(tags)-1].decompose()
   return str(soup)
 
 def treure_pgp(text):
