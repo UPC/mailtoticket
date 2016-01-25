@@ -34,6 +34,9 @@ class FiltreNou(Filtre):
   def filtrar(self):
     logger.info("Aplico filtre...")
     body=self.msg.get_body()
+    funcio_netejar_mail_nou=settings.get("netejar_mail_nou")
+    if funcio_netejar_mail_nou:
+      body=funcio_netejar_mail_nou(body)
     subject=self.msg.get_subject()
     if len(subject)==0:
       subject="Ticket de %s" % self.solicitant
