@@ -11,8 +11,14 @@ from StringIO import StringIO
 
 logger = logging.getLogger()
 
+ERROR="ERROR"
+SUCCESS="SUCCESS"
+SKIP="SKIP"
+REJECT="REJECT"
+UNKNOWN="UNKNOWN"
+
 def codi_sortida(estat):
-  return (0 if estat == "SUCCESS" or estat == "SKIP" else 1)
+  return (0 if estat == ERROR or estat == SKIP else 1)
 
 if __name__ == '__main__':
   a=None
@@ -32,7 +38,7 @@ if __name__ == '__main__':
   if a is not None:
     logger.info("Fitxer de configuracio [%s]",a)
 
-  estat="UNKNOWN"
+  estat=UNKNOWN
   tractat=False
   try:
     logger.info("-----------------------------------------------------")
@@ -42,16 +48,16 @@ if __name__ == '__main__':
     if mail.cal_tractar():
       if filtres.aplicar_filtres(mail):
         tractat=True
-        estat="SUCCESS"
+        estat=SUCCESS
         logger.info("Marco el mail com a tractat")
       else:
-        estat="REJECT"
+        estat=REJECT
         logger.info("Rebutjo el mail per no passar els filtres")
     else:
-      estat="SKIP"
+      estat=SKIP
       logger.info("No cal tractar el mail %s" % mail.get_subject_ascii())
   except Exception, e:
-    estat="ERROR"
+    estat=ERROR
     logger.exception("Ha petat algun dels filtres i no marco el mail com a tractat")
   finally:
     print "X-Mailtoticket: %s" % estat
