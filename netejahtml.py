@@ -7,6 +7,7 @@ def neteja_nou(html):
   html=treure_signatura(html)
   html=treure_pgp(html)
   html=compacta_br(html)
+  html=treure_body(html)
   return html
 
 def neteja_reply(html):
@@ -15,6 +16,7 @@ def neteja_reply(html):
   html=treure_pgp(html)
   html=treure_reply(html)
   html=compacta_br(html)
+  html=treure_body(html)
   return html
 
 def sanitize(html):
@@ -37,10 +39,14 @@ def sanitize(html):
   # Aixo es perque els BR siguin autocontinguts i no interfereixin a l'arbre
   net=re.sub('<br\s*/?>','<br/>',net,flags=re.I)
   net=re.sub('</br\s*>','',net,flags=re.I)
-  return net  
+  return "<body>%s</body>" % net  
 
 def compacta_br(html):
   html=re.sub('<br\s*/?>(?:\s*<br\s*/?>)+','<br />',html,flags=re.I)
+  return html
+
+def treure_body(html):
+  html=re.sub('</?body\s*>','',html,flags=re.I)
   return html
 
 def treure_reply(html):
