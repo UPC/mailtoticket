@@ -6,6 +6,7 @@ def neteja_nou(html):
   html=sanitize(html)
   html=treure_signatura(html)
   html=treure_pgp(html)
+  html=treure_imatges_trencades(html)  
   html=compacta_br(html)
   html=treure_body(html)
   return html
@@ -15,6 +16,7 @@ def neteja_reply(html):
   html=treure_reply(html)  
   html=treure_signatura(html)
   html=treure_pgp(html)
+  html=treure_imatges_trencades(html)  
   html=compacta_br(html)
   html=treure_body(html)
   return html
@@ -118,6 +120,12 @@ def treure_signatura_html(html):
   soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('.moz-signature')
   if len(tags)>=1: tags[len(tags)-1].decompose()
+  return unicode(soup)
+
+def treure_imatges_trencades(html):
+  soup = BeautifulSoup(html,"html.parser")
+  tags = soup.select('img[src^="cid:"]')
+  for tag in tags: tag.decompose()
   return unicode(soup)
 
 def treure_pgp(text):
