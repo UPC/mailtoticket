@@ -57,7 +57,16 @@ def treure_reply(html):
 def treure_blockquote(html):
   soup = BeautifulSoup(html,"html.parser")
 
-  tags = soup.select('blockquote[type=cite]')
+  # Thunderbird, webmail
+  tags = soup.select('body > blockquote[type=cite]')
+  if len(tags)==1: tags[0].decompose()
+
+  # gmail
+  tags = soup.select('body > div.gmail_extra')
+  if len(tags)==1: tags[0].decompose()
+
+  # Client mail android
+  tags = soup.select('body > div.quote')
   if len(tags)==1: tags[0].decompose()
 
   #Aixo es perillos
