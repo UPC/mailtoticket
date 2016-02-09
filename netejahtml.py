@@ -64,7 +64,7 @@ def treure_blockquote(html):
   #tags = soup.select('div.moz-cite-prefix')
   #if len(tags)==1: tags[0].decompose()
 
-  return str(soup)
+  return unicode(soup)
 
 def treure_reply_text(text):
   blocs=0;
@@ -109,7 +109,7 @@ def treure_signatura_html(html):
   soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('.moz-signature')
   if len(tags)>=1: tags[len(tags)-1].decompose()
-  return str(soup)
+  return unicode(soup)
 
 def treure_pgp(text):
   pgp=False
