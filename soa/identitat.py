@@ -51,18 +51,27 @@ class GestioIdentitatLocal:
     self.patrons_mails_addicionals=settings.get("patrons_mail_addicionals")
 
   def obtenir_uid_local(self,mail):
+    uid=self.obtenir_uid_de_llista(mail)
+    if uid!=None: uid=self.obtenir_uid_de_patrons(mail)
+    return uid
+
+  def obtenir_uid_de_llista(self,mail):
     try:
       return self.mails_addicionals[mail]
     except:
-      try:
-        for k,v in self.patrons_mails_addicionals.iteritems():
-          patro=re.compile(k)
-          m=patro.match(mail)
-          if m:
-            try:
-              return v % m.group(1)
-            except:
-              return v
-        return None
-      except:
-        return None
+      return None
+
+  def obtenir_uid_de_patrons(self,mail):
+    try:
+      for k,v in self.patrons_mails_addicionals.iteritems():
+        patro=re.compile(k)
+        m=patro.match(mail)
+        if m:
+          try:
+            return v % m.group(1)
+          except:
+            return v
+      return None
+    except:
+      return None
+
