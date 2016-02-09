@@ -20,7 +20,7 @@ if __name__ == '__main__':
   logging.basicConfig(
     filename=settings.get("log_file"),
     level=settings.get("log_level"),
-    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+    format='%(asctime)s [%(process)d] %(name)-12s %(levelname)-8s %(message)s'
     )
 
   buffer_logs = StringIO()
