@@ -6,6 +6,7 @@ def neteja_nou(html):
   html=sanitize(html)
   html=treure_signatura(html)
   html=treure_pgp(html)
+  html=compacta_br(html)
   return html
 
 def neteja_reply(html):
@@ -13,12 +14,13 @@ def neteja_reply(html):
   html=treure_signatura(html)
   html=treure_pgp(html)
   html=treure_reply(html)
+  html=compacta_br(html)
   return html
 
 def sanitize(html):
   # Mails del tipus <mail@fib.upc.edu> no son tags!
   html=re.sub("<([^ ]+@[^ ]+)>",r"&gt;\1&lt;",html)
-  return bleach.clean(html,
+  net=bleach.clean(html,
     tags=[
       'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol',
       'strong', 'ul','pre','table','tr','td','th','tbody','thead','tfoot','div','br','hr','img','p'
@@ -32,6 +34,14 @@ def sanitize(html):
     },
     strip=True
   )
+  # Aixo es perque els BR siguin autocontinguts i no interfereixin a l'arbre
+  net=re.sub('<br\s*/?>','<br/>',net,flags=re.I)
+  net=re.sub('</br\s*>','',net,flags=re.I)
+  return net  
+
+def compacta_br(html):
+  html=re.sub('<br\s*/?>(?:\s*<br\s*/?>)+','<br />',html,flags=re.I)
+  return html
 
 def treure_reply(html):
   html=treure_blockquote(html)
@@ -53,7 +63,7 @@ def treure_blockquote(html):
 def treure_reply_text(text):
   blocs=0;
   anterior=False
-  linies=text.split("<br>\n")
+  linies=text.split("<br/>\n")
   sensequotes=[]
   for l in linies:
     if l.startswith("&gt;"):
@@ -64,7 +74,7 @@ def treure_reply_text(text):
       sensequotes.append(l)
     anterior=dintre
   if blocs==1:
-    return "<br>\n".join(sensequotes)
+    return "<br/>\n".join(sensequotes)
   else:
     return text
 
@@ -77,7 +87,7 @@ def treure_signatura_text(text):
   blocs=0;
   signatura=False
   cos=[]
-  linies=text.split("<br>\n")
+  linies=text.split("<br/>\n")
   for l in linies:
     if re.match("^--[\s]+$",l):
       signatura=True
@@ -85,7 +95,7 @@ def treure_signatura_text(text):
     if not signatura:
       cos.append(l)
   if blocs==1:
-    return "<br>\n".join(cos)
+    return "<br/>\n".join(cos)
   else:
     return text
 
