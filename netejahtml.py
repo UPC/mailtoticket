@@ -12,9 +12,9 @@ def neteja_nou(html):
 
 def neteja_reply(html):
   html=sanitize(html)
+  html=treure_reply(html)
   html=treure_signatura(html)
   html=treure_pgp(html)
-  html=treure_reply(html)
   html=compacta_br(html)
   html=treure_body(html)
   return html
@@ -93,15 +93,15 @@ def treure_signatura_text(text):
   blocs=0;
   signatura=False
   cos=[]
-  linies=text.split("<br/>\n")
+  linies=text.split("<br\s*/?>\n")
   for l in linies:
-    if re.match("^--[\s]+$",l):
+    if re.match("^--\s*$",l):
       signatura=True
       blocs+=1
     if not signatura:
       cos.append(l)
   if blocs==1:
-    return "<br/>\n".join(cos)
+    return "<br>\n".join(cos)
   else:
     return text
 
