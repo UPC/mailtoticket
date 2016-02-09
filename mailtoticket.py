@@ -35,7 +35,7 @@ if __name__ == '__main__':
     logger.info("-----------------------------------------------------")
     logger.info("Llegeixo mail")
     mail = MailTicket(sys.stdin)
-    logger.info("Mail de %s llegit" % mail.get_from())
+    logger.info("Mail de %s llegit amb ID %s" % (mail.get_from(), mail.get_header('message-id')))
     if mail.cal_tractar():
       if filtres.aplicar_filtres(mail):
         tractat=True
