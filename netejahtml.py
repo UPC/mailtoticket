@@ -23,7 +23,8 @@ def neteja_reply(html):
 
 def sanitize(html):
   # Mails del tipus <mail@fib.upc.edu> no son tags!
-  html=re.sub("<(a-zA-Z0-9_.+-]+@a-zA-Z0-9_.+-]+)>",r"&gt;\1&lt;",html)
+  html=re.sub(r"<(a-zA-Z0-9_\.+-]+@a-zA-Z0-9_\.+-]+)>",r"[\1]",html)
+  html=re.sub(r"&lt;([a-zA-Z0-9_\.+-]+@[a-zA-Z0-9_\.+-]+)&gt;",r"[\1]",html)
   net=bleach.clean(html,
     tags=[
       'a', 'abbr', 'acronym', 'b', 'blockquote', 'code', 'em', 'i', 'li', 'ol',
