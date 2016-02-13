@@ -3,7 +3,7 @@ import settings
 import logging
 logger = logging.getLogger(__name__)
 
-def enviar(text):	
+def enviar(text):
   try:
     de=settings.get("notificar_errors_from");
     a=settings.get("notificar_errors_to");
