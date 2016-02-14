@@ -64,5 +64,5 @@ if __name__ == '__main__':
     print mail
     logger.info("-----------------------------------------------------")
     if not tractat and settings.get("notificar_errors"):
-      correu.enviar(buffer_logs.getvalue())
+      correu.enviar(buffer_logs.getvalue(), mail.msg)
     sys.exit(codi_sortida(estat))
