@@ -27,8 +27,9 @@ class MailTicket:
   def tracta_body(self):
     if not self.msg.is_multipart():
       part=self.msg
-      body=self.codifica(part)
-      self.body=self.text2html(body)
+      self.body=self.codifica(part)
+      if not part.get_content_type() in ['text/html']:
+        self.body=self.text2html(self.body)
     else:
       self.part_body=0
       el_body_es_html=False

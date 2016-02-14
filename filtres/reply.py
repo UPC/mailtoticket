@@ -55,6 +55,9 @@ class FiltreReply(Filtre):
 
   def filtrar(self):
     body=self.msg.get_body()
+    funcio_netejar_mail_reply=settings.get("netejar_mail_reply")
+    if funcio_netejar_mail_reply:
+      body=funcio_netejar_mail_reply(body)
     if self.solicitant_segons_mail==self.solicitant_segons_ticket:
       notificat='N'
     else:
