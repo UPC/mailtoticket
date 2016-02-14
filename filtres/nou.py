@@ -46,6 +46,10 @@ class FiltreNou(Filtre):
     else:
       from_or_reply_to=self.msg.get_from()
       
+    if settings.get("mails_sense_bustia"):
+      if from_or_reply_to in settings.get("mails_sense_bustia"):
+        from_or_reply_to=''
+      
     parametres_addicionals=self.obtenir_parametres_addicionals()
     logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" %
@@ -75,14 +79,11 @@ class FiltreNou(Filtre):
 
     resultat=self.tickets.modificar_tiquet(
       codiTiquet=ticket_id,
-      emailSolicitant=from_or_reply_to,
       descripcio=descripcio,
       dataResol=data_resolucio
       )
 
     if resultat['codiRetorn']!="1":
       logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
-    else:
-      logger.info("Mail modificat a %s" % self.msg.get_from())
 
     return True
