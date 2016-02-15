@@ -52,7 +52,7 @@ class GestioIdentitatLocal:
 
   def obtenir_uid_local(self,mail):
     uid=self.obtenir_uid_de_llista(mail)
-    if uid!=None: uid=self.obtenir_uid_de_patrons(mail)
+    if uid==None: uid=self.obtenir_uid_de_patrons(mail)
     return uid
 
   def obtenir_uid_de_llista(self,mail):
