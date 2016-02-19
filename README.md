@@ -3,6 +3,8 @@ MailToTicket
 
 Una pasarel·la de correu per al gestor de tiquets GN6.
 
+[![Build Status](https://secure.travis-ci.org/UPC/mailtoticket.png?branch=master)](http://travis-ci.org/UPC/mailtoticket)
+
 Requisits
 ---------
 

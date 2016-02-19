@@ -4,7 +4,6 @@ env.sh
 !settings.py
 !settings_sample.py
 instala.sh
-test
 local
 .project
 .pydevproject
