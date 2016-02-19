@@ -9,7 +9,6 @@
 #   Cyrus IMAP server may ignore duplicates).
 #
 
-set -e
 exec >> $0.log 2>&1
 
 cd $HOME/mailtoticket
