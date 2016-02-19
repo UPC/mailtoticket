@@ -59,7 +59,7 @@ class FiltreNou(Filtre):
       'descripcio':descripcio
     }
     parametres.update(parametres_addicionals)        
-    resultat=self.tickets.alta_tiquet(parametres)
+    resultat=self.tickets.alta_tiquet(**parametres)
 
     if resultat['codiRetorn']!="1":
       logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
