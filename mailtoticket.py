@@ -18,7 +18,7 @@ REJECT="REJECT"
 UNKNOWN="UNKNOWN"
 
 def codi_sortida(estat):
-  return (0 if estat == ERROR or estat == SKIP else 1)
+  return (0 if estat == SUCCESS or estat == SKIP else 1)
 
 if __name__ == '__main__':
   a=None
