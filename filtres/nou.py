@@ -51,13 +51,15 @@ class FiltreNou(Filtre):
     descripcio=("[Tiquet creat des del correu de %s del %s a les %s]<br><br>" %
       (self.msg.get_from(),self.msg.get_date().strftime("%d/%m/%Y"),self.msg.get_date().strftime("%H:%M"))
     ) +body
-    resultat=self.tickets.alta_tiquet(
-      assumpte=subject,
-      solicitant=self.solicitant,
-      emailSolicitant=from_or_reply_to,
-      descripcio=descripcio,
-      **parametres_addicionals
-      )
+
+    parametres={
+      'assumpte':subject,
+      'solicitant':self.solicitant,
+      'emailSolicitant':from_or_reply_to,
+      'descripcio':descripcio
+    }
+    parametres.update(parametres_addicionals)        
+    resultat=self.tickets.alta_tiquet(parametres)
 
     if resultat['codiRetorn']!="1":
       logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
