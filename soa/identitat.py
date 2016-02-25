@@ -44,7 +44,7 @@ class GestioIdentitat(SOAService):
       return uid
 
 
-class GestioIdentitatLocal:
+class GestioIdentitatLocal(SOAService):
 
   def __init__(self):
     self.mails_addicionals=settings.get("mails_addicionals")
