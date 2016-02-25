@@ -62,7 +62,7 @@ class FiltreNou(Filtre):
     resultat=self.tickets.alta_tiquet(**parametres)
 
     if self.tickets.resultat_erroni(resultat):
-      logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
+      logger.info(self.tickets.retorna_missatge_error(resultat))
       return False
     logger.info("Ticket creat")
 
@@ -83,7 +83,7 @@ class FiltreNou(Filtre):
       )
 
     if self.tickets.resultat_erroni(resultat):
-      logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
+      logger.info(self.tickets.retorna_missatge_error(resultat))
     else:
       logger.info("Mail modificat a %s" % self.msg.get_from())
 
