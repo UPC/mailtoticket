@@ -72,7 +72,7 @@ class FiltreReply(Filtre):
       tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
       esNotificat=notificat if not self.privat else 'N')
 
-    if resultat['codiRetorn']!="1":
+    if self.tickets.resultat_erroni(resultat):
       logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
       return False
 

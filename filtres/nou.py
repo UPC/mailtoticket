@@ -82,7 +82,7 @@ class FiltreNou(Filtre):
       dataResol=data_resolucio
       )
 
-    if resultat['codiRetorn']!="1":
+    if self.tickets.resultat_erroni(resultat):
       logger.info("Error: %s - %s" % (resultat['codiRetorn'],resultat['descripcioError']))
     else:
       logger.info("Mail modificat a %s" % self.msg.get_from())
