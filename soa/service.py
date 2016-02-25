@@ -16,3 +16,6 @@ class SOAService(object):
 
     def resultat_erroni(self, resultat):
         return resultat['codiRetorn'] != "1"
+
+    def retorna_missatge_error(self, resultat):
+        return "Error: %s - %s" % (resultat['codiRetorn'], resultat['descripcioError'])

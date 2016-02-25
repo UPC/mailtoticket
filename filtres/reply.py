@@ -73,11 +73,8 @@ class FiltreReply(Filtre):
       esNotificat=notificat if not self.privat else 'N')
 
     if self.tickets.resultat_erroni(resultat):
-      logger.info(self.retorna_missatge_error(resultat))
+      logger.info(self.tickets.retorna_missatge_error(resultat))
       return False
 
     logger.info("Comentari afegit")
     return True
-
-  def retorna_missatge_error(self, resultat):
-    return "Error: %s - %s" % (resultat['codiRetorn'], resultat['descripcioError'])
