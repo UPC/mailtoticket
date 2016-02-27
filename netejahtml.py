@@ -21,6 +21,19 @@ def neteja_reply(html):
   html=treure_body(html)
   return html
 
+def assegura_contingut(funcio_neteja):
+  def funcio_assegura_contingut(html):
+    html_net=funcio_neteja(html)
+    soup = BeautifulSoup(html_net,"html.parser")
+    # Truquillo pythonic per treure espais al text
+    text_sense_espais="".join(soup.text.strip())
+    if len(text_sense_espais)>0:
+      return html_net
+    else:
+      return html
+  return funcio_assegura_contingut
+
+@assegura_contingut
 def sanitize(html):
   # Mails del tipus <mail@fib.upc.edu> no son tags!
   html=re.sub(r"<(a-zA-Z0-9_\.+-]+@a-zA-Z0-9_\.+-]+)>",r"[\1]",html)
@@ -44,10 +57,12 @@ def sanitize(html):
   net=re.sub('</br\s*>','',net,flags=re.I)
   return "<body>%s</body>" % net
 
+@assegura_contingut
 def compacta_br(html):
   html=re.sub('<br\s*/?>(?:\s*<br\s*/?>)+','<br />',html,flags=re.I)
   return html
 
+@assegura_contingut
 def treure_body(html):
   html=re.sub('</?body\s*>','',html,flags=re.I)
   return html
@@ -57,6 +72,7 @@ def treure_reply(html):
   html=treure_reply_text(html)
   return html
 
+@assegura_contingut
 def treure_blockquote(html):
   soup = BeautifulSoup(html,"html.parser")
 
@@ -78,6 +94,7 @@ def treure_blockquote(html):
 
   return unicode(soup)
 
+@assegura_contingut
 def treure_reply_text(text):
   blocs=0;
   anterior=False
@@ -101,6 +118,7 @@ def treure_signatura(html):
   html=treure_signatura_html(html)
   return html
 
+@assegura_contingut
 def treure_signatura_text(text):
   blocs=0;
   signatura=False
@@ -117,18 +135,21 @@ def treure_signatura_text(text):
   else:
     return text
 
+@assegura_contingut
 def treure_signatura_html(html):
   soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('.moz-signature')
   if len(tags)>=1: tags[len(tags)-1].decompose()
   return unicode(soup)
 
+@assegura_contingut
 def treure_imatges_trencades(html):
   soup = BeautifulSoup(html,"html.parser")
   tags = soup.select('img[src^="cid:"]')
   for tag in tags: tag.decompose()
   return unicode(soup)
 
+@assegura_contingut
 def treure_pgp(text):
   pgp=False
   cos=[]
