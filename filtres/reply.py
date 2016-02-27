@@ -3,6 +3,7 @@ from filtres.filtre import Filtre
 import settings
 
 import logging
+from soa.service import SOAService
 logger = logging.getLogger(__name__)
 
 class FiltreReply(Filtre):
@@ -72,8 +73,8 @@ class FiltreReply(Filtre):
       tipusComentari='COMENT_TIQUET_PRIVAT' if self.privat else 'COMENT_TIQUET_PUBLIC',
       esNotificat=notificat if not self.privat else 'N')
 
-    if self.tickets.resultat_erroni(resultat):
-      logger.info(self.tickets.retorna_missatge_error(resultat))
+    if SOAService.resultat_erroni(resultat):
+      logger.info(SOAService.retorna_missatge_error(resultat))
       return False
 
     logger.info("Comentari afegit")

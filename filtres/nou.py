@@ -4,6 +4,7 @@ import settings
 import re
 
 import logging
+from soa.service import SOAService
 logger = logging.getLogger(__name__)
 
 class FiltreNou(Filtre):
@@ -61,8 +62,8 @@ class FiltreNou(Filtre):
     parametres.update(parametres_addicionals)        
     resultat=self.tickets.alta_tiquet(**parametres)
 
-    if self.tickets.resultat_erroni(resultat):
-      logger.info(self.tickets.retorna_missatge_error(resultat))
+    if SOAService.resultat_erroni(resultat):
+      logger.info(SOAService.retorna_missatge_error(resultat))
       return False
     logger.info("Ticket creat")
 

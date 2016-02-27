@@ -14,8 +14,10 @@ class SOAService(object):
             UsernameToken(self.username_soa, self.password_soa))
         self.client.set_options(wsse=security)
 
-    def resultat_erroni(self, resultat):
+    @staticmethod
+    def resultat_erroni(resultat):
         return resultat['codiRetorn'] != "1"
 
-    def retorna_missatge_error(self, resultat):
+    @staticmethod
+    def retorna_missatge_error(resultat):
         return "Error: %s - %s" % (resultat['codiRetorn'], resultat['descripcioError'])
