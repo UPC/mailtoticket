@@ -1,7 +1,10 @@
 language: python
 # command to install dependencies
 install: "pip install -r requirements.txt"
-# command to check for syntax errors
-before_script: "python -m compileall -f ."
-# command to run tests
-script: "python -m unittest discover"
+# command to check before build
+before_script:
+    - "python -m compileall -f ."
+    - "pip install pep8 && pep8 ."
+    - "python -m unittest discover"
+# build nothing right now
+script: "true"

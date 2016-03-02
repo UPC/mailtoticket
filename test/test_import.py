@@ -18,6 +18,7 @@ import soa.identitat
 import soa.service
 import soa.tiquets
 
+
 class TestImport(unittest.TestCase):
 
     def test_import(self):

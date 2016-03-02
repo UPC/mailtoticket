@@ -20,4 +20,5 @@ class SOAService(object):
 
     @staticmethod
     def retorna_missatge_error(resultat):
-        return "Error: %s - %s" % (resultat['codiRetorn'], resultat['descripcioError'])
+        return "Error: %s - %s" % (resultat['codiRetorn'],
+                                   resultat['descripcioError'])
