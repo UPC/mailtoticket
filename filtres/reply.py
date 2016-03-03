@@ -3,6 +3,7 @@ from filtres.filtre import Filtre
 import settings
 
 import logging
+from soa.service import SOAService
 logger = logging.getLogger(__name__)
 
 
@@ -87,11 +88,8 @@ class FiltreReply(Filtre):
             esNotificat=notificat if not self.privat else 'N'
         )
 
-        if resultat['codiRetorn'] != "1":
-            logger.info("Error: %s - %s" % (
-                resultat['codiRetorn'],
-                resultat['descripcioError']
-            ))
+        if SOAService.resultat_erroni(resultat):
+            logger.info(SOAService.retorna_missatge_error(resultat))
             return False
 
         logger.info("Comentari afegit")
