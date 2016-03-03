@@ -61,7 +61,7 @@ if __name__ == '__main__':
         else:
             estat = SKIP
             logger.info("No cal tractar el mail %s" % mail.get_subject_ascii())
-    except Exception, e:
+    except Exception as e:
         estat = ERROR
         logger.exception(
             "Ha petat algun dels filtres i no marco el mail com a tractat"

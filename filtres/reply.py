@@ -52,7 +52,7 @@ class FiltreReply(Filtre):
             logger.info("Crearem comentari a nom de %s" % self.solicitant)
             return True
 
-        except Exception, e:
+        except Exception as e:
             logger.info("Peta el filtre... %s" % str(e))
             return False
 
