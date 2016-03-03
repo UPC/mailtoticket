@@ -69,7 +69,7 @@ class FiltreNou(Filtre):
         parametres.update(parametres_addicionals)
         resultat = self.tickets.alta_tiquet(**parametres)
 
-        if self.tickets.resultat_erroni(resultat):
+        if SOAService.resultat_erroni(resultat):
             logger.info("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']
@@ -98,7 +98,7 @@ class FiltreNou(Filtre):
             dataResol=data_resolucio
         )
 
-        if self.tickets.resultat_erroni(resultat):
+        if SOAService.resultat_erroni(resultat):
             logger.info("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']
