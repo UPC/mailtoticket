@@ -26,7 +26,7 @@ def enviar(text, orig):
         server.sendmail(de, a, msg.as_string())
         server.quit()
         logger.info("Informe d'errors de %s enviat per correu" % msgid)
-    except Exception, e:
+    except Exception as e:
         logger.info(e)
         logger.info("No s'ha pogut enviar per correu l'informe d'errors de %s"
                     % msgid)
