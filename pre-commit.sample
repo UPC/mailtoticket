@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Copy or append this file in .git/hooks/pre-commit
+#
+
+# Redirect output to stderr.
+exec 1>&2
+
+# fail on error
+set -e
+
+# include virtualenv in PATH
+PATH=$PWD/local/bin:$PATH
+
+# include and run some checks
+. ./check-qa.sh
