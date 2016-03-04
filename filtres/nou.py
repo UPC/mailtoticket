@@ -2,6 +2,7 @@ import time
 from filtres.filtre import Filtre
 import settings
 import re
+from soa.service import SOAService
 
 import logging
 logger = logging.getLogger(__name__)

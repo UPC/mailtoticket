@@ -1,6 +1,7 @@
 import re
 from filtres.filtre import Filtre
 import settings
+from soa.service import SOAService
 
 import logging
 logger = logging.getLogger(__name__)
