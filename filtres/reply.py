@@ -87,7 +87,7 @@ class FiltreReply(Filtre):
             esNotificat=notificat if not self.privat else 'N'
         )
 
-        if resultat['codiRetorn'] != "1":
+        if SOAService.resultat_erroni(resultat):
             logger.info("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']

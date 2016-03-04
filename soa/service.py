@@ -13,3 +13,7 @@ class SOAService(object):
         security.tokens.append(
                 UsernameToken(self.username_soa, self.password_soa))
         self.client.set_options(wsse=security)
+
+    @staticmethod
+    def resultat_erroni(resultat):
+        return resultat['codiRetorn'] != "1"
