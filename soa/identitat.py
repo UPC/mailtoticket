@@ -11,6 +11,8 @@ class GestioIdentitat(SOAService):
         SOAService.__init__(self)
 
     def canonicalitzar_mail(self, mail):
+        if mail is None:
+            return None
         mail_canonic = mail.lower()
         mail_canonic = mail_canonic.replace(".upc.es", ".upc.edu")
         mail_canonic = mail_canonic.replace("@lsi", "@cs")
