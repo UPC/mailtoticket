@@ -39,7 +39,7 @@ class GestioIdentitat(SOAService):
                 # com a preferent o be retornem el primer
                 for persona in resultat.llistaPersones.persona:
                     dades_persona = self.client.service.obtenirDadesPersona(
-                            commonName=persona.cn)
+                        commonName=persona.cn)
                     if (self.canonicalitzar_mail(
                             dades_persona.emailPreferent) == mail):
                         uid = persona.cn
