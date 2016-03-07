@@ -11,6 +11,8 @@ class GestioIdentitat(SOAService):
         SOAService.__init__(self)
 
     def canonicalitzar_mail(self, mail):
+        if mail is None:
+            return None
         mail_canonic = mail.lower()
         mail_canonic = mail_canonic.replace(".upc.es", ".upc.edu")
         mail_canonic = mail_canonic.replace("@lsi", "@cs")
@@ -39,7 +41,7 @@ class GestioIdentitat(SOAService):
                 # com a preferent o be retornem el primer
                 for persona in resultat.llistaPersones.persona:
                     dades_persona = self.client.service.obtenirDadesPersona(
-                            commonName=persona.cn)
+                        commonName=persona.cn)
                     if (self.canonicalitzar_mail(
                             dades_persona.emailPreferent) == mail):
                         uid = persona.cn
