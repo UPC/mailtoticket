@@ -166,7 +166,7 @@ def treure_signatura_html(html):
     soup = BeautifulSoup(html, "html.parser")
     tags = soup.select('.moz-signature')
     if len(tags) >= 1:
-        tags[len(tags)-1].decompose()
+        tags[len(tags) - 1].decompose()
 
     return unicode(soup)
 
