@@ -24,7 +24,7 @@ settings = {
 
     # Usuari amb què es crearan els tiquets pels correus desconeguts
     # (únicament si teniu activat el FiltreNouExtern)
-    "usuari_extern": "11763",
+    "usuari_extern": "extern.general",
 
     # Valors amb què es crearan els tiquets dependent de les capçaleres
     # del correu rebut. A part de l'equipResolutor, es poden canviar
@@ -81,7 +81,7 @@ settings = {
     # o bé a una referència del propi patró (per exemple, el correu
     # nom.cognom@upc.edu -> nom.cognom).
     "patrons_mail_addicionals": {
-        "^root@([a-z0-9.\-]+\.)?unitat\.upc\.e(s|du)$": "usuari.generic",
+        "^root@([a-z0-9.\-]+\.)?unitat\.upc\.e(s|du)$": "extern.general",
         "^(.*)@upc.edu$": "%s",
         "^(.*)@upcnet.es$": "%s"
     },
