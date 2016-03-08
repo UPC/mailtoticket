@@ -26,7 +26,7 @@ Instal·lació
 La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python per poder gestionar les dependències sense permisos d'administrador:
 
 ```
-git clone git@github.com:UPC/mailtoticket.git
+git clone https://github.com/UPC/mailtoticket.git
 cd mailtoticket
 virtualenv local
 echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
