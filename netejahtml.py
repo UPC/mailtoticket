@@ -87,7 +87,7 @@ def treure_reply(html):
 def _es_prefix_reply_valid(tag):
     # Comprovem que no contingui mes dels 2 tags que posa per defecte
     # (un <a> i un <br>) o voldrà dir que té contingut que no hem d'esborrar
-    return len(tag.find_all(True) <= 2)
+    return len(tag.find_all(True)) <= 2
 
 
 @assegura_contingut
