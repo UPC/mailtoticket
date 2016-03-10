@@ -84,6 +84,12 @@ def treure_reply(html):
     return html
 
 
+def _es_prefix_reply_valid(tag):
+    # Comprovem que no contingui mes dels 2 tags que posa per defecte
+    # (un <a> i un <br>) o voldrà dir que té contingut que no hem d'esborrar
+    return len(tag.find_all(True)) <= 2
+
+
 @assegura_contingut
 def treure_blockquote(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -103,10 +109,10 @@ def treure_blockquote(html):
     if len(tags) == 1:
         tags[0].decompose()
 
-    # Aixo es perillos
-    # tags = soup.select('div.moz-cite-prefix')
-    # if len(tags) == 1:
-    #     tags[0].decompose()
+    # Prefix de signatura de Thunderbird
+    tags = soup.select('body > div.moz-cite-prefix')
+    if len(tags) == 1 and _es_prefix_reply_valid(tags[0]):
+        tags[0].decompose()
 
     return unicode(soup)
 
@@ -166,7 +172,7 @@ def treure_signatura_html(html):
     soup = BeautifulSoup(html, "html.parser")
     tags = soup.select('.moz-signature')
     if len(tags) >= 1:
-        tags[len(tags)-1].decompose()
+        tags[len(tags) - 1].decompose()
 
     return unicode(soup)
 
