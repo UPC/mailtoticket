@@ -38,7 +38,6 @@ class FiltreReply(Filtre):
 
             # Mirem qui ha creat el ticket
             self.solicitant_segons_ticket = self.ticket['solicitant']
-            self.solicitant = self.solicitant_segons_ticket
             logger.info("Ticket de %s" % self.solicitant)
             logger.info("Mail de %s" % self.msg.get_from())
 
@@ -46,9 +45,11 @@ class FiltreReply(Filtre):
             logger.info("Solicitant segons Mail %s"
                         % self.solicitant_segons_mail)
 
-            # Si no trobem el mail, suposarem que es de qui l'ha creat
+            # Si no trobem el mail, sera de l'usuari generic
             if self.solicitant_segons_mail is not None:
                 self.solicitant = self.solicitant_segons_mail
+            else:
+                self.solicitant = settings.get("usuari_extern")
 
             logger.info("Crearem comentari a nom de %s" % self.solicitant)
             return True
