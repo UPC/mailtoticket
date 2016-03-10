@@ -11,7 +11,6 @@ import filtres.nou
 import filtres.nou_extern
 import filtres.reply
 import filtres.reply_reobrint
-import filtres.reply_tancat
 
 import soa
 import soa.identitat
