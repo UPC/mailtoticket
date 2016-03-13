@@ -67,7 +67,7 @@ if __name__ == '__main__':
             "Ha petat algun dels filtres i no marco el mail com a tractat"
         )
     finally:
-        print "X-Mailtoticket: %s" % estat
+        mail.msg['X-Mailtoticket'] = estat
         print mail
         logger.info("-----------------------------------------------------")
         if not tractat and settings.get("notificar_errors"):
