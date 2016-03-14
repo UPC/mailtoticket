@@ -19,10 +19,10 @@ class FiltreReply(Filtre):
 
         try:
             # Ara anem a veure que podem fer amb aquest missatge
-            subject = self.msg.get_subject_ascii()
+            subject = self.msg.get_subject()
             logger.info("Buscant numero a  %s" % subject)
             regex_reply = settings.get("regex_reply")
-            p = re.compile(regex_reply)
+            p = re.compile(regex_reply, re.UNICODE)
             m = p.match(subject)
             self.ticket_id = m.group(1)
             logger.info("Trobat ticket %s" % self.ticket_id)

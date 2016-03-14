@@ -80,13 +80,9 @@ class MailTicket:
             self.subject = u""
             return
 
-        resultat = u""
         fragments = decode_header(subject)
-        for fragment in fragments:
-            if fragment[1] is None:
-                resultat += self.nomes_ascii(fragment[0])
-            else:
-                resultat += " " + fragment[0].decode(fragment[1])
+        resultat = u" ".join(map(lambda s: unicode(s[0], s[1] or "ascii"),
+                                 fragments))
 
         self.subject = resultat.replace('\n', ' ').replace('\r', '')
 
