@@ -19,3 +19,8 @@ def get(clau):
         return settings[clau]
     except:
         return None
+
+
+def set(clau, valor):
+    global settings
+    settings[clau] = valor
