@@ -60,20 +60,18 @@ class FiltreReply(Filtre):
 
     def filtrar(self):
         body = self.msg.get_body()
-        funcio_netejar_mail_reply = settings.get("netejar_mail_reply")
-        if funcio_netejar_mail_reply:
-            body = funcio_netejar_mail_reply(body)
-
         if self.solicitant_segons_mail == self.solicitant_segons_ticket:
             notificat = 'N'
         else:
             notificat = 'S'
-
         body = self.afegir_attachments_canviant_body(
             self.ticket_id,
             self.solicitant,
             body
         )
+        funcio_netejar_mail_reply = settings.get("netejar_mail_reply")
+        if funcio_netejar_mail_reply:
+            body = funcio_netejar_mail_reply(body)
         resultat = self.tickets.afegir_comentari_tiquet(
             codiTiquet=self.ticket_id,
             usuari=self.solicitant,
