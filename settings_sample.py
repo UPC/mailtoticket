@@ -88,7 +88,8 @@ settings = {
 
     # Correus dels que no s'ha de crear cap tiquet per la raó que sigui
     "mails_no_ticket": [
-        "info.exemple@upc.edu"
+        "info.exemple@upc.edu",
+        "^.*@example\.com$",
     ],
 
     # Filtres d'adjunts que no s'han de processar (per exemple, les
