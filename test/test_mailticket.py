@@ -1,4 +1,5 @@
 import unittest
+import settings
 from mock import patch, mock_open
 from mailticket import MailTicket
 import __builtin__
@@ -7,6 +8,7 @@ import __builtin__
 class TestMailTicket(unittest.TestCase):
 
     def setUp(self):
+        settings.init()
         with patch.object(__builtin__, 'open',
                           mock_open(read_data="From: foo@example.com\n\n")):
             with open('foo') as fp:
