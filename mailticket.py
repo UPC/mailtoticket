@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import email
 import hashlib
 import base64
@@ -200,8 +202,17 @@ class MailTicket:
     def te_attachments(self):
         return len(self.get_attachments()) > 0
 
+    def comprova_mails_no_ticket(self):
+        for item in self.mails_no_ticket:
+            # Considera una regex si comença amb circumflex
+            regex = item if item[0] is '^' else '^' + re.escape(item) + '$'
+            if re.compile(regex, re.UNICODE).match(self.get_from()):
+                return True
+
+        return False
+
     def cal_tractar(self):
-        if self.get_from() in self.mails_no_ticket:
+        if self.comprova_mails_no_ticket():
             return False
 
         if self.msg.get_content_type() == "multipart/report":

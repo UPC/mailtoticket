@@ -24,3 +24,8 @@ def get(clau):
 def set(clau, valor):
     global settings
     settings[clau] = valor
+
+
+def init():
+    global settings
+    settings = {}
