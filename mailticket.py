@@ -41,7 +41,7 @@ class MailTicket:
             self.part_body = 0
             el_body_es_html = False
             for part in self.msg.walk():
-                self.part_body = self.part_body+1
+                self.part_body = self.part_body + 1
                 if part.get_content_type() in ['multipart/alternative']:
                     el_body_es_html = True
 
