@@ -41,7 +41,7 @@ class MailTicket:
             self.part_body = 0
             el_body_es_html = False
             for part in self.msg.walk():
-                self.part_body = self.part_body+1
+                self.part_body = self.part_body + 1
                 if part.get_content_type() in ['multipart/alternative']:
                     el_body_es_html = True
 
@@ -89,7 +89,8 @@ class MailTicket:
         self.subject = resultat.replace('\n', ' ').replace('\r', '')
 
     def get_header(self, header):
-        if header in ('From', 'Resent-From', 'Reply-To', 'Resent-To'):
+        if header in ('From', 'Resent-From', 'Reply-To', 'Resent-To',
+                      'To', 'Cc', 'Bcc'):
             return self.get_email_header(header)
         elif header in ('Subject'):
             return self.get_subject()
