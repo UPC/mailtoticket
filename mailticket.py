@@ -89,7 +89,8 @@ class MailTicket:
         self.subject = resultat.replace('\n', ' ').replace('\r', '')
 
     def get_header(self, header):
-        if header in ('From', 'Resent-From', 'Reply-To', 'Resent-To'):
+        if header in ('From', 'Resent-From', 'Reply-To', 'Resent-To',
+                      'To', 'Cc', 'Bcc'):
             return self.get_email_header(header)
         elif header in ('Subject'):
             return self.get_subject()
