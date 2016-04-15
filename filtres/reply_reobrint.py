@@ -21,8 +21,8 @@ class FiltreReplyReobrint(FiltreReply):
             self.ticket = self.tickets.consulta_tiquet(codi=self.ticket_id)
             if self.ticket['estat'] == 'TIQUET_STATUS_TANCAT':
                 logger.info(
-                    "No podem reobrir el ticket %s."
-                    "El filtre no es aplicable" % self.ticket_id
+                    "No podem reobrir el ticket %s. El filtre no es aplicable",
+                    self.ticket_id
                 )
                 return False
 
