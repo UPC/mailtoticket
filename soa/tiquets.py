@@ -71,6 +71,10 @@ class GestioTiquets(SOAService):
         )
         return resultat['llistaTiquets']
 
+    def consulta_tiquet_dades(self, codi):
+        resultat = self.consulta_tiquets_dades(codi=codi)
+        return resultat[0]
+
     def afegir_comentari_tiquet(self, **kwargs):
         resultat = self.client.service.AfegirComentariTiquet(
             username=self.username_gn6,
