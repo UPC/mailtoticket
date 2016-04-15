@@ -33,8 +33,8 @@ class FiltreReply(Filtre):
                 logger.info("El comentari es privat")
                 self.privat = True
 
-            # Mirem si es un ticket valid
-            self.ticket = self.tickets.consulta_tiquet(codi=self.ticket_id)
+            # Obtenim el tiquet amb les dades de solicitant i emailSolicitant
+            self.ticket = self.tickets.consulta_tiquet_dades(self.ticket_id)
 
             # Mirem qui ha creat el ticket
             self.solicitant_segons_ticket = self.ticket['solicitant']
@@ -48,6 +48,8 @@ class FiltreReply(Filtre):
             # Si no trobem el mail, sera de l'usuari generic
             if self.solicitant_segons_mail is not None:
                 self.solicitant = self.solicitant_segons_mail
+            elif self.ticket['emailSolicitant'] == self.msg.get_from():
+                self.solicitant = self.solicitant_segons_ticket
             else:
                 self.solicitant = settings.get("usuari_extern")
 
@@ -60,7 +62,7 @@ class FiltreReply(Filtre):
 
     def filtrar(self):
         body = self.msg.get_body()
-        if self.solicitant_segons_mail == self.solicitant_segons_ticket:
+        if self.solicitant == self.solicitant_segons_ticket:
             notificat = 'N'
         else:
             notificat = 'S'
