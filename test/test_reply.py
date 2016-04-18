@@ -43,5 +43,15 @@ class TestReply(unittest.TestCase):
         self.assertTrue(f.es_aplicable())
         self.assertEquals(f.solicitant, 'usuari.extern')
 
+    def test_reply_ticket_id_dintre_de_message_id(
+            self):
+        msg = mock.create_autospec(MailTicket)
+        msg.get_header.return_value = "4b3b6b9c-bd31-tiquet-id-657421@gn6"
+        msg.get_subject.return_value = "Re: ticket de prova"
+        f = FiltreReply(msg, self.tickets, self.identitat)
+
+        self.assertTrue(f.es_aplicable())
+        self.assertEquals(f.ticket_id, "657421")
+
 if __name__ == '__main__':
     unittest.main()

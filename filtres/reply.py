@@ -14,22 +14,42 @@ class FiltreReply(Filtre):
     privat = False
     ticket = None
 
+    def buscar_ticket_id(self, string, regex):
+        try:
+            logger.info("Buscant numero a  %s" % string)
+            p = re.compile(regex, re.UNICODE)
+            m = p.match(string)
+            ticket_id = m.group(1)
+            logger.info("Trobat ticket %s" % ticket_id)
+            return ticket_id
+        except Exception as e:
+            return None
+
+    def obtenir_ticket_id(self):
+        ticket_id = self.buscar_ticket_id(
+            self.msg.get_header("In-Reply-To"),
+            "^[-a-f0-9]+-tiquet-id-([0-9]+)@gn6$"
+        )
+        if ticket_id is not None:
+            return ticket_id
+        ticket_id = self.buscar_ticket_id(
+            self.msg.get_subject(),
+            settings.get("regex_reply")
+        )
+        return ticket_id
+
     def es_aplicable(self):
         logger.info("Filtre de reply")
 
         try:
             # Ara anem a veure que podem fer amb aquest missatge
-            subject = self.msg.get_subject()
-            logger.info("Buscant numero a  %s" % subject)
-            regex_reply = settings.get("regex_reply")
-            p = re.compile(regex_reply, re.UNICODE)
-            m = p.match(subject)
-            self.ticket_id = m.group(1)
-            logger.info("Trobat ticket %s" % self.ticket_id)
+            self.ticket_id = self.obtenir_ticket_id()
+            if self.ticket_id is None:
+                return False
 
             regex_privat = settings.get("regex_privat")
             comentari_intern = re.compile(regex_privat)
-            if comentari_intern.match(subject):
+            if comentari_intern.match(self.msg.get_subject()):
                 logger.info("El comentari es privat")
                 self.privat = True
 
