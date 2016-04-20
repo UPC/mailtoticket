@@ -42,8 +42,11 @@ class GestioIdentitat(SOAService):
                 for persona in resultat.llistaPersones.persona:
                     dades_persona = self.client.service.obtenirDadesPersona(
                         commonName=persona.cn)
-                    if (self.canonicalitzar_mail(
-                            dades_persona.emailPreferent) == mail):
+                    emailPreferent = getattr(
+                        dades_persona,
+                        'emailPreferent',
+                        None)
+                    if (self.canonicalitzar_mail(emailPreferent) == mail):
                         uid = persona.cn
                         return uid
 
