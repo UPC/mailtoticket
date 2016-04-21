@@ -9,10 +9,14 @@ logger = logging.getLogger(__name__)
 
 class FiltreReply(Filtre):
 
-    solicitant = None
-    ticket_id = None
-    privat = False
-    ticket = None
+    def __init__(self, msg=None, tickets=None, identitat=None):
+        Filtre.__init__(self, msg, tickets, identitat)
+        self.solicitant = None
+        self.ticket_id = None
+        self.privat = False
+        self.ticket = None
+        self.regex_message_id = settings.get(
+            "regex_message_id") or "^<[-a-f0-9]+-tiquet-id-([0-9]+)@gn6>$"
 
     def buscar_ticket_id(self, string, regex):
         try:
@@ -28,7 +32,7 @@ class FiltreReply(Filtre):
     def obtenir_ticket_id(self):
         ticket_id = self.buscar_ticket_id(
             self.msg.get_header("In-Reply-To"),
-            "^<[-a-f0-9]+-tiquet-id-([0-9]+)@gn6>$"
+            self.regex_message_id
         )
         if ticket_id is not None:
             return ticket_id
