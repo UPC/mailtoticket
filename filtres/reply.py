@@ -28,7 +28,7 @@ class FiltreReply(Filtre):
     def obtenir_ticket_id(self):
         ticket_id = self.buscar_ticket_id(
             self.msg.get_header("In-Reply-To"),
-            "^[-a-f0-9]+-tiquet-id-([0-9]+)@gn6$"
+            "^<[-a-f0-9]+-tiquet-id-([0-9]+)@gn6>$"
         )
         if ticket_id is not None:
             return ticket_id
