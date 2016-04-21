@@ -194,13 +194,13 @@ def treure_pgp(text):
     cos = []
     linies = text.split("\n")
     for l in linies:
-        if re.match("^-----BEGIN PGP PUBLIC KEY BLOCK-----$", l):
+        if re.match("^-----BEGIN PGP PUBLIC KEY BLOCK-----", l):
             pgp = True
 
         if not pgp:
             cos.append(l)
 
-        if re.match("^-----END PGP PUBLIC KEY BLOCK-----$", l):
+        if re.match("^-----END PGP PUBLIC KEY BLOCK-----", l):
             pgp = False
 
     return "\n".join(cos)
