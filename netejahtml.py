@@ -69,7 +69,7 @@ def sanitize(html):
 
 @assegura_contingut
 def compacta_br(html):
-    html = re.sub('<br\s*/?>(?:\s*<br\s*/?>)+', '<br />', html, flags=re.I)
+    html = re.sub('<br\s*/?>(?:\s*<br\s*/?>)+', '<br/><br/>', html, flags=re.I)
     return html
 
 
@@ -190,17 +190,27 @@ def treure_imatges_trencades(html):
 
 @assegura_contingut
 def treure_pgp(text):
+    text = treure_bloc(text,
+                       "^-----BEGIN PGP PUBLIC KEY BLOCK-----",
+                       "^-----END PGP PUBLIC KEY BLOCK-----")
+    text = treure_bloc(text,
+                       "^-----BEGIN PGP SIGNATURE-----",
+                       "^-----END PGP SIGNATURE-----")
+    return text
+
+
+def treure_bloc(text, regex_inici, regex_fi):
     pgp = False
     cos = []
     linies = text.split("\n")
     for l in linies:
-        if re.match("^-----BEGIN PGP PUBLIC KEY BLOCK-----", l):
+        if re.match(regex_inici, l):
             pgp = True
 
         if not pgp:
             cos.append(l)
 
-        if re.match("^-----END PGP PUBLIC KEY BLOCK-----", l):
+        if re.match(regex_fi, l):
             pgp = False
 
     return "\n".join(cos)
