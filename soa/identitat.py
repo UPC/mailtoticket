@@ -30,12 +30,18 @@ class GestioIdentitat(SOAService):
         return uid
 
     def obtenir_uid_remot(self, mail):
-        uid = None
         try:
+            if "@upc.edu" in mail:
+                cn = mail.split("@")[0]
+                dades_persona = self.client.service.obtenirDadesPersona(
+                    commonName=cn)
+                if dades_persona.ok:
+                    return cn
+
             resultat = self.client.service.llistaPersones(email=mail)
             if len(resultat.llistaPersones.persona) == 1:
                 # Quan tenim un resultat, es aquest
-                uid = resultat.llistaPersones.persona[0].cn
+                return resultat.llistaPersones.persona[0].cn
             else:
                 # Si tenim mes d'un, busquem el que te el mail que busquem
                 # com a preferent o be retornem el primer
@@ -47,15 +53,11 @@ class GestioIdentitat(SOAService):
                         'emailPreferent',
                         None)
                     if (self.canonicalitzar_mail(emailPreferent) == mail):
-                        uid = persona.cn
-                        return uid
+                        return persona.cn
 
-                if uid is None:
-                    uid = resultat.llistaPersones.persona[0].cn
+                return None
         except:
-            uid = None
-        finally:
-            return uid
+            return None
 
 
 class GestioIdentitatLocal:
