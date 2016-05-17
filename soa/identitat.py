@@ -31,6 +31,9 @@ class GestioIdentitat(SOAService):
 
     def obtenir_uid_remot(self, mail):
         try:
+            # Pot ser que un usuari d'un departament no tingui a identitat
+            # digital un mail del tipus @upc.edu, aixi que primer comprovem
+            # si la part esquerra del mail correspon a un usuari UPC real
             if "@upc.edu" in mail:
                 cn = mail.split("@")[0]
                 dades_persona = self.client.service.obtenirDadesPersona(
@@ -38,6 +41,8 @@ class GestioIdentitat(SOAService):
                 if dades_persona.ok:
                     return cn
 
+            # Si no hi ha correspondencia directa amb un usuari UPC
+            # busquem a partir del mail qui pot ser
             resultat = self.client.service.llistaPersones(email=mail)
             if len(resultat.llistaPersones.persona) == 1:
                 # Quan tenim un resultat, es aquest
