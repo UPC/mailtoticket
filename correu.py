@@ -18,7 +18,7 @@ def enviar(text, orig):
         msg['Subject'] = subject
         msg['From'] = de
         msg['To'] = a
-        part1 = MIMEText(text, 'plain')
+        part1 = MIMEText(text, 'plain', 'utf8')
         part2 = MIMEMessage(orig, 'rfc822')
         msg.attach(part1)
         msg.attach(part2)
