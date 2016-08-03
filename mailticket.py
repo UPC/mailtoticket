@@ -230,6 +230,9 @@ class MailTicket:
         if "Informe de lectura" in self.get_subject():
             return False
 
+        if self.get_email_header('Auto-Submitted') is not None:
+            return False
+
         return True
 
     def __str__(self):
