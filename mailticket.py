@@ -24,7 +24,10 @@ class MailTicket:
             = settings.get("filtrar_attachments_per_hash")
         self.mails_no_ticket = settings.get("mails_no_ticket")
 
-        self.msg = email.message_from_file(fitxer)
+        if isinstance(fitxer, basestring):
+            self.msg = email.message_from_string(fitxer)
+        else:
+            self.msg = email.message_from_file(fitxer)
         # Farem lazy initialization d'aquestes 2 properties per si hi ha
         # algun error
         self.body = None
@@ -121,8 +124,9 @@ class MailTicket:
             aux = datetime.datetime.fromtimestamp(timestamp)
             return aux
         except:
-            logger.debug("No puc parsejar la data!")
-            return None
+            logger.debug(
+                "Format de data no estàndard; es retorna la data actual.")
+            return datetime.datetime.today()
 
     def get_to(self):
         to = parseaddr(self.msg['To'])[1]
