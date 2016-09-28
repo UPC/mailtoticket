@@ -30,7 +30,7 @@ class TestMailTicket(unittest.TestCase):
 
     def test_get_date(self):
         d = self.mail.get_date()
-        print d.isoformat
+        print d.isoformat()
         self.assertEquals("28/09/2016 10:24", d.strftime("%d/%m/%Y %H:%M"))
 
     def test_get_date_invalid_format(self):
