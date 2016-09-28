@@ -1,7 +1,6 @@
 import unittest
 import settings
 import datetime
-import pytz
 from mailticket import MailTicket
 
 
