@@ -30,7 +30,7 @@ class TestMailTicket(unittest.TestCase):
 
     def test_get_date(self):
         d = self.mail.get_date()
-        self.assertEquals("2016-09-28T10:24:09", d.isoformat())
+        self.assertEquals("2016-09-28T08:24:09", d.isoformat())
 
     def test_get_date_invalid_format(self):
         # Un missatge amb la data en format "Apple Mail"
