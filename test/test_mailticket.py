@@ -4,6 +4,8 @@ import datetime
 from mock import patch, mock_open
 from mailticket import MailTicket
 import __builtin__
+from freezegun import freeze_time
+import pytz
 
 
 class TestMailTicket(unittest.TestCase):
@@ -33,9 +35,11 @@ class TestMailTicket(unittest.TestCase):
         self.assertFalse(self.mail.cal_tractar())
 
     def test_get_date(self):
-        d = self.mail.get_date()
-        self.assertEquals("28/09/2016 10:24", d.strftime("%d/%m/%Y %H:%M"))
+        expected = datetime.datetime(2016, 9, 28, 10, 24, 9, tzinfo=pytz.utc)
+        mail_date = pytz.utc.localize(self.mail.get_date())
+        self.assertEquals(expected, mail_date)
 
+    @freeze_time("2015-09-11 09:45", tz_offset=+2)
     def test_get_date_invalid_format(self):
         # Un missatge amb la data en format "Apple Mail"
         data = "Date: 9/23/2016 11:04:10 AM\n\n"
@@ -43,7 +47,8 @@ class TestMailTicket(unittest.TestCase):
             with open('foo') as fp:
                 apple_mail = MailTicket(fp)
 
-        self.assertIsInstance(apple_mail.get_date(), datetime.datetime)
+        dt = apple_mail.get_date()
+        self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
 if __name__ == '__main__':
     unittest.main()
