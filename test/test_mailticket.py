@@ -1,11 +1,10 @@
 import unittest
 import settings
 import datetime
-import freezegun
 from mock import patch, mock_open
 from mailticket import MailTicket
 import __builtin__
-from freezegun.api import freeze_time
+from freezegun import freeze_time
 
 
 class TestMailTicket(unittest.TestCase):
