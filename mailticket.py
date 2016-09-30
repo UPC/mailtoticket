@@ -121,8 +121,9 @@ class MailTicket:
             aux = datetime.datetime.fromtimestamp(timestamp)
             return aux
         except:
-            logger.debug("No puc parsejar la data!")
-            return None
+            logger.debug(
+                "Format de data no estàndard; es retorna la data actual.")
+            return datetime.datetime.today()
 
     def get_to(self):
         to = parseaddr(self.msg['To'])[1]
