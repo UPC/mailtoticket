@@ -89,7 +89,10 @@ class FiltreReply(Filtre):
         if self.solicitant == self.solicitant_segons_ticket:
             notificat = 'N'
         else:
-            notificat = 'S'
+            notificar_comentaris = settings.get("notificar_comentaris_afegits")
+            if notificar_comentaris is None:
+                notificar_comentaris = True
+            notificat = 'S' if notificar_comentaris else 'N'
         body = self.afegir_attachments_canviant_body(
             self.ticket_id,
             self.solicitant,
