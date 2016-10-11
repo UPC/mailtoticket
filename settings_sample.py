@@ -53,6 +53,10 @@ settings = {
         }
     ],
 
+    # Es notifiquen al solicitant els comentaris afegits via mailtoticket
+    # per algun usuari diferents del propi solicitant? (per defecte, si)
+    "notificar_comentaris_afegits": True,
+
     # Filtres actius. També podem utilitzar:
     # - filtres.reply_reobrint.FiltreRepyReobrint (reobre tiquets tancats)
     # - filtres.nou_extern.FiltreNouExtern (obre tiquets de correus
