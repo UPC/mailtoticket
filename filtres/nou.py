@@ -35,14 +35,15 @@ class FiltreNou(Filtre):
         logger.info("Parametres addicionals: %s" % str(defaults))
         return defaults
 
+    def netejar_html(self, html):
+        funcio_netejar_mail_nou = settings.get("netejar_mail_nou")
+        if funcio_netejar_mail_nou:
+            html_net = funcio_netejar_mail_nou(html)
+        return html_net
+
     def filtrar(self):
         logger.info("Aplico filtre...")
         body = self.msg.get_body()
-
-        funcio_netejar_mail_nou = settings.get("netejar_mail_nou")
-        if funcio_netejar_mail_nou:
-            body = funcio_netejar_mail_nou(body)
-
         subject = self.msg.get_subject()
         if len(subject) == 0:
             subject = "Ticket de %s" % self.solicitant
@@ -66,7 +67,7 @@ class FiltreNou(Filtre):
             'assumpte': subject,
             'solicitant': self.solicitant,
             'emailSolicitant': from_or_reply_to,
-            'descripcio': descripcio
+            'descripcio': self.netejar_html(descripcio)
         }
         parametres.update(parametres_addicionals)
         resultat = self.tickets.alta_tiquet(**parametres)
@@ -97,7 +98,7 @@ class FiltreNou(Filtre):
         resultat = self.tickets.modificar_tiquet(
             codiTiquet=ticket_id,
             emailSolicitant=from_or_reply_to,
-            descripcio=descripcio,
+            descripcio=self.netejar_html(descripcio),
             dataResol=data_resolucio
         )
 
