@@ -3,6 +3,7 @@ import settings
 import datetime
 from mock import patch, mock_open
 from mailticket import MailTicket
+from testhelper import llegir_mail
 import __builtin__
 from freezegun import freeze_time
 
@@ -36,6 +37,11 @@ class TestMailTicket(unittest.TestCase):
     def test_get_date(self):
         d = self.mail.get_date()
         self.assertIsInstance(d, datetime.datetime)
+
+    def test_get_body_buit(self):
+        mail_buit = llegir_mail("mailbuit.txt")
+        body = mail_buit.get_body()
+        self.assertEquals("", body)
 
     @freeze_time("2015-09-11 09:45", tz_offset=+2)
     def test_get_date_invalid_format(self):
