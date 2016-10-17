@@ -148,7 +148,8 @@ class MailTicket:
     def get_body(self):
         if self.body is None:
             self.tracta_body()
-
+        if self.body is None:
+            self.body = ""
         return self.body
 
     def text2html(self, text):

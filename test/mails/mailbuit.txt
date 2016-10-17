@@ -1,0 +1,14 @@
+Subject: mail buit
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="------------090204020906070407050002"
+
+This is a multi-part message in MIME format.
+
+--------------090204020906070407050002
+Content-Type: application/octet-stream;name="prova.txt"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;filename="prova.txt"
+
+cHJvdmEgaW5MYWI=
+--------------090204020906070407050002--
