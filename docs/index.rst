@@ -1,22 +1,26 @@
-.. mailtoticket documentation master file, created by
-   sphinx-quickstart on Fri Oct 21 17:30:59 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+MailToTicket
+============
 
-Welcome to mailtoticket's documentation!
-========================================
+A mail gateway for GN6 ticketing system.
 
-Contents:
+Contribute
+----------
 
-.. toctree::
-   :maxdepth: 2
+- Issue Tracker: github.com/UPC/mailtoticket/issues
+- Source Code: github.com/UPC/mailtoticket
 
+License
+-------
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
 
-Indices and tables
-==================
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
