@@ -1,0 +1,6 @@
+Subject: mail auto-submitted
+Auto-Submitted: foobar
+MIME-Version: 1.0
+Content-Type: text/plain
+
+This is an auto-submitted message.

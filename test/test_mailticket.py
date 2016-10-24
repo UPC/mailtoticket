@@ -40,6 +40,12 @@ class TestMailTicket(unittest.TestCase):
         body = mail_buit.get_body()
         self.assertEquals("", body)
 
+    def test_get_auto_submitted(self):
+        mail_buit = llegir_mail("mailbuit.txt")
+        mail_auto = llegir_mail("mailauto.txt")
+        self.assertTrue(mail_auto.es_missatge_automatic())
+        self.assertFalse(mail_buit.es_missatge_automatic())
+
     @freeze_time("2015-09-11 09:45", tz_offset=+2)
     def test_get_date_invalid_format(self):
         # Un missatge amb la data en format "Apple Mail"

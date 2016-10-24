@@ -214,20 +214,25 @@ class MailTicket:
 
         return False
 
+    # La capçalera Auto-Submitted hauria de caçar la majoria de
+    # missatges automàtics que respectin els estàndards (e.g.
+    # vacation, postmaster notify, undelivered mail, returned
+    # mail, etc.).
+    #
+    # Les altres condicions segurament no siguin necessàries
+    # perquè en la majoria de casos la primera caçarà el missatge.
+    def es_missatge_automatic(self):
+        return self.get_email_header('Auto-Submitted') is not None \
+            or self.msg.get_content_type() == "multipart/report" \
+            or "Return Receipt" in self.get_body() \
+            or "DELIVERY FAILURE" in self.get_subject() \
+            or "Informe de lectura" in self.get_subject()
+
     def cal_tractar(self):
         if self.comprova_mails_no_ticket():
             return False
 
-        if self.msg.get_content_type() == "multipart/report":
-            return False
-
-        if "Return Receipt" in self.get_body():
-            return False
-
-        if "DELIVERY FAILURE" in self.get_subject():
-            return False
-
-        if "Informe de lectura" in self.get_subject():
+        if self.es_missatge_automatic():
             return False
 
         return True
