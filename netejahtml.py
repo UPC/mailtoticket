@@ -45,6 +45,10 @@ def sanitize(html):
     html = re.sub(r"<(a-zA-Z0-9_\.+-]+@a-zA-Z0-9_\.+-]+)>", r"[\1]", html)
     html = re.sub(r"&lt;([a-zA-Z0-9_\.+-]+@[a-zA-Z0-9_\.+-]+)&gt;", r"[\1]",
                   html)
+    # Trec tags i el seu contingut
+    html = treure_tag_complet(html, 'style')
+    html = treure_tag_complet(html, 'script')
+    # Netejo propiament
     net = bleach.clean(
         html,
         tags=[
@@ -89,6 +93,14 @@ def _es_prefix_reply_valid(tag):
     # Comprovem que no contingui mes dels 2 tags que posa per defecte
     # (un <a> i un <br>) o voldrà dir que té contingut que no hem d'esborrar
     return len(tag.find_all(True)) <= 2
+
+
+def treure_tag_complet(html, tag):
+    soup = BeautifulSoup(html, "html.parser")
+    tags = soup.select(tag)
+    for t in tags:
+        t.decompose()
+    return unicode(soup)
 
 
 @assegura_contingut
