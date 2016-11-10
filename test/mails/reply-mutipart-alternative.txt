@@ -1,0 +1,79 @@
+MIME-Version: 1.0
+To: mailtoticket@example.com
+Subject: Re: [Suport FIB] =?UTF-8?B?QXNzaWduYWNpw7MgVGlxdWV0IEdydXA6IDU0OQ==?=
+ =?UTF-8?B?NzIwIC0gcHJvdmEgcmVwbHk=?=
+Content-Type: multipart/alternative;
+ boundary="------------090609040105000108020504"
+
+This is a multi-part message in MIME format.
+--------------090609040105000108020504
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+xxxx
+
+El 09/12/2014 15:46, mailtoticket@example.com escribió
+> El tiquet 99999 amb prioritat *2:Mitja* sol·licitat per *USUARI QUALSEVOL* ha estat assignat a l'equip *PROVA*.
+>
+> Tiquet: *prova reply*
+>
+> Descripció
+> hola
+>
+>
+>
+> Per accedir al tiquet prem sobre el segünllaç> 549720 - prova reply  
+
+
+
+-- 
+
+        USUARI QUALSEVOL
+--------------090609040105000108020504
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">xxxx<br>
+      <br>
+      El 09/12/2014 15:46, <a class="moz-txt-link-abbreviated" href="mailto:mailtoticket@example.com">mailtoticket@example.com</a> escribiór>
+    </div>
+    <blockquote
+      cite="mid:8557814.47041418136388284.JavaMail.admofbiz@maul"
+      type="cite">
+      <p>
+        <title></title>
+        El tiquet 99999 amb prioritat <strong>2:Mitja</strong>
+        sol·licitat per <strong>USUARI QUALSEVOL</strong> ha estat
+        assignat a l'equip <strong>PROVA</strong>.<br>
+        <br>
+        Tiquet: <strong>prova reply</strong><br>
+        <br>
+        Descripció<br>
+      </p>
+      <p>hola</p>
+      <p> </p>
+      <br>
+      <br>
+    </blockquote>
+    <br>
+    <style>
+    a {text-decoration:underline}
+    </style>
+    <script>
+    alert("hola");
+    </script>
+    <br>
+    <pre class="moz-signature" cols="72">-- 
+
+       USUARI QUALSEVOL
+</pre>
+  </body>
+</html>
+
+--------------090609040105000108020504--
+
