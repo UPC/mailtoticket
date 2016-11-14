@@ -55,5 +55,31 @@ class TestMailTicket(unittest.TestCase):
         dt = apple_mail.get_date()
         self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
+    def test_redirigit_passa_a_to(self):
+        """ Un missatge redirigit a usuari.concret@example.com
+        ha de tenir el "to" igual a usuari.concret@example.com """
+        msg = MailTicket(StringIO(
+            "Resent-To: usuari.concret@example.com\n"
+            "To: altre.usuari@example.com"))
+        self.assertEquals(msg.get_to(), "usuari.concret@example.com")
+
+    def test_comprovar_from_to(self):
+        """ Si un usuari.concret redirigeix a mailtoticket
+        s'han de de mantenir les dos adreces """
+        msg = MailTicket(StringIO(
+            "From: usuari.concret@example.com\n"
+            "Resent-To: mailtoticket@example.com"))
+        self.assertEquals(msg.get_from(), "usuari.concret@example.com")
+        self.assertEquals(msg.get_to(), "mailtoticket@example.com")
+
+    def test_mailticket_multipart_alternative(self):
+        msg = llegir_mail("reply-mutipart-alternative.txt")
+        self.assertTrue(not msg.te_attachments())
+
+    def test_mailticket_attach(self):
+        """ Un mail amb attachmens ha de retornar que te attachments """
+        msg = llegir_mail("reply-attachment.txt")
+        self.assertTrue(msg.te_attachments())
+
 if __name__ == '__main__':
     unittest.main()
