@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+I si ara responc aquí què passa!
+I amb el charset utf8 i tot com toca
+
+El jueves, 11 de diciembre de 2014 9:04:50, mailtoticket@example.com escribió:
+> El tiquet *999999* amb prioritat *#CodiUrgencia:#Urgencia *sol·licitat per
+> *#Solicitant* t'ha estat assignat.
+>
+> Assumpte: *mail amb accénts*
+>
+> Descripció:
+> [Tiquet creat automaticament des de mail a Thu Dec 11 09:04:50 2014 ]
+>
+> I aquÃ­ tambÃ©
+>
+> Ã§
+>
+>
