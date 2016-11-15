@@ -27,14 +27,12 @@ class Filtre(object):
         return
 
     def get_uid(self):
-        uid = self.identitat.obtenir_uid(self.msg.get_from())
-        if uid is not None:
-            return uid
-
+        uid = None
         if self.msg.get_reply_to() is not None:
-            return self.identitat.obtenir_uid(self.msg.get_reply_to())
-
-        return None
+            uid = self.identitat.obtenir_uid(self.msg.get_reply_to())
+        if uid is None:
+            uid = self.identitat.obtenir_uid(self.msg.get_from())
+        return uid
 
     def codificar_base_64_si_cal(self, attachment):
         if attachment['Content-Transfer-Encoding'] == 'base64':
