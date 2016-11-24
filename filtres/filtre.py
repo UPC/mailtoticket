@@ -27,6 +27,10 @@ class Filtre(object):
         return
 
     def get_uid(self):
+        # Comprovem primer el reply-to pel cas de Prisma en que tenim
+        # un formulari que envia mails com un usuari genèric i amb reply-to
+        # a l'adreça de l'usuari que ha fet la petició.
+        # TODO: intentar fer aixo configurable
         uid = None
         if self.msg.get_reply_to() is not None:
             uid = self.identitat.obtenir_uid(self.msg.get_reply_to())
