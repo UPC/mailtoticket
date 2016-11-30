@@ -55,5 +55,11 @@ class TestMailTicket(unittest.TestCase):
         dt = apple_mail.get_date()
         self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
+    def test_mail_sempre_ticket(self):
+        settings.set("mails_sempre_ticket", ["mail.concret@example.com"])
+        mail_auto = llegir_mail("mailauto.txt")
+        self.assertTrue(mail_auto.comprova_mails_sempre_ticket())
+
+
 if __name__ == '__main__':
     unittest.main()
