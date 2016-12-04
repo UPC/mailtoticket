@@ -1,0 +1,84 @@
+Content-Type: multipart/alternative;
+ boundary="------------040907080504060509070408"
+
+This is a multi-part message in MIME format.
+--------------040907080504060509070408
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+HOla
+
+No  vaig contestar? Per mi be.
+
+Salutacions
+
+Usuari
+
+El 10/12/2014 9:59, mailtoticket@example.com escribió:
+> Bon dia,
+>
+> Us informem que s'ha actualitzat el contingut del vostre tiquet
+> *999999*  que es troba en procés
+> de resolució amb el següent comentari:
+>
+> Hola,
+>
+> Us torno a enviar el mail ja que no veig si hi ha hagut resposta.
+>
+> He demanat de reservar ...
+>
+> Us va bé?
+>
+>
+>
+
+
+--
+Usuari Qualsevol
+
+
+--------------040907080504060509070408
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">HOla<br>
+      <br>
+      No  vaig contestar? Per mi be.<br>
+      <br>
+      Salutacions<br>
+      <br>
+      Usuari<br>
+      <br>
+      El 10/12/2014 9:59, <a class="moz-txt-link-abbreviated" href="mailto:mailtoticket@example.com">mailtoticket@example.com</a> escribió:<br>
+    </div>
+    <script>alert("hola")</script>
+    <blockquote
+      cite="mid:28655324.63351418201984175.JavaMail.admofbiz@maul"
+      type="cite">Bon dia,<br>
+      <br>
+      Us informem que s'ha actualitzat el contingut del vostre tiquet <strong>999999</strong>
+      que es troba
+      en procés de resolució amb el següent comentari:<br>
+      <br>
+      <p>Hola,</p>
+      <p>Us torno a enviar el mail ja que no veig si hi ha hagut
+        resposta.</p>
+      <p>He demanat de reservar ...</p>
+      <p>Us va bé?</p>
+      <br>
+      <br>
+    </blockquote>
+    <br>
+    <br>
+    <pre class="moz-signature" cols="72">--
+Usuari Qualsevol
+</pre>
+  </body>
+</html>
+
+--------------040907080504060509070408--

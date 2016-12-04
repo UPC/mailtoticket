@@ -1,0 +1,6 @@
+From: usuari.qualsevol@example.com
+Subject: Mail URGENT reenviat des d'un usuari qualsevol
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Mail que s'envia des d'un usuari qualsevol

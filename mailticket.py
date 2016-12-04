@@ -19,10 +19,10 @@ class MailTicket:
 
     def __init__(self, fitxer):
         self.filtrar_attachments_per_nom \
-            = settings.get("filtrar_attachments_per_nom")
+            = settings.get("filtrar_attachments_per_nom") or []
         self.filtrar_attachments_per_hash \
-            = settings.get("filtrar_attachments_per_hash")
-        self.mails_no_ticket = settings.get("mails_no_ticket")
+            = settings.get("filtrar_attachments_per_hash") or []
+        self.mails_no_ticket = settings.get("mails_no_ticket") or []
 
         self.msg = email.message_from_file(fitxer)
         # Farem lazy initialization d'aquestes 2 properties per si hi ha

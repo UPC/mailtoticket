@@ -1,0 +1,154 @@
+Content-Type: multipart/alternative;
+ boundary="------------030903060301010207080901"
+
+This is a multi-part message in MIME format.
+--------------030903060301010207080901
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+
+
+
+-------- Mensaje reenviado --------
+Asunto: 	activaciÃ³ de l'entorn segur
+Fecha: 	Tue, 12 Jan 2016 07:56:42 +0100
+De: 	Usuari Qualsevol <usuari.qualsevol@example.com>
+Para: 	mailtoticket@example.com
+
+
+
+Hola,
+
+Us volia demanar... la desactivaciÃ³ de la connexiÃ³ a Internet (em penso que
+
+GrÃ cies,
+
+--
+Salut!
+
+Usuari
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1
+
+CFsAnHUBBh3XTpN30HrfOUaGVpxYsX9xlNOMlluEioZwSBHlL0/42g5VjCYxY21R
+mQINBO1W3yxOxAJ/x3h0bGdXfCKuoA/tKIUMO97D2/5mPcOgXAVYALUafLv7y1V0
+DwFjA9T1ONO5LR0iknc=
+=1gTk
+-----END PGP PUBLIC KEY BLOCK-----
+
+
+
+--
+
+        E-mail : mailtoticket@example.com
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient Ã©s cosa de tots.
+
+
+--
+
+
+        E-mail : usuari@example.com
+        Web    : http://suport.example.com/
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient Ã©s cosa de tots.
+
+
+--------------030903060301010207080901
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000">
+    <br>
+    <div class="moz-forward-container"><br>
+      <br>
+      -------- Mensaje reenviado --------
+      <table class="moz-email-headers-table" border="0" cellpadding="0"
+        cellspacing="0">
+        <tbody>
+          <tr>
+            <th align="RIGHT" nowrap="nowrap" valign="BASELINE">Asunto:
+            </th>
+            <td>activaciÃ³ de l'entorn segur</td>
+          </tr>
+          <tr>
+            <th align="RIGHT" nowrap="nowrap" valign="BASELINE">Fecha: </th>
+            <td>Tue, 12 Jan 2016 07:56:42 +0100</td>
+          </tr>
+          <tr>
+            <th align="RIGHT" nowrap="nowrap" valign="BASELINE">De: </th>
+            <td>Jordi Delgado <a class="moz-txt-link-rfc2396E" href="mailto:usuari.qualsevol@example.com">&lt;usuari.qualsevol@example.com&gt;</a></td>
+          </tr>
+          <tr>
+            <th align="RIGHT" nowrap="nowrap" valign="BASELINE">Para: </th>
+            <td><a class="moz-txt-link-abbreviated" href="mailto:mailtoticket@example.com">mailtoticket@example.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+      <pre>Hola,
+
+Us volia demanar...
+
+GrÃ cies,
+
+--
+Salut!
+
+Usuari
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1
+
+CFsAnHUBBh3XTpN30HrfOUaGVpxYsX9xlNOMlluEioZwSBHlL0/42g5VjCYxY21R
+mQINBO1W3yxOxAJ/x3h0bGdXfCKuoA/tKIUMO97D2/5mPcOgXAVYALUafLv7y1V0
+DwFjA9T1ONO5LR0iknc=
+=1gTk
+-----END PGP PUBLIC KEY BLOCK-----
+
+
+</pre>
+      <br>
+      <pre class="moz-signature" cols="72">--
+
+       E-mail : <a class="moz-txt-link-abbreviated" href="mailto:mailtoticket@example.com">mailtoticket@example.com</a>
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient Ã©s cosa de tots.
+
+
+</pre>
+      <br>
+    </div>
+    <br>
+    <br>
+    <pre class="moz-signature" cols="72">--
+
+       E-mail : <a class="moz-txt-link-abbreviated" href="mailto:usuari@example.com">usuari@example.com</a>
+
+======================================================================
+
+Abans  d'imprimir aquest missatge, si us plau, assegureu-vos que sigui
+necessari. El medi ambient Ã©s cosa de tots.
+
+
+</pre>
+  </body>
+</html>
+
+--------------030903060301010207080901--

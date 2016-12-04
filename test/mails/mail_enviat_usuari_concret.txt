@@ -1,0 +1,6 @@
+From: Usuari Concret <usuari.concret@example.com>
+Subject: Mail enviat des d'un usuari concret
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Mail que s'envia des d'un usuari concret

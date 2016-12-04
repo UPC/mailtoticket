@@ -13,7 +13,7 @@ class TestReply(unittest.TestCase):
         self.tickets = mock.create_autospec(GestioTiquets)
         self.tickets.consulta_tiquet_dades.return_value = {
             "solicitant": "usuari.real",
-            "emailSolicitant": "mail.extern@mail.com"
+            "emailSolicitant": "mail.extern@example.com"
         }
         self.identitat = mock.create_autospec(GestioIdentitat)
         self.identitat.obtenir_uid.return_value = None
@@ -26,7 +26,7 @@ class TestReply(unittest.TestCase):
     def test_reply_mail_extern_igual_a_solicitant_detecta_usuari_real(
             self):
         msg = mock.create_autospec(MailTicket)
-        msg.get_from.return_value = "mail.extern@mail.com"
+        msg.get_from.return_value = "mail.extern@example.com"
         msg.get_subject.return_value = "Re: ticket de prova"
         f = FiltreReply(msg, self.tickets, self.identitat)
 
@@ -36,7 +36,7 @@ class TestReply(unittest.TestCase):
     def test_reply_mail_extern_diferent_a_solicitant_detecta_usuari_extern(
             self):
         msg = mock.create_autospec(MailTicket)
-        msg.get_from.return_value = "mail.extern.diferent@mail.com"
+        msg.get_from.return_value = "mail.extern.diferent@example.com"
         msg.get_subject.return_value = "Re: ticket de prova"
         f = FiltreReply(msg, self.tickets, self.identitat)
 
@@ -46,12 +46,12 @@ class TestReply(unittest.TestCase):
     def test_reply_ticket_id_dintre_de_message_id(
             self):
         msg = mock.create_autospec(MailTicket)
-        msg.get_header.return_value = "<4b3b6b9c-bd31-tiquet-id-657421@gn6>"
+        msg.get_header.return_value = "<4b3b6b9c-bd31-tiquet-id-999999@gn6>"
         msg.get_subject.return_value = "Re: ticket de prova"
         f = FiltreReply(msg, self.tickets, self.identitat)
 
         self.assertTrue(f.es_aplicable())
-        self.assertEquals(f.ticket_id, "657421")
+        self.assertEquals(f.ticket_id, "999999")
 
 if __name__ == '__main__':
     unittest.main()
