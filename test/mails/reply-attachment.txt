@@ -1,0 +1,34 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="------------000908000400050109010407"
+
+This is a multi-part message in MIME format.
+--------------000908000400050109010407
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Ni cas!
+
+El 05/12/2014 15:33, mailtoticket@example.com escribió El tiquet 99999 amb prioritat *2:Mitja* sol·licitat per *USUARI QUALSEVOL* ha
+> estat assignat a l'equip *PROVA*.
+>
+> Tiquet: *Ticket de prova que no s'ha d'esborrar*
+>
+> Descripció
+> Aquest ticket es per provar un tema d'attachments i replys
+>
+>
+>
+>
+
+--------------000908000400050109010407
+Content-Type: text/plain; charset=UTF-8;
+ name="prova.txt"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="prova.txt"
+
+cHJvdmEgaW5MYWI=
+--------------000908000400050109010407--
+
+

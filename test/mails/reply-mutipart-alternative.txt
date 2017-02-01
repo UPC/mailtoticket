@@ -20,13 +20,9 @@ El 09/12/2014 15:46, mailtoticket@example.com escribió
 > Descripció
 > hola
 >
->
->
-> Per accedir al tiquet prem sobre el segünllaç> 549720 - prova reply  
 
 
-
--- 
+--
 
         USUARI QUALSEVOL
 --------------090609040105000108020504
@@ -68,7 +64,7 @@ Content-Transfer-Encoding: 8bit
     alert("hola");
     </script>
     <br>
-    <pre class="moz-signature" cols="72">-- 
+    <pre class="moz-signature" cols="72">--
 
        USUARI QUALSEVOL
 </pre>

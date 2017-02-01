@@ -1,0 +1,8 @@
+Resent-From: Usuari Concret <usuari.concret@example.com>
+Resent-To: mailtoticket@example.com
+From: usuari.qualsevol@example.com
+Subject: Mail reenviat des d'un usuari concret
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Mail que s'envia des d'un usuari qualsevol i redirigit per un usuari concret
