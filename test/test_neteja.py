@@ -2,10 +2,14 @@
 
 import netejahtml
 import unittest
+import settings
 from testhelper import llegir_mail
 
 
 class TestNeteja(unittest.TestCase):
+
+    def setUp(self):
+        settings.init()
 
     def test_treure_style(self):
         msg = llegir_mail("reply-mutipart-alternative.txt")

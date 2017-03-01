@@ -23,6 +23,7 @@ class MailTicket:
         self.filtrar_attachments_per_hash \
             = settings.get("filtrar_attachments_per_hash")
         self.mails_no_ticket = settings.get("mails_no_ticket")
+        self.mails_sempre_ticket = settings.get("mails_sempre_ticket") or []
 
         self.msg = email.message_from_file(fitxer)
         # Farem lazy initialization d'aquestes 2 properties per si hi ha
@@ -214,6 +215,9 @@ class MailTicket:
 
         return False
 
+    def comprova_mails_sempre_ticket(self):
+        return self.get_from() in self.mails_sempre_ticket
+
     # La capçalera Auto-Submitted hauria de caçar la majoria de
     # missatges automàtics que respectin els estàndards (e.g.
     # vacation, postmaster notify, undelivered mail, returned
@@ -230,6 +234,9 @@ class MailTicket:
             or "Leer informe :" in self.get_subject()
 
     def cal_tractar(self):
+        if self.comprova_mails_sempre_ticket():
+            return True
+
         if self.comprova_mails_no_ticket():
             return False
 
