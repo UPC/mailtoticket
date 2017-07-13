@@ -1,0 +1,23 @@
+From: mail@example.com
+To: mail@example.com
+Subject: test comentaris HTML
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_23359_103369.1481112505805"
+
+------=_Part_23359_103369.1481112505805
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+<p><!--[if !supportLists]--><span style=3D"font-family:calibri,sans-serif">=
+-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span><!--[endif]-=
+-><span style=3D"font-family:calibri,sans-serif">Corregir-ho a PRISMA, si e=
+scau</span></p>
+
+<p><!--[if !supportLists]--><span style=3D"font-family:calibri,sans-serif">=
+-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span><!--[endif]-=
+-><span style=3D"font-family:calibri,sans-serif">Corregir el t=C3=ADtol. Qu=
+in proc=C3=A9s hem de seguir?</span></p>
+------=_Part_23359_103369.1481112505805--
+
