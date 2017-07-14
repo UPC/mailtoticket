@@ -55,5 +55,11 @@ class TestMailTicket(unittest.TestCase):
         dt = apple_mail.get_date()
         self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
+    def test_encoding_xungo(self):
+        mail = llegir_mail("encoding-xungo.txt")
+        body = mail.get_body()
+        self.assertNotEquals("", body)
+
+
 if __name__ == '__main__':
     unittest.main()

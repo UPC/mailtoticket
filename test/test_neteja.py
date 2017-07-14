@@ -19,5 +19,12 @@ class TestNeteja(unittest.TestCase):
         net = netejahtml.neteja_reply(html)
         self.assertFalse("alert" in net)
 
+    def test_treure_comentaris(self):
+        msg = llegir_mail("comentaris.txt")
+        html = msg.get_body()
+        net = netejahtml.neteja_nou(html)
+        print net
+        self.assertFalse("supportList" in net)
+
 if __name__ == '__main__':
     unittest.main()

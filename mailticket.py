@@ -56,11 +56,15 @@ class MailTicket:
                     break
 
     def codifica(self, part):
-        if part.get_content_charset() is not None:
-            s = unicode(part.get_payload(decode=True),
-                        part.get_content_charset(), "ignore")
-        else:
-            s = unicode(part.get_payload(decode=True))
+        try:
+            if part.get_content_charset() is not None:
+                s = unicode(part.get_payload(decode=True),
+                            part.get_content_charset(), "ignore")
+            else:
+                s = unicode(part.get_payload(decode=True))
+        except:
+            # Tenim problemes per convertir, aixi que fem el que podem
+            s = part.get_payload()
 
         # Aixo es perque pot haver-hi caracters no imprimibles que s'han de
         # filtrar. Nomes admetem els salts de linia, tabuladors i a partir

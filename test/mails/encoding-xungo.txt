@@ -1,0 +1,16 @@
+To: <mail1@example.com>
+From: <mail2@example.com>
+Subject: Encoding xungo
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="------------9F89D5302FF881DEBF61AEC5"
+
+--------------9F89D5302FF881DEBF61AEC5
+Content-Type: text/plain
+
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+incidÃ¨ncia peculiar... tÃ© ... 
+...PlaÃ§a...
+TelÃ¨fon 
+--------------9F89D5302FF881DEBF61AEC5
