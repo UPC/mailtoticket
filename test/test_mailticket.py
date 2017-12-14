@@ -60,6 +60,10 @@ class TestMailTicket(unittest.TestCase):
         body = mail.get_body()
         self.assertNotEquals("", body)
 
+    def test_mail_sempre_ticket(self):
+        settings.set("mails_sempre_ticket", ["mail.concret@example.com"])
+        mail_auto = llegir_mail("mailauto.txt")
+        self.assertTrue(mail_auto.comprova_mails_sempre_ticket())        
 
 if __name__ == '__main__':
     unittest.main()
