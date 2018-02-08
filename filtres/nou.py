@@ -99,7 +99,6 @@ class FiltreNou(Filtre):
 
         resultat = self.tickets.modificar_tiquet(
             codiTiquet=ticket_id,
-            emailSolicitant=from_or_reply_to,
             descripcio=self.netejar_html(descripcio),
             dataResol=data_resolucio
         )
