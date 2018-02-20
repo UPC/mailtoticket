@@ -23,6 +23,8 @@ class FiltreNou(Filtre):
 
     def obtenir_parametres_addicionals(self):
         defaults = {"equipResolutor": settings.get("equip_resolutor_nous")}
+        if settings.get("valors_defecte") is None:
+            return defaults
         for item in settings.get("valors_defecte"):
             regex = re.compile(item['match'], re.IGNORECASE)
             for header_name in item['order']:
@@ -99,7 +101,6 @@ class FiltreNou(Filtre):
 
         resultat = self.tickets.modificar_tiquet(
             codiTiquet=ticket_id,
-            emailSolicitant=from_or_reply_to,
             descripcio=self.netejar_html(descripcio),
             dataResol=data_resolucio
         )
