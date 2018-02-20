@@ -3,6 +3,7 @@ language: python
 install: "pip install -r requirements.txt"
 # command to check before build
 before_script:
+    - "touch settings_default.py"
     - "python -m compileall -f ."
     - "pip install pep8 && pep8 ."
     - "python -m unittest discover"
