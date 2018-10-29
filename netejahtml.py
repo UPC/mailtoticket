@@ -66,20 +66,20 @@ def sanitize(html):
         strip=True
     )
     # Aixo es perque els BR siguin autocontinguts i no interfereixin a l'arbre
-    net = re.sub('<br\s*/?>', '<br/>', net, flags=re.I)
-    net = re.sub('</br\s*>', '', net, flags=re.I)
+    net = re.sub(r'<br\s*/?>', '<br/>', net, flags=re.I)
+    net = re.sub(r'</br\s*>', '', net, flags=re.I)
     return "<body>%s</body>" % net
 
 
 @assegura_contingut
 def compacta_br(html):
-    html = re.sub('<br\s*/?>(?:\s*<br\s*/?>)+', '<br/><br/>', html, flags=re.I)
+    html = re.sub(r'<br\s*/?>(?:\s*<br\s*/?>)+', '<br/><br/>', html, flags=re.I)
     return html
 
 
 @assegura_contingut
 def treure_body(html):
-    html = re.sub('</?body\s*>', '', html, flags=re.I)
+    html = re.sub(r'</?body\s*>', '', html, flags=re.I)
     return html
 
 
@@ -165,9 +165,9 @@ def treure_signatura_text(text):
     blocs = 0
     signatura = False
     cos = []
-    linies = text.split("<br\s*/?>\n")
+    linies = text.split(r"<br\s*/?>\n")
     for l in linies:
-        if re.match("^--\s*$", l):
+        if re.match(r"^--\s*$", l):
             signatura = True
             blocs += 1
 

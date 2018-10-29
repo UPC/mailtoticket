@@ -33,17 +33,17 @@ settings = {
     "valors_defecte": [
         {
             "order": ['Resent-To', 'To'],
-            "match": "^webmaster@unitat\.upc\.edu$",
+            "match": r"^webmaster@unitat\.upc\.edu$",
             "defaults": {"equipResolutor": "11111"}
         },
         {
             "order": ['Resent-From', 'From'],
-            "match": "^nom\.cognom@upc\.edu$",
+            "match": r"^nom\.cognom@upc\.edu$",
             "defaults": {"equipResolutor": "11113"}
         },
         {
             "order": ['Resent-From'],
-            "match": "^nom@unitat\.upc\.edu$",
+            "match": r"^nom@unitat\.upc\.edu$",
             "defaults": {"equipResolutor": "11112"}
         },
         {
@@ -67,11 +67,11 @@ settings = {
     ],
 
     # Patró per detectar el número de tiquet
-    "regex_reply": ".*?R[eEvV]:.*?\[Suport Unitat ([\d]+)\]",
+    "regex_reply": r".*?R[eEvV]:.*?\[Suport Unitat ([\d]+)\]",
 
     # Patró per detectar si es tracta d'un comentari privat
     # (també cal modificar la plantilla corresponent a GN6)
-    "regex_privat": "(?i)\(comentari privat\)",
+    "regex_privat": r"(?i)\(comentari privat\)",
 
     # Correus addicionals propis de cada unitat que no es troben al servei
     # d'Identitat Digital UPC. Per cada correu cal indicar quin usuari li
@@ -85,7 +85,7 @@ settings = {
     # o bé a una referència del propi patró (per exemple, el correu
     # nom.cognom@upc.edu -> nom.cognom).
     "patrons_mail_addicionals": {
-        "^root@([a-z0-9.\-]+\.)?unitat\.upc\.e(s|du)$": "extern.general",
+        r"^root@([a-z0-9.\-]+\.)?unitat\.upc\.e(s|du)$": "extern.general",
         "^(.*)@upc.edu$": "%s",
         "^(.*)@upcnet.es$": "%s"
     },
@@ -93,14 +93,14 @@ settings = {
     # Correus dels que no s'ha de crear cap tiquet per la raó que sigui
     "mails_no_ticket": [
         "info.exemple@upc.edu",
-        "^.*@example\.com$",
+        r"^.*@example\.com$",
     ],
 
     # Filtres d'adjunts que no s'han de processar (per exemple, les
     # signatures que contenen imatges adjuntes). Es poden filtrar
     # pel nom de l'adjunt o per l'emprempta digital en MD5.
     "filtrar_attachments_per_nom": [
-        "paic\d+.jpg"
+        r"paic\d+.jpg"
     ],
 
     "filtrar_attachments_per_hash": [
