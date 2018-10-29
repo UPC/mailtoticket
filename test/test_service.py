@@ -12,5 +12,6 @@ class TestService(unittest.TestCase):
         resultat = {'codiRetorn': "1"}
         self.assertFalse(SOAService.resultat_erroni(resultat))
 
+
 if __name__ == '__main__':
     unittest.main()
