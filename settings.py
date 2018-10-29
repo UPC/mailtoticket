@@ -9,7 +9,7 @@ def load(module="settings_default"):
     try:
         m = __import__(module, "settings")
         settings = m.settings
-    except:
+    except Exception:
         settings = {}
 
 
@@ -20,7 +20,7 @@ def get(clau):
     global settings
     try:
         return settings[clau]
-    except:
+    except Exception:
         return None
 
 
