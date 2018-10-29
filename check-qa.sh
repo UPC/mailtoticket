@@ -10,13 +10,13 @@ python -m compileall -f -x '/(local|.git)/' -q .
 python -m unittest discover
 
 # comply with PEP8
-PEP8=$(which pep8)
+PEP8=$(which pycodestyle)
 
 if [ -x "$PEP8" ]
 then
 	echo "INFO: Running PEP8 checks"
-	pep8 --exclude '.git,local,settings_*' .
-	pep8 settings_sample.py
+	pycodestyle --exclude '.git,local,settings_*' .
+	pycodestyle settings_sample.py
 else
-	echo "WARNING! pep8 command not found, skipping PEP8 checks."
+	echo "WARNING! pycodestyle command not found, skipping PEP8 checks."
 fi
