@@ -15,8 +15,8 @@ PEP8=$(which pycodestyle)
 if [ -x "$PEP8" ]
 then
 	echo "INFO: Running PEP8 checks"
-	pycodestyle --exclude '.git,local,settings_*' .
-	pycodestyle settings_sample.py
+	$PEP8 --exclude '.git,local,settings_*' .
+	$PEP8 settings_sample.py
 else
 	echo "WARNING! pycodestyle command not found, skipping PEP8 checks."
 fi
