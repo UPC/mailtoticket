@@ -73,7 +73,8 @@ def sanitize(html):
 
 @assegura_contingut
 def compacta_br(html):
-    html = re.sub(r'<br\s*/?>(?:\s*<br\s*/?>)+', '<br/><br/>', html, flags=re.I)
+    html = re.sub(r'<br\s*/?>(?:\s*<br\s*/?>)+', '<br/><br/>', html,
+                  flags=re.I)
     return html
 
 
