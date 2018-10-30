@@ -53,5 +53,6 @@ class TestReply(unittest.TestCase):
         self.assertTrue(f.es_aplicable())
         self.assertEquals(f.ticket_id, "657421")
 
+
 if __name__ == '__main__':
     unittest.main()

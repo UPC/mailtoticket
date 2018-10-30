@@ -24,11 +24,11 @@ class TestMailTicket(unittest.TestCase):
         self.assertTrue(self.mail.cal_tractar())
 
     def test_mails_no_ticket_0003(self):
-        self.mail.mails_no_ticket = ['^.*@domain\.tld$']
+        self.mail.mails_no_ticket = [r'^.*@domain\.tld$']
         self.assertTrue(self.mail.cal_tractar())
 
     def test_mails_no_ticket_0004(self):
-        self.mail.mails_no_ticket = ['^.*@example\.com$']
+        self.mail.mails_no_ticket = [r'^.*@example\.com$']
         self.assertFalse(self.mail.cal_tractar())
 
     def test_get_date(self):

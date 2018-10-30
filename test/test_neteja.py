@@ -26,5 +26,6 @@ class TestNeteja(unittest.TestCase):
         print net
         self.assertFalse("supportList" in net)
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -62,7 +62,7 @@ class MailTicket:
                             part.get_content_charset(), "ignore")
             else:
                 s = unicode(part.get_payload(decode=True))
-        except:
+        except Exception:
             # Tenim problemes per convertir, aixi que fem el que podem
             s = part.get_payload()
 
@@ -124,7 +124,7 @@ class MailTicket:
             timestamp = mktime_tz(tt)
             aux = datetime.datetime.fromtimestamp(timestamp)
             return aux
-        except:
+        except Exception:
             logger.debug(
                 "Format de data no estàndard; es retorna la data actual.")
             return datetime.datetime.today()
@@ -135,7 +135,7 @@ class MailTicket:
             email = parseaddr(self.msg['Resent-To'])[1]
             if email is None or len(email) == 0:
                 email = to
-        except:
+        except Exception:
             email = to
         finally:
             return email.lower()
@@ -201,7 +201,7 @@ class MailTicket:
                 = hashlib.md5(base64.b64decode(contingut)).hexdigest()
             logger.info("Hash:" + hash_attachment)
             return hash_attachment not in self.filtrar_attachments_per_hash
-        except:
+        except Exception:
             logger.info("Tinc un attachment del que no puc calcular el hash")
 
         return True

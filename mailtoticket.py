@@ -21,6 +21,7 @@ UNKNOWN = "UNKNOWN"
 def codi_sortida(estat):
     return (0 if estat == SUCCESS or estat == SKIP else 1)
 
+
 if __name__ == '__main__':
     a = None
     opts, args = getopt.getopt(sys.argv[1:], 'c:')

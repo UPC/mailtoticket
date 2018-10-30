@@ -61,7 +61,7 @@ class GestioIdentitat(SOAService):
                         return persona.cn
 
                 return None
-        except:
+        except Exception:
             return None
 
 
@@ -82,7 +82,7 @@ class GestioIdentitatLocal:
     def obtenir_uid_de_llista(self, mail):
         try:
             return self.mails_addicionals[mail]
-        except:
+        except Exception:
             return None
 
     def obtenir_uid_de_patrons(self, mail):
@@ -93,9 +93,9 @@ class GestioIdentitatLocal:
                 if m:
                     try:
                         return v % m.group(1)
-                    except:
+                    except Exception:
                         return v
 
             return None
-        except:
+        except Exception:
             return None
