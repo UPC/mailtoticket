@@ -12,6 +12,7 @@ class TestMailTicket(unittest.TestCase):
     def setUp(self):
         settings.init()
         data = "From: foo@example.com\n" \
+               "Cc: Bar <bar@example.com>, Jar <jar@example.com>\n" \
                "Date: Tue, 28 Sep 2016 10:24:09 +0200 (CEST)\n\n"
         self.mail = MailTicket(StringIO(data))
 
@@ -64,6 +65,14 @@ class TestMailTicket(unittest.TestCase):
         settings.set("mails_sempre_ticket", ["mail.concret@example.com"])
         mail_auto = llegir_mail("mailauto.txt")
         self.assertTrue(mail_auto.comprova_mails_sempre_ticket())
+
+    def test_mail_cc(self):
+        self.assertEquals(["bar@example.com","jar@example.com"],self.mail.get_cc())
+
+    def test_mail_cc_buit(self):
+        mail_sense_cc = llegir_mail("mailauto.txt")
+        self.assertEquals([],mail_sense_cc.get_cc())
+
 
 if __name__ == '__main__':
     unittest.main()

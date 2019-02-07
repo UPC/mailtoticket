@@ -5,7 +5,7 @@ import hashlib
 import base64
 import re
 from email.header import decode_header
-from email.utils import parseaddr
+from email.utils import parseaddr, getaddresses
 from email.utils import parsedate_tz, mktime_tz
 import datetime
 import settings
@@ -109,6 +109,11 @@ class MailTicket:
 
         return email.lower()
 
+    def get_email_header_multiple(self, header):
+        tuples = getaddresses(self.msg.get_all(header,[]))
+        emails= [t[1].lower() for t in tuples if len(t[1])>0]
+        return emails
+
     def get_from(self):
         return self.get_email_header('From')
 
@@ -117,6 +122,9 @@ class MailTicket:
 
     def get_reply_to(self):
         return self.get_email_header('Reply-To')
+
+    def get_cc(self):
+        return self.get_email_header_multiple('Cc')
 
     def get_date(self):
         try:

@@ -5,7 +5,7 @@ import settings
 class GestioTiquets(SOAService):
 
     def __init__(self):
-        self.url = "https://bus-soa.upc.edu/gN6/GestioTiquetsv5?wsdl"
+        self.url = "https://bus-soades.upc.edu/gN6/GestioTiquetsv6?wsdl"
         self.username_gn6 = settings.get("username_gn6")
         self.password_gn6 = settings.get("password_gn6")
         self.domini = settings.get("domini")
@@ -202,5 +202,20 @@ class GestioTiquets(SOAService):
             origen,
             urgencia,
             impacte
+        )
+        return resultat
+
+    def alta_solicitant_tiquet(
+        self,
+        codiTiquet,
+        solicitant=''
+    ):
+        print "alta!"
+        resultat = self.client.service.AfegirSolicitantTiquet(
+            self.username_gn6,
+            self.password_gn6,
+            self.domini,
+            codiTiquet,
+            solicitant
         )
         return resultat
