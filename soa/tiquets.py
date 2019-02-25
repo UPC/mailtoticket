@@ -205,12 +205,11 @@ class GestioTiquets(SOAService):
         )
         return resultat
 
-    def alta_solicitant_tiquet(
+    def afegir_solicitant_tiquet(
         self,
         codiTiquet,
         solicitant=''
     ):
-        print "alta!"
         resultat = self.client.service.AfegirSolicitantTiquet(
             self.username_gn6,
             self.password_gn6,

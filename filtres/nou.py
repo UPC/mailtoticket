@@ -112,7 +112,7 @@ class FiltreNou(Filtre):
             logger.info("Mail modificat a %s" % self.msg.get_from())
             
         for uid in self.get_uid_addicionals():
-          resultat = self.tickets.alta_solicitant_addicional(
+          resultat = self.tickets.afegir_solicitant_tiquet(
             codiTiquet=ticket_id,
             uid
            )
