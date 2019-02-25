@@ -114,7 +114,7 @@ class FiltreNou(Filtre):
         for uid in self.get_uid_addicionals():
           resultat = self.tickets.afegir_solicitant_tiquet(
             codiTiquet=ticket_id,
-            uid
+            solicitant=uid
            )
 
           if SOAService.resultat_erroni(resultat):
