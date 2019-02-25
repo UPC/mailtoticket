@@ -111,16 +111,16 @@ class FiltreNou(Filtre):
         else:
             logger.info("Mail modificat a %s" % self.msg.get_from())
             
-        for uid in self.get_uid_addicionals():
-          resultat = self.tickets.afegir_solicitant_tiquet(
-            codiTiquet=ticket_id,
-            solicitant=uid
-           )
+#        for uid in self.get_uid_addicionals():
+#          resultat = self.tickets.afegir_solicitant_tiquet(
+#            codiTiquet=ticket_id,
+#            solicitant=uid
+#           )
 
-          if SOAService.resultat_erroni(resultat):
-            logger.info("Error: %s - %s" % (
-                resultat['codiRetorn'],
-                resultat['descripcioError']
-            ))        
+#          if SOAService.resultat_erroni(resultat):
+#            logger.info("Error: %s - %s" % (
+#                resultat['codiRetorn'],
+#                resultat['descripcioError']
+#            ))        
 
         return True
