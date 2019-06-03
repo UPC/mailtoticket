@@ -40,6 +40,9 @@ class Filtre(object):
             uid = self.identitat.obtenir_uid(self.msg.get_from())
         return uid
 
+    def get_uid_addicionals(self):
+        return [self.identitat.obtenir_uid(mail) for mail in self.msg.get_cc()]
+
     def codificar_base_64_si_cal(self, attachment):
         if attachment['Content-Transfer-Encoding'] == 'base64':
             return attachment.get_payload()
