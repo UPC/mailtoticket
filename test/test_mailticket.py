@@ -71,11 +71,13 @@ class TestMailTicket(unittest.TestCase):
         self.assertTrue(mail_auto.comprova_mails_sempre_ticket())
 
     def test_mail_cc(self):
-        self.assertEquals(["bar@example.com","jar@example.com"],self.mail.get_cc())
+        dos_mails_en_cc = ["bar@example.com", "jar@example.com"]
+        self.assertEquals(dos_mails_en_cc, self.mail.get_cc())
 
     def test_mail_cc_buit(self):
         mail_sense_cc = llegir_mail("mailauto.txt")
-        self.assertEquals([],mail_sense_cc.get_cc())
+        self.assertEquals([], mail_sense_cc.get_cc())
+
 
 if __name__ == '__main__':
     unittest.main()
