@@ -12,7 +12,8 @@ class GestioIdentitat:
 
     def get_token(self):
         try:
-            resposta = requests.post(self.url+"/acls/processos",
+            resposta = requests.post(
+                self.url+"/acls/processos",
                 data={'idProces': settings.get("identitat_digital_apikey")})
             token = resposta.json()['tokenAcl']
             return token
