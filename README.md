@@ -34,6 +34,14 @@ echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 pip install -r requirements.txt
 ```
+Dockerització (pilot)
+---------------------
+
+Per dockeritzar l'aplicació nomes caldrá configurà adecuadament el fitxer de propietats de la instància i construir el docker
+```
+docker build . -t mailtoticket
+```
+
 
 Configuració de la bústia
 -------------------------
