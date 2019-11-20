@@ -72,6 +72,34 @@ El comportament del programa és executar una sèrie de filtres sobre el correu 
 *   **Nou Extern**
     *   Crea tiquets per adreces desconegudes amb un usuari predeterminat per configuració.
     *   És una extensió del filtre **Nou**.
+	
+	
+	
+Dockerització del MailToTicket
+------------------------------
+Dockerfile per la generació d'una imatge amb els components necessaris per el funcionament del Mailtoticket.
+S'ha intentat que el contenidor resultant no demani cap configuració post "run"
+Les proves de funcionament s'han fet amb la branca amb suport a l'APP rest d'identitat. No s'han provat altres versions.
+Un cop aquesta branca es passi a master, s'haurà de modificar l'entrada del dockerfile corresponent.
+
+L'imatge resultatnt inclou:
+	python packages
+	fetchmail
+	cron
+
+Procediments del dockerfile
+---------------------------
+1- Copiar a la mateixa carpeta del dockerfile els fitxers:
+	settings_default.py - El fitxer de configuració del mailtoticket. Ha de tenir aquest nom
+	entrypoint.sh		- Conté la configuració del crontab
+	.fetchmailrc		- Configuració del fetchmail per a "descarregar" els mails de la carpeta mailtoticket del correu de suport
+	
+2- Modificar aquests arxius per afegir la informació necessària per la instància
+
+3- En la mateixa carpeta del dockerfile, executar:
+
+	docker build . -t mailtoticket
+
 
 Llicència
 ---------
