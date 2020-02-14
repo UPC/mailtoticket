@@ -19,7 +19,17 @@ UNKNOWN = "UNKNOWN"
 
 
 def codi_sortida(estat):
-    return (0 if estat == SUCCESS or estat == SKIP else 1)
+    if estat == SUCCESS or estat == SKIP:
+        return 0
+    if estat == ERROR:
+        return 1
+    if estat == REJECT:
+        return 2
+    if estat == UNKNOWN:
+        return 3
+
+    # should not reach
+    return -1
 
 
 if __name__ == '__main__':
