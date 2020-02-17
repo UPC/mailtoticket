@@ -4,3 +4,5 @@ mock>=1.3.0
 suds
 discover
 freezegun
+requests
+
