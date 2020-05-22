@@ -15,6 +15,7 @@ settings = {
     "password_soa": "xxx",
     "username_gn6": "xxx",
     "password_gn6": "xxx",
+    "identitat_digital_apikey": "xxx",
 
     # Instància de GN6 on voleu crear els tiquets
     "domini": "999",

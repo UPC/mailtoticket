@@ -1,14 +1,24 @@
 import settings
 import re
-from soa.service import SOAService
+import requests
 
 
-class GestioIdentitat(SOAService):
+class GestioIdentitat:
 
     def __init__(self):
-        self.url = "https://bus-soa.upc.edu/GestioIdentitat/Personesv6?wsdl"
+        self.url = "https://identitatdigital.upc.edu/gcontrol/rest"
+        self.token = self.get_token()
         self.identitat_local = GestioIdentitatLocal()
-        SOAService.__init__(self)
+
+    def get_token(self):
+        try:
+            resposta = requests.post(
+                self.url+"/acls/processos",
+                data={'idProces': settings.get("identitat_digital_apikey")})
+            token = resposta.json()['tokenAcl']
+            return token
+        except Exception:
+            return None
 
     def canonicalitzar_mail(self, mail):
         if mail is None:
@@ -36,30 +46,35 @@ class GestioIdentitat(SOAService):
             # si la part esquerra del mail correspon a un usuari UPC real
             if "@upc.edu" in mail:
                 cn = mail.split("@")[0]
-                dades_persona = self.client.service.obtenirDadesPersona(
-                    commonName=cn)
-                if dades_persona.ok:
-                    return cn
+                try:
+                    cn = mail.split("@")[0]
+                    persona = requests.get(
+                        self.url+"/externs/persones/"+cn+"/cn",
+                        headers={'TOKEN': self.token}).json()
+                    return persona['commonName']
+                except Exception:
+                    None
 
             # Si no hi ha correspondencia directa amb un usuari UPC
             # busquem a partir del mail qui pot ser
-            resultat = self.client.service.llistaPersones(email=mail)
-            if len(resultat.llistaPersones.persona) == 1:
+            cns = requests.get(self.url+"/externs/identitats/cn?email=" + mail,
+                               headers={'TOKEN': self.token}).json()
+            if len(cns) == 1:
                 # Quan tenim un resultat, es aquest
-                return resultat.llistaPersones.persona[0].cn
+                return cns[0]
             else:
                 # Si tenim mes d'un, busquem el que te el mail que busquem
                 # com a preferent o be retornem el primer
-                for persona in resultat.llistaPersones.persona:
-                    dades_persona = self.client.service.obtenirDadesPersona(
-                        commonName=persona.cn)
-                    emailPreferent = getattr(
-                        dades_persona,
-                        'emailPreferent',
-                        None)
-                    if (self.canonicalitzar_mail(emailPreferent) == mail):
-                        return persona.cn
-
+                for cn in cns:
+                    try:
+                        persona = requests.get(
+                            self.url+"/externs/persones/"+cn+"/cn",
+                            headers={'TOKEN': self.token}).json()
+                        email_preferent = persona['emailPreferent']
+                        if (self.canonicalitzar_mail(email_preferent) == mail):
+                            return persona['commonName']
+                    except Exception:
+                        None
                 return None
         except Exception:
             return None
