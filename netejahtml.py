@@ -137,15 +137,15 @@ def treure_reply_text(text):
     anterior = False
     linies = text.split("<br/>\n")
     sensequotes = []
-    for l in linies:
-        if l.startswith("&gt;"):
+    for linia in linies:
+        if linia.startswith("&gt;"):
             dintre = True
             if anterior != dintre:
                 blocs += 1
 
         else:
             dintre = False
-            sensequotes.append(l)
+            sensequotes.append(linia)
 
         anterior = dintre
 
@@ -167,13 +167,13 @@ def treure_signatura_text(text):
     signatura = False
     cos = []
     linies = text.split(r"<br\s*/?>\n")
-    for l in linies:
-        if re.match(r"^--\s*$", l):
+    for linia in linies:
+        if re.match(r"^--\s*$", linia):
             signatura = True
             blocs += 1
 
         if not signatura:
-            cos.append(l)
+            cos.append(linia)
 
     if blocs == 1:
         return "<br>\n".join(cos)
@@ -216,14 +216,14 @@ def treure_bloc(text, regex_inici, regex_fi):
     pgp = False
     cos = []
     linies = text.split("\n")
-    for l in linies:
-        if re.match(regex_inici, l):
+    for linia in linies:
+        if re.match(regex_inici, linia):
             pgp = True
 
         if not pgp:
-            cos.append(l)
+            cos.append(linia)
 
-        if re.match(regex_fi, l):
+        if re.match(regex_fi, linia):
             pgp = False
 
     return "\n".join(cos)
