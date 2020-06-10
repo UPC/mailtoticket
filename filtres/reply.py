@@ -21,7 +21,7 @@ class FiltreReply(Filtre):
 
     def buscar_ticket_id(self, string, regex):
         try:
-            logger.info("Buscant numero a  %s" % string)
+            logger.info("Buscant numero de tiquet a %s" % string)
             p = re.compile(regex, re.UNICODE)
             m = p.match(string)
             ticket_id = m.group(1)
@@ -69,7 +69,7 @@ class FiltreReply(Filtre):
             logger.info("Mail de %s" % self.msg.get_from())
 
             self.solicitant_segons_mail = self.get_uid()
-            logger.info("Solicitant segons Mail %s"
+            logger.info("Solicitant segons mail %s"
                         % self.solicitant_segons_mail)
 
             # Si no trobem el mail, sera de l'usuari generic

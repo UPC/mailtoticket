@@ -12,8 +12,7 @@ def load(module="settings_default"):
     except ImportError:
         raise SystemExit('Error! No file with configurations found: settings_default.py')
     except Exception:
-        raise SystemExit('Error! File found, but error in settings. Check settings_sample.py file')
-
+        raise SystemExit('Error! File found, but error in settings. Addapt settings_sample.py file to your custom settings_default.py')
 
 def get(clau):
     if 'settings' not in globals():

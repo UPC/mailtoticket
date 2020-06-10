@@ -26,7 +26,7 @@ def aplicar_filtres(mail, tickets=None, identitat=None):
     Apliquem tots els filtres segons l'ordre definit al settings,
     mirant primer si son aplicables i aplicant despres
     """
-    logger.info("Entro a mailtoticket" + mail.get_subject_ascii())
+    logger.info("Entro a mailtoticket. Subject -> " + mail.get_subject_ascii())
 
     if tickets is None:
         tickets = GestioTiquets()
