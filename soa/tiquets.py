@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from soa.service import SOAService
 import settings
 

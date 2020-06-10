@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 from filtres.filtre import Filtre
 import settings

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
 import settings

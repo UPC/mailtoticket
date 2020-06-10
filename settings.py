@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 El modul de settings s'importa i s'accedeix als valors amb settings.get("clau")
 Abans d'accedir podem carregar la configuracio o agafara la per defecte

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from filtres.reply import FiltreReply
 
 import logging

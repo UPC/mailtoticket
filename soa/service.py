@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from suds.wsse import Security, UsernameToken
 from suds.client import Client
 import settings
