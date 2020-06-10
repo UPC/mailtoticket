@@ -5,7 +5,6 @@ import settings
 import filtres
 import correu
 import optparse
-import ldap
 import sys
 import logging
 from StringIO import StringIO
@@ -38,29 +37,23 @@ def codi_sortida(estat):
 
 if __name__ == '__main__':
     a = None
-    parser = optparse.OptionParser(description='Mailtoticket! Genera un correu al GN6')
+    parser = optparse.OptionParser(description='Mailtoticket: Eina per aconseguir que els mails \
+enviats a una certa adreça es converteixin automàticament en tickets, aprofitant els \
+serveis web que ja ens proporciona GN6 a tal efecte.')
+
     parser.add_option('-c',
                       action="store", dest="configfile",
-                      help="Configuration file with all the params (like settings_default.py)", default="")
+                      help="Fitxer de configuració amb tots els paràmetres requerits.\n NOTA: Hi ha un exemple al fitxer settings_sample.py.", default="")
 
     options, args = parser.parse_args()
 
     # No file passed in params
     if options.configfile == '':
+        print ("Falta fitxer de configuració com a paràmetre. \n Executar mailtoticket.py -h per mostrar l'ajuda.")
         sys.exit(2)
 
     # Load file with default values
     settings.load(options.configfile.split('.')[0])
-
-    # ldap_server = ldap.initialize('ldap://ldapserver')
-    # username = "uid=user.test,ou=People,dc=mydotcom,dc=com"
-    # password = "my password"
-    # try:
-    #     ldap_server.protocol_version = ldap.VERSION3
-    #     ldap_server.simple_bind_s(username, password)
-    #     valid = True
-    # except Exception, error:
-    #     print error
 
     logging.basicConfig(
         filename=settings.get("log_file"),
@@ -72,14 +65,16 @@ if __name__ == '__main__':
     buffer_logs = StringIO()
     logger.addHandler(logging.StreamHandler(buffer_logs))
 
-    logger.info("Fitxer de configuracio [%s]", options.configfile)
+    logger.info("Fitxer de configuració [%s]", options.configfile)
 
     estat = UNKNOWN
     tractat = False
     try:
         logger.info("-----------------------------------------------------")
         logger.info("Llegeixo mail")
-        mail = MailTicket(sys.stdin)
+        fp = open('/var/projects/mailtoticket/test/mails/comentaris.txt', 'r')
+        # mail = MailTicket(sys.stdin) # Reads from mail queue
+        mail = MailTicket(fp)  # reads from local file
         logger.info("Mail de %s llegit amb ID %s"
                     % (mail.get_from(), mail.get_header('message-id')))
         if mail.cal_tractar():

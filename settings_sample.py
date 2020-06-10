@@ -15,6 +15,10 @@ settings = {
     "username_gn6": "xxx",
     "password_gn6": "xxx",
     "identitat_digital_apikey": "xxx",
+    "LDAP_SERVER_URL": "xxx",
+    "LDAP_BIND_USER": "xxx",
+    "LDAP_PASSWORD": "xxx",
+    "LDAP_BASE_SEARCH": "xxx",
 
     # Instància de GN6 on voleu crear els tiquets
     "domini": "999",
