@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 def enviar(text, orig):
+    """ Envia correu amb la info (es crida des del main)"""
     try:
         msgid = orig['Message-Id']
         de = settings.get("notificar_errors_from")

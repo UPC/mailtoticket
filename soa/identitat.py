@@ -31,6 +31,7 @@ class GestioIdentitat:
     def obtenir_uid(self, mail):
         mail_canonic = self.canonicalitzar_mail(mail)
         uid = self.identitat_local.obtenir_uid_de_llista(mail_canonic)
+
         if not uid:
             uid = self.obtenir_uid_remot(mail_canonic)
 
@@ -45,7 +46,6 @@ class GestioIdentitat:
             # digital un mail del tipus @upc.edu, aixi que primer comprovem
             # si la part esquerra del mail correspon a un usuari UPC real
             if "@upc.edu" in mail:
-                cn = mail.split("@")[0]
                 try:
                     cn = mail.split("@")[0]
                     persona = requests.get(
@@ -57,14 +57,13 @@ class GestioIdentitat:
 
             # Si no hi ha correspondencia directa amb un usuari UPC
             # busquem a partir del mail qui pot ser
-            cns = requests.get(self.url + "/externs/identitats/cn?email=" + mail,
+            cns = requests.get(self.url + "/externs/identitats?email=" + mail,
                                headers={'TOKEN': self.token}).json()
             if 'errorResponse' in cns:
                 return "-- None -- (Error en la resposta del Gestor de la Identitat)."
-
             if len(cns) == 1:
                 # Quan tenim un resultat, es aquest
-                return cns[0]
+                return cns['identitats'][0]['commonName']
             else:
                 # Si tenim mes d'un, busquem el que te el mail que busquem
                 # com a preferent o be retornem el primer

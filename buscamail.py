@@ -4,7 +4,7 @@ from soa.identitat import GestioIdentitat
 import sys
 
 if len(sys.argv) < 2:
-    print ("Cal posar un email com a paràmetre.")
+    print ("INFO: Cal indicar un correu per fer la cerca. Exemple: ./buscamail test@upc.edu")
     sys.exit()
 
 if __name__ == '__main__':
@@ -12,6 +12,6 @@ if __name__ == '__main__':
     identitat = GestioIdentitat()
     uid = identitat.obtenir_uid(mail)
     if uid:
-        print ("El username associat al email '{}' és: {} ".format(mail, uid))
+        print ("El nom d'usuari associat al correu '{}' és: {} ".format(mail, uid))
     else:
-        print ("No s'ha trobat username per l'email: {}".format(mail))
+        print ("No s'ha trobat cap nom d'usuari per correu indicat: {}".format(mail))

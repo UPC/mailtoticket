@@ -4,11 +4,14 @@ from mailticket import MailTicket
 import settings
 import filtres
 import correu
-
+import optparse
+import ldap
 import sys
-import getopt
 import logging
 from StringIO import StringIO
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 logger = logging.getLogger()
 
@@ -35,10 +38,29 @@ def codi_sortida(estat):
 
 if __name__ == '__main__':
     a = None
-    opts, args = getopt.getopt(sys.argv[1:], 'c:')
-    for o, a in opts:
-        if o == '-c':
-            settings.load(a)
+    parser = optparse.OptionParser(description='Mailtoticket! Genera un correu al GN6')
+    parser.add_option('-c',
+                      action="store", dest="configfile",
+                      help="Configuration file with all the params (like settings_default.py)", default="")
+
+    options, args = parser.parse_args()
+
+    # No file passed in params
+    if options.configfile == '':
+        sys.exit(2)
+
+    # Load file with default values
+    settings.load(options.configfile.split('.')[0])
+
+    # ldap_server = ldap.initialize('ldap://ldapserver')
+    # username = "uid=user.test,ou=People,dc=mydotcom,dc=com"
+    # password = "my password"
+    # try:
+    #     ldap_server.protocol_version = ldap.VERSION3
+    #     ldap_server.simple_bind_s(username, password)
+    #     valid = True
+    # except Exception, error:
+    #     print error
 
     logging.basicConfig(
         filename=settings.get("log_file"),
@@ -50,8 +72,7 @@ if __name__ == '__main__':
     buffer_logs = StringIO()
     logger.addHandler(logging.StreamHandler(buffer_logs))
 
-    if a is not None:
-        logger.info("Fitxer de configuracio [%s]", a)
+    logger.info("Fitxer de configuracio [%s]", options.configfile)
 
     estat = UNKNOWN
     tractat = False

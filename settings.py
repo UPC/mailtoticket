@@ -10,9 +10,9 @@ def load(module="settings_default"):
     try:
         m = __import__(module, "settings")
     except ImportError:
-        raise SystemExit('Error! No file with configurations found: settings_default.py')
+        raise SystemExit('ERROR: No es troba el fitxer de configuració.')
     except Exception:
-        raise SystemExit('Error! File found, but error in settings. Addapt settings_sample.py file to your custom settings_default.py')
+        raise SystemExit('ERROR: Error al fitxer de configuració, algún paràmetre no és correcte.')
 
 def get(clau):
     if 'settings' not in globals():
