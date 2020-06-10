@@ -27,6 +27,8 @@ class FiltreReply(Filtre):
             logger.info("Trobat ticket %s" % ticket_id)
             return ticket_id
         except Exception as e:
+            logger.info(e)
+            logger.info("Error found")
             return None
 
     def obtenir_ticket_id(self):

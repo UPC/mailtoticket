@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
 import tempfile
-import os
 
 # Utilitzeu això si voleu fer servir diverses instàncies a la mateixa
 # maquina. Cada una necessita el seu directori temporal:

@@ -11,7 +11,7 @@ class SOAService(object):
         self.client = Client(self.url)
         security = Security()
         security.tokens.append(
-                UsernameToken(self.username_soa, self.password_soa))
+            UsernameToken(self.username_soa, self.password_soa))
         self.client.set_options(wsse=security)
 
     @staticmethod

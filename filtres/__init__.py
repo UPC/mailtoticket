@@ -1,8 +1,6 @@
 from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
 import settings
-from filtres.nou import FiltreNou
-from filtres.reply import FiltreReply
 
 import logging
 logger = logging.getLogger(__name__)

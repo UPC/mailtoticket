@@ -12,9 +12,8 @@ class GestioIdentitat:
 
     def get_token(self):
         try:
-            resposta = requests.post(
-                self.url+"/acls/processos",
-                data={'idProces': settings.get("identitat_digital_apikey")})
+            resposta = requests.post(self.url+"/acls/processos",
+                                     data={'idProces': settings.get("identitat_digital_apikey")})
             token = resposta.json()['tokenAcl']
             return token
         except Exception:
@@ -31,10 +30,10 @@ class GestioIdentitat:
     def obtenir_uid(self, mail):
         mail_canonic = self.canonicalitzar_mail(mail)
         uid = self.identitat_local.obtenir_uid_de_llista(mail_canonic)
-        if uid is None:
+        if not uid:
             uid = self.obtenir_uid_remot(mail_canonic)
 
-        if uid is None:
+        if not uid:
             uid = self.identitat_local.obtenir_uid_de_patrons(mail_canonic)
 
         return uid
@@ -49,7 +48,7 @@ class GestioIdentitat:
                 try:
                     cn = mail.split("@")[0]
                     persona = requests.get(
-                        self.url+"/externs/persones/"+cn+"/cn",
+                        self.url + "/externs/persones/" + cn + "/cn",
                         headers={'TOKEN': self.token}).json()
                     return persona['commonName']
                 except Exception:
@@ -57,8 +56,11 @@ class GestioIdentitat:
 
             # Si no hi ha correspondencia directa amb un usuari UPC
             # busquem a partir del mail qui pot ser
-            cns = requests.get(self.url+"/externs/identitats/cn?email=" + mail,
+            cns = requests.get(self.url + "/externs/identitats/cn?email=" + mail,
                                headers={'TOKEN': self.token}).json()
+            if 'errorResponse' in cns:
+                return "-- None -- (Error en la resposta del Gestor de la Identitat)."
+
             if len(cns) == 1:
                 # Quan tenim un resultat, es aquest
                 return cns[0]
@@ -68,10 +70,10 @@ class GestioIdentitat:
                 for cn in cns:
                     try:
                         persona = requests.get(
-                            self.url+"/externs/persones/"+cn+"/cn",
+                            self.url + "/externs/persones/" + cn + "/cn",
                             headers={'TOKEN': self.token}).json()
                         email_preferent = persona['emailPreferent']
-                        if (self.canonicalitzar_mail(email_preferent) == mail):
+                        if self.canonicalitzar_mail(email_preferent) == mail:
                             return persona['commonName']
                     except Exception:
                         None

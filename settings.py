@@ -8,9 +8,10 @@ def load(module="settings_default"):
     global settings
     try:
         m = __import__(module, "settings")
-        settings = m.settings
+    except ImportError:
+        raise SystemExit('Error! No file with configurations found: settings_default.py')
     except Exception:
-        settings = {}
+        raise SystemExit('Error! File found, but error in settings. Check settings_sample.py file')
 
 
 def get(clau):
