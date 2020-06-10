@@ -4,7 +4,7 @@ from mailticket import MailTicket
 import settings
 import filtres
 import correu
-import optparse
+import argparse
 import sys
 import logging
 from StringIO import StringIO
@@ -37,27 +37,27 @@ def codi_sortida(estat):
 
 if __name__ == '__main__':
     a = None
-    parser = optparse.OptionParser(description='Mailtoticket: Eina per \
+    parser = argparse.ArgumentParser(description='Mailtoticket: Eina per \
     aconseguir que els mails enviats a una certa adreça es converteixin \
     automàticament en tickets, aprofitant els serveis web que ja ens \
     proporciona GN6 a tal efecte.')
 
-    parser.add_option('-c',
-                      action="store", dest="configfile",
-                      help="Fitxer de configuració amb tots els paràmetres \
+    parser.add_argument('-c',
+                        action="store", dest="configfile",
+                        help="Fitxer de configuració amb tots els paràmetres \
                       requerits.\n NOTA: Hi ha un exemple al fitxer \
                       settings_sample.py.", default="")
 
-    options, args = parser.parse_args()
+    args = parser.parse_args()
 
     # No file passed in params
-    if options.configfile == '':
+    if args.configfile == '':
         print ("Falta fitxer de configuració com a paràmetre. \n Executar \
             mailtoticket.py -h per mostrar l'ajuda.")
         sys.exit(2)
 
     # Load file with default values
-    settings.load(options.configfile.split('.')[0])
+    settings.load(args.configfile.split('.')[0])
 
     logging.basicConfig(
         filename=settings.get("log_file"),
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     buffer_logs = StringIO()
     logger.addHandler(logging.StreamHandler(buffer_logs))
 
-    logger.info("Fitxer de configuració [%s]", options.configfile)
+    logger.info("Fitxer de configuració [%s]", args.configfile)
 
     estat = UNKNOWN
     tractat = False
