@@ -28,8 +28,8 @@ class FiltreReply(Filtre):
             logger.info("Trobat ticket %s" % ticket_id)
             return ticket_id
         except Exception as e:
-            logger.info(e)
-            logger.info("Error found")
+            logger.warning(e)
+            logger.warning("Error found")
             return None
 
     def obtenir_ticket_id(self):
@@ -84,7 +84,7 @@ class FiltreReply(Filtre):
             return True
 
         except Exception as e:
-            logger.info("Peta el filtre... %s" % str(e))
+            logger.warning("Peta el filtre... %s" % str(e))
             return False
 
     def filtrar(self):
@@ -120,7 +120,7 @@ class FiltreReply(Filtre):
         )
 
         if SOAService.resultat_erroni(resultat):
-            logger.info("Error: %s - %s" % (
+            logger.warning("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']
             ))

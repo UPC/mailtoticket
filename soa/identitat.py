@@ -17,11 +17,12 @@ class GestioIdentitat:
 
     def get_token(self):
         try:
-            resposta = requests.post(self.url + "/acls/processos",
-                                     data={'idProces': settings.get("identitat_digital_apikey")})
+            resposta = requests.post(
+                self.url + "/acls/processos",
+                data={'idProces': settings.get("identitat_digital_apikey")})
             token = resposta.json()['tokenAcl']
             return token
-        except:
+        except Exception:
             return None
 
     def ldap_search(self, l, mail, base_search):
@@ -95,6 +96,7 @@ class GestioIdentitat:
                     persona = requests.get(
                         self.url + "/externs/persones/" + cn + "/cn",
                         headers={'TOKEN': self.token}).json()
+                    logger.info("Correspon a un usuari UPC")
                     return persona['commonName']
                 except:
                     None
@@ -122,6 +124,7 @@ class GestioIdentitat:
                                 headers={'TOKEN': self.token}).json()
                             email_preferent = persona['emailPreferent']
                             if (self.canonicalitzar_mail(email_preferent) == mail):
+                                logger.info("Correspon a un usuari GID")
                                 return persona['commonName']
                         except:
                             None
@@ -129,20 +132,31 @@ class GestioIdentitat:
             else:
                 # Tractem els usuaris de fora de la UPC amb el LDAP externs
                 # Initialize LDAP connection
-                LDAP_SERVER_URL = settings.get("LDAP_SERVER_URL")
-                LDAP_BIND_USER = settings.get("LDAP_BIND_USER")
-                LDAP_PASSWORD = settings.get("LDAP_PASSWORD")
-                LDAP_BASE_SEARCH = settings.get("LDAP_BASE_SEARCH")
-                ldap_server = ldap.initialize(LDAP_SERVER_URL)
-                try:
-                    ldap_server.protocol_version = ldap.VERSION3
-                    ldap_server.simple_bind_s(LDAP_BIND_USER, LDAP_PASSWORD)
-                    logger.info("Connected to : " + LDAP_SERVER_URL)
-                    logger.info("Search user  : " + mail)
-                    username = self.ldap_search(ldap_server, mail, LDAP_BASE_SEARCH)
-                    return username
-                except Exception, error:
-                    print error
+                if settings.get("LDAP_SERVER_URL") is not None and \
+                    settings.get("LDAP_BIND_USER") is not None and \
+                    settings.get("LDAP_PASSWORD") is not None and \
+                    settings.get("LDAP_BASE_SEARCH") is not None:
+
+                    LDAP_SERVER_URL = settings.get("LDAP_SERVER_URL")
+                    LDAP_BIND_USER = settings.get("LDAP_BIND_USER")
+                    LDAP_PASSWORD = settings.get("LDAP_PASSWORD")
+                    LDAP_BASE_SEARCH = settings.get("LDAP_BASE_SEARCH")
+                    ldap_server = ldap.initialize(LDAP_SERVER_URL)
+                    try:
+                        ldap_server.protocol_version = ldap.VERSION3
+                        ldap_server.simple_bind_s(LDAP_BIND_USER, LDAP_PASSWORD)
+                        logger.info("Connected to : " + LDAP_SERVER_URL)
+                        logger.info("Search user  : " + mail)
+                        username = self.ldap_search(ldap_server, mail, LDAP_BASE_SEARCH)
+                        logger.info("Correspon a un usuari extern")
+                        return username
+                    except Exception, error:
+                        print error
+                else:
+                    # No hi ha configurat cap ldap extern
+                    logger.info("No es correspon amb cap usuari.")
+                    return None
+
         except Exception:
             return None
 

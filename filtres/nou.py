@@ -78,7 +78,7 @@ class FiltreNou(Filtre):
         resultat = self.tickets.alta_tiquet(**parametres)
 
         if SOAService.resultat_erroni(resultat):
-            logger.info("Error: %s - %s" % (
+            logger.warning("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']
             ))
@@ -107,7 +107,7 @@ class FiltreNou(Filtre):
         )
 
         if SOAService.resultat_erroni(resultat):
-            logger.info("Error: %s - %s" % (
+            logger.warning("Error: %s - %s" % (
                 resultat['codiRetorn'],
                 resultat['descripcioError']
             ))

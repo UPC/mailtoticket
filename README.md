@@ -73,6 +73,25 @@ El comportament del programa és executar una sèrie de filtres sobre el correu 
     *   Crea tiquets per adreces desconegudes amb un usuari predeterminat per configuració.
     *   És una extensió del filtre **Nou**.
 
+Opcional
+--------
+
+És pot configurar una tercera font de dades per comprovar si existeix una adreça en un LDAP extern. Per fer-ho cal afegir al fitxer `settings_default.py` al diccionari de settings la següent configuració:
+
+```
+settings = {
+
+    ...
+    # LDAP Extern config
+    "LDAP_SERVER_URL": "xxx",
+    "LDAP_BIND_USER": "xxx",
+    "LDAP_PASSWORD": "xxx",
+    "LDAP_BASE_SEARCH": "xxx",
+    ...
+}
+```
+
+
 Llicència
 ---------
 

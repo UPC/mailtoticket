@@ -53,7 +53,7 @@ def aplicar_filtres(mail, tickets=None, identitat=None):
                 logger.info("Ja he fet el que havia de fer. Surto!")
                 return True
             else:
-                logger.info("Error en aplicar el filtre. Deixem de processar")
+                logger.warning("Error en aplicar el filtre. Deixem de processar")
                 return False
 
     if not tractat:
