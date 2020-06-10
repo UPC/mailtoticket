@@ -72,9 +72,9 @@ serveis web que ja ens proporciona GN6 a tal efecte.')
     try:
         logger.info("-----------------------------------------------------")
         logger.info("Llegeixo mail")
-        fp = open('/var/projects/mailtoticket/test/mails/comentaris.txt', 'r')
-        # mail = MailTicket(sys.stdin) # Reads from mail queue
-        mail = MailTicket(fp)  # reads from local file
+        # fp = open('/var/projects/mailtoticket/test/mails/comentaris.txt', 'r')
+        # mail = MailTicket(fp)  # reads from local file
+        mail = MailTicket(sys.stdin)  # Reads from mail queue
         logger.info("Mail de %s llegit amb ID %s"
                     % (mail.get_from(), mail.get_header('message-id')))
         if mail.cal_tractar():

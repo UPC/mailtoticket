@@ -57,7 +57,7 @@ class GestioIdentitat:
             for i in range(len(result_set)):
                 for entry in result_set[i]:
                     try:
-                        cn = entry[1]['cn'][0]
+                        cn = entry[1]['cn'][0] + '@' + domain
                         logger.info("  cn: %s\n  dn: %s\n  domini: %s\n" % (cn, dn, domain))
                         return cn
                     except:
