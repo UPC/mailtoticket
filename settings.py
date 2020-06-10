@@ -12,7 +12,9 @@ def load(module="settings_default"):
     except ImportError:
         raise SystemExit('ERROR: No es troba el fitxer de configuració.')
     except Exception:
-        raise SystemExit('ERROR: Error al fitxer de configuració, algún paràmetre no és correcte.')
+        raise SystemExit('ERROR: Error al fitxer de configuració, algún \
+            paràmetre no és correcte.')
+
 
 def get(clau):
     if 'settings' not in globals():

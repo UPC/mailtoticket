@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 def get_class(kls):
     """
     Obtenim classe a partir del seu nom en un string
-    http://stackoverflow.com/questions/452969/does-python-have-an-equivalent-to-java-class-forname
+    http://stackoverflow.com/questions/452969/does-python-have-an-equivalent-\
+    to-java-class-forname
     """
     parts = kls.split('.')
     module = ".".join(parts[:-1])
@@ -53,7 +54,8 @@ def aplicar_filtres(mail, tickets=None, identitat=None):
                 logger.info("Ja he fet el que havia de fer. Surto!")
                 return True
             else:
-                logger.warning("Error en aplicar el filtre. Deixem de processar")
+                logger.warning("Error en aplicar el filtre. \
+                    Deixem de processar")
                 return False
 
     if not tractat:

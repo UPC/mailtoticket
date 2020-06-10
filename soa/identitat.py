@@ -29,7 +29,8 @@ class GestioIdentitat:
         # Scope has three options, SUBTREE searches all sub-folder/directories
         scope = ldap.SCOPE_SUBTREE
         # filter consists of a cn(common name) and keyword.
-        # putting asterisks around our keyword will match anything containing the string
+        # putting asterisks around our keyword will match anything containing
+        # the string
         # f = "cn=" + "*" + keyword + "*"
         # Searching by mail
         f = "(mail=" + mail + ')'
@@ -59,9 +60,10 @@ class GestioIdentitat:
                 for entry in result_set[i]:
                     try:
                         cn = entry[1]['cn'][0] + '@' + domain
-                        logger.info("  cn: %s\n  dn: %s\n  domini: %s\n" % (cn, dn, domain))
+                        logger.info("cn: %s\n  dn: %s\n  domini: %s\n"
+                                    % (cn, dn, domain))
                         return cn
-                    except:
+                    except Exception:
                         pass
         except ldap.LDAPError, e:
             print e
@@ -98,7 +100,7 @@ class GestioIdentitat:
                         headers={'TOKEN': self.token}).json()
                     logger.info("Correspon a un usuari UPC")
                     return persona['commonName']
-                except:
+                except Exception:
                     None
 
             # Si no hi ha correspondencia directa amb un usuari UPC
@@ -110,7 +112,8 @@ class GestioIdentitat:
             if cns.content != '':
                 cns = cns.json()
                 if 'errorResponse' in cns:
-                    return "-- None -- (Error en la resposta del Gestor de la Identitat)."
+                    return "-- None -- (Error en la resposta del Gestor de \
+                        la Identitat)."
                 if len(cns) == 1:
                     # Quan tenim un resultat, es aquest
                     return cns['identitats'][0]['commonName']
@@ -122,32 +125,33 @@ class GestioIdentitat:
                             persona = requests.get(
                                 self.url + "/externs/persones/" + cn + "/cn",
                                 headers={'TOKEN': self.token}).json()
-                            email_preferent = persona['emailPreferent']
-                            if (self.canonicalitzar_mail(email_preferent) == mail):
+                            preferent = persona['emailPreferent']
+                            if self.canonicalitzar_mail(preferent) == mail:
                                 logger.info("Correspon a un usuari GID")
                                 return persona['commonName']
-                        except:
+                        except Exception:
                             None
                     return None
             else:
                 # Tractem els usuaris de fora de la UPC amb el LDAP externs
                 # Initialize LDAP connection
                 if settings.get("LDAP_SERVER_URL") is not None and \
-                    settings.get("LDAP_BIND_USER") is not None and \
-                    settings.get("LDAP_PASSWORD") is not None and \
-                    settings.get("LDAP_BASE_SEARCH") is not None:
+                        settings.get("LDAP_BIND_USER") is not None and \
+                        settings.get("LDAP_PASSWORD") is not None and \
+                        settings.get("LDAP_BASE_SEARCH") is not None:
 
                     LDAP_SERVER_URL = settings.get("LDAP_SERVER_URL")
                     LDAP_BIND_USER = settings.get("LDAP_BIND_USER")
                     LDAP_PASSWORD = settings.get("LDAP_PASSWORD")
                     LDAP_BASE_SEARCH = settings.get("LDAP_BASE_SEARCH")
-                    ldap_server = ldap.initialize(LDAP_SERVER_URL)
+                    ldap_srv = ldap.initialize(LDAP_SERVER_URL)
                     try:
-                        ldap_server.protocol_version = ldap.VERSION3
-                        ldap_server.simple_bind_s(LDAP_BIND_USER, LDAP_PASSWORD)
+                        ldap_srv.protocol_version = ldap.VERSION3
+                        ldap_srv.simple_bind_s(LDAP_BIND_USER, LDAP_PASSWORD)
                         logger.info("Connected to : " + LDAP_SERVER_URL)
                         logger.info("Search user  : " + mail)
-                        username = self.ldap_search(ldap_server, mail, LDAP_BASE_SEARCH)
+                        username = self.ldap_search(ldap_srv, mail,
+                                                    LDAP_BASE_SEARCH)
                         logger.info("Correspon a un usuari extern")
                         return username
                     except Exception, error:

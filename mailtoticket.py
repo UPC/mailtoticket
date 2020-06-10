@@ -37,19 +37,23 @@ def codi_sortida(estat):
 
 if __name__ == '__main__':
     a = None
-    parser = optparse.OptionParser(description='Mailtoticket: Eina per aconseguir que els mails \
-enviats a una certa adreça es converteixin automàticament en tickets, aprofitant els \
-serveis web que ja ens proporciona GN6 a tal efecte.')
+    parser = optparse.OptionParser(description='Mailtoticket: Eina per \
+    aconseguir que els mails enviats a una certa adreça es converteixin \
+    automàticament en tickets, aprofitant els serveis web que ja ens \
+    proporciona GN6 a tal efecte.')
 
     parser.add_option('-c',
                       action="store", dest="configfile",
-                      help="Fitxer de configuració amb tots els paràmetres requerits.\n NOTA: Hi ha un exemple al fitxer settings_sample.py.", default="")
+                      help="Fitxer de configuració amb tots els paràmetres \
+                      requerits.\n NOTA: Hi ha un exemple al fitxer \
+                      settings_sample.py.", default="")
 
     options, args = parser.parse_args()
 
     # No file passed in params
     if options.configfile == '':
-        print ("Falta fitxer de configuració com a paràmetre. \n Executar mailtoticket.py -h per mostrar l'ajuda.")
+        print ("Falta fitxer de configuració com a paràmetre. \n Executar \
+            mailtoticket.py -h per mostrar l'ajuda.")
         sys.exit(2)
 
     # Load file with default values
@@ -72,8 +76,6 @@ serveis web que ja ens proporciona GN6 a tal efecte.')
     try:
         logger.info("-----------------------------------------------------")
         logger.info("Llegeixo mail")
-        # fp = open('/var/projects/mailtoticket/test/mails/comentaris.txt', 'r')
-        # mail = MailTicket(fp)  # reads from local file
         mail = MailTicket(sys.stdin)  # Reads from mail queue
         logger.info("Mail de %s llegit amb ID %s"
                     % (mail.get_from(), mail.get_header('message-id')))

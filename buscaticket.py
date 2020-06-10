@@ -4,7 +4,8 @@ from soa.tiquets import GestioTiquets
 import sys
 
 if len(sys.argv) < 2:
-    print ("INFO: Cal indicar un codi de ticket per fer la cerca. Exemple: ./buscaticket.py 950010")
+    print ("INFO: Cal indicar un codi de ticket per fer la cerca. \
+        Exemple: ./buscaticket.py 950010")
     sys.exit()
 
 id_ticket = sys.argv[1]
