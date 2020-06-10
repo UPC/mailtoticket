@@ -25,7 +25,7 @@ class GestioIdentitat:
         except Exception:
             return None
 
-    def ldap_search(self, l, mail, base_search):
+    def ldap_search(self, ldap, mail, base_search):
         # Scope has three options, SUBTREE searches all sub-folder/directories
         scope = ldap.SCOPE_SUBTREE
         # filter consists of a cn(common name) and keyword.
@@ -39,15 +39,15 @@ class GestioIdentitat:
         result_set = []
         timeout = 0
         # Get all the fields for the ldap entry (COMMENT IN DEVELOPMENT MODE)
-        result = l.search_s(base_search, scope, f, retrieve_attributes)
+        result = ldap.search_s(base_search, scope, f, retrieve_attributes)
         # print result[0][1].keys()
         if len(result) != 0:
             dn = result[0][0]
             domain = dn.split(',' + base_search)[0].split('ou=')[-1]
         try:
-            result_id = l.search(base_search, scope, f, retrieve_attributes)
+            result_id = ldap.search(base_search, scope, f, retrieve_attributes)
             while 1:
-                result_type, result_data = l.result(result_id, timeout)
+                result_type, result_data = ldap.result(result_id, timeout)
                 if(result_data == []):
                     break
                 else:
