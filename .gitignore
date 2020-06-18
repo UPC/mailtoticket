@@ -7,8 +7,4 @@ instala.sh
 local
 .project
 .pydevproject
-bin/
-include/
-lib/
-share/
 pip-selfcheck.json
