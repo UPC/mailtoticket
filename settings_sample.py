@@ -5,6 +5,8 @@ import tempfile
 # Utilitzeu això si voleu fer servir diverses instàncies a la mateixa
 # maquina. Cada una necessita el seu directori temporal:
 #
+# import os
+#
 # tempfile.tempdir = os.environ['HOME'] + "/tmp"
 
 settings = {
