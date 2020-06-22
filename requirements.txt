@@ -5,4 +5,4 @@ suds
 discover
 freezegun
 requests
-
+python-ldap
