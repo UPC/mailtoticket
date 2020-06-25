@@ -1,6 +1,10 @@
 import settings
 import re
 import requests
+import logging
+from ldaphelper import LDAP
+
+logger = logging.getLogger()
 
 
 class GestioIdentitat:
@@ -45,12 +49,12 @@ class GestioIdentitat:
             # digital un mail del tipus @upc.edu, aixi que primer comprovem
             # si la part esquerra del mail correspon a un usuari UPC real
             if "@upc.edu" in mail:
-                cn = mail.split("@")[0]
                 try:
                     cn = mail.split("@")[0]
                     persona = requests.get(
                         self.url+"/externs/persones/"+cn+"/cn",
                         headers={'TOKEN': self.token}).json()
+                    logger.info("Correspon a un usuari UPC")
                     return persona['commonName']
                 except Exception:
                     None
@@ -72,9 +76,21 @@ class GestioIdentitat:
                             headers={'TOKEN': self.token}).json()
                         email_preferent = persona['emailPreferent']
                         if (self.canonicalitzar_mail(email_preferent) == mail):
+                            logger.info("Correspon a un usuari GID")
                             return persona['commonName']
                     except Exception:
                         None
+            # Tractem els usuaris de fora de la UPC amb el LDAP externs
+            if settings.get("LDAP_SERVER_URL") is not None and \
+                settings.get("LDAP_BIND_USER") is not None and \
+                settings.get("LDAP_PASSWORD") is not None and \
+                    settings.get("LDAP_BASE_SEARCH") is not None:
+                ldap = LDAP(mail)
+                username = ldap.obtenir_uid_ldap()
+                return username
+            else:
+                # No hi ha configurat cap ldap extern
+                logger.info("No es correspon amb cap usuari.")
                 return None
         except Exception:
             return None
