@@ -1,7 +1,7 @@
 MailToTicket
 ============
 
-Una pasarel·la de correu per al gestor de tiquets GN6. 
+Una pasarel·la de correu per al gestor de tiquets GN6.
 Per tenir una idea més precisa dels objectius d'aquest projecte, vegeu la [presentació del projecte](http://www.slideshare.net/angelaguilera/mailtoticket-presentaci-final-de-projecte) a la jornada de tancament Nexus24.
 
 [![Build Status](https://secure.travis-ci.org/UPC/mailtoticket.png?branch=master)](http://travis-ci.org/UPC/mailtoticket) [![Issue Count](https://codeclimate.com/github/UPC/mailtoticket/badges/issue_count.svg)](https://codeclimate.com/github/UPC/mailtoticket)
@@ -80,6 +80,24 @@ El comportament del programa és executar una sèrie de filtres sobre el correu 
 *   **Nou Extern**
     *   Crea tiquets per adreces desconegudes amb un usuari predeterminat per configuració.
     *   És una extensió del filtre **Nou**.
+
+Opcional
+--------
+
+És pot configurar una tercera font de dades per comprovar si existeix una adreça en un LDAP extern. Per fer-ho cal afegir al fitxer `settings_default.py` al diccionari de settings la següent configuració:
+
+```
+settings = {
+
+    ...
+    # LDAP Extern config
+    "LDAP_SERVER_URL": "xxx",
+    "LDAP_BIND_USER": "xxx",
+    "LDAP_PASSWORD": "xxx",
+    "LDAP_BASE_SEARCH": "xxx",
+    ...
+}
+```
 
 Llicència
 ---------
