@@ -34,6 +34,14 @@ echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 pip install -r requirements.txt
 ```
+Dockerització (pilot)
+---------------------
+
+```
+docker build . -t mailtoticket
+cat missatge.txt | docker run -v /path/to/settings_default.py:/usr/src/app/settings_default.py:ro --rm -it mailtoticket
+```
+
 
 Configuració de la bústia
 -------------------------
