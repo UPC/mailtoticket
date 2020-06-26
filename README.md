@@ -37,9 +37,9 @@ pip install -r requirements.txt
 Dockerització (pilot)
 ---------------------
 
-Per dockeritzar l'aplicació nomes caldrà configurar adecuadament el fitxer de propietats de la instància i construir el docker
 ```
 docker build . -t mailtoticket
+cat missatge.txt | docker run -v /path/to/settings_default.py:/usr/src/app/settings_default.py:ro --rm -it mailtoticket
 ```
 
 
