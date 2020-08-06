@@ -4,7 +4,7 @@ import datetime
 from mailticket import MailTicket
 from test.testhelper import llegir_mail
 from freezegun import freeze_time
-from cStringIO import StringIO
+from io import StringIO
 
 
 class TestMailTicket(unittest.TestCase):

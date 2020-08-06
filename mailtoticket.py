@@ -7,7 +7,7 @@ import correu
 import sys
 import getopt
 import logging
-from StringIO import StringIO
+from io import StringIO
 
 logger = logging.getLogger()
 
