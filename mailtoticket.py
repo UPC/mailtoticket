@@ -57,7 +57,7 @@ if __name__ == '__main__':
     try:
         logger.info("-----------------------------------------------------")
         logger.info("Llegeixo mail")
-        mail = MailTicket(sys.stdin)
+        mail = MailTicket(sys.stdin.buffer)
         logger.info("Mail de %s llegit amb ID %s"
                     % (mail.get_from(), mail.get_header('message-id')))
         if mail.cal_tractar():
