@@ -38,7 +38,7 @@ class TestMailTicket(unittest.TestCase):
     def test_get_body_buit(self):
         mail_buit = llegir_mail("mailbuit.txt")
         body = mail_buit.get_body()
-        self.assertEquals("", body)
+        self.assertEqual("", body)
 
     def test_get_auto_submitted(self):
         mail_buit = llegir_mail("mailbuit.txt")
@@ -53,12 +53,12 @@ class TestMailTicket(unittest.TestCase):
         apple_mail = MailTicket(StringIO(data))
 
         dt = apple_mail.get_date()
-        self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
+        self.assertEqual("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
     def test_encoding_xungo(self):
         mail = llegir_mail("encoding-xungo.txt")
         body = mail.get_body()
-        self.assertNotEquals("", body)
+        self.assertNotEqual("", body)
 
 
 if __name__ == '__main__':
