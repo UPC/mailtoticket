@@ -146,7 +146,7 @@ class MailTicket:
         return self.subject
 
     def get_subject_ascii(self):
-        return self.get_subject().encode('ascii', 'ignore')
+        return str(self.get_subject().encode('ascii', 'ignore'))
 
     def get_body(self):
         if self.body is None:
