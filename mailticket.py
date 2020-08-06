@@ -58,10 +58,10 @@ class MailTicket:
     def codifica(self, part):
         try:
             if part.get_content_charset() is not None:
-                s = unicode(part.get_payload(decode=True),
-                            part.get_content_charset(), "ignore")
+                s = str(part.get_payload(decode=True),
+                        part.get_content_charset(), "ignore")
             else:
-                s = unicode(part.get_payload(decode=True))
+                s = str(part.get_payload(decode=True))
         except Exception:
             # Tenim problemes per convertir, aixi que fem el que podem
             s = part.get_payload()
@@ -87,7 +87,7 @@ class MailTicket:
             return
 
         fragments = decode_header(subject)
-        resultat = u" ".join(map(lambda s: unicode(s[0], s[1] or "ascii"),
+        resultat = u" ".join(map(lambda s: str(s[0], s[1] or "ascii"),
                                  fragments))
 
         self.subject = resultat.replace('\n', ' ').replace('\r', '')
