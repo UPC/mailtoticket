@@ -2,7 +2,7 @@ import unittest
 import settings
 import datetime
 from mailticket import MailTicket
-from testhelper import llegir_mail
+from test.testhelper import llegir_mail
 from freezegun import freeze_time
 from cStringIO import StringIO
 

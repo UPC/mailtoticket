@@ -2,7 +2,7 @@
 
 import netejahtml
 import unittest
-from testhelper import llegir_mail
+from test.testhelper import llegir_mail
 
 
 class TestNeteja(unittest.TestCase):
