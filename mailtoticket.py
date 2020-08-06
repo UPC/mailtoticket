@@ -79,7 +79,7 @@ if __name__ == '__main__':
         )
     finally:
         mail.msg['X-Mailtoticket'] = estat
-        print mail
+        print(mail)
         logger.info("-----------------------------------------------------")
         if not tractat and settings.get("notificar_errors"):
             correu.enviar(buffer_logs.getvalue(), mail.msg)

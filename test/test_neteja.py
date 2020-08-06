@@ -23,7 +23,7 @@ class TestNeteja(unittest.TestCase):
         msg = llegir_mail("comentaris.txt")
         html = msg.get_body()
         net = netejahtml.neteja_nou(html)
-        print net
+        print(net)
         self.assertFalse("supportList" in net)
 
 
