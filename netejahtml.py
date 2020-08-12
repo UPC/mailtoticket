@@ -114,7 +114,7 @@ def treure_blockquote(html):
         tags[0].decompose()
 
     # gmail
-    tags = soup.select('body > div.gmail_extra')
+    tags = soup.select('body > div.gmail_quote')
     if len(tags) == 1:
         tags[0].decompose()
 
