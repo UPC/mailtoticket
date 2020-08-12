@@ -187,6 +187,9 @@ def treure_signatura_html(html):
     tags = soup.select('.moz-signature')
     if len(tags) >= 1:
         tags[len(tags) - 1].decompose()
+    tags = soup.select('.gmail_signature')
+    if len(tags) >= 1:
+        tags[len(tags) - 1].decompose()
 
     return str(soup)
 
