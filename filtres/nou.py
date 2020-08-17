@@ -51,9 +51,9 @@ class FiltreNou(Filtre):
     def cal_enviar_cc(self):
         if len(self.msg.get_cc()) == 0:
             return False
-        if settings.get("afegir_solicitats_addicionals_en_cc"):
+        if settings.get("afegir_solicitants_addicionals_en_cc"):
             return True
-        patro = settings.get("afegir_solicitats_addicionals_en_cc_nomes_via")
+        patro = settings.get("afegir_solicitants_addicionals_en_cc_nomes_via")
         if not patro:
             return False
         return (re.compile(patro).match(self.msg.get_to()))
