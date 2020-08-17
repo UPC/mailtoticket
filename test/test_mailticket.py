@@ -59,6 +59,11 @@ class TestMailTicket(unittest.TestCase):
         body = mail.get_body()
         self.assertNotEqual("", body)
 
+    def test_quoted_printable(self):
+        mail = llegir_mail("comentaris.txt")
+        body = mail.get_body()
+        self.assertTrue("títol" in body)
+
 
 if __name__ == '__main__':
     unittest.main()
