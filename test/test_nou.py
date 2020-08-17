@@ -35,14 +35,14 @@ class TestNou(unittest.TestCase):
         settings.init()
 
     def test_mail_amb_cc_i_parametre_true_afegeix_solicitant(self):
-        settings.set("afegir_solicitats_addicionals_en_cc", True)
+        settings.set("afegir_solicitants_addicionals_en_cc", True)
         f = FiltreNou(self.msg, self.tickets, self.identitat)
         self.assertTrue(f.es_aplicable())
         f.filtrar()
         self.tickets.afegir_solicitant_tiquet.assert_called()
 
     def test_mail_amb_cc_i_parametre_false_no_afegeix_solicitant(self):
-        settings.set("afegir_solicitats_addicionals_en_cc", False)
+        settings.set("afegir_solicitants_addicionals_en_cc", False)
         f = FiltreNou(self.msg, self.tickets, self.identitat)
         self.assertTrue(f.es_aplicable())
         f.filtrar()
@@ -50,9 +50,9 @@ class TestNou(unittest.TestCase):
 
     def test_mail_taguejat_amb_cc_afegeix_solicitant(self):
         self.msg.get_to.return_value = "mail.suport+cc@exemple.com"
-        settings.set("afegir_solicitats_addicionals_en_cc", False)
+        settings.set("afegir_solicitants_addicionals_en_cc", False)
         settings.set(
-                     "afegir_solicitats_addicionals_en_cc_nomes_via",
+                     "afegir_solicitants_addicionals_en_cc_nomes_via",
                      r".*\+cc@.*")
         f = FiltreNou(self.msg, self.tickets, self.identitat)
         self.assertTrue(f.es_aplicable())
