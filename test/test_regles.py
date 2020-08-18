@@ -5,7 +5,7 @@ from soa.tiquets import GestioTiquets
 from soa.identitat import GestioIdentitat
 from filtres.nou import FiltreNou
 from mailticket import MailTicket
-from testhelper import llegir_mail
+from test.testhelper import llegir_mail
 
 
 class TestRegles(unittest.TestCase):
