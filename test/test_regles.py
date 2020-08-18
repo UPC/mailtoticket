@@ -15,33 +15,34 @@ class TestRegles(unittest.TestCase):
         self.identitat = mock.create_autospec(GestioIdentitat)
         settings.init()
 
-    def test_regla_amb_cc_comprova_primer_valor (self):
-        settings.set("valors_defecte", 
-            [
-                {"order":["Cc"],
-                    "match":"mail.qualsevol2@mail.com",
-                    "defaults":{"equipResolutor":"666"}
-                }
-            ]
-        )
+    def test_regla_amb_cc_comprova_primer_valor(self):
+        settings.set("valors_defecte",
+                     [
+                        {
+                            "order": ["Cc"],
+                            "match": "mail.qualsevol2@mail.com",
+                            "defaults": {"equipResolutor": "666"}
+                        }
+                     ])
         msg = llegir_mail("cc.txt")
         f = FiltreNou(msg, self.tickets, self.identitat)
-        defaults= f.obtenir_parametres_addicionals()
+        defaults = f.obtenir_parametres_addicionals()
         self.assertEqual(defaults["equipResolutor"], "666")
 
-    def test_regla_amb_cc_comprova_segon_valor (self):
-        settings.set("valors_defecte", 
-            [
-                {"order":["Cc"],
-                    "match":"mail.concret2@mail.com",
-                    "defaults":{"equipResolutor":"666"}
-                }
-            ]
-        )
+    def test_regla_amb_cc_comprova_segon_valor(self):
+        settings.set("valors_defecte",
+                     [
+                        {
+                            "order": ["Cc"],
+                            "match": "mail.qualsevol2@mail.com",
+                            "defaults": {"equipResolutor": "666"}
+                        }
+                     ])
         msg = llegir_mail("cc.txt")
         f = FiltreNou(msg, self.tickets, self.identitat)
-        defaults= f.obtenir_parametres_addicionals()
+        defaults = f.obtenir_parametres_addicionals()
         self.assertEqual(defaults["equipResolutor"], "666")
+
 
 if __name__ == '__main__':
     unittest.main()

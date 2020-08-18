@@ -97,7 +97,7 @@ class MailTicket:
         return emails
 
     def get_email_header(self, header):
-        emails=self.get_email_header_multiple(header)
+        emails = self.get_email_header_multiple(header)
         if len(emails) == 0:
             return None
         else:

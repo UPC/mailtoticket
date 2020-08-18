@@ -36,7 +36,7 @@ class FiltreNou(Filtre):
                 for header_value in header_values:
                     if header_value and regex.match(header_value):
                         logger.info("Tinc parametres adicionals via %s"
-                                % header_name)
+                                    % header_name)
                         defaults.update(item['defaults'])
 
         logger.info("Parametres addicionals: %s" % str(defaults))
