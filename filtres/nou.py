@@ -32,11 +32,12 @@ class FiltreNou(Filtre):
         for item in settings.get("valors_defecte"):
             regex = re.compile(item['match'], re.IGNORECASE)
             for header_name in item['order']:
-                header_value = self.msg.get_header(header_name)
-                if header_value and regex.match(header_value):
-                    logger.info("Tinc parametres adicionals via %s"
+                header_values = self.msg.get_header(header_name).split(",")
+                for header_value in header_values:
+                    if header_value and regex.match(header_value):
+                        logger.info("Tinc parametres adicionals via %s"
                                 % header_name)
-                    defaults.update(item['defaults'])
+                        defaults.update(item['defaults'])
 
         logger.info("Parametres addicionals: %s" % str(defaults))
         return defaults
