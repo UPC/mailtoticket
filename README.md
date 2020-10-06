@@ -17,19 +17,19 @@ Aquest programa necessita els següents serveis SOA de la UPC:
 Us caldrà disposar d'un usuari i contrasenya per accedir al bus SOA.
 L'usuari i contrasenya del servei GN6 els podeu definir a la vostra instància.
 
-El llenguatge de programació triat és Python, vegeu el fitxer de [dependències](requirements.txt).
+El llenguatge de programació triat és Python 3, vegeu el fitxer de [dependències](requirements.txt).
 
 Per poder utilitzar aquest programa necessitareu configurar un _Mail Delivery Agent_ (MDA) al vostre servidor de correu o a la bústia IMAP corresponent.
 
 Instal·lació
 ------------
 
-La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python per poder gestionar les dependències sense permisos d'administrador:
+La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python 3 per poder gestionar les dependències sense permisos d'administrador:
 
 ```
 git clone https://github.com/UPC/mailtoticket.git
 cd mailtoticket
-virtualenv local
+virtualenv local -p python3
 echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 pip install -r requirements.txt
@@ -39,7 +39,7 @@ Dockerització (pilot)
 
 ```
 docker build . -t mailtoticket
-cat missatge.txt | docker run -v /path/to/settings_default.py:/usr/src/app/settings_default.py:ro --rm -it mailtoticket
+cat missatge.txt | docker run -v /path/to/settings_default.py:/usr/src/app/settings_default.py:ro --rm -i mailtoticket
 ```
 
 

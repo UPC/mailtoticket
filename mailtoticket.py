@@ -7,7 +7,7 @@ import correu
 import sys
 import getopt
 import logging
-from StringIO import StringIO
+from io import StringIO
 
 logger = logging.getLogger()
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     try:
         logger.info("-----------------------------------------------------")
         logger.info("Llegeixo mail")
-        mail = MailTicket(sys.stdin)
+        mail = MailTicket(sys.stdin.buffer)
         logger.info("Mail de %s llegit amb ID %s"
                     % (mail.get_from(), mail.get_header('message-id')))
         if mail.cal_tractar():
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         )
     finally:
         mail.msg['X-Mailtoticket'] = estat
-        print mail
+        print(mail)
         logger.info("-----------------------------------------------------")
         if not tractat and settings.get("notificar_errors"):
             correu.enviar(buffer_logs.getvalue(), mail.msg)

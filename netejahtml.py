@@ -101,7 +101,7 @@ def treure_tag_complet(html, tag):
     tags = soup.select(tag)
     for t in tags:
         t.decompose()
-    return unicode(soup)
+    return str(soup)
 
 
 @assegura_contingut
@@ -128,7 +128,7 @@ def treure_blockquote(html):
     if len(tags) == 1 and _es_prefix_reply_valid(tags[0]):
         tags[0].decompose()
 
-    return unicode(soup)
+    return str(soup)
 
 
 @assegura_contingut
@@ -188,7 +188,7 @@ def treure_signatura_html(html):
     if len(tags) >= 1:
         tags[len(tags) - 1].decompose()
 
-    return unicode(soup)
+    return str(soup)
 
 
 @assegura_contingut
@@ -198,7 +198,7 @@ def treure_imatges_trencades(html):
     for tag in tags:
         tag.decompose()
 
-    return unicode(soup)
+    return str(soup)
 
 
 @assegura_contingut
