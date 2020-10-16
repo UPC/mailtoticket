@@ -103,7 +103,7 @@ settings = {
 Llicència
 ---------
 
-Copyright (C) 2015-2016 Universitat Politècnica de Catalunya - UPC BarcelonaTech - www.upc.edu
+Copyright (C) 2015-2020 Universitat Politècnica de Catalunya - UPC BarcelonaTech - www.upc.edu
 
 ```
 This program is free software: you can redistribute it and/or modify
