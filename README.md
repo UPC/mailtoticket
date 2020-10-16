@@ -32,6 +32,7 @@ cd mailtoticket
 virtualenv local -p python3
 echo "PATH=$PWD/local/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
+sudo apt-get install build-essential libpython3-dev libsasl2-dev libldap2-dev
 pip install -r requirements.txt
 ```
 Dockerització (pilot)
