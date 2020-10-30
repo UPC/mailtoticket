@@ -31,7 +31,7 @@ class TestReply(unittest.TestCase):
         f = FiltreReply(msg, self.tickets, self.identitat)
 
         self.assertTrue(f.es_aplicable())
-        self.assertEquals(f.solicitant, 'usuari.real')
+        self.assertEqual(f.solicitant, 'usuari.real')
 
     def test_reply_mail_extern_diferent_a_solicitant_detecta_usuari_extern(
             self):
@@ -41,7 +41,7 @@ class TestReply(unittest.TestCase):
         f = FiltreReply(msg, self.tickets, self.identitat)
 
         self.assertTrue(f.es_aplicable())
-        self.assertEquals(f.solicitant, 'usuari.extern')
+        self.assertEqual(f.solicitant, 'usuari.extern')
 
     def test_reply_ticket_id_dintre_de_message_id(
             self):
@@ -51,7 +51,7 @@ class TestReply(unittest.TestCase):
         f = FiltreReply(msg, self.tickets, self.identitat)
 
         self.assertTrue(f.es_aplicable())
-        self.assertEquals(f.ticket_id, "657421")
+        self.assertEqual(f.ticket_id, "657421")
 
 
 if __name__ == '__main__':

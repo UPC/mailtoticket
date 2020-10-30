@@ -119,7 +119,7 @@ class GestioIdentitatLocal:
 
     def obtenir_uid_de_patrons(self, mail):
         try:
-            for k, v in self.patrons_mails_addicionals.iteritems():
+            for k, v in self.patrons_mails_addicionals.items():
                 patro = re.compile(k)
                 m = patro.match(mail)
                 if m:

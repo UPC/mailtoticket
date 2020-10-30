@@ -53,7 +53,7 @@ class LDAP:
                     except Exception:
                         pass
         except ldap.LDAPError as error:
-            print (error)
+            print(error)
 
     def obtenir_uid_ldap(self):
         """Configura la connexio amb ldap i prepara la cerca."""
@@ -75,4 +75,4 @@ class LDAP:
             return username
         except Exception as error:
             logger.info("Error durant la cerca a LDAP")
-            print (error)
+            print(error)
