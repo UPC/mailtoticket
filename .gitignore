@@ -7,3 +7,5 @@ instala.sh
 local
 .project
 .pydevproject
+.venv
+.vscode

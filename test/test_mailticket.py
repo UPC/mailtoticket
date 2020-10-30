@@ -2,9 +2,8 @@ import unittest
 import settings
 import datetime
 from mailticket import MailTicket
-from testhelper import llegir_mail
+from test.testhelper import llegir_mail, string_to_mail
 from freezegun import freeze_time
-from cStringIO import StringIO
 
 
 class TestMailTicket(unittest.TestCase):
@@ -13,7 +12,7 @@ class TestMailTicket(unittest.TestCase):
         settings.init()
         data = "From: foo@example.com\n" \
                "Date: Tue, 28 Sep 2016 10:24:09 +0200 (CEST)\n\n"
-        self.mail = MailTicket(StringIO(data))
+        self.mail = MailTicket(string_to_mail(data))
 
     def test_mails_no_ticket_0001(self):
         self.mail.mails_no_ticket = ["foo@example.com"]
@@ -38,7 +37,7 @@ class TestMailTicket(unittest.TestCase):
     def test_get_body_buit(self):
         mail_buit = llegir_mail("mailbuit.txt")
         body = mail_buit.get_body()
-        self.assertEquals("", body)
+        self.assertEqual("", body)
 
     def test_get_auto_submitted(self):
         mail_buit = llegir_mail("mailbuit.txt")
@@ -50,15 +49,20 @@ class TestMailTicket(unittest.TestCase):
     def test_get_date_invalid_format(self):
         # Un missatge amb la data en format "Apple Mail"
         data = "Date: 9/23/2016 11:04:10 AM\n\n"
-        apple_mail = MailTicket(StringIO(data))
+        apple_mail = MailTicket(string_to_mail(data))
 
         dt = apple_mail.get_date()
-        self.assertEquals("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
+        self.assertEqual("11/09/2015 11:45", dt.strftime("%d/%m/%Y %H:%M"))
 
     def test_encoding_xungo(self):
         mail = llegir_mail("encoding-xungo.txt")
         body = mail.get_body()
-        self.assertNotEquals("", body)
+        self.assertNotEqual("", body)
+
+    def test_quoted_printable(self):
+        mail = llegir_mail("comentaris.txt")
+        body = mail.get_body()
+        self.assertTrue("títol" in body)
 
 
 if __name__ == '__main__':
