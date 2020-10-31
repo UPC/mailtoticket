@@ -60,12 +60,13 @@ class FiltreNou(Filtre):
         parametres_addicionals = self.obtenir_parametres_addicionals()
         logger.info("A veure si puc crear el ticket de %s" % self.solicitant)
         descripcio = (
-            "[Tiquet creat des del correu de %s del %s a les %s]<br><br>" % (
+            "[Tiquet creat des del correu de %s a %s del %s a les %s]" % (
                 self.msg.get_from(),
+                self.msg.get_to(),
                 self.msg.get_date().strftime("%d/%m/%Y"),
                 self.msg.get_date().strftime("%H:%M")
             )
-        ) + body
+        ) + "<br><br>" + body
 
         parametres = {
             'assumpte': subject,
