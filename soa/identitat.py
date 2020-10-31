@@ -48,14 +48,15 @@ class GestioIdentitat:
             # Pot ser que un usuari d'un departament no tingui a identitat
             # digital un mail del tipus @upc.edu, aixi que primer comprovem
             # si la part esquerra del mail correspon a un usuari UPC real
+            # Fent la consulta a identitats en comptes de persones també
+            # tenim en compte els usuaris genèrics
             if "@upc.edu" in mail:
                 try:
-                    cn = mail.split("@")[0]
-                    persona = requests.get(
-                        self.url+"/externs/persones/"+cn+"/cn",
+                    requests.get(
+                        self.url+"/externs/identitats?cn="+cn,
                         headers={'TOKEN': self.token}).json()
                     logger.info("Correspon a un usuari UPC")
-                    return persona['commonName']
+                    return cn
                 except Exception:
                     None
 
@@ -118,7 +119,7 @@ class GestioIdentitatLocal:
 
     def obtenir_uid_de_patrons(self, mail):
         try:
-            for k, v in self.patrons_mails_addicionals.iteritems():
+            for k, v in self.patrons_mails_addicionals.items():
                 patro = re.compile(k)
                 m = patro.match(mail)
                 if m:

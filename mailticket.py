@@ -4,7 +4,7 @@ import email
 import hashlib
 import base64
 import re
-from email.header import decode_header
+from email.header import decode_header, make_header
 from email.utils import parseaddr
 from email.utils import parsedate_tz, mktime_tz
 import datetime
@@ -24,7 +24,7 @@ class MailTicket:
             = settings.get("filtrar_attachments_per_hash")
         self.mails_no_ticket = settings.get("mails_no_ticket")
 
-        self.msg = email.message_from_file(fitxer)
+        self.msg = email.message_from_binary_file(fitxer)
         # Farem lazy initialization d'aquestes 2 properties per si hi ha
         # algun error
         self.body = None
@@ -56,23 +56,13 @@ class MailTicket:
                     break
 
     def codifica(self, part):
-        try:
-            if part.get_content_charset() is not None:
-                s = unicode(part.get_payload(decode=True),
-                            part.get_content_charset(), "ignore")
-            else:
-                s = unicode(part.get_payload(decode=True))
-        except Exception:
-            # Tenim problemes per convertir, aixi que fem el que podem
-            s = part.get_payload()
-
-        # Aixo es perque pot haver-hi caracters no imprimibles que s'han de
-        # filtrar. Nomes admetem els salts de linia, tabuladors i a partir
-        # del 32.
-        return "".join(
-            [x if ord(x) == 9 or ord(x) == 10 or ord(x) == 13 or ord(x) >= 32
-                else '' for x in s]
-        )
+        charset = part.get_content_charset()
+        if part.get("Content-Transfer-Encoding") \
+                in ['quoted-printable', 'base64'] \
+                and charset is not None:
+            return part.get_payload(decode=True).decode(charset)
+        else:
+            return part.get_payload()
 
     def nomes_ascii(self, s):
         return "".join(
@@ -87,8 +77,7 @@ class MailTicket:
             return
 
         fragments = decode_header(subject)
-        resultat = u" ".join(map(lambda s: unicode(s[0], s[1] or "ascii"),
-                                 fragments))
+        resultat = str(make_header(fragments))
 
         self.subject = resultat.replace('\n', ' ').replace('\r', '')
 
@@ -147,7 +136,7 @@ class MailTicket:
         return self.subject
 
     def get_subject_ascii(self):
-        return self.get_subject().encode('ascii', 'ignore')
+        return str(self.get_subject().encode('ascii', 'ignore'))
 
     def get_body(self):
         if self.body is None:
@@ -231,7 +220,8 @@ class MailTicket:
             or "Return Receipt" in self.get_body() \
             or "DELIVERY FAILURE" in self.get_subject() \
             or "Informe de lectura" in self.get_subject() \
-            or "Leer informe :" in self.get_subject()
+            or "Leer informe :" in self.get_subject() \
+            or "Llegit:" in self.get_subject()
 
     def cal_tractar(self):
         if self.comprova_mails_no_ticket():
