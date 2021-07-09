@@ -4,7 +4,7 @@ MailToTicket
 Una pasarel·la de correu per al gestor de tiquets GN6.
 Per tenir una idea més precisa dels objectius d'aquest projecte, vegeu la [presentació del projecte](http://www.slideshare.net/angelaguilera/mailtoticket-presentaci-final-de-projecte) a la jornada de tancament Nexus24.
 
-[![Build Status](https://travis-ci.com/UPC/mailtoticket.svg?branch=master)](https://travis-ci.com/UPC/mailtoticket) [![Issue Count](https://codeclimate.com/github/UPC/mailtoticket/badges/issue_count.svg)](https://codeclimate.com/github/UPC/mailtoticket)
+![Build Status (GH Actions)](https://github.com/UPC/mailtoticket/actions/workflows/python-app.yml/badge.svg) [![Build Status (Travis CI)](https://secure.travis-ci.org/UPC/mailtoticket.png?branch=master)](http://travis-ci.org/UPC/mailtoticket) [![Issue Count](https://codeclimate.com/github/UPC/mailtoticket/badges/issue_count.svg)](https://codeclimate.com/github/UPC/mailtoticket)
 
 Requisits
 ---------
