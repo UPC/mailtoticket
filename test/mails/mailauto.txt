@@ -1,3 +1,4 @@
+From: mail.concret@example.com
 Subject: mail auto-submitted
 Auto-Submitted: foobar
 MIME-Version: 1.0

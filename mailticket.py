@@ -22,7 +22,8 @@ class MailTicket:
             = settings.get("filtrar_attachments_per_nom")
         self.filtrar_attachments_per_hash \
             = settings.get("filtrar_attachments_per_hash")
-        self.mails_no_ticket = settings.get("mails_no_ticket")
+        self.mails_no_ticket = settings.get("mails_no_ticket") or []
+        self.mails_sempre_ticket = settings.get("mails_sempre_ticket") or []
 
         self.msg = email.message_from_binary_file(fitxer)
         # Farem lazy initialization d'aquestes 2 properties per si hi ha
@@ -198,14 +199,20 @@ class MailTicket:
     def te_attachments(self):
         return len(self.get_attachments()) > 0
 
-    def comprova_mails_no_ticket(self):
-        for item in self.mails_no_ticket:
+    def comprova_mails_contra_llista(self, llista):
+        for item in llista:
             # Considera una regex si comença amb circumflex
             regex = item if item[0] is '^' else '^' + re.escape(item) + '$'
             if re.compile(regex, re.UNICODE).match(self.get_from()):
                 return True
 
         return False
+
+    def comprova_mails_no_ticket(self):
+        return self.comprova_mails_contra_llista(self.mails_no_ticket)
+
+    def comprova_mails_sempre_ticket(self):
+        return self.comprova_mails_contra_llista(self.mails_sempre_ticket)
 
     # La capçalera Auto-Submitted hauria de caçar la majoria de
     # missatges automàtics que respectin els estàndards (e.g.
@@ -224,6 +231,9 @@ class MailTicket:
             or "Llegit:" in self.get_subject()
 
     def cal_tractar(self):
+        if self.comprova_mails_sempre_ticket():
+            return True
+
         if self.comprova_mails_no_ticket():
             return False
 
