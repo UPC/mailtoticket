@@ -114,7 +114,7 @@ def treure_blockquote(html):
         tags[0].decompose()
 
     # gmail
-    tags = soup.select('body > div.gmail_extra')
+    tags = soup.select('body > div.gmail_quote')
     if len(tags) == 1:
         tags[0].decompose()
 
@@ -185,6 +185,9 @@ def treure_signatura_text(text):
 def treure_signatura_html(html):
     soup = BeautifulSoup(html, "html.parser")
     tags = soup.select('.moz-signature')
+    if len(tags) >= 1:
+        tags[len(tags) - 1].decompose()
+    tags = soup.select('.gmail_signature')
     if len(tags) >= 1:
         tags[len(tags) - 1].decompose()
 
