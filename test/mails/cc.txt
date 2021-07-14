@@ -1,0 +1,7 @@
+Subject: Mail amb multiples cc i to
+To: mail.qualsevol1@gmail.com, mail.concret1@mail.com
+CC: mail.qualsevol2@mail.com, mail.concret2@mail.com
+MIME-Version: 1.0
+Content-Type: text/plain
+
+Mail pel test de multiples capçaleres

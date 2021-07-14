@@ -97,11 +97,11 @@ class MailTicket:
         return emails
 
     def get_email_header(self, header):
-        email = parseaddr(self.msg[header])[1]
-        if len(email) == 0:
+        emails = self.get_email_header_multiple(header)
+        if len(emails) == 0:
             return None
-
-        return email.lower()
+        else:
+            return ','.join(emails)
 
     def get_from(self):
         return self.get_email_header('From')
