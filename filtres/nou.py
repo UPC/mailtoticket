@@ -48,6 +48,16 @@ class FiltreNou(Filtre):
         else:
             return html
 
+    def cal_enviar_cc(self):
+        if len(self.msg.get_cc()) == 0:
+            return False
+        if settings.get("afegir_solicitants_addicionals_en_cc"):
+            return True
+        patro = settings.get("afegir_solicitants_addicionals_en_cc_nomes_via")
+        if not patro:
+            return False
+        return (re.compile(patro).match(self.msg.get_to()))
+
     def filtrar(self):
         logger.info("Aplico filtre...")
         body = self.msg.get_body()
@@ -117,5 +127,20 @@ class FiltreNou(Filtre):
             ))
         else:
             logger.info("Mail modificat a %s" % self.msg.get_from())
+
+        if self.cal_enviar_cc():
+            for uid in self.get_uid_addicionals():
+                resultat = self.tickets.afegir_solicitant_tiquet(
+                    codiTiquet=ticket_id,
+                    solicitant=uid
+                )
+
+                if SOAService.resultat_erroni(resultat):
+                    logger.info("Error: %s - %s" % (
+                        resultat['codiRetorn'],
+                        resultat['descripcioError']
+                    ))
+                else:
+                    logger.info("Afegit %s" % uid)
 
         return True
