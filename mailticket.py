@@ -210,7 +210,7 @@ class MailTicket:
     def comprova_mails_contra_llista(self, llista):
         for item in llista:
             # Considera una regex si comença amb circumflex
-            regex = item if item[0] is '^' else '^' + re.escape(item) + '$'
+            regex = item if item[0] == '^' else '^' + re.escape(item) + '$'
             if re.compile(regex, re.UNICODE).match(self.get_from()):
                 return True
 
