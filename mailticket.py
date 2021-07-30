@@ -65,12 +65,6 @@ class MailTicket:
         else:
             return part.get_payload()
 
-    def nomes_ascii(self, s):
-        return "".join(
-            [x if ord(x) == 9 or ord(x) == 10 or ord(x) == 13 or
-                (ord(x) >= 32 and ord(x) <= 128) else '' for x in s]
-        )
-
     def tracta_subject(self):
         subject = self.msg['Subject']
         if subject is None:
