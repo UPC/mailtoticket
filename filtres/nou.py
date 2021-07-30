@@ -24,9 +24,9 @@ class FiltreNou(Filtre):
 
     def obtenir_parametres_addicionals(self):
         defaults = {
-                    "equipResolutor": settings.get("equip_resolutor_nous"),
-                    "enviarMissatgeCreacio": self.enviar_missatge_creacio
-                    }
+            "equipResolutor": settings.get("equip_resolutor_nous"),
+            "enviarMissatgeCreacio": self.enviar_missatge_creacio
+        }
         if settings.get("valors_defecte") is None:
             return defaults
         for item in settings.get("valors_defecte"):
