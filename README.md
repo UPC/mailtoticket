@@ -2,6 +2,9 @@ MailToTicket
 ============
 
 Una pasarel·la de correu per al gestor de tiquets GN6.
+
+La documentació del servei està disponible a la web de [Serveis TIC](https://serveistic.upc.edu/ca/atic/documentacio/mailtoticket-convertir-un-mail-en-un-tiquet).
+
 Per tenir una idea més precisa dels objectius d'aquest projecte, vegeu la [presentació del projecte](http://www.slideshare.net/angelaguilera/mailtoticket-presentaci-final-de-projecte) a la jornada de tancament Nexus24.
 
 ![Build Status (GH Actions)](https://github.com/UPC/mailtoticket/actions/workflows/python-app.yml/badge.svg)
