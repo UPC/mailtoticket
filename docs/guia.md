@@ -1,6 +1,6 @@
 # Guia ràpida del Mailtoticket
 
-<img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
+![alt_text](images/image1.png "image_tooltip")
 
 
 
