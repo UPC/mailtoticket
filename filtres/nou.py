@@ -24,9 +24,9 @@ class FiltreNou(Filtre):
 
     def obtenir_parametres_addicionals(self):
         defaults = {
-                    "equipResolutor": settings.get("equip_resolutor_nous"),
-                    "enviarMissatgeCreacio": self.enviar_missatge_creacio
-                    }
+            "equipResolutor": settings.get("equip_resolutor_nous"),
+            "enviarMissatgeCreacio": self.enviar_missatge_creacio
+        }
         if settings.get("valors_defecte") is None:
             return defaults
         for item in settings.get("valors_defecte"):
@@ -37,7 +37,7 @@ class FiltreNou(Filtre):
                     for header_value in header_values:
                         if header_value and regex.match(header_value):
                             logger.info("Tinc parametres adicionals via %s"
-                                    % header_name)
+                                        % header_name)
                             defaults.update(item['defaults'])
 
         logger.info("Parametres addicionals: %s" % str(defaults))
