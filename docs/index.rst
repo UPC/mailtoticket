@@ -3,6 +3,12 @@ MailToTicket
 
 A mail gateway for GN6 ticketing system.
 
+Contents
+--------
+
+.. toctree::
+   guia.md
+
 Contribute
 ----------
 
