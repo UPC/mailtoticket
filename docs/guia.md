@@ -6,7 +6,7 @@
 
 
 
-## 1. Característiques
+## Característiques
 
 MailToTicket és una passarel·la de correu per al sistema de gestió de tiquets GN6, amb les característiques següents:
 
@@ -28,14 +28,14 @@ MailToTicket és una passarel·la de correu per al sistema de gestió de tiquets
 
 
 
-## 2. Instal·lació
+## Instal·lació
 
 Aquest document descriu el procediment d’instal·lació en un servidor amb sistema operatiu GNU/Linux. S’ha provat amb en Ubuntu Server 14.04, però hauria de funcionar sense problemes en altres distribucions.
 
 Tot i que no és estrictament necessari, us recomanem crear un usuari només per a la instal·lació de MailToTicket. No cal que aquest usuari tingui privilegis d’administrador.
 
 
-### 2.1. Dependències i versions
+### Dependències i versions
 
 MailToTicket és una aplicació desenvolupada en Python, amb els següents requisits:
 
@@ -53,7 +53,7 @@ MailToTicket és una aplicació desenvolupada en Python, amb els següents requi
 * Git
 
 
-### 2.2. Programari
+### Programari
 
 El codi de MailToTicket està disponible a GitHub. La forma recomanada d'instal·lació és dins d'un _virtualenv_ de Python per poder gestionar les dependències de mòduls sense que calgui tenir permisos d'administrador.
 
@@ -84,18 +84,18 @@ Encara caldrà configurar MailToTicket perquè pugui començar a funcionar.
 
 
 
-L’apartat [3.3. Configurar la instància de GN6 a Mailtoticket](#33-configurar-la-instància-de-gn6-a-mailtoticket) explica els canvis mínims que cal fer al fitxer de configuració de MailToTicket, i l’apartat [3.4. Configuració de la bústia](#34-configuració-de-la-bústia) explica com configurar _fetchmail_ per tal d’associar MailToTicket a una bústia de correu.
+L’apartat [Configurar la instància de GN6 a Mailtoticket](#configurar-la-instància-de-gn6-a-mailtoticket) explica els canvis mínims que cal fer al fitxer de configuració de MailToTicket, i l’apartat [Configuració de la bústia](#configuració-de-la-bústia) explica com configurar _fetchmail_ per tal d’associar MailToTicket a una bústia de correu.
 
 
 
 
-## 3. Configuració
+## Configuració
 
 
-### 3.1. Requisits
+### Requisits
 
 
-#### 3.1.1. Accés als _webservices_ necessaris
+#### Accés als _webservices_ necessaris
 
 Cal demanar a l’ÀTIC l’accés a ambdós _webservices_, creant un tiquet per a cada petició a través d’aquest [formulari de sol·licitud](https://gn6.upc.edu/atic/control/peticioUsuariAlta?peticioPlantillaId=10510). Recomanem que les següents sol·licituds les faci directament el vostre personal de suport TIC.
 
@@ -130,7 +130,7 @@ L’accés al _webservice_ “GN6 - GestioTiquets” és necessari per crear i m
 * Operacions: **totes**
 
 
-#### 3.1.2. Accés a la instància GN6 via SOA
+#### Accés a la instància GN6 via SOA
 
 És necessari obrir un nou tiquet a l’ÀTIC. Aquesta petició és millor que la faci alguna de les persones autoritzades com a responsables de la vostra instància de GN6; també ho pot demanar una altra persona, però llavors caldrà que prèviament ho autoritzi algun responsable.
 
@@ -149,7 +149,7 @@ Nom Cognom
 
 
 
-#### 3.1.3. Identificador de domini i de l’equip resolutor
+#### Identificador de domini i de l’equip resolutor
 
 Serà necessari obtenir de la nostra instància de GN6 dues dades: l’identificador numèric del nostre domini (és a dir, el número únic que identifica la nostra instància) i l’identificador numèric de l’equip resolutor (que és aquell equip al que s’assignen els tiquets nous). Així doncs:
 
@@ -169,7 +169,7 @@ Serà necessari obtenir de la nostra instància de GN6 dues dades: l’identific
   * htttps://gn6.upc.edu/persones/control/equipDetall?equip=**98765**& ...
 
 
-### 3.2. Configurar plantilles
+### Configurar plantilles
 
 
     El MailToTicket busca a l’assumpte del correu l’identificador del tiquet per poder afegir el comentari. Per això és important revisar que els següents missatges continguin el camp: #NumTiquet a l’assumpte.
@@ -205,7 +205,7 @@ Serà necessari obtenir de la nostra instància de GN6 dues dades: l’identific
 
 
 
-### 3.3. Configurar la instància de GN6 a Mailtoticket
+### Configurar la instància de GN6 a Mailtoticket
 
 Per fer funcionar MailToTicket, haureu de tenir un fitxer de configuració anomenat `settings_default.py`. A la distribució de l’aplicació en tenim un d’exemple, així que el podeu agafar com a plantilla.
 
@@ -218,7 +218,7 @@ $ cp settings_sample.py settings_default.py
 A partir d’aquí, veurem el mínim a tocar per que funcioni.
 
 
-#### 3.3.1. Configuració bàsica: usuaris SOA, domini i equip resolutor
+#### Configuració bàsica: usuaris SOA, domini i equip resolutor
 
 Ara es el moment de revisar que hagueu fet tot l’apartat 3.1. Necessitareu l’usuari i la contrasenya SOA (per accedir al bus) i l’usuari i la contrasenya per accedir a GN6 via SOA. Suposeu que aquests usuaris i contrasenyes són:
 
@@ -252,7 +252,7 @@ settings = {
 La resta de valors els deixareu tal com estan. La resta de valors també són configurables, però per ara teniu la funcionalitat més bàsica de MailToTicket per comprovar que tot funciona.
 
 
-#### 3.3.2. Prova de funcionament
+#### Prova de funcionament
 
 En aquests moments, la nostra instància de GN6 ja hauria d’estar preparada per funcionar conjuntament amb MailToTicket i MailToTicket ja té totes les dades per crear els tiquets i consultar la informació dels usuaris. Només queda comprovar que tot encaixa.
 
@@ -305,12 +305,12 @@ Si veieu que algun d’aquests passos falla, haureu de revisar que hagueu posat 
 Ara que ja teniu la confirmació de que el MailToTicket pot llegir els missatges i crear tiquets, heu de fer que els pugui llegir i processar directament de la bústia.
 
 
-### 3.4. Configuració de la bústia
+### Configuració de la bústia
 
 Com que cada unitat té una forma diferent de processar els correus de suport, en aquest punt se’n documenta una de determinada però això no vol dir que sigui l’única possible.
 
 
-#### 3.4.1. Flux de treball
+#### Flux de treball
 
 Preneu com a exemple predeterminat el flux de treball següent:
 
@@ -326,7 +326,7 @@ El primer que ens cal tenir és una bústia de correu amb accés IMAP. Totes les
 Finalment, us caldrà configurar l’accés al servidor de correu amb el protocol IMAP i programar que se’n faci el processament cada cert temps.
 
 
-#### 3.4.2. Filtre de còpia de seguretat
+#### Filtre de còpia de seguretat
 
 Aquesta regla permet tenir una còpia de tots els correus que tinguin definit un assumpte per tal que puguem disposar-ne en cas que es produeixi algun error durant el processament o si cal investigar un problema passat un temps. Tingueu present que us caldrà fer neteja de la carpeta **backup** periòdicament.
 
@@ -343,7 +343,7 @@ Aquesta regla permet tenir una còpia de tots els correus que tinguin definit un
 * <strong>Desar</strong>
 
 
-#### 3.4.3. Filtre de correu processat
+#### Filtre de correu processat
 
 Aquesta regla s’utilitza com a salvaguarda per evitar que es processin els missatges que el MailToTicket ja ha tractat prèviament. Per fer-ho comprova les capçaleres del correu.
 
@@ -360,7 +360,7 @@ Aquesta regla s’utilitza com a salvaguarda per evitar que es processin els mis
 * <strong>Desar</strong>
 
 
-#### 3.4.4. Filtre de detecció de respostes
+#### Filtre de detecció de respostes
 
 Per detectar si un missatge és una resposta a una notificació del GN6 es comprova el valor de les capçaleres del correu ja que és un mètode més fiable que mirar el contingut de l’assumpte (els diferents clients de correu canvien l’assumpte de formes diverses a l’hora de respondre).
 
@@ -378,7 +378,7 @@ Per detectar si un missatge és una resposta a una notificació del GN6 es compr
 * <strong>Desar</strong>
 
 
-#### 3.4.5. Processament periòdic del correu
+#### Processament periòdic del correu
 
 Creeu un fitxer **<code>~/.fetchmailrc</code></strong> amb mateix lloc on heu instal·lat el MailToTicket i amb les línies següents:
 
@@ -408,7 +408,7 @@ MAILTO=mailtoticket@unitat.upc.edu
 ## 
 
 
-## 4. Més informació
+## Més informació
 
 Aquest és document una guia ràpida per poder posar en marxa mailtoticket, però hi ha moltes més opcions de configuració que no estan contemplades en aquest manual.
 
