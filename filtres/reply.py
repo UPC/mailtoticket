@@ -82,7 +82,7 @@ class FiltreReply(Filtre):
 
         except Exception as e:
             logger.info("Peta el filtre... %s" % str(e))
-            return False
+            raise
 
     def filtrar(self):
         body = self.msg.get_body()
