@@ -90,7 +90,7 @@ El comportament del programa és executar una sèrie de filtres sobre el correu 
 Opcional
 --------
 
-És pot configurar una tercera font de dades per comprovar si existeix una adreça en un LDAP extern. Per fer-ho cal afegir al fitxer `settings_default.py` al diccionari de settings la següent configuració:
+Es pot configurar una tercera font de dades per comprovar si existeix una adreça en un LDAP extern. Per fer-ho cal afegir al fitxer `settings_default.py` al diccionari de settings la següent configuració:
 
 ```
 settings = {
