@@ -35,10 +35,11 @@ class FiltreNou(Filtre):
                 if self.msg.get_header(header_name):
                     header_values = self.msg.get_header(header_name).split(",")
                     for header_value in header_values:
-                        if header_value and regex.match(header_value):
+                        match_found = regex.match(header_value)
+                        if header_value and match_found:
                             logger.info("Tinc parametres adicionals via %s"
                                         % header_name)
-                            defaults.update(item['defaults'])
+                            defaults.update(item['defaults'] % match_found[1])
 
         logger.info("Parametres addicionals: %s" % str(defaults))
         return defaults
